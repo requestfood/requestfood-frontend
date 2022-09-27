@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+
+    height: 90%;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 420%;
+    color: #000000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.label-text {
+    font-family: "Roboto", sans-serif;
+    font-size: 100%;
+    font-weight: 600;
+    color: #131313;
+
+    margin-left: 5px;
+    padding: 30px 0 3px 0;
+}
+
+input {
+    width: 100%;
+    height: 6vh;
+    font-size: 15px;
+    text-indent: 15px;
+
+    border: 2px solid transparent;
+
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid #fecb1a;
+}
+
+.button-enter {
+    width: 100%;
+    height: 8vh;
+    font-weight: 500;
+    font-size: 160%;
+    
+    margin: 40px 0 15px 0;
+    
+    border: none;
+    background: #FFC816;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    transition: 0.5s;
+}
+
+.button-enter:hover {
+    cursor: pointer;
+
+    background: #ffd037;
+}
+
+div p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+}
+div a{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}
+div a:hover{
+    cursor: pointer;
+}
+
+.container-slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 35%;
+}
+
+.logo {
+    width: 58%;
+    border-radius: 50%;
+}
+
+.text-logo {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-size: 150%;
+    font-weight: 400;
+}
