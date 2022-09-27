@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+h1{
+    padding-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 250%;
+    font-weight: bold;
+}
+
+.orders{
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#card{
+    width: 30%;
+    height: 80%;
+    border: 3px #000 solid;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20%;
+
+}
+
+#card .title{
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
+    height: auto;
+ 
+    border-bottom: 1px #000 solid;    
+}
+
+#card .title a{
+    font-size: 150%;
+    padding: 5px 5px 0 0;
+
+    color: gray;
+}
+
+#card .title a:hover{
+    cursor: pointer;
+    color: red;
+}
+
+#card .title h3{
+    padding: 5px;
+    
+    width: 100%;
+    height: auto;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-weight: 400;
+    text-align: center;
+}
+
+.time-order{
+    font-weight: 300;
+}
+
+
+
+.order-content{
+    width: 80%;
+    height: auto;
+    gap: 5%;
+
+    display: block;
+    text-align: center;
+}
+
+.order-content h2{
+    
+    padding: 5px;
+    
+    width: 95%;
+    height: auto;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 290%;
+    text-align: center;
+}
+
+.order-content p{
+    color: green;
+
+    font-size: 180%;
+    font-weight: 500;
+}
+
+.message{
+    font-family: 'Roboto', sans-serif;
+    font-size: 200%;
+    font-weight: 200;
+}
+
+.container-principal a{
+    width: 15%;
+    height: 5%;
+}
+
+.container-principal button{
+    
+    border: none;
+    background-color: #fecb1a;
+
+    border-radius: 50px;
+
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+
+    font-size: 100%;
+    font-weight: 500;
+    transition: 0.3s;
+
+    width: 100%;
+    height: 100%;
+}
+
+.container-principal button:hover{
+    cursor: pointer;
+    width: 100.3%;
+    height: 100.3%;
+
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
