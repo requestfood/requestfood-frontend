@@ -1,3 +1,4 @@
+import { HeaderPageComponent } from './components/header-page/navbar/header-page.component';
 import { UserService } from './services/userService.service';
 import { EstablishmentService } from './services/establishmentService.service';
 import { ClientService } from 'src/app/services/clientService.service';
@@ -14,7 +15,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   declarations: [
     AppComponent,
     LoginComponent,
-    PaginationComponent
+    PaginationComponent,
+    HeaderPageComponent
   ],
   imports: [
     BrowserModule,
