@@ -1,0 +1,39 @@
+<nav class="principal-header">
+
+    <!-- BUTTON MENU -->
+
+    <div class="container-button">
+        <button class="menu-button">
+            <img *ngIf="userAutenticado.role" class="menu-image" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48.svg"
+                alt="Menu" (click)="onMenuLateral()" [ngStyle]="{
+                'opacity': (menuLateralAberto  ? '0%' : '100%')}">
+        </button>
+    </div>
+
+    <!-- LOGO REQUESTFOOD -->
+
+    <div class="container-logo">
+
+        <img (click)="onMenu()" class="logo-image-header" src="../../assets/logoheader.svg" alt="Início"
+            [ngStyle]="{'left':(menuLateralAberto ? '295px' :'0px')}">
+
+    </div>
+
+    <!-- MENU LATERAL -->
+
+    <div [ngStyle]="{'left': (menuLateralAberto ? '0px' : '-550px')}" class="menu-lateral">
+        <div>
+            <img class="x-image-menu-lateral" src="../../assets/marca-x 1.svg" [ngStyle]="{
+            'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
+        </div>
+
+        <app-menu-item-client *ngIf="userAutenticado.role == 'CLIENT_USER'"></app-menu-item-client>
+        <app-menu-item-establishment *ngIf="userAutenticado.role == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
+    </div>
+
+    <!-- VALOR DA COMANDA -->
+
+    <div class="container-preco">
+        <preco-header *ngIf="userAutenticado.role == 'CLIENT_USER'"></preco-header>
+    </div>
+</nav>
