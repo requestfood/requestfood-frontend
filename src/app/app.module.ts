@@ -1,3 +1,8 @@
+import { FormsModule } from '@angular/forms';
+import { CadastroEstablishmentComponent } from './components/establishment/cadastro/cadastro.component';
+import { PrecoHeaderComponent } from './components/header-page/preco-header/preco-header.component';
+import { MenuItemEstablishmentComponent } from './components/header-page/menu-item-establishment/menu-item-establishment.component';
+import { MenuItemClientComponent } from './components/header-page/menu-item-client/menu-item-client.component';
 import { HeaderPageComponent } from './components/header-page/navbar/header-page.component';
 import { UserService } from './services/userService.service';
 import { EstablishmentService } from './services/establishmentService.service';
@@ -16,11 +21,16 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     AppComponent,
     LoginComponent,
     PaginationComponent,
-    HeaderPageComponent
+    HeaderPageComponent,
+    MenuItemClientComponent,
+    MenuItemEstablishmentComponent,
+    PrecoHeaderComponent,
+    CadastroEstablishmentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [ClientService, EstablishmentService, UserService],
   bootstrap: [AppComponent]
