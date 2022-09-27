@@ -1,0 +1,75 @@
+<body>
+
+
+    <section>
+
+        <form #establishmentForm="ngForm">
+
+            <div class="titulos">
+                <h1 class="title" [ngStyle]="{'opacity': (currentTab == 0 ? '100%' : '0%')}" >Bem-Vindo!</h1>
+                <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Informações Básicas</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Informações de Contato</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Senha</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 3">Passo 4 - Horários</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 4">Passo 5 - Informações Adicionais</h2>
+            </div>
+
+            <div class="steps">
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 0 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 1 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 3 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 4 ? '#ffc000' : '#ffffff')}"></span>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 0">
+                <label class="label-text" for="name">Nome</label>
+                <input type="text" [(ngModel)]="establishment.name" required id="name" name="name" maxlength="20" minlength="2"/>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 1">
+                <label class="label-text" for="email" id="email">Email</label>
+                <input type="email" required [(ngModel)]="establishment.email" id="email" name="email" required/>
+                
+                <label class="label-text" for="phone" id="phone" maxlength="10" minlenght="8">Phone</label>
+                <input type="phone" [(ngModel)]="establishment.phone" id="phone" name="phone" required maxlength="11" minlength="8"/>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 2">
+                <label class="label-text">Senha</label>
+                <input type="password" [(ngModel)]="passwordTest" required id="passwordTest" name="passwordTest"/>
+
+                <label class="label-text" for="password" id="password">Repetir Senha</label>
+                <input type="password" [(ngModel)]="establishment.password" required id="password" name="password" />
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 3">
+                <label class="label-text" for="timeOpen" id="timeOpen">Horário de Abertura</label>
+                <input type="time" [(ngModel)]="establishment.timeToOpen" required id="timeOpen" name="timeOpen"/>
+
+                <label class="label-text" for="timeClose" id="timeClose">Horário de Abertura</label>
+                <input type="time" [(ngModel)]="establishment.timeToClose" required id="timeClose" name="timeClose"/>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 4">
+                <label class="label-text" for="description" id="description">Descrição do Estabelecimento</label>
+                <input class="input-description" type="text" [(ngModel)]="establishment.description" id="description" name="description" maxlength="150"/>
+
+                <label class="label-text" for="timeClose" id="timeClose">Logo do Estabelecimento</label>
+                <input class="input-image" type="file"/>
+            </div>
+
+            <div class="buttons">
+                <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
+                <button (click)="alterStep(1)" *ngIf="currentTab != 4" (click)="validPassword()">Próximo</button>
+                <button [disabled]="!establishmentForm.form.valid" (click)="doRegister()"
+                    *ngIf="currentTab == 4">Cadastrar</button>
+            </div>
+        </form>
+
+
+
+        <p>Já tem conta? <a routerLink="">Faça o login</a></p>
+        <p>Não é um Estabelecimento? <a routerLink="/cadastroC">Cadastre-se como um Cliente</a></p>
+    </section>
+</body>
