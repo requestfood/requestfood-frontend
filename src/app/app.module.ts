@@ -1,3 +1,6 @@
+import { UserService } from './services/userService.service';
+import { EstablishmentService } from './services/establishmentService.service';
+import { ClientService } from 'src/app/services/clientService.service';
 import { LoginComponent } from './components/user/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
@@ -17,7 +20,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ClientService, EstablishmentService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
