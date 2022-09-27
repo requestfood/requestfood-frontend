@@ -1,3 +1,5 @@
+import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
+import { EstablishmentConsumableComponent } from './components/establishment/establishment-consumable/establishment-consumable.component';
 import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
 import { HomeClientComponent } from './components/_client/home-client/home-client.component';
 import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
@@ -33,7 +35,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CadastroClientComponent,
     ClientConsumableComponent,
     HomeClientComponent,
-    CreateConsumableComponent
+    CreateConsumableComponent,
+    EstablishmentConsumableComponent,
+    HomeEstablishmentComponent
   ],
   imports: [
     BrowserModule,

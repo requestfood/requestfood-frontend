@@ -3,7 +3,7 @@ import { EstablishmentConsumableComponent } from './components/establishment/est
 import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
 import { HomeClientComponent } from './components/_client/home-client/home-client.component';
 import { CadastroEstablishmentComponent } from './components/establishment/cadastro/cadastro.component';
-import { CadastroClienteComponent } from './components/_client/cadastro/cadastro.component';
+import { CadastroClientComponent } from './components/_client/cadastro/cadastro.component';
 import { LoginComponent } from './components/user/login/login.component';
 
 import { NgModule } from '@angular/core';
@@ -12,7 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '',component: LoginComponent },
-  {path: 'cadastroC',component: CadastroClienteComponent},
+  {path: 'cadastroC',component: CadastroClientComponent},
   {path: 'cadastroE',component: CadastroEstablishmentComponent},
   {path: 'home-client/:id', component: HomeClientComponent},
   {path: 'consumablesC/:idEstablishment', component: ClientConsumableComponent},
