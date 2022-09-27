@@ -1,3 +1,5 @@
+import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
+import { CadastroClientComponent } from './components/_client/cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
 import { CadastroEstablishmentComponent } from './components/establishment/cadastro/cadastro.component';
 import { PrecoHeaderComponent } from './components/header-page/preco-header/preco-header.component';
@@ -25,7 +27,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MenuItemClientComponent,
     MenuItemEstablishmentComponent,
     PrecoHeaderComponent,
-    CadastroEstablishmentComponent
+    CadastroEstablishmentComponent,
+    CadastroClientComponent,
+    ClientConsumableComponent
   ],
   imports: [
     BrowserModule,

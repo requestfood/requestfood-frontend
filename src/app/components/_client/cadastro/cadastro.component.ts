@@ -7,7 +7,7 @@ import { ClientRegister } from 'src/app/models/clientRegister';
   templateUrl: './cadastro.component.html',
   styleUrls: ['../../establishment/cadastro/cadastro.component.css']
 })
-export class CadastroClienteComponent implements OnInit {
+export class CadastroClientComponent implements OnInit {
 
   client: ClientRegister = {
      name: "",

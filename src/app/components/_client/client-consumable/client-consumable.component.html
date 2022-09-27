@@ -1,0 +1,44 @@
+<body>
+
+    <section class="container-principal">
+
+        <h1 class="title">{{ establishmentWithConsumables.name }}</h1>
+
+        <div class="consultas">
+
+            <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName" (keyup)="getConsumableByName()">
+
+            <select name="values" id="value" [(ngModel)]="value" (change)="changeValue(value)">
+                <option value="" disabled selected>Valor</option>
+                <option value="major">Maior-Menor</option>
+                <option value="minor">Menor-Maior</option>
+            </select>
+
+            <select name="categories" id="category" [(ngModel)]="category" (change)="changeCategory(category)"> 
+                <option value="" disabled selected>Categoria</option>
+                <option value="all">Todos</option>
+                <option value="dish">Pratos</option>
+                <option value="drink">Bebidas</option>
+            </select>
+
+
+        </div>
+
+
+        <div class="consumables">
+            <div class="card" *ngFor="let consumable of establishmentWithConsumables.consumables.content">
+                <p>{{ consumable?.name }}</p>
+                <div>
+                    <img src="{{ consumable?.image }}" class="image-establishment">
+                </div>
+                <p>{{consumable?.price | currency : 'BRL'}}</p>
+            </div>
+
+            <h2 *ngIf="establishmentWithConsumables.consumables.totalElements == 0">Nenhum Consumivel encontrado :(</h2>
+        </div>
+
+    </section>
+
+    <pagination class="pagination" [page]="page" (paginationEvent)="changePage($event)"></pagination>
+
+</body>
