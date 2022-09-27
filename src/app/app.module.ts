@@ -1,3 +1,4 @@
+import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
 import { HomeClientComponent } from './components/_client/home-client/home-client.component';
 import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
 import { CadastroClientComponent } from './components/_client/cadastro/cadastro.component';
@@ -31,7 +32,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CadastroEstablishmentComponent,
     CadastroClientComponent,
     ClientConsumableComponent,
-    HomeClientComponent
+    HomeClientComponent,
+    CreateConsumableComponent
   ],
   imports: [
     BrowserModule,
