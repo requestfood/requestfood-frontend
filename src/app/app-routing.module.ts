@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '',component: LoginComponent },
+  {path: '',component: LoginComponent},
   {path: 'cadastroC',component: CadastroClientComponent},
   {path: 'cadastroE',component: CadastroEstablishmentComponent},
   {path: 'home-client/:id', component: HomeClientComponent},

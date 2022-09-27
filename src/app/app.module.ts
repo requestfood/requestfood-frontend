@@ -21,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
   ],
   providers: [ClientService, EstablishmentService, UserService],
   bootstrap: [AppComponent]
