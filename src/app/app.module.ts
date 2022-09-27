@@ -1,3 +1,4 @@
+import { HomeClientComponent } from './components/_client/home-client/home-client.component';
 import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
 import { CadastroClientComponent } from './components/_client/cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +30,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PrecoHeaderComponent,
     CadastroEstablishmentComponent,
     CadastroClientComponent,
-    ClientConsumableComponent
+    ClientConsumableComponent,
+    HomeClientComponent
   ],
   imports: [
     BrowserModule,
