@@ -1,0 +1,7 @@
+<div>
+    <button [disabled]="this.page.first" (click)="changePage(-1)"> < </button>
+    <p *ngIf="page.content.length != 0">
+        {{ page.pageable.pageNumber }} / {{ page.totalPages - 1 }}
+    </p>
+    <button [disabled]="this.page.last" (click)="changePage(+1)"> > </button>
+</div>
