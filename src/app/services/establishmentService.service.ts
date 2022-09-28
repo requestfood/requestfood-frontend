@@ -29,6 +29,7 @@ export class EstablishmentService {
     return this.http.post<String>('http://localhost:8080/order/' + status + '/' + id, null);
   }
 
+  // Consumables
   getEstablishmentWithConsumables(id: number, page: number): Observable<EstablishmentWithConsumables>{
     return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/consumable/'+ page);
   }
@@ -45,11 +46,37 @@ export class EstablishmentService {
     return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/consumable/price/minor/'+ page);
   }
 
+  // Dish
   getAllDish(id: number, page: number): Observable<EstablishmentWithConsumables>{
     return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/dish/'+ page);
   }
 
+  getDishByName(id: number, name: string, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/dish/search-name/'+ name +'/'+ page)
+  }
+
+  getAllDishByOrderByPriceByDesc(id: number, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/dish/price/major/'+ page);
+  }
+
+  getAllDishByOrderByPriceByAsc(id: number, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/dish/price/minor/'+ page);
+  }
+
+  // Drink
   getAllDrink(id: number, page: number): Observable<EstablishmentWithConsumables>{
     return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/'+ page);
+  }
+
+  getDrinkByName(id: number, name: string, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/search-name/'+ name +'/'+ page)
+  }
+
+  getAllDrinkByOrderByPriceByDesc(id: number, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/price/major/'+ page);
+  }
+
+  getAllDrinkByOrderByPriceByAsc(id: number, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/price/minor/'+ page);
   }
 }

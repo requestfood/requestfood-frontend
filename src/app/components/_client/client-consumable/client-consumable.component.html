@@ -8,19 +8,23 @@
 
             <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName" (keyup)="getConsumableByName()">
 
-            <select name="values" id="value" [(ngModel)]="value" (change)="changeValue(value)">
+            <select name="values" [(ngModel)]="value" (change)="changeValue(value)">
                 <option value="" disabled selected>Valor</option>
                 <option value="major">Maior-Menor</option>
                 <option value="minor">Menor-Maior</option>
             </select>
 
-            <select name="categories" id="category" [(ngModel)]="category" (change)="changeCategory(category)"> 
+            <select name="categories" [(ngModel)]="category" (change)="changeCategory(category)">
                 <option value="" disabled selected>Categoria</option>
                 <option value="all">Todos</option>
                 <option value="dish">Pratos</option>
                 <option value="drink">Bebidas</option>
             </select>
 
+            <div id="check-absolute" *ngIf="!drink == false">
+              <input type="checkbox" id="checkbox-alcoholic">
+              <label for="checkbox" id="label-alcoholic">Alcoólico</label>
+            </div>
 
         </div>
 
