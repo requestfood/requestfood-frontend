@@ -1,0 +1,65 @@
+body{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-principal{
+    width: 90%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-titulo{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 33%;
+
+    width: 100%;
+    height: 13%;
+}
+
+.container-titulo h1{
+    height: 100%;
+    width: 15%;
+    font-size: 400%;
+    font-weight: 400;
+}
+
+.container-titulo img{
+    width: 20%;
+}
+
+.container-titulo button{
+    width: 13%;
+    height: 60%;
+
+    border: none;
+    background-color: #fecb1a;
+    border-radius: 10px;
+
+    font-size: 130%;
+}
+
+.container-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70%;
+
+    gap: 5%;
+}
+
+app-card-user-component{
+    width: 24%;
+    height: 87%;
+}
