@@ -15,7 +15,7 @@ button{
     font-weight: bold;
 
     border-radius: 50%;
-    border: 1px #000 solid;
+    border: 1px transparent solid;
     background-color: #fecb1a;
 
     font-weight: 400;
