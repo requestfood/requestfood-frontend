@@ -1,0 +1,22 @@
+<body>
+
+
+
+  <section class="container-principal">
+
+
+    <div class="container-titulo">
+      <h1><img src="../../../../assets/menu-lateral/img-items-menu/icone-perfil.svg">Perfil</h1>
+      <button>Voltar</button>
+    </div>
+
+    <div class="container-card">
+
+      <app-card-user-component [card]="cardInfoContato"></app-card-user-component>
+      <app-card-user-component [card]="cardInfoPessoais"></app-card-user-component>
+      <app-card-user-component [card]="cardAlterPasword"></app-card-user-component>
+      <app-card-user-component [card]="cardDeleteUser"></app-card-user-component>
+
+    </div>
+  </section>
+</body>
