@@ -1,5 +1,5 @@
+import { Page } from './../../../models/page';
 import { Component, OnInit, Input } from '@angular/core';
-import { Page } from 'src/app/models/page';
 import { ConsumableCard, EstablishmentWithConsumables } from '../../../models/EstablishmentWithConsumables';
 import { EstablishmentService } from '../../../services/establishmentService.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,8 +15,12 @@ export class ClientConsumableComponent implements OnInit {
   searchName: string = "";
 
   value: string = "";
+
   category: string = "";
+
   drink: boolean = false;
+
+  alcoholic: string = "";
 
   @Input()
   page: Page = {
@@ -167,6 +171,13 @@ export class ClientConsumableComponent implements OnInit {
     this.drink = true;
   }
 
+  getAlcoholicDrink(alcoholic: boolean, page: number = 0){
+    this.service.getAllDrinkByAlcoholic(this.router.snapshot.params['idEstablishment'], alcoholic, page).subscribe((data: EstablishmentWithConsumables) => {
+      this.establishmentWithConsumables = data
+      this.page = data.consumables
+    })
+  }
+
   getConsumableByName(page: number = 0): boolean{
     if(this.searchName == ""){
       switch (this.category){
@@ -225,5 +236,13 @@ export class ClientConsumableComponent implements OnInit {
       this.getDrinks()
     if(category == "all")
       this.getConsumables()
+  }
+  changeAlcoholic(alcoholic: string){
+    if(alcoholic == "yes")
+      this.getAlcoholicDrink(true)
+    if(alcoholic == "no")
+      this.getAlcoholicDrink(false)
+    if(alcoholic == "all")
+      this.getDrinks()
   }
 }

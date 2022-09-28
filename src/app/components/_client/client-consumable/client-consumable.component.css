@@ -119,17 +119,12 @@ option {
     padding-top: 12px;
 }
 
-#check-absolute {
-  position: absolute;
+#alcoholic {
+    position: absolute;
+    top: 15%;
+    left: 80.5%;
 
-  width: 10%;
-
-  top: 17%;
-  left: 74%;
-}
-
-#check-absolute label {
-  margin-left: 5%;
+    width: 10%;
 }
 
 .consumables {

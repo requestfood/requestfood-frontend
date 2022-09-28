@@ -21,10 +21,12 @@
                 <option value="drink">Bebidas</option>
             </select>
 
-            <div id="check-absolute" *ngIf="!drink == false">
-              <input type="checkbox" id="checkbox-alcoholic">
-              <label for="checkbox" id="label-alcoholic">Alcoólico</label>
-            </div>
+            <select name="alcoholic" id="alcoholic" [(ngModel)]="alcoholic" (change)="changeAlcoholic(alcoholic)" *ngIf="drink == true">
+                <option value="" disabled selected>Alcoólico</option>
+                <option value="all">Todos</option>
+                <option value="yes">Alcoólicos</option>
+                <option value="no">Não Alcoólicos</option>
+            </select>
 
         </div>
 

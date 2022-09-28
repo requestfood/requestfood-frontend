@@ -79,4 +79,8 @@ export class EstablishmentService {
   getAllDrinkByOrderByPriceByAsc(id: number, page: number): Observable<EstablishmentWithConsumables>{
     return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/price/minor/'+ page);
   }
+
+  getAllDrinkByAlcoholic(id: number, alcoholic: boolean, page: number): Observable<EstablishmentWithConsumables>{
+    return this.http.get<EstablishmentWithConsumables>('http://localhost:8080/establishment/'+ id +'/drink/alcoholic/'+ alcoholic +'/'+ page);
+  }
 }
