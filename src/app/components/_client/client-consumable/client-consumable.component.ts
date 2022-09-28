@@ -1,5 +1,5 @@
+import { Page } from './../../../models/page';
 import { Component, OnInit, Input } from '@angular/core';
-import { Page } from 'src/app/models/page';
 import { ConsumableCard, EstablishmentWithConsumables } from '../../../models/EstablishmentWithConsumables';
 import { EstablishmentService } from '../../../services/establishmentService.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,6 +14,13 @@ export class ClientConsumableComponent implements OnInit {
 
   searchName: string = "";
 
+  value: string = "";
+
+  category: string = "";
+
+  drink: boolean = false;
+
+  alcoholic: string = "";
 
   @Input()
   page: Page = {
@@ -67,7 +74,7 @@ export class ClientConsumableComponent implements OnInit {
       case "consumable_price_desc":
         this.getConsumablePriceByDesc(pageEvent.page);
         break;
-      case "consumable_price_asc": 
+      case "consumable_price_asc":
         this.getConsumablePriceByAsc(pageEvent.page);
         break;
       case "dishes":
@@ -76,79 +83,151 @@ export class ClientConsumableComponent implements OnInit {
       case "drinks":
         this.getDrinks(pageEvent.page)
         break;
-      default: 
+      default:
         this.getConsumables(pageEvent.page);
         break;
     }
   }
 
-
+  // Consumable
   getConsumables(page: number = 0){
       this.service.getEstablishmentWithConsumables(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
         this.establishmentWithConsumables = data;
         this.page = data.consumables;
         this.page.typeSearch = "";
       })
+
+      this.drink = false;
   }
 
   getConsumablePriceByDesc(page: number = 0){
-      this.service.getAllConsumableByOrderByPriceByDesc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
-        this.establishmentWithConsumables = data
-        this.page = data.consumables
-      this.page.typeSearch = "consumable_price_desc";
-      })
+      switch(this.category) {
+        case "dish":
+          this.service.getAllDishByOrderByPriceByDesc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_desc";
+          })
+          break
+        case "drink":
+          this.service.getAllDrinkByOrderByPriceByDesc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_desc";
+          })
+          break
+        default:
+          this.service.getAllConsumableByOrderByPriceByDesc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_desc";
+          })
+      }
   }
 
   getConsumablePriceByAsc(page: number = 0){
-    this.service.getAllConsumableByOrderByPriceByAsc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
-      this.establishmentWithConsumables = data;
-      this.page = data.consumables;
-      this.page.typeSearch = "consumable_price_asc";
-    })
+    switch(this.category) {
+        case "dish":
+          this.service.getAllDishByOrderByPriceByAsc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_asc";
+          })
+          break
+        case "drink":
+          this.service.getAllDrinkByOrderByPriceByAsc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_asc";
+          })
+          break
+        default:
+          this.service.getAllConsumableByOrderByPriceByAsc(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
+            this.establishmentWithConsumables = data
+            this.page = data.consumables
+          this.page.typeSearch = "consumable_price_asc";
+          })
+      }
   }
 
+  // Dish
   getDishes(page: number = 0){
     this.service.getAllDish(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
       this.establishmentWithConsumables = data;
       this.page = data.consumables;
       this.page.typeSearch = "dishes";
     })
+
+    this.drink = false;
   }
 
+  // Drink
   getDrinks(page: number = 0){
     this.service.getAllDrink(this.router.snapshot.params['idEstablishment'], page).subscribe((data: EstablishmentWithConsumables) => {
       this.establishmentWithConsumables = data
       this.page = data.consumables
       this.page.typeSearch = "drinks";
     })
+    this.drink = true;
   }
 
- 
+  getAlcoholicDrink(alcoholic: boolean, page: number = 0){
+    this.service.getAllDrinkByAlcoholic(this.router.snapshot.params['idEstablishment'], alcoholic, page).subscribe((data: EstablishmentWithConsumables) => {
+      this.establishmentWithConsumables = data
+      this.page = data.consumables
+    })
+  }
 
   getConsumableByName(page: number = 0): boolean{
     if(this.searchName == ""){
-      this.getConsumables(0)
+      switch (this.category){
+        case "dish":
+          this.getDishes()
+          break
+        case "drink":
+          this.getDrinks()
+          break
+        default:
+          this.getConsumables(0)
+          break
+      }
       return false;
     }
-    this.service.getConsumableByName(this.router.snapshot.params['idEstablishment'], this.searchName, page).subscribe((data: EstablishmentWithConsumables) => {
-      this.establishmentWithConsumables = data
-      this.page = data.consumables;
-      this.page.typeSearch = "consumable_name";
-    })
-    
+
+    switch (this.category){
+      case "dish":
+        this.service.getDishByName(this.router.snapshot.params['idEstablishment'], this.searchName, page).subscribe((data: EstablishmentWithConsumables) => {
+          this.establishmentWithConsumables = data
+          this.page = data.consumables;
+          this.page.typeSearch = "consumable_name";
+        })
+        break
+      case "drink":
+        this.service.getDrinkByName(this.router.snapshot.params['idEstablishment'], this.searchName, page).subscribe((data: EstablishmentWithConsumables) => {
+          this.establishmentWithConsumables = data
+          this.page = data.consumables;
+          this.page.typeSearch = "consumable_name";
+        })
+        break
+      default:
+        this.service.getConsumableByName(this.router.snapshot.params['idEstablishment'], this.searchName, page).subscribe((data: EstablishmentWithConsumables) => {
+          this.establishmentWithConsumables = data
+          this.page = data.consumables;
+          this.page.typeSearch = "consumable_name";
+        })
+        break
+    }
+
     return true;
   }
 
-  value: string = "";
-  category: string = "";
-
-
+  // Select
   changeValue(value: string){
     if(value == "minor")
       this.getConsumablePriceByAsc()
     if(value == "major")
       this.getConsumablePriceByDesc()
-    
+
   }
   changeCategory(category: string){
     if(category == "dish")
@@ -157,5 +236,13 @@ export class ClientConsumableComponent implements OnInit {
       this.getDrinks()
     if(category == "all")
       this.getConsumables()
+  }
+  changeAlcoholic(alcoholic: string){
+    if(alcoholic == "yes")
+      this.getAlcoholicDrink(true)
+    if(alcoholic == "no")
+      this.getAlcoholicDrink(false)
+    if(alcoholic == "all")
+      this.getDrinks()
   }
 }
