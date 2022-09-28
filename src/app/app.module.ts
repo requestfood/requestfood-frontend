@@ -1,3 +1,5 @@
+import { CardUserComponentComponent } from './components/user/user-update/card-user-component/card-user-component.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
 import { EstablishmentConsumableComponent } from './components/establishment/establishment-consumable/establishment-consumable.component';
 import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeClientComponent,
     CreateConsumableComponent,
     EstablishmentConsumableComponent,
-    HomeEstablishmentComponent
+    HomeEstablishmentComponent,
+    UserUpdateComponent,
+    CardUserComponentComponent
   ],
   imports: [
     BrowserModule,
