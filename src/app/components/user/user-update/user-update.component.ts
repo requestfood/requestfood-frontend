@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserService } from './../../../services/userService.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -24,9 +26,18 @@ export class UserUpdateComponent implements OnInit {
     img: "../../../../assets/profile/icone-deleteuser.svg"
   }
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+  
+  onVoltar() {
+    if (this.userService.userAutenticado.id != 0) {
+      if (this.userService.isEstablishment())
+        this.router.navigate(['/home-establishment/' + this.userService.userAutenticado.id]);
+      else
+        this.router.navigate(['/home-client/' + this.userService.userAutenticado.id]);
+    } else
+      this.router.navigate(['']);
   }
 
 }

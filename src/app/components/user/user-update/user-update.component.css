@@ -45,7 +45,12 @@ body{
     background-color: #fecb1a;
     border-radius: 10px;
 
-    font-size: 130%;
+    font-size: 160%;
+    font-weight: 500;
+}
+
+.container-titulo button:hover{
+    cursor: pointer;
 }
 
 .container-card{
