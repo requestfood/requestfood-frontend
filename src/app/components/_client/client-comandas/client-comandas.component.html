@@ -1,0 +1,24 @@
+<body>
+
+    <section class="container-principal">
+
+        <h1 class="title">Pedidos</h1>
+
+
+        <div class="consultas">
+
+            <button (click)="onVoltar()">Voltar</button>
+
+            <input class="date" type="date">
+
+            <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName"
+                (keyup)="searchByName()">
+        </div>
+
+        <div class="comandas">
+
+
+        </div>
+
+    </section>
+</body>

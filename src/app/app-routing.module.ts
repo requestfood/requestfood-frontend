@@ -1,3 +1,4 @@
+import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
 import { EstablishmentConsumableComponent } from './components/establishment/establishment-consumable/establishment-consumable.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'consumablesC/:idEstablishment', component: ClientConsumableComponent},
   {path: 'consumablesE/:idEstablishment', component: EstablishmentConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
-  {path: 'user-update/:id', component: UserUpdateComponent}
+  {path: 'user-update/:id', component: UserUpdateComponent},
+  {path: 'comandasC/:id', component: ClientComandasComponent}
 ];
 
 @NgModule({

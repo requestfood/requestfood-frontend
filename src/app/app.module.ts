@@ -24,6 +24,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeEstablishmentComponent,
     UserUpdateComponent,
     CardUserComponentComponent,
+    ClientComandasComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,8 +35,8 @@ export class MenuItemClientComponent implements OnInit {
   }
 
   onPedidos(){
-    if (!this.userService.isEstablishment() && this.userService.userAutenticado.role)
-    this.router.navigate([]);
+    if (!this.userService.isEstablishment() && this.userService.userAutenticado.id == this.userAutenticado.id)
+    this.router.navigate(['/comandasC/' + this.userAutenticado.id]);
   else
     alert('Permissão negada')
   }
