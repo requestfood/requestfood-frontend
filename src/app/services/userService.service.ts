@@ -9,9 +9,17 @@ import { UserLogin } from '../models/userLogin';
 export class UserService {
 
   mostrarMenuLogin;
+  
   userAutenticado = {
     id: 0,
     role: "",
+  }
+
+  isEstablishment(): boolean{
+    if(this.userAutenticado.role == "ESTABLISHMENT_USER")
+      return true;
+    else
+    return false;
   }
 
   public setUserAutenticado(id: number, role:string){
