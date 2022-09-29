@@ -42,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     EstablishmentConsumableComponent,
     HomeEstablishmentComponent,
     UserUpdateComponent,
-    CardUserComponentComponent
+    CardUserComponentComponent,
   ],
   imports: [
     BrowserModule,

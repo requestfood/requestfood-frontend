@@ -5,6 +5,7 @@ ul{
     width: 100%;
     height: 40%;
     list-style: none;
+    margin-top: 25%;
 }
 li {
     display: flex;
@@ -43,5 +44,5 @@ a {
 
 .menu-lateral img {
     width: 10%;
-    padding-left: 3%;
+    padding-left: 6%;
 }

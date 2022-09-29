@@ -7,7 +7,7 @@ import { CadastroEstablishmentComponent } from './components/establishment/cadas
 import { CadastroClientComponent } from './components/_client/cadastro/cadastro.component';
 import { LoginComponent } from './components/user/login/login.component';
 
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -20,7 +20,6 @@ const routes: Routes = [
   {path: 'consumablesE/:idEstablishment', component: EstablishmentConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
   {path: 'user-update/:id', component: UserUpdateComponent}
-
 ];
 
 @NgModule({

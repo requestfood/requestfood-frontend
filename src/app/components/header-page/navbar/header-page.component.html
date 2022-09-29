@@ -22,13 +22,13 @@
     <!-- MENU LATERAL -->
 
     <div (mouseleave)="onFechar()" [ngStyle]="{'left': (menuLateralAberto ? '0px' : '-550px')}" class="menu-lateral">
-        <div>
-            <img class="x-image-menu-lateral" src="../../assets/marca-x 1.svg" [ngStyle]="{
+           
+        <img class="x-image-menu-lateral" src="../../assets/marca-x 1.svg" [ngStyle]="{
+            'opacity': (menuLateralAberto ? '100%' : '0%'),
             'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
-        </div>
 
-        <app-menu-item-client [user]="userAutenticado" *ngIf="userAutenticado.role == 'CLIENT_USER'"></app-menu-item-client>
-        <app-menu-item-establishment [user]="userAutenticado" *ngIf="userAutenticado.role == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
+        <app-menu-item-client class="items" [user]="userAutenticado" *ngIf="userAutenticado.role == 'CLIENT_USER'"></app-menu-item-client>
+        <app-menu-item-establishment class="items" [user]="userAutenticado" *ngIf="userAutenticado.role == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
     </div>
 
     <!-- VALOR DA COMANDA -->
