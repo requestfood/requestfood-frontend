@@ -1,7 +1,7 @@
 import { HeaderPageComponent } from './../navbar/header-page.component';
 import { Router } from '@angular/router';
 import { UserService } from './../../../services/userService.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu-item-client',
@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-item-client.component.css']
 })
 export class MenuItemClientComponent implements OnInit {
+
+  @Input('user')
+  userAutenticado = {
+    id: 0,
+    role: ""
+  };
 
   constructor(private userService: UserService, private router: Router, private header: HeaderPageComponent) { }
 
@@ -19,6 +25,20 @@ export class MenuItemClientComponent implements OnInit {
     this.userService.setUserAutenticado(0, "")
     this.header.menuLateralAberto = false;
     this.router.navigate(['']);
+  }
+
+  onPerfil() {
+    if (this.userService.userAutenticado.id != 0) 
+      this.router.navigate(['/user-update/' + this.userAutenticado.id]);
+    else
+      alert('Permissão Negada')
+  }
+
+  onPedidos(){
+    if (!this.userService.isEstablishment() && this.userService.userAutenticado.role)
+    this.router.navigate([]);
+  else
+    alert('Permissão negada')
   }
 
 }

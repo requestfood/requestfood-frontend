@@ -21,6 +21,7 @@ li {
     transition: 0.6s;
 }
 li:hover {
+    cursor: pointer;
     background-color: #cfcfcfc1;
 }
 

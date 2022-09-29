@@ -1,6 +1,6 @@
 import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header-page',
@@ -10,6 +10,7 @@ import { Component, OnInit} from '@angular/core';
 export class HeaderPageComponent implements OnInit {
 
   public menuLateralAberto: boolean = false;
+
   userAutenticado = {
     id: 0,
     role: ""
@@ -33,5 +34,9 @@ export class HeaderPageComponent implements OnInit {
 
   onMenuLateral(){
     this.menuLateralAberto = !this.menuLateralAberto;
+  }
+
+  onFechar(){
+    this.menuLateralAberto = false
   }
 }
