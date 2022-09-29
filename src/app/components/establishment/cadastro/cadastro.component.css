@@ -90,6 +90,8 @@ input {
   border: 3px solid #fecb1a;
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+
+  outline: none;
 }
 
 input:invalid{

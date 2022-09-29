@@ -9,9 +9,10 @@
             <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName" (keyup)="getConsumableByName()">
 
             <select name="values" [(ngModel)]="value" (change)="changeValue(value)">
-                <option value="" disabled selected>Valor</option>
+                <option value="" selected>Valor</option>
                 <option value="major">Maior-Menor</option>
                 <option value="minor">Menor-Maior</option>
+
             </select>
 
             <select name="categories" [(ngModel)]="category" (change)="changeCategory(category)">

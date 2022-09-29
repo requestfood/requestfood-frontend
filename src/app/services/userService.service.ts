@@ -15,6 +15,14 @@ export class UserService {
     role: "",
   }
 
+  existsUser(): boolean{
+    if(this.userAutenticado.id != 0){
+        return true
+    }else{
+      return false
+    }
+  }
+
   isEstablishment(): boolean{
     if(this.userAutenticado.role == "ESTABLISHMENT_USER")
       return true;

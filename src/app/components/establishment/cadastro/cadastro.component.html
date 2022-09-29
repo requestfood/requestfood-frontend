@@ -62,7 +62,7 @@
             <div class="buttons">
                 <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
                 <button (click)="alterStep(1)" *ngIf="currentTab != 4" (click)="validPassword()">Próximo</button>
-                <button [disabled]="!establishmentForm.form.valid" (click)="doRegister()"
+                <button [disabled]="establishmentForm.form.valid" (click)="doRegister()"
                     *ngIf="currentTab == 4">Cadastrar</button>
             </div>
         </form>
