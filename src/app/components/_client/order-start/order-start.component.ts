@@ -1,3 +1,5 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from './../../../services/userService.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  openEstablishment() {
+    this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+    console.log(this.activatedRoute.snapshot.params['idEstablishment']);
   }
 
 }

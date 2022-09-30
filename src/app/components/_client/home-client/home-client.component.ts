@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/clientService.service';
 import { EstablishmentCard } from '../../../models/establishmentCard';
@@ -17,6 +18,8 @@ export class HomeClientComponent implements OnInit {
 
   ativoSearchByName: boolean = false;
   
+  userAutenticado = this.userService.userAutenticado
+
   @Input()
   page: Page = {
     content: [],
@@ -45,7 +48,7 @@ export class HomeClientComponent implements OnInit {
     image: null
   }
 
-  constructor(private service: ClientService, private router: Router) {}
+  constructor(private service: ClientService, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.getEstablishments()
@@ -86,8 +89,8 @@ export class HomeClientComponent implements OnInit {
     return true;
   }
 
-  openEstablishment(idEstablishment: number) {
-    this.router.navigate(['/consumablesC/' + idEstablishment])
+  openOrderStart(idEstablishment: number) {
+    this.router.navigate(['/order-start/' + idEstablishment])
     console.log(idEstablishment);
   }
 }
