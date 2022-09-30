@@ -1,3 +1,6 @@
+import { OrderStartComponent } from './components/_client/order-start/order-start.component';
+import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
+import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
@@ -24,11 +27,11 @@ const routes: Routes = [
   {path: 'user-update/:id', component: UserUpdateComponent, children: [
     {path: './contactC/', component: ClientContactUpdateComponent},
     {path: './personC/', component: ClientProfileUpdateComponent},
-    {path: './contactE/', component: },
-    {path: './personE/', component: },
-
+    {path: './contactE/', component: EstablishmentContactUpdateComponent},
+    {path: './personE/', component: EstablishmentProfileUpdateComponent}
   ]},
-  {path: 'comandasC/:id', component: ClientComandasComponent}
+  {path: 'comandasC/:id', component: ClientComandasComponent},
+  {path: 'order-start/:idEstablishment', component: OrderStartComponent}
 ];
 
 @NgModule({
