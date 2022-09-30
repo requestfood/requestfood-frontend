@@ -1,5 +1,5 @@
 export enum OrderStatus {
 
-    WAITING, PREPARING, FINISHED, CANCELED
+    WAITING, READY, FINISHED, CANCELED
 
 }
