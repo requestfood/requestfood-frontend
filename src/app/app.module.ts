@@ -1,5 +1,4 @@
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
-import { CardUserComponentComponent } from './components/user/user-update/card-user-component/card-user-component.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
 import { EstablishmentConsumableComponent } from './components/establishment/establishment-consumable/establishment-consumable.component';
@@ -21,11 +20,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppComponent } from './app.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
+import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
+import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
+import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
+
 
 @NgModule({
   declarations: [
@@ -44,15 +49,20 @@ import { ClientComandasComponent } from './components/_client/client-comandas/cl
     EstablishmentConsumableComponent,
     HomeEstablishmentComponent,
     UserUpdateComponent,
-    CardUserComponentComponent,
     ClientComandasComponent,
-    CardComandaComponent
+    CardComandaComponent,
+    ClientContactUpdateComponent,
+    ClientProfileUpdateComponent,
+    EstablishmentContactUpdateComponent,
+    EstablishmentProfileUpdateComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule
   ],
   providers: [ClientService, EstablishmentService, UserService],
   bootstrap: [AppComponent]
