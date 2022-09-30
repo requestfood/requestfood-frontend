@@ -72,7 +72,6 @@ export class HomeClientComponent implements OnInit {
     }
   }
 
-
   searchByName(page: number = 0): any{
 
     this.ativoSearchByName = true

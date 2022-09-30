@@ -1,3 +1,15 @@
-<div>
-    <button (click)="openEstablishment()">Show consumables</button>
-</div>
+<div class="back-button">
+    <button class="backbutton">&lt; Voltar</button>
+  </div>
+
+  <section>
+    <div class="establishment">
+      <h1>McDonald's</h1>
+      <img src="/img/McDonald's.svg" alt="logo" class="logo" />
+    </div>
+
+    <div class="buttons">
+        <button (click)="openEstablishment()">Show consumables</button>
+        <button (click)="doCreateOrder()">Criar comanda</button>
+    </div>
+  </section>

@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto";
+  font-weight: 800;
+}
+section {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 80px;
+}
+p {
+  font-family: "Roboto";
+  font-weight: 600;
+}
+button {
+  height: 100%;
+  width: 30%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffc816;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 25px;
+  transition: 0.8s;
+}
+button:hover {
+  background: #f5f5f5;
+  border: #ffc816 solid;
+  animation-delay: 0.7s;
+}
+input {
+  height: 100%;
+  width: 30%;
+  border: none;
+  display: flex;
+  background: #ffc816;
+  box-shadow: 0px 4px 4px rgba(66, 53, 53, 0.25);
+  border-radius: 12px;
+  font-size: 25px;
+}
+input::placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  padding: 10px;
+}
+.buttons {
+  font-family: "Roboto";
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  font-size: 50px;
+  width: 80%;
+  height: 6%;
+}
+.comand {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 22%;
+  height: 40%;
+  border: none;
+  display: flex;
+  background: #fffefb;
+  border: 3px solid #ffcc00;
+  box-shadow: 0px 4px 4px rgba(66, 53, 53, 0.25);
+  border-radius: 12px;
+  font-size: 25px;
+  animation: 0.5s;
+}
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

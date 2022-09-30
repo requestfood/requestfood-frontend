@@ -1,3 +1,5 @@
+import { createOrder } from './../../../models/createOrder';
+import { OrderStartService } from './../../../services/order-start.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../../services/userService.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderStartComponent implements OnInit {
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  order: createOrder = {
+    id: 0,
+    idEstablishment: this.activatedRoute.snapshot.params['idEstablishment'],
+    idClient: this.userService.userAutenticado.id
+  }
+
+  constructor(private service: OrderStartService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  doCreateOrder() {
+    this.service.addOrder(this.order).subscribe((data: createOrder) =>{
+      this.order = data
+    })
   }
 
   openEstablishment() {
