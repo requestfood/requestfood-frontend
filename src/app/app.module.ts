@@ -1,3 +1,4 @@
+import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
 import { CardUserComponentComponent } from './components/user/user-update/card-user-component/card-user-component.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
@@ -45,6 +46,7 @@ import { ClientComandasComponent } from './components/_client/client-comandas/cl
     UserUpdateComponent,
     CardUserComponentComponent,
     ClientComandasComponent,
+    CardComandaComponent
   ],
   imports: [
     BrowserModule,
