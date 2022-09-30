@@ -1,3 +1,4 @@
+import { ClientOrders } from './../models/ClientWithOrders';
 import { Page } from 'src/app/models/page';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -9,22 +10,29 @@ import { ClientRegister } from '../models/clientRegister';
 })
 export class ClientService {
 
+  endPointClient: string = 'http://localhost:8080/client/'
+  endPointEstablishment: string = 'http://localhost:8080/establishment/'
+
   constructor(private http: HttpClient) {}
 
   findClientById(id: number): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/client/' + id);
+    return this.http.get<any>(this.endPointClient + id);
   }
 
   addClient(postData: ClientRegister): Observable<ClientRegister> {
     console.log(postData);
-    return this.http.post<ClientRegister>('http://localhost:8080/client/', postData);
+    return this.http.post<ClientRegister>(this.endPointClient, postData);
+  }
+
+  getClientWithOrders(id: number): Observable<ClientOrders>{
+    return this.http.get<ClientOrders>(this.endPointClient + 'orders/' + id);
   }
 
   getEstablishmentsHome(page: number): Observable<Page> {
-    return this.http.get<Page>('http://localhost:8080/establishment/card/' + page)
+    return this.http.get<Page>(this.endPointEstablishment+ 'card/' + page)
   }
 
-  getEstablishmentByName(s: string, page: number): Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/establishment/search-name/' + s + '/' + page)
+  getEstablishmentByName(string: string, page: number): Observable<Page>{
+    return this.http.get<Page>(this.endPointEstablishment + 'search-name/' + string + '/' + page)
   }
 }
