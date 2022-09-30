@@ -22,7 +22,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     gap: 5%;
-    width: 90%;
+    width: 80%;
     height: 100%;
 }
 
@@ -35,16 +35,15 @@ body {
 
 .consultas{
     display: flex;
-    width: 90%;
-    height: 10%;
+    width: 100%;
+    height: 7%;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 }
 
 .search {
     width: 47%;
-    height: 6vh;
+    height: 100%;
 
 
     font-weight: 400;
@@ -67,14 +66,13 @@ body {
 }
 
 .search:focus{
-    position: fixed;
-
-    width: 81%;
 
     right: 10%;
     background-color: #ffffff;
 
     border-radius: 0;
+    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.439);
+
 
     text-align: start;
     font-size: 100%;
@@ -88,9 +86,7 @@ body {
 
 .consultas button{
     width: 15%;
-    height: 60%;
-
-    position: relative;
+    height: 100%;
 
     border: none;
     background-color: #fecb1a;
@@ -105,9 +101,8 @@ body {
 }
 
 .date{
-    position: fixed;
     width: 15%;
-    height: 5%;
+    height: 100%;
 
     left: 30%;
 
@@ -117,4 +112,23 @@ body {
     font-size: 110%;
     font-weight: 500;
     text-indent: 5px;
+}
+
+.comandas{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    width: 100%;
+    height: auto;
+
+    padding-bottom: 10%;
+}
+
+.comandas p{
+    font-size: 220%;
+    font-weight: 300;
+
+    text-align: center;
+    padding-top: 10%;
 }
