@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComandasComponent implements OnInit {
 
-  userAutenticado = this.userService.userAutenticado
+  userAutenticado = this.userService.getUserAutenticado()
 
   client: ClientOrders = {
     id: 0,
@@ -38,7 +38,7 @@ export class ClientComandasComponent implements OnInit {
 
   onVoltar() {
     if (this.userService.existsUser() && !this.userService.isEstablishment()) {
-      this.router.navigate(['/home-client/' + this.userService.userAutenticado.id]);
+      this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     } else
       this.router.navigate(['']);
   }

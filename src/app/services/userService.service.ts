@@ -1,3 +1,4 @@
+import { ContactUpdate, PasswordUpdate } from './../models/UserUpdate';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, Output } from '@angular/core';
@@ -34,12 +35,32 @@ export class UserService {
     this.userAutenticado.role = role;
     this.userAutenticado.id = id
   }
+  public getUserAutenticado():any{
+    return this.userAutenticado;
+  }
 
   constructor(private http: HttpClient, ) {
     this.mostrarMenuLogin = new EventEmitter<string>()
   }
 
+
+  //  POST  //
+
   fazerLogin(postData: UserLogin): Observable<UserLogin> {
     return this.http.post<UserLogin>('http://localhost:8080/user/login/', postData);
   }
+
+  //  PUT  //
+
+  updateContact(contactUpdate: ContactUpdate, id: number): Observable<string>{
+    return this.http.put<string>('http://localhost:8080/contact/' + id, contactUpdate)
+  }
+  getContact(id: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/contact/' + id);
+  }
+  
+  updatePassword(passwordUpdate: PasswordUpdate, id: number): Observable<String>{
+    return this.http.put<String>('http://localhost:8080/user/' + id + '/password', passwordUpdate)
+  }
+
 }

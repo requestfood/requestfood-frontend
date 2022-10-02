@@ -1,3 +1,4 @@
+import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
@@ -30,6 +31,7 @@ import { ClientContactUpdateComponent } from './components/user/user-update/_cli
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
+import { ConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { EstablishmentProfileUpdateComponent } from './components/user/user-upda
     ClientProfileUpdateComponent,
     EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
+    UserAlterPasswordComponent,
+    ConsumableInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -33,7 +33,7 @@
 
 
         <div class="consumables">
-            <div class="card" *ngFor="let consumable of establishmentWithConsumables.consumables.content">
+            <div class="card" (click)="openConsumable(consumable)" *ngFor="let consumable of establishmentWithConsumables.consumables.content">
                 <p>{{ consumable?.name }}</p>
                 <div>
                     <img src="{{ consumable?.image }}" class="image-establishment">

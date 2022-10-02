@@ -1,0 +1,25 @@
+<section>
+
+    <div id="conteiner-image">
+        <img src="{{ consumable.image }}" alt="">
+    </div>
+
+    <div id="conteiner-second">
+        <div id="conteiner-info">
+            <h2>{{ consumable.name }}</h2>
+            <p>{{ consumable.description }}</p>
+            <input type="text" name="" [(ngModel)]="item.obsItem">
+            <div>
+                <button (click)="remQuantity()">-</button>
+                <button (click)="addQuantity()">+</button>
+                <p>{{ quantityItem }}</p>
+            </div>
+        </div>
+        <div id="conteiner-buttons">
+            <button>Voltar</button>
+            <button (click)="createItem()">Adicionar {{ amount }}</button>
+        </div>
+    </div>
+
+    {{ item | json }}
+</section>

@@ -28,14 +28,14 @@ export class MenuItemClientComponent implements OnInit {
   }
 
   onPerfil() {
-    if (this.userService.userAutenticado.id != 0) 
-      this.router.navigate(['/user-update/' + this.userAutenticado.id]);
+    if (this.userService.getUserAutenticado().id != 0) 
+      this.router.navigate(['user-update']);
     else
       alert('Permissão Negada')
   }
 
   onPedidos(){
-    if (!this.userService.isEstablishment() && this.userService.userAutenticado.id == this.userAutenticado.id)
+    if (!this.userService.isEstablishment() && this.userService.getUserAutenticado().id == this.userAutenticado.id)
     this.router.navigate(['/comandasC/' + this.userAutenticado.id]);
   else
     alert('Permissão negada')

@@ -26,7 +26,7 @@ body{
 .menu-button {
     background-color: transparent;
     border: none;  
-    position: fixed;
+    position: sticky;
     z-index: 150000;
     width: auto;
 }

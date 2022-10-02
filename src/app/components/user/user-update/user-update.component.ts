@@ -18,9 +18,9 @@ export class UserUpdateComponent implements OnInit {
   onVoltar() {
     if (this.userService.existsUser()) {
       if (this.userService.isEstablishment())
-        this.router.navigate(['/home-establishment/' + this.userService.userAutenticado.id]);
+        this.router.navigate(['/home-establishment/' + this.userService.getUserAutenticado().id]);
       else
-        this.router.navigate(['/home-client/' + this.userService.userAutenticado.id]);
+        this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
     } else
       this.router.navigate(['']);
   }
@@ -30,9 +30,9 @@ export class UserUpdateComponent implements OnInit {
     if (this.userService.existsUser()) {
 
       if (this.userService.isEstablishment())
-        this.router.navigate([this.userService.userAutenticado.id + '/contactE/']);
+        this.router.navigate(['./user-update/contactE/' + this.userService.getUserAutenticado().id]);
       else
-        this.router.navigate(['/user-update' + this.userService.userAutenticado.id + '/contactC/']);
+        this.router.navigate(['./user-update/contactC/' + this.userService.getUserAutenticado().id]);
 
     } else
       this.router.navigate(['']);
@@ -42,9 +42,9 @@ export class UserUpdateComponent implements OnInit {
     if (this.userService.existsUser()) {
 
       if (this.userService.isEstablishment())
-        this.router.navigate([this.userService.userAutenticado.id + '/infoE/']);
+        this.router.navigate(['./user-update/profileE/' + this.userService.getUserAutenticado().id]);
       else
-        this.router.navigate(['/user-update' + this.userService.userAutenticado.id + '/infoC/']);
+        this.router.navigate(['./user-update/profileC/' + this.userService.getUserAutenticado().id]);
 
     } else
       this.router.navigate(['']);
@@ -52,13 +52,8 @@ export class UserUpdateComponent implements OnInit {
 
   onAlterPassword() {
     if (this.userService.existsUser()) {
-
-      if (this.userService.isEstablishment())
-        this.router.navigate(['/user-update' + this.userService.userAutenticado.id + '/passwordE/']);
-      else
-        this.router.navigate(['/user-update' + this.userService.userAutenticado.id + '/passwordC/']);
-
-    } else
+        this.router.navigate(['/user-update/password/' + this.userService.getUserAutenticado().id]);
+    }else
       this.router.navigate(['']);
   }
   onDeleteUser() { }

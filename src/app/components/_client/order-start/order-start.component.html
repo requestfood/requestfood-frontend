@@ -1,3 +1,18 @@
-<div>
-    <button (click)="openEstablishment()">Show consumables</button>
-</div>
+<main>
+
+  <section>
+
+    <div id="conteiner-establishment">
+      <h1>{{ this.currentEstablishment.name }}</h1>
+      <img src="{{ this.currentEstablishment.image }}" class="image-establishment" alt="logo-establishment">
+    </div>
+    <div id="conteiner-buttons">
+      <button (click)="doCreateOrder(order)">Iniciar Comanda</button>
+      <button (click)="openEstablishment()">Ver Cardapio</button>
+    </div>
+
+    <button id="button-back" (click)="onBack()"><</button>
+
+  </section>
+
+</main>
