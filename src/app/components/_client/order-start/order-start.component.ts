@@ -1,3 +1,4 @@
+import { ItemService } from 'src/app/services/item-service.service';
 import { createOrder } from './../../../models/createOrder';
 import { OrderStartService } from './../../../services/order-start.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,17 +20,20 @@ export class OrderStartComponent implements OnInit {
 
   currentEstablishment = this.service.getCurrentEstablishment();
 
-  constructor(private service: OrderStartService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private service: OrderStartService, private userService: UserService, private activatedRoute: ActivatedRoute, 
+    private router: Router, private itemService: ItemService) { }
 
   ngOnInit(): void {
     console.log(this.service.getCurrentEstablishment() );
     
   }
 
-  doCreateOrder() {
+  doCreateOrder(currentOrder: createOrder) {
     this.service.addOrder(this.order).subscribe((data: createOrder) =>{
       this.order = data
+      this.itemService.setCurrentOrder(this.order)
     })
+    this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
   }
 
   openEstablishment() {
