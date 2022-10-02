@@ -14,11 +14,7 @@ import { Page } from 'src/app/models/page';
 export class HomeClientComponent implements OnInit {
 
   establishments: Array<EstablishmentCard> = [];
-  
   searchName: string = "";
-
-  ativoSearchByName: boolean = false;
-  
   userAutenticado = this.userService.getUserAutenticado()
 
   @Input()
@@ -49,15 +45,19 @@ export class HomeClientComponent implements OnInit {
     image: null
   }
 
-  constructor(private service: ClientService, private userService: UserService, private router: Router, private orderStartService: OrderStartService) {}
+  constructor(private service: ClientService, 
+    private userService: UserService, 
+    private router: Router, 
+    private orderStartService: OrderStartService
+  ) {}
 
   ngOnInit(): void {
     this.getEstablishments()
   }
 
   getEstablishments(page: number = 0): void {
-    this.ativoSearchByName = false
-    
+    this.page.typeSearch = "default";
+
     this.service.getEstablishmentsHome(page).subscribe((data: Page) => {
       this.page = data
       this.establishments = data.content;
@@ -66,7 +66,7 @@ export class HomeClientComponent implements OnInit {
 
   changePage(pageEvent: any){
 
-    if(this.ativoSearchByName)  
+    if(pageEvent.typeSearch == "searchByName")  
       this.searchByName(pageEvent.page);
     else{
       this.getEstablishments(pageEvent.page);
@@ -74,8 +74,6 @@ export class HomeClientComponent implements OnInit {
   }
 
   searchByName(page: number = 0): any{
-
-    this.ativoSearchByName = true
     
     if(this.searchName == ""){
       this.getEstablishments(0)
@@ -85,12 +83,13 @@ export class HomeClientComponent implements OnInit {
     this.service.getEstablishmentByName(this.searchName, page).subscribe((data: Page) => {
       this.page = data;
       this.establishments = data.content
+      this.page.typeSearch = "searchByName";
     })
     return true;
   }
 
   openOrderStart(currentEstablishment: EstablishmentCard) {
-    this.router.navigate(['/order-start/' + currentEstablishment.id])
     this.orderStartService.setCurrentEstablishment(currentEstablishment);
+    this.router.navigate(['/order-start/' + currentEstablishment.id])
   }
 }

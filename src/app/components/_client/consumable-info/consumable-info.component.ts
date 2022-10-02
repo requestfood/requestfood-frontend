@@ -17,8 +17,6 @@ export class ConsumableInfoComponent implements OnInit {
 
   order = this.itemService.getCurrentOrder()
 
-  quantityItem: number = 0
-
   amount: number = 0
 
   item: itemOrder = {
@@ -28,7 +26,11 @@ export class ConsumableInfoComponent implements OnInit {
     obsItem: ""
   } 
 
-  constructor(private service: ConsumableService, private itemService: ItemService, private actRoute: ActivatedRoute) { }
+  constructor(
+    private service: ConsumableService,
+    private itemService: ItemService, 
+    private actRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     console.log(this.consumable);
@@ -45,7 +47,7 @@ export class ConsumableInfoComponent implements OnInit {
   }
 
   calculateAmount() {
-    this.amount = this.consumable.price * this.quantityItem
+    this.amount = this.consumable.price * this.item.quantityItem
   }
 
   createItem() {

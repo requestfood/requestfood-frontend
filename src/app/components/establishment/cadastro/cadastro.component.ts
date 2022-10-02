@@ -16,9 +16,10 @@ export class CadastroEstablishmentComponent implements OnInit {
     password: "",
     email: "",
     phone: "",
-    timeToOpen: "" + ":00",
-    timeToClose: "" + ":00",
-    description: ""
+    timeToOpen: "",
+    timeToClose: "",
+    description: "",
+    image: ""
    }
 
    passwordTest: String = ''; 
@@ -42,7 +43,7 @@ export class CadastroEstablishmentComponent implements OnInit {
  }*/
 
   alterStep(n: number){
-    if(this.currentTab >= 0 && this.currentTab <= 4){
+    if(this.currentTab >= 0 && this.currentTab <= 3){
       this.currentTab = this.currentTab + n;
     }
   }

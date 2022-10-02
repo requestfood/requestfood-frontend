@@ -20,7 +20,10 @@ export class ClientContactUpdateComponent implements OnInit {
     email: ""
   }
 
-  constructor(private userService: UserService, private router: ActivatedRoute) { }
+  constructor(
+    private userService: UserService,
+    private router: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.userService.getContact(this.router.snapshot.params['id']).subscribe((data: any) => {
@@ -35,8 +38,8 @@ export class ClientContactUpdateComponent implements OnInit {
       this.newContactUpdate.phone = this.currentContactUpdate.phone
       
       this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(data => {})
-    console.log(this.newContactUpdate);
-    
+      
+      console.log(this.newContactUpdate);
   }
 
 }

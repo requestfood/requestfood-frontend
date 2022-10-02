@@ -8,4 +8,5 @@ export interface EstablishmentRegister{
     timeToOpen: String;
     timeToClose: String;
     description: String;
+    image: String;
 }

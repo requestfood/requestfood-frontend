@@ -3,9 +3,7 @@
 
         <form #clientForm="ngForm">
             <div class="titulos">
-                <h1 class="title" [ngStyle]="{
-                    'opacity': (currentTab == 0 ? '100%' : '0%')
-                }">Bem-Vindo!</h1>
+                <h1 class="title" [ngStyle]="{'opacity': (currentTab == 0 ? '100%' : '0%')}">Bem-Vindo!</h1>
                 <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Informações Básicas</h2>
                 <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Informações Pessoais</h2>
                 <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Informações de Contato</h2>
@@ -13,18 +11,10 @@
             </div>
 
             <div class="steps" style="display: flex; flex-direction: row; justify-content: center;">
-                <span class="step" [ngStyle]="{
-                    'background-color': (currentTab == 0 ? '#ffc000' : '#ffffff')
-                }"></span>
-                <span class="step" [ngStyle]="{
-                    'background-color': (currentTab == 1 ? '#ffc000' : '#ffffff')
-                }"></span>
-                <span class="step" [ngStyle]="{
-                    'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')
-                }"></span>
-                <span class="step" [ngStyle]="{
-                    'background-color': (currentTab == 3 ? '#ffc000' : '#ffffff')
-                }"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 0 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 1 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 3 ? '#ffc000' : '#ffffff')}"></span>
             </div>
 
             <div class="tab" *ngIf="currentTab == 0">
@@ -61,7 +51,7 @@
                 <input type="password" [(ngModel)]="passwordOne" required id="passwordOne" name="passwordOne" />
                 
                 <label class="label-text" for="surname" id="surname">Repetir Senha</label>
-                <input (keyup)="validPassword()" type="password" [(ngModel)]="client.password" required id="password" name="password" />
+                <input type="password" [(ngModel)]="client.password" required id="password" name="password" />
 
             </div>
 

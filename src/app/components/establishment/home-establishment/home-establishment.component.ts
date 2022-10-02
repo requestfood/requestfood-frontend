@@ -16,8 +16,10 @@ export class HomeEstablishmentComponent implements OnInit{
     ordersFinised: []
   }
 
-  constructor(private service: EstablishmentService,private router: ActivatedRoute) {
-  }
+  constructor(
+    private service: EstablishmentService,
+    private router: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getOrdersReady();

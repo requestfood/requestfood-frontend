@@ -16,7 +16,10 @@ export class MenuItemClientComponent implements OnInit {
     role: ""
   };
 
-  constructor(private userService: UserService, private router: Router, private header: HeaderPageComponent) { }
+  constructor(private userService: UserService,
+    private router: Router,
+    private header: HeaderPageComponent
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,14 +31,14 @@ export class MenuItemClientComponent implements OnInit {
   }
 
   onPerfil() {
-    if (this.userService.getUserAutenticado().id != 0) 
+    if (this.userService.isClient()) 
       this.router.navigate(['user-update']);
     else
       alert('Permissão Negada')
   }
 
   onPedidos(){
-    if (!this.userService.isEstablishment() && this.userService.getUserAutenticado().id == this.userAutenticado.id)
+    if (this.userService.isClient())
     this.router.navigate(['/comandasC/' + this.userAutenticado.id]);
   else
     alert('Permissão negada')

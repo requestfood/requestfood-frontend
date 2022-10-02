@@ -1,5 +1,5 @@
 import { ContactUpdate, PasswordUpdate } from './../models/UserUpdate';
-import { Observable } from 'rxjs';
+import { Observable, retryWhen } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { UserLogin } from '../models/userLogin';
@@ -17,17 +17,30 @@ export class UserService {
   }
 
   existsUser(): boolean{
-    if(this.userAutenticado.id != 0){
+    if(this.userAutenticado.id != 0)
         return true
-    }else{
+    else
       return false
-    }
+    
   }
 
   isEstablishment(): boolean{
-    if(this.userAutenticado.role == "ESTABLISHMENT_USER")
-      return true;
-    else
+
+    if(this.existsUser()){
+      if(this.userAutenticado.role == "ESTABLISHMENT_USER")
+          return true;
+    }
+    
+    return false;
+  }
+
+  isClient(): boolean{
+
+    if(this.existsUser()){
+      if(this.userAutenticado.role == "CLIENT_USER")
+          return true;
+    }
+    
     return false;
   }
 

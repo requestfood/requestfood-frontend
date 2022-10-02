@@ -20,7 +20,8 @@ export class ClientComandasComponent implements OnInit {
 
   searchName: string = "";
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private router: Router,
     private clientService: ClientService) { }
 
@@ -37,7 +38,7 @@ export class ClientComandasComponent implements OnInit {
   searchByName() { }
 
   onVoltar() {
-    if (this.userService.existsUser() && !this.userService.isEstablishment()) {
+    if (this.userService.isClient()) {
       this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     } else
       this.router.navigate(['']);

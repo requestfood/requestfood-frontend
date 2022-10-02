@@ -13,48 +13,44 @@ export class UserUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.onInfoPessoais()
-   }
+  }
 
   onVoltar() {
-    if (this.userService.existsUser()) {
-      if (this.userService.isEstablishment())
-        this.router.navigate(['/home-establishment/' + this.userService.getUserAutenticado().id]);
-      else
-        this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
-    } else
+    if (this.userService.isEstablishment())
+      this.router.navigate(['/home-establishment/' + this.userService.getUserAutenticado().id]);
+    else if (this.userService.isClient()) 
+      this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
+    else
       this.router.navigate(['']);
   }
 
 
   onInfoContato() {
-    if (this.userService.existsUser()) {
 
       if (this.userService.isEstablishment())
         this.router.navigate(['./user-update/contactE/' + this.userService.getUserAutenticado().id]);
-      else
+      else if(this.userService.isClient())
         this.router.navigate(['./user-update/contactC/' + this.userService.getUserAutenticado().id]);
-
-    } else
-      this.router.navigate(['']);
+      else
+        this.router.navigate(['']);
   }
 
-  onInfoPessoais() { 
-    if (this.userService.existsUser()) {
+  onInfoPessoais() {
 
       if (this.userService.isEstablishment())
         this.router.navigate(['./user-update/profileE/' + this.userService.getUserAutenticado().id]);
-      else
+      else if(this.userService.isClient())
         this.router.navigate(['./user-update/profileC/' + this.userService.getUserAutenticado().id]);
-
-    } else
-      this.router.navigate(['']);
+      else
+        this.router.navigate(['']);
   }
 
   onAlterPassword() {
     if (this.userService.existsUser()) {
-        this.router.navigate(['/user-update/password/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['/user-update/password/' + this.userService.getUserAutenticado().id]);
     }else
       this.router.navigate(['']);
   }
+
   onDeleteUser() { }
 }

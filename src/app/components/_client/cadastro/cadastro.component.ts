@@ -29,9 +29,13 @@ export class CadastroClientComponent implements OnInit {
 
 
   doRegister(){
+    if(this.validPassword()){
+      
       this.service.addClient(this.client).subscribe(data => {
-      this.client = data;
+        this.client = data;
     })
+  }
+
   }
 
   addTab(n: number) {
@@ -42,11 +46,13 @@ export class CadastroClientComponent implements OnInit {
     console.log(this.currentTab);
   }
   
-  validPassword(){
+  validPassword(): boolean{
     if(this.client.password == this.passwordOne){
       console.log('Senhas combinam');
+      return true
     }else{
-    alert('Senhas não combinam');
+      alert('Senhas não combinam');
+      return false
     }
   }
 }

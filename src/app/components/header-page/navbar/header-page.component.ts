@@ -16,11 +16,13 @@ export class HeaderPageComponent implements OnInit {
     role: ""
   };
 
-  constructor(private userService: UserService, private router: Router) {
-  }
+  constructor(
+    private userService: UserService, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-     this.userAutenticado = this.userService.userAutenticado
+     this.userAutenticado = this.userService.getUserAutenticado()
   }
 
   onMenu(){

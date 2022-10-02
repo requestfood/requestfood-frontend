@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/userService.service';
 import { Page } from './../../../models/page';
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsumableCard, EstablishmentWithConsumables } from '../../../models/EstablishmentWithConsumables';
@@ -59,11 +60,19 @@ export class ClientConsumableComponent implements OnInit {
     description: ""
   }
 
-  constructor(private service: EstablishmentService, private actRouter: ActivatedRoute, 
-    private router: Router, private consumableService: ConsumableService) {}
+  constructor(
+    private service: EstablishmentService,
+    private userService: UserService,
+    private actRouter: ActivatedRoute, 
+    private router: Router,
+    private consumableService: ConsumableService) {}
 
   ngOnInit(): void {
-      this.getConsumables()
+      if(this.userService.isClient()) {
+        this.getConsumables()
+      }else{
+        this.router.navigate([''])
+      }
   }
 
   changePage(pageEvent: any){

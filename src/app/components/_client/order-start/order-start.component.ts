@@ -20,29 +20,43 @@ export class OrderStartComponent implements OnInit {
 
   currentEstablishment = this.service.getCurrentEstablishment();
 
-  constructor(private service: OrderStartService, private userService: UserService, private activatedRoute: ActivatedRoute, 
-    private router: Router, private itemService: ItemService) { }
+
+  constructor(
+    private itemService: ItemService,
+    private service: OrderStartService,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    console.log(this.service.getCurrentEstablishment() );
-    
   }
 
-  doCreateOrder(currentOrder: createOrder) {
-    this.service.addOrder(this.order).subscribe((data: createOrder) =>{
-      this.order = data
-      this.itemService.setCurrentOrder(this.order)
-    })
-    this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+  doCreateOrder() {
+    if (this.userService.isClient()) {
+      
+      this.service.addOrder(this.order).subscribe(
+        (data: createOrder) => {
+
+          this.order = data
+          this.itemService.setCurrentOrder(this.order)
+        })
+
+      this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+    }else
+    this.router.navigate(['']);
+
   }
 
-  openEstablishment() {
-    this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
-    console.log(this.activatedRoute.snapshot.params['idEstablishment']);
+  openMenu() {
+    if(this.userService.isClient())
+      this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+    else
+      this.router.navigate(['']);
   }
 
   onBack() {
-    if (this.userService.existsUser() && !this.userService.isEstablishment()) {
+    if (this.userService.isClient()) {
       this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
     } else
       this.router.navigate(['']);

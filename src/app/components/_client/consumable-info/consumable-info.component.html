@@ -12,7 +12,7 @@
             <div>
                 <button (click)="remQuantity()">-</button>
                 <button (click)="addQuantity()">+</button>
-                <p>{{ quantityItem }}</p>
+                <p>{{ item.quantityItem }}</p>
             </div>
         </div>
         <div id="conteiner-buttons">
@@ -20,6 +20,4 @@
             <button (click)="createItem()">Adicionar {{ amount }}</button>
         </div>
     </div>
-
-    {{ item | json }}
 </section>
