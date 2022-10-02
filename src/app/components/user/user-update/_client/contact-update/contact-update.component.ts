@@ -1,3 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from './../../../../../services/userService.service';
+import { ContactUpdate } from './../../../../../models/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientContactUpdateComponent implements OnInit {
 
-  constructor() { }
+  currentContactUpdate: ContactUpdate = {
+    phone: "",
+    email: ""
+  }
+
+  newContactUpdate: ContactUpdate = {
+    phone: "",
+    email: ""
+  }
+
+  constructor(private userService: UserService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userService.getContact(this.router.snapshot.params['id']).subscribe((data: any) => {
+      this.currentContactUpdate = data
+    });
+  }
+
+  doSave(){
+    if(this.newContactUpdate.email == "")
+      this.newContactUpdate.email = this.currentContactUpdate.email
+    else if(this.newContactUpdate.phone == "")
+      this.newContactUpdate.phone = this.currentContactUpdate.phone
+      
+      this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(data => {})
+    console.log(this.newContactUpdate);
+    
   }
 
 }
