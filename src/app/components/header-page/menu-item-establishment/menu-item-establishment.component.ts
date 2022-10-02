@@ -29,21 +29,21 @@ export class MenuItemEstablishmentComponent implements OnInit {
   }
 
   onPerfil() {
-    if (this.userService.userAutenticado.id != 0) 
+    if (this.userService.getUserAutenticado().id != 0) 
       this.router.navigate(['user-update']);
     else
       alert('Permissão Negada')
   }
 
   onComanda() {
-    if (this.userService.isEstablishment() && this.userService.userAutenticado.role)
+    if (this.userService.isEstablishment() && this.userService.getUserAutenticado().role)
       this.router.navigate([]);
     else
       alert('Permissão negada')
   }
 
   onConsumiveis(){
-    if (this.userService.isEstablishment() && this.userService.userAutenticado.role)
+    if (this.userService.isEstablishment() && this.userService.getUserAutenticado().role)
       this.router.navigate(['consumablesC/' + this.userAutenticado.id]);
     else
       alert('Permissão negada')
