@@ -1,3 +1,4 @@
+import { ConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { OrderStartComponent } from './components/_client/order-start/order-start.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
@@ -33,7 +34,9 @@ const routes: Routes = [
     {path: 'password/:id', component: UserAlterPasswordComponent}
   ]},
   {path: 'comandasC/:id', component: ClientComandasComponent},
-  {path: 'order-start/:idEstablishment', component: OrderStartComponent}
+  {path: 'order-start/:idEstablishment', component: OrderStartComponent},
+  {path: 'consumable-info/:idConsumable', component: ConsumableInfoComponent}
+  
 ];
 
 @NgModule({
