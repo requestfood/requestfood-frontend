@@ -19,7 +19,7 @@ export class HomeClientComponent implements OnInit {
 
   ativoSearchByName: boolean = false;
   
-  userAutenticado = this.userService.userAutenticado
+  userAutenticado = this.userService.getUserAutenticado()
 
   @Input()
   page: Page = {

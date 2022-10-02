@@ -1,4 +1,3 @@
-import { UserService } from './../../../services/userService.service';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentWithOrderReady } from './../../../models/EstablishmentWithOrderReady';
 import { Component, OnInit} from '@angular/core';
@@ -30,7 +29,7 @@ export class HomeEstablishmentComponent implements OnInit{
     });
   }
 
-  setStatusOrderToFinished(id: number, index: number){
+  setStatusOrderToFinished(id: number){
     this.service.setOrderStatus("FINISHED", id).subscribe(() =>{
 
     });

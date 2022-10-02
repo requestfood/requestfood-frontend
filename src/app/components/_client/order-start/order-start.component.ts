@@ -14,7 +14,7 @@ export class OrderStartComponent implements OnInit {
   order: createOrder = {
     id: 0,
     idEstablishment: this.activatedRoute.snapshot.params['idEstablishment'],
-    idClient: this.userService.userAutenticado.id
+    idClient: this.userService.getUserAutenticado().id
   }
 
   currentEstablishment = this.service.getCurrentEstablishment();
@@ -39,7 +39,7 @@ export class OrderStartComponent implements OnInit {
 
   onBack() {
     if (this.userService.existsUser() && !this.userService.isEstablishment()) {
-      this.router.navigate(['/home-client/' + this.userService.userAutenticado.id]);
+      this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
     } else
       this.router.navigate(['']);
   }
