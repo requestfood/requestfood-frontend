@@ -33,4 +33,10 @@ export class OrderStartComponent implements OnInit {
     console.log(this.activatedRoute.snapshot.params['idEstablishment']);
   }
 
+  onBack() {
+    if (this.userService.existsUser() && !this.userService.isEstablishment()) {
+      this.router.navigate(['/home-client/' + this.userService.userAutenticado.id]);
+    } else
+      this.router.navigate(['']);
+  }
 }

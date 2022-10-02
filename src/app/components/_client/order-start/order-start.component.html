@@ -1,15 +1,18 @@
-<div class="back-button">
-    <button class="backbutton">&lt; Voltar</button>
-  </div>
+<main>
 
   <section>
-    <div class="establishment">
-      <h1>McDonald's</h1>
-      <img src="/img/McDonald's.svg" alt="logo" class="logo" />
+
+    <div id="conteiner-establishment">
+      <h1>McDonalds</h1>
+      <img src="" class="image-establishment" alt="logo-establishment">
+    </div>
+    <div id="conteiner-buttons">
+      <button (click)="doCreateOrder()">Iniciar Comanda</button>
+      <button (click)="openEstablishment()">Ver Cardapio</button>
     </div>
 
-    <div class="buttons">
-        <button (click)="openEstablishment()">Show consumables</button>
-        <button (click)="doCreateOrder()">Criar comanda</button>
-    </div>
+    <button id="button-back" (click)="onBack()"><</button>
+
   </section>
+
+</main>
