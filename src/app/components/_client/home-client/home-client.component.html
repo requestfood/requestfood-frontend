@@ -18,7 +18,7 @@
 
 
         <div class="establishments">
-            <div class="card" (click)="openOrderStart(establishment.id)" *ngFor="let establishment of page.content">
+            <div class="card" (click)="openOrderStart(establishment)" *ngFor="let establishment of page.content">
                 <p class="name-establishment">{{ establishment?.name }}</p>
                 <div>
                     <img src="{{ establishment?.image }}" class="image-establishment">

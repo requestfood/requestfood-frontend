@@ -1,3 +1,4 @@
+import { OrderStartService } from './../../../services/order-start.service';
 import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/clientService.service';
@@ -48,7 +49,7 @@ export class HomeClientComponent implements OnInit {
     image: null
   }
 
-  constructor(private service: ClientService, private userService: UserService, private router: Router) {}
+  constructor(private service: ClientService, private userService: UserService, private router: Router, private orderStartService: OrderStartService) {}
 
   ngOnInit(): void {
     this.getEstablishments()
@@ -88,8 +89,8 @@ export class HomeClientComponent implements OnInit {
     return true;
   }
 
-  openOrderStart(idEstablishment: number) {
-    this.router.navigate(['/order-start/' + idEstablishment])
-    console.log(idEstablishment);
+  openOrderStart(currentEstablishment: EstablishmentCard) {
+    this.router.navigate(['/order-start/' + currentEstablishment.id])
+    this.orderStartService.setCurrentEstablishment(currentEstablishment);
   }
 }

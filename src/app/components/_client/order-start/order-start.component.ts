@@ -17,9 +17,13 @@ export class OrderStartComponent implements OnInit {
     idClient: this.userService.userAutenticado.id
   }
 
+  currentEstablishment = this.service.getCurrentEstablishment();
+
   constructor(private service: OrderStartService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.service.getCurrentEstablishment() );
+    
   }
 
   doCreateOrder() {

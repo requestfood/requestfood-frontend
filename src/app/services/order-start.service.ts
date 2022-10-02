@@ -1,3 +1,4 @@
+import { EstablishmentCard } from './../models/establishmentCard';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { createOrder } from './../models/createOrder';
@@ -7,6 +8,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OrderStartService {
+
+  currentEstablishment:EstablishmentCard = {
+    id: 0,
+    name: "",
+    image: ""
+  }
+
+  public setCurrentEstablishment(currentEstablishment: EstablishmentCard){
+    this.currentEstablishment = currentEstablishment;
+  }
+  public getCurrentEstablishment(): EstablishmentCard{
+    return this.currentEstablishment;
+  }
 
   constructor(private http: HttpClient) { }
 
