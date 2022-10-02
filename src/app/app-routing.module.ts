@@ -1,3 +1,4 @@
+import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { OrderStartComponent } from './components/_client/order-start/order-start.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
 import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
@@ -24,11 +25,12 @@ const routes: Routes = [
   {path: 'consumablesC/:idEstablishment', component: ClientConsumableComponent},
   {path: 'consumablesE/:idEstablishment', component: EstablishmentConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
-  {path: 'user-update/:id', component: UserUpdateComponent, children: [
-    {path: './contactC/', component: ClientContactUpdateComponent},
-    {path: './personC/', component: ClientProfileUpdateComponent},
-    {path: './contactE/', component: EstablishmentContactUpdateComponent},
-    {path: './personE/', component: EstablishmentProfileUpdateComponent}
+  {path: 'user-update', component: UserUpdateComponent, children: [
+    {path: 'contactC/:id', component: ClientContactUpdateComponent},
+    {path: 'profileC/:id', component: ClientProfileUpdateComponent},
+    {path: 'contactE/:id', component: EstablishmentContactUpdateComponent},
+    {path: 'profileE/:id', component: EstablishmentProfileUpdateComponent},
+    {path: 'password/:id', component: UserAlterPasswordComponent}
   ]},
   {path: 'comandasC/:id', component: ClientComandasComponent},
   {path: 'order-start/:idEstablishment', component: OrderStartComponent}

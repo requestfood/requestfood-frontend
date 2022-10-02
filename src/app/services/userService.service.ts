@@ -34,6 +34,9 @@ export class UserService {
     this.userAutenticado.role = role;
     this.userAutenticado.id = id
   }
+  public getUserAutenticado():any{
+    return this.userAutenticado;
+  }
 
   constructor(private http: HttpClient, ) {
     this.mostrarMenuLogin = new EventEmitter<string>()

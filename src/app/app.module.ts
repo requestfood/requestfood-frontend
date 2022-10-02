@@ -1,3 +1,4 @@
+import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
@@ -55,6 +56,7 @@ import { EstablishmentProfileUpdateComponent } from './components/user/user-upda
     ClientProfileUpdateComponent,
     EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
+    UserAlterPasswordComponent
   ],
   imports: [
     BrowserModule,

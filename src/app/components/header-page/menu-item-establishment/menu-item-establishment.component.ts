@@ -30,7 +30,7 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   onPerfil() {
     if (this.userService.userAutenticado.id != 0) 
-      this.router.navigate(['/user-update/' + this.userAutenticado.id]);
+      this.router.navigate(['user-update']);
     else
       alert('Permissão Negada')
   }
