@@ -11,7 +11,7 @@ import { ItemService } from 'src/app/services/item-service.service';
   templateUrl: './consumable-info.component.html',
   styleUrls: ['./consumable-info.component.css']
 })
-export class ConsumableInfoComponent implements OnInit {
+export class ClientConsumableInfoComponent implements OnInit {
 
   consumable = this.service.getCurrentConsumable()
 
