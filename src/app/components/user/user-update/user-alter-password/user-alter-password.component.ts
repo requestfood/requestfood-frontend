@@ -1,4 +1,3 @@
-import { itemOrder } from './../../../../models/itemOrder';
 import { UserService } from './../../../../services/userService.service';
 import { PasswordUpdate } from './../../../../models/UserUpdate';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-user-alter-password',
   templateUrl: './user-alter-password.component.html',
-  styleUrls: ['./user-alter-password.component.css']
+  styleUrls: ['../_client/contact-update/contact-update.component.css']
 })
 export class UserAlterPasswordComponent implements OnInit {
 

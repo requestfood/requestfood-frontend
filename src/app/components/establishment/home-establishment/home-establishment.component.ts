@@ -1,7 +1,10 @@
+import { ConsumableCard } from './../../../models/EstablishmentWithConsumables';
+import { ConsumableService } from 'src/app/services/consumableService.service';
+import { UserService } from './../../../services/userService.service';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentWithOrderReady } from './../../../models/EstablishmentWithOrderReady';
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-establishment',
@@ -18,7 +21,10 @@ export class HomeEstablishmentComponent implements OnInit{
 
   constructor(
     private service: EstablishmentService,
-    private router: ActivatedRoute
+    private actRouter: ActivatedRoute,
+    private userService: UserService,
+    private router: Router,
+    private consumableService: ConsumableService
   ) {}
 
   ngOnInit() {
@@ -26,7 +32,7 @@ export class HomeEstablishmentComponent implements OnInit{
   }
 
   getOrdersReady(){
-    this.service.getOrdersReady(this.router.snapshot.params['id']).subscribe((data: EstablishmentWithOrderReady) => {
+    this.service.getOrdersReady(this.actRouter.snapshot.params['id']).subscribe((data: EstablishmentWithOrderReady) => {
       this.establishmentWithOrderReady = data;
     });
   }
@@ -36,10 +42,6 @@ export class HomeEstablishmentComponent implements OnInit{
 
     });
     this.getOrdersReady();
-  }
-
-  newPage(){
-    
   }
 
 }

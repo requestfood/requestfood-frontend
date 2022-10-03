@@ -47,10 +47,11 @@ export class MenuItemEstablishmentComponent implements OnInit {
   }
 
   onConsumiveis(){
-    if (this.userService.isEstablishment())
-      this.router.navigate(['consumablesC/' + this.userAutenticado.id]);
-    else
+    if (this.userService.isEstablishment()){
+      this.router.navigate(['consumables/' + this.userAutenticado.id]);
+    }else{
       alert('Permissão negada')
+    }
   }
 
   onCadastrarConsumivel(){
