@@ -26,10 +26,10 @@ const routes: Routes = [
   {path: 'consumables/:idEstablishment', component: ClientConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
   {path: 'user-update', component: UserUpdateComponent, children: [
-    {path: 'contactC/:id', component: ClientContactUpdateComponent},
-    {path: 'profileC/:id', component: ClientProfileUpdateComponent},
-    {path: 'contactE/:id', component: EstablishmentContactUpdateComponent},
-    {path: 'profileE/:id', component: EstablishmentProfileUpdateComponent},
+    {path: 'contact-client/:id', component: ClientContactUpdateComponent},
+    {path: 'profile-client/:id', component: ClientProfileUpdateComponent},
+    {path: 'contact-establishment/:id', component: EstablishmentContactUpdateComponent},
+    {path: 'profile-establishment/:id', component: EstablishmentProfileUpdateComponent},
     {path: 'password/:id', component: UserAlterPasswordComponent}
   ]},
   {path: 'comandasC/:id', component: ClientComandasComponent},
