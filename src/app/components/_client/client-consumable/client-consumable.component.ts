@@ -257,9 +257,9 @@ export class ClientConsumableComponent implements OnInit {
     this.consumableService.setCurrentConsumable(currentConsumable)
 
     if (this.userService.isClient()) {
-      this.router.navigate(['consumableC-info/' + currentConsumable.id])
+      this.router.navigate(['consumableC-info/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ currentConsumable.id])
     }else
-    this.router.navigate(['consumableE-info/' + currentConsumable.id])
+    this.router.navigate(['consumableE-info/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ currentConsumable.id])
 
   }
 }
