@@ -34,8 +34,8 @@ const routes: Routes = [
   ]},
   {path: 'comandasC/:id', component: ClientComandasComponent},
   {path: 'order-start/:idEstablishment', component: OrderStartComponent},
-  {path: 'consumableC-info/:idConsumable', component: ClientConsumableInfoComponent},
-  {path: 'consumableE-info/:idConsumable', component: EstablishmentConsumableInfoComponent}
+  {path: 'consumableC-info/:idEstablishment/:idConsumable', component: ClientConsumableInfoComponent},
+  {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent}
 ];
 
 @NgModule({
