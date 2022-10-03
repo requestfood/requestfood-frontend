@@ -28,9 +28,9 @@ export class UserUpdateComponent implements OnInit {
   onInfoContato() {
 
       if (this.userService.isEstablishment())
-        this.router.navigate(['./user-update/contactE/' + this.userService.getUserAutenticado().id]);
+        this.router.navigate(['./user-update/contact-establishment/' + this.userService.getUserAutenticado().id]);
       else if(this.userService.isClient())
-        this.router.navigate(['./user-update/contactC/' + this.userService.getUserAutenticado().id]);
+        this.router.navigate(['./user-update/contact-client/' + this.userService.getUserAutenticado().id]);
       else
         this.router.navigate(['']);
   }
@@ -38,9 +38,9 @@ export class UserUpdateComponent implements OnInit {
   onInfoPessoais() {
 
       if (this.userService.isEstablishment())
-        this.router.navigate(['./user-update/profileE/' + this.userService.getUserAutenticado().id]);
+        this.router.navigate(['./user-update/profile-establishment/' + this.userService.getUserAutenticado().id]);
       else if(this.userService.isClient())
-        this.router.navigate(['./user-update/profileC/' + this.userService.getUserAutenticado().id]);
+        this.router.navigate(['./user-update/profile-client/' + this.userService.getUserAutenticado().id]);
       else
         this.router.navigate(['']);
   }

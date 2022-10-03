@@ -19,7 +19,12 @@ export class UserAlterPasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  doSave(){
-    this.userService.updatePassword(this.passwordUpdate, this.userService.getUserAutenticado().id).subscribe(data =>{})
+  doSave() {
+    this.userService.updatePassword(this.passwordUpdate, this.userService.getUserAutenticado().id).subscribe(data => { }, error => {
+      if (error.error.text == undefined)
+        alert(error.error.message)
+      else
+        alert(error.error.text)
+    })
   }
 }
