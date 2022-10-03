@@ -65,7 +65,7 @@ export class UserService {
 
   //  PUT  //
 
-  updateContact(contactUpdate: ContactUpdate, id: number): Observable<string>{
+  updateContact(contactUpdate: ContactUpdate, id: number): Observable<String>{
     return this.http.put<string>('http://localhost:8080/contact/' + id, contactUpdate)
   }
   getContact(id: number): Observable<any>{

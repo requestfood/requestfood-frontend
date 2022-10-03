@@ -1,4 +1,4 @@
-import { ClientUpdate } from './../models/UserUpdate';
+import { ClientUpdate, getClientUpdate } from './../models/UserUpdate';
 import { ClientOrders } from './../models/ClientWithOrders';
 import { Page } from 'src/app/models/page';
 import { Injectable } from '@angular/core';
@@ -39,6 +39,10 @@ export class ClientService {
 
   getEstablishmentByName(string: string, page: number): Observable<Page>{
     return this.http.get<Page>(this.endPointEstablishment + 'search-name/' + string + '/' + page)
+  }
+
+  getClientProfileUpdate(id: number):Observable<getClientUpdate>{
+    return this.http.get<getClientUpdate>(this.endPointClient + id)
   }
 
   //  PUT  //
