@@ -1,4 +1,3 @@
-import { itemOrder } from './../../../../models/itemOrder';
 import { UserService } from './../../../../services/userService.service';
 import { PasswordUpdate } from './../../../../models/UserUpdate';
 import { Component, OnInit } from '@angular/core';
