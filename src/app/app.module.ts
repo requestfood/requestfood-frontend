@@ -2,7 +2,6 @@ import { UserAlterPasswordComponent } from './components/user/user-update/user-a
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { HomeEstablishmentComponent } from './components/establishment/home-establishment/home-establishment.component';
-import { EstablishmentConsumableComponent } from './components/establishment/establishment-consumable/establishment-consumable.component';
 import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
 import { HomeClientComponent } from './components/_client/home-client/home-client.component';
 import { ClientConsumableComponent } from './components/_client/client-consumable/client-consumable.component';
@@ -31,7 +30,7 @@ import { ClientContactUpdateComponent } from './components/user/user-update/_cli
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
-import { ConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
+import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
 
 
 @NgModule({
@@ -48,7 +47,6 @@ import { ConsumableInfoComponent } from './components/_client/consumable-info/co
     ClientConsumableComponent,
     HomeClientComponent,
     CreateConsumableComponent,
-    EstablishmentConsumableComponent,
     HomeEstablishmentComponent,
     UserUpdateComponent,
     ClientComandasComponent,
@@ -58,7 +56,7 @@ import { ConsumableInfoComponent } from './components/_client/consumable-info/co
     EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
     UserAlterPasswordComponent,
-    ConsumableInfoComponent
+    ClientConsumableInfoComponent
   ],
   imports: [
     BrowserModule,

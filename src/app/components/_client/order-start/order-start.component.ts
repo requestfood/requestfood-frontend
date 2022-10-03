@@ -42,7 +42,7 @@ export class OrderStartComponent implements OnInit {
           this.itemService.setCurrentOrder(this.order)
         })
 
-      this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+      this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
     }else
     this.router.navigate(['']);
 
@@ -50,7 +50,7 @@ export class OrderStartComponent implements OnInit {
 
   openMenu() {
     if(this.userService.isClient())
-      this.router.navigate(['/consumablesC/' + this.activatedRoute.snapshot.params['idEstablishment']])
+      this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
     else
       this.router.navigate(['']);
   }
