@@ -1,4 +1,4 @@
-import { UserLogin } from './../../../models/userLogin';
+import { UserLogin } from './../../../models/user/userLogin';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { ClientService } from 'src/app/services/clientService.service';
 import { UserService } from './../../../services/userService.service';
@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit {
         this.userService.setUserAutenticado(this.holder.id, this.holder.role);
         this.router.navigate(['/home-client/' + this.holder.id])
       }
+      this.userService.mostrarMenuLogin.emit(true)
     })
+
   }
 }
 

@@ -1,7 +1,8 @@
 import { ClientService } from 'src/app/services/clientService.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientUpdate, getClientUpdate } from './../../../../../models/UserUpdate';
+import { ClientUpdate, getClientUpdate } from '../../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile-update',
@@ -48,11 +49,11 @@ export class ClientProfileUpdateComponent implements OnInit {
       this.newClientUpdate.gender = this.genderToNumber(this.currentClientUpdate.gender)
 
     this.clientService.updateClient(this.newClientUpdate, this.actRouter.snapshot.params['id']).subscribe(data => {
-    }, error => {
-      if (error.error.text == undefined)
-        alert(error.error.message)
+    }, err => {
+      if (err instanceof ErrorEvent)
+        alert(err.error.message)
       else
-        alert(error.error.text)
+        alert(err.error.text)
     }
     )
   }

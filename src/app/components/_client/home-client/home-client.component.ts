@@ -2,9 +2,9 @@ import { OrderStartService } from './../../../services/order-start.service';
 import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/clientService.service';
-import { EstablishmentCard } from '../../../models/establishmentCard';
+import { EstablishmentCard } from '../../../models/establishment/establishmentCard';
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
-import { Page } from 'src/app/models/page';
+import { Page } from 'src/app/models/core/page';
 
 @Component({
   selector: 'app-home-client',

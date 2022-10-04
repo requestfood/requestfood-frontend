@@ -1,4 +1,4 @@
-import { ConsumableCard } from './../models/EstablishmentWithConsumables';
+import { ConsumableCard } from './../models/establishment/EstablishmentWithConsumables';
 import { Injectable } from '@angular/core';
 
 @Injectable({

@@ -1,4 +1,4 @@
-import { EstablishmentCard } from './../models/establishmentCard';
+import { EstablishmentCard } from '../models/establishment/establishmentCard';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { createOrder } from './../models/createOrder';

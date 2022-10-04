@@ -1,5 +1,5 @@
 import { EstablishmentService } from './../../../services/establishmentService.service';
-import { EstablishmentRegister } from './../../../models/establishmentRegister';
+import { EstablishmentRegister } from './../../../models/establishment/establishmentRegister';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

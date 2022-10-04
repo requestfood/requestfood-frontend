@@ -1,5 +1,5 @@
 import { UserService } from './../../../../services/userService.service';
-import { PasswordUpdate } from './../../../../models/UserUpdate';
+import { PasswordUpdate } from '../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

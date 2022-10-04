@@ -1,10 +1,10 @@
-import { ClientUpdate, getClientUpdate } from './../models/UserUpdate';
-import { ClientOrders } from './../models/ClientWithOrders';
-import { Page } from 'src/app/models/page';
+import { ClientUpdate, getClientUpdate } from '../models/user/UserUpdate';
+import { ClientOrders } from './../models/_client/ClientWithOrders';
+import { Page } from 'src/app/models/core/page';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
-import { ClientRegister } from '../models/clientRegister';
+import { ClientRegister } from '../models/_client/clientRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +47,8 @@ export class ClientService {
 
   //  PUT  //
 
-  updateClient(clientUpdate: ClientUpdate, id: number): Observable<String>{
-    return this.http.put<String>(this.endPointClient + id, clientUpdate)
+  updateClient(putData: ClientUpdate, id: number): Observable<String>{
+    return this.http.put<String>(this.endPointClient + id, putData)
   }
 
 }

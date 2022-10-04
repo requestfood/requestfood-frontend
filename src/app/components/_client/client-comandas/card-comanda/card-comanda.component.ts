@@ -1,4 +1,4 @@
-import { OrderToClient } from './../../../../models/ClientWithOrders';
+import { OrderToClient } from './../../../../models/_client/ClientWithOrders';
 import { Component, Input, OnInit } from '@angular/core';
 import { OrderStatus } from 'src/app/models/orderStatus';
 

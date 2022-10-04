@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../../../services/userService.service';
-import { ContactUpdate } from './../../../../../models/UserUpdate';
+import { ContactUpdate } from '../../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

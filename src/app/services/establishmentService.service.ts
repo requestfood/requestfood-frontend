@@ -1,10 +1,10 @@
-import { EstablishmentUpdate } from './../models/UserUpdate';
-import { EstablishmentWithOrderReady } from './../models/EstablishmentWithOrderReady';
-import { EstablishmentRegister } from './../models/establishmentRegister';
+import { EstablishmentUpdate } from '../models/user/UserUpdate';
+import { EstablishmentWithOrderReady } from './../models/establishment/EstablishmentWithOrderReady';
+import { EstablishmentRegister } from './../models/establishment/establishmentRegister';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EstablishmentWithConsumables } from '../models/EstablishmentWithConsumables';
+import { EstablishmentWithConsumables } from '../models/establishment/EstablishmentWithConsumables';
 
 @Injectable({
   providedIn: 'root'
