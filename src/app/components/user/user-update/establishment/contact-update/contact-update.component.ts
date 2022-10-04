@@ -9,7 +9,6 @@ export class EstablishmentContactUpdateComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

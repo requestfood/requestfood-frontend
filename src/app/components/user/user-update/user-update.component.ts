@@ -32,11 +32,8 @@ export class UserUpdateComponent implements OnInit {
 
 
   onInfoContato() {
-
-    if (this.userService.isEstablishment())
-      this.router.navigate(['./user-update/contact-establishment/' + this.userService.getUserAutenticado().id]);
-    else if (this.userService.isClient())
-      this.router.navigate(['./user-update/contact-client/' + this.userService.getUserAutenticado().id]);
+    if (this.userService.existsUser())
+      this.router.navigate(['./user-update/contact/' + this.userService.getUserAutenticado().id]);
     else
       this.router.navigate(['']);
   }

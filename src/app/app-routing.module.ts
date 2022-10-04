@@ -26,9 +26,8 @@ const routes: Routes = [
   {path: 'consumables/:idEstablishment', component: ClientConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
   {path: 'user-update', component: UserUpdateComponent, children: [
-    {path: 'contact-client/:id', component: ClientContactUpdateComponent},
+    {path: 'contact/:id', component: ClientContactUpdateComponent},
     {path: 'profile-client/:id', component: ClientProfileUpdateComponent},
-    {path: 'contact-establishment/:id', component: EstablishmentContactUpdateComponent},
     {path: 'profile-establishment/:id', component: EstablishmentProfileUpdateComponent},
     {path: 'password/:id', component: UserAlterPasswordComponent}
   ]},
