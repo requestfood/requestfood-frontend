@@ -21,7 +21,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
+import { PaginationComponent } from './components/core/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +31,8 @@ import { ClientProfileUpdateComponent } from './components/user/user-update/_cli
 import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
 import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
     EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
     UserAlterPasswordComponent,
-    ClientConsumableInfoComponent
+    ClientConsumableInfoComponent,
+    DialogConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
   ],
   providers: [ClientService, EstablishmentService, UserService],
   bootstrap: [AppComponent]

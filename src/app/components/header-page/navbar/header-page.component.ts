@@ -9,7 +9,9 @@ import { Component, Input, OnInit} from '@angular/core';
 })
 export class HeaderPageComponent implements OnInit {
 
-  public menuLateralAberto: boolean = false;
+  public menuLateralAberto = false;
+
+  mostrarMenuLateral = false;
 
   userAutenticado = {
     id: 0,
@@ -23,6 +25,12 @@ export class HeaderPageComponent implements OnInit {
 
   ngOnInit(): void {
      this.userAutenticado = this.userService.getUserAutenticado()
+
+     this.userService.mostrarMenuLogin.subscribe(result => {
+      this.mostrarMenuLateral = result
+      if(result != true)
+        this.menuLateralAberto = result
+     })
   }
 
   onMenu(){
@@ -35,7 +43,7 @@ export class HeaderPageComponent implements OnInit {
   }
 
   onMenuLateral(){
-    this.menuLateralAberto = !this.menuLateralAberto;
+    this.menuLateralAberto = !this.menuLateralAberto
   }
 
   onFechar(){

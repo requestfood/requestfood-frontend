@@ -19,17 +19,15 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   constructor(
     private userService: UserService, 
-    private router: Router, 
-    private header: HeaderPageComponent
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   onSair() {
-    this.userService.setUserAutenticado(0, "")
-    this.header.menuLateralAberto = false;
-    this.router.navigate(['']);
+    if(this.userService.logout())
+      this.router.navigate([''])
   }
 
   onPerfil() {
