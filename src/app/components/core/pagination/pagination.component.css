@@ -1,0 +1,35 @@
+div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+    padding: 5px;
+}
+button{
+    width: 50px;
+    height: 50px;
+    
+    font-size: 150%;
+    font-weight: bold;
+
+    border-radius: 50%;
+    border: 1px transparent solid;
+    background-color: #fecb1a;
+
+    font-weight: 400;
+
+}
+
+button:hover{
+    cursor: pointer;
+}
+button:disabled{
+    cursor: default;
+}
+
+p{
+    font-size: 100%;
+    font-weight: 500;
+}
