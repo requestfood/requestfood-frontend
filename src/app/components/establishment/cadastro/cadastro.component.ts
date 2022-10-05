@@ -1,6 +1,9 @@
+import { FileHandle } from './../../../models/file-handle';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentRegister } from './../../../models/establishmentRegister';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FileHandle } from 'src/app/models/file-handle';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cadastro-establishment',
@@ -9,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroEstablishmentComponent implements OnInit {
 
- currentTab: number; 
+ currentTab: number;
 
   establishment: EstablishmentRegister = {
     name: "",
@@ -19,14 +22,15 @@ export class CadastroEstablishmentComponent implements OnInit {
     timeToOpen: "",
     timeToClose: "",
     description: "",
-    image: ""
+    image: []
    }
 
-   passwordTest: String = ''; 
+   passwordTest: String = '';
 
- constructor(private service: EstablishmentService) {
-  this.currentTab = 0;
- }
+   constructor(private service: EstablishmentService,
+               private sanitizer: DomSanitizer) {
+     this.currentTab = 0;
+    }
 
  ngOnInit(): void {}
 
@@ -47,7 +51,7 @@ export class CadastroEstablishmentComponent implements OnInit {
       this.currentTab = this.currentTab + n;
     }
   }
- 
+
   validPassword(){
     if(this.establishment.password == this.passwordTest){
       console.log('Senhas combinam');
@@ -56,5 +60,21 @@ export class CadastroEstablishmentComponent implements OnInit {
     }
   }
 
+  onFileSelected(event: any) {
+
+    if(event.target.files){
+      const file = event.target.files[0]
+
+      const fileHandle: FileHandle = {
+        file: file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+
+      this.establishment.image.push(fileHandle)
+    }
+
+  }
 }
 

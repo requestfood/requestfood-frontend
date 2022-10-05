@@ -1,6 +1,6 @@
 <body>
     <section>
-      
+
         <form #lunchForm="ngForm">
             <div class="titulos">
                 <h1 class="title" [ngStyle]="{'opacity': (currentTab == 0 ? '100%' : '0%')}">Bem-Vindo!</h1>
@@ -23,7 +23,8 @@
                     minlength="2" />
 
                 <label class="label-text" for="image" id="image">Logo do Estabelecimento</label>
-                <input type="file" class="input-image" [(ngModel)]="establishment.image" id="image" name="image" />
+                <input type="file" class="input-image"
+                value="select" #selectFile (change)="onFileSelected($event)"/>
             </div>
 
             <div class="tab" *ngIf="currentTab == 1">
@@ -57,7 +58,7 @@
                 <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
                 <button (click)="alterStep(1)" *ngIf="currentTab != 3" (click)="validPassword()">Próximo</button>
                 <button [disabled]="lunchForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 3">Cadastrar</button>
-                    
+
             </div>
         </form>
 
