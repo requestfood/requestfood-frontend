@@ -1,3 +1,6 @@
+import { ClientService } from './../../../services/clientService.service';
+import { EstablishmentService } from './../../../services/establishmentService.service';
+import { catchError, empty, of } from 'rxjs';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from '../../../models/core/dialog';
 import { Router } from '@angular/router';
@@ -12,13 +15,24 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UserUpdateComponent implements OnInit {
 
+  nameClient: string = ""
+
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
+    private clientService: ClientService,
+    private establishmentService: EstablishmentService,
     private router: Router) { }
 
   ngOnInit() {
     this.onInfoPessoais()
+    this.getName()
+    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
+  }
+
+  getName(){
+    if(this.userService.isClient())
+      this.clientService.getOneClient(this.userService.getUserAutenticado().id).subscribe(data => this.nameClient = data.name)
   }
 
   onVoltar() {
@@ -70,13 +84,18 @@ export class UserUpdateComponent implements OnInit {
       console.log(result);
 
       if (result) {
-        this.userService.deleteUser().subscribe(() => { }, err => {
-          if (err.status == 200) {
-            if (this.userService.logout())
-              this.router.navigate([''])
-          }
-        })
+        this.userService.deleteUser()
+          .pipe(
+            catchError(err => {
+              if (err.status == 200) {
+                if (this.userService.logout())
+                  this.router.navigate([''])
+              }
+              return of();
+            }))
+            .subscribe(() => { })
       }
-    });
+    })
   }
 }
+

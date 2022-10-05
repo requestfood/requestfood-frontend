@@ -1,3 +1,4 @@
+import { catchError, EmptyError, of } from 'rxjs';
 import { ClientService } from 'src/app/services/clientService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientUpdate, getClientUpdate } from '../../../../../models/user/UserUpdate';
@@ -32,9 +33,16 @@ export class ClientProfileUpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.getClientProfileUpdate(this.actRouter.snapshot.params['id']).subscribe((data: getClientUpdate) => {
+    this.getClient()
+
+  }
+
+  getClient(){
+    this.clientService.getOneClient(this.actRouter.snapshot.params['id']).subscribe((data: getClientUpdate) => {
       this.currentClientUpdate = data;
       this.newClientUpdate.gender = this.genderToNumber(data.gender)
+
+      this.clientService.clientRefresh.emit(data.name)
     })
   }
 
@@ -48,14 +56,16 @@ export class ClientProfileUpdateComponent implements OnInit {
     if (this.validatorGender())
       this.newClientUpdate.gender = this.genderToNumber(this.currentClientUpdate.gender)
 
-    this.clientService.updateClient(this.newClientUpdate, this.actRouter.snapshot.params['id']).subscribe(data => {
-    }, err => {
-      if (err instanceof ErrorEvent)
-        alert(err.error.message)
-      else
-        alert(err.error.text)
-    }
-    )
+    this.clientService.updateClient(this.newClientUpdate, this.actRouter.snapshot.params['id'])
+    .pipe(
+      catchError(err => {
+        if (err.error.text == undefined)
+            alert(err.error.message)
+          else
+            this.getClient()
+
+          return of();
+      })).subscribe(data => { })
   }
 
   validatorGender(): boolean {

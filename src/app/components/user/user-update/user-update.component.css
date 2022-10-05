@@ -139,3 +139,10 @@ main{
 
     margin-left: 10%;
 }
+
+p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 250%;
+    font-weight: 400;
+    text-align: center;
+}
