@@ -1,7 +1,7 @@
 import { ClientUpdate, getClientUpdate } from '../models/user/UserUpdate';
 import { ClientOrders } from './../models/_client/ClientWithOrders';
 import { Page } from 'src/app/models/core/page';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 import { ClientRegister } from '../models/_client/clientRegister';
@@ -11,14 +11,12 @@ import { ClientRegister } from '../models/_client/clientRegister';
 })
 export class ClientService {
 
+  clientRefresh = new EventEmitter<string>()
+
   endPointClient: string = 'http://localhost:8080/client/'
   endPointEstablishment: string = 'http://localhost:8080/establishment/'
 
   constructor(private http: HttpClient) {}
-
-  findClientById(id: number): Observable<any>{
-    return this.http.get<any>(this.endPointClient + id);
-  }
 
   //  POST  //
 
@@ -41,7 +39,7 @@ export class ClientService {
     return this.http.get<Page>(this.endPointEstablishment + 'search-name/' + string + '/' + page)
   }
 
-  getClientProfileUpdate(id: number):Observable<getClientUpdate>{
+  getOneClient(id: number):Observable<getClientUpdate>{
     return this.http.get<getClientUpdate>(this.endPointClient + id)
   }
 

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { HeaderPageComponent } from './../components/header-page/navbar/header-page.component';
 import { ContactUpdate, PasswordUpdate } from '../models/user/UserUpdate';
-import { Observable } from 'rxjs';
+import { Observable, catchError, empty } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { UserLogin } from '.././models/user/userLogin';
@@ -52,8 +52,6 @@ export class UserService {
     
     return false;
   }
-
- 
 
   public logout(): boolean{
     this.setUserAutenticado(0, "")
