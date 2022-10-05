@@ -25,9 +25,9 @@ export class UserUpdateComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
     this.onInfoPessoais()
     this.getName()
-    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
   }
 
   getName() {
@@ -53,7 +53,6 @@ export class UserUpdateComponent implements OnInit {
   }
 
   onInfoPessoais() {
-
     if (this.userService.isEstablishment())
       this.router.navigate(['./user-update/profile-establishment/' + this.userService.getUserAutenticado().id]);
     else if (this.userService.isClient())
