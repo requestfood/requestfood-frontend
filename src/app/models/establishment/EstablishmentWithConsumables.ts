@@ -1,5 +1,5 @@
 import { Time } from "@angular/common"
-import { Page } from "./page"
+import { Page } from "../core/page"
 
 export interface EstablishmentWithConsumables{
 

@@ -1,3 +1,4 @@
+import { LoadingInterceptor } from './components/core/interceptors/loading.interceptor';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
@@ -19,19 +20,22 @@ import { LoginComponent } from './components/user/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { AppComponent } from './app.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
-import { HttpClientModule } from '@angular/common/http';
+import { PaginationComponent } from './components/core/pagination/pagination.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
-import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
 import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
-
+import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
+import { LoadingComponent } from './components/core/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -53,10 +57,11 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
     CardComandaComponent,
     ClientContactUpdateComponent,
     ClientProfileUpdateComponent,
-    EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
     UserAlterPasswordComponent,
-    ClientConsumableInfoComponent
+    ClientConsumableInfoComponent,
+    DialogConfirmComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,9 +69,16 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
-  providers: [ClientService, EstablishmentService, UserService],
+  providers: [ClientService, EstablishmentService, UserService, 
+  {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: LoadingInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

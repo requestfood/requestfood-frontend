@@ -1,4 +1,4 @@
-import { OrderStatus } from './orderStatus';
+import { OrderStatus } from '../orderStatus';
 export interface ClientOrders{
     id: number,
     ordersClient: OrderToClient[]

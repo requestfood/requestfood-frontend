@@ -1,5 +1,5 @@
 import { UserService } from './../../../../services/userService.service';
-import { PasswordUpdate } from './../../../../models/UserUpdate';
+import { PasswordUpdate } from '../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,7 +19,12 @@ export class UserAlterPasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  doSave(){
-    this.userService.updatePassword(this.passwordUpdate, this.userService.getUserAutenticado().id).subscribe(data =>{})
+  doSave() {
+    this.userService.updatePassword(this.passwordUpdate, this.userService.getUserAutenticado().id).subscribe(data => { }, error => {
+      if (error.error.text == undefined)
+        alert(error.error.message)
+      else
+        alert(error.error.text)
+    })
   }
 }

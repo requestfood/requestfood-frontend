@@ -1,19 +1,26 @@
-import { ContactUpdate, PasswordUpdate } from './../models/UserUpdate';
-import { Observable, retryWhen } from 'rxjs';
+import { ContactUpdate, PasswordUpdate } from '../models/user/UserUpdate';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { UserLogin } from '../models/userLogin';
+import { Injectable, EventEmitter } from '@angular/core';
+import { UserLogin } from '.././models/user/userLogin';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  mostrarMenuLogin;
+  mostrarMenuLogin = new EventEmitter<boolean>()
   
   userAutenticado = {
     id: 0,
     role: "",
+  }
+  public setUserAutenticado(id: number, role:string){
+    this.userAutenticado.role = role;
+    this.userAutenticado.id = id
+  }
+  public getUserAutenticado():any{
+    return this.userAutenticado;
   }
 
   existsUser(): boolean{
@@ -44,16 +51,17 @@ export class UserService {
     return false;
   }
 
-  public setUserAutenticado(id: number, role:string){
-    this.userAutenticado.role = role;
-    this.userAutenticado.id = id
-  }
-  public getUserAutenticado():any{
-    return this.userAutenticado;
+  public logout(): boolean{
+    this.setUserAutenticado(0, "")
+
+    if(!this.existsUser()){
+      this.mostrarMenuLogin.emit(false)
+      return true
+    }else
+      return false
   }
 
-  constructor(private http: HttpClient, ) {
-    this.mostrarMenuLogin = new EventEmitter<string>()
+  constructor(private http: HttpClient) {
   }
 
 
@@ -65,7 +73,7 @@ export class UserService {
 
   //  PUT  //
 
-  updateContact(contactUpdate: ContactUpdate, id: number): Observable<string>{
+  updateContact(contactUpdate: ContactUpdate, id: number): Observable<String>{
     return this.http.put<string>('http://localhost:8080/contact/' + id, contactUpdate)
   }
   getContact(id: number): Observable<any>{
@@ -76,4 +84,13 @@ export class UserService {
     return this.http.put<String>('http://localhost:8080/user/' + id + '/password', passwordUpdate)
   }
 
+  //  DELETE  //
+  
+  deleteUser(): Observable<any>{
+    if(this.isClient())
+      return this.http.delete<any>('http://localhost:8080/client/' + this.getUserAutenticado().id);
+    else 
+      return this.http.delete<any>('http://localhost:8080/establishment/' + this.getUserAutenticado().id);
+
+  }
 }

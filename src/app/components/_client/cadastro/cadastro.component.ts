@@ -1,6 +1,6 @@
 import { ClientService } from 'src/app/services/clientService.service';
 import { Component, OnInit } from '@angular/core';
-import { ClientRegister } from 'src/app/models/clientRegister';
+import { ClientRegister } from 'src/app/models/_client/clientRegister';
 
 @Component({
   selector: 'app-cadastro-client',

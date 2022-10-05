@@ -1,7 +1,7 @@
 import { UserService } from './../../../services/userService.service';
-import { Page } from './../../../models/page';
+import { Page } from '../../../models/core/page';
 import { Component, OnInit, Input } from '@angular/core';
-import { ConsumableCard, EstablishmentWithConsumables } from '../../../models/EstablishmentWithConsumables';
+import { ConsumableCard, EstablishmentWithConsumables } from '../../../models/establishment/EstablishmentWithConsumables';
 import { EstablishmentService } from '../../../services/establishmentService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsumableService } from 'src/app/services/consumableService.service';

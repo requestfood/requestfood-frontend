@@ -1,6 +1,6 @@
 import { ClientService } from 'src/app/services/clientService.service';
-import { ClientOrders, OrderToClient } from './../../../models/ClientWithOrders';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ClientOrders } from './../../../models/_client/ClientWithOrders';
+import { Router } from '@angular/router';
 import { UserService } from './../../../services/userService.service';
 import { Component, OnInit } from '@angular/core';
 

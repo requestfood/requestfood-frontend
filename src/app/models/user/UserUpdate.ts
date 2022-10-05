@@ -1,8 +1,12 @@
 export interface ClientUpdate{
-
     name: string,
     surname: string,
-    gender: ""
+    gender: number
+}
+export interface getClientUpdate{
+    name: string,
+    surname: string,
+    gender: string
 }
 
 export interface EstablishmentUpdate{

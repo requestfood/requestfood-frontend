@@ -1,24 +1,22 @@
-import { ClientUpdate } from './../models/UserUpdate';
-import { ClientOrders } from './../models/ClientWithOrders';
-import { Page } from 'src/app/models/page';
-import { Injectable } from '@angular/core';
+import { ClientUpdate, getClientUpdate } from '../models/user/UserUpdate';
+import { ClientOrders } from './../models/_client/ClientWithOrders';
+import { Page } from 'src/app/models/core/page';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
-import { ClientRegister } from '../models/clientRegister';
+import { ClientRegister } from '../models/_client/clientRegister';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
+  clientRefresh = new EventEmitter<string>()
+
   endPointClient: string = 'http://localhost:8080/client/'
   endPointEstablishment: string = 'http://localhost:8080/establishment/'
 
   constructor(private http: HttpClient) {}
-
-  findClientById(id: number): Observable<any>{
-    return this.http.get<any>(this.endPointClient + id);
-  }
 
   //  POST  //
 
@@ -41,10 +39,14 @@ export class ClientService {
     return this.http.get<Page>(this.endPointEstablishment + 'search-name/' + string + '/' + page)
   }
 
+  getOneClient(id: number):Observable<getClientUpdate>{
+    return this.http.get<getClientUpdate>(this.endPointClient + id)
+  }
+
   //  PUT  //
 
-  updateClient(clientUpdate: ClientUpdate, id: number): Observable<String>{
-    return this.http.put<String>(this.endPointClient + id, clientUpdate)
+  updateClient(putData: ClientUpdate, id: number): Observable<String>{
+    return this.http.put<String>(this.endPointClient + id, putData)
   }
 
 }

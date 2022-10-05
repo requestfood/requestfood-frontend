@@ -1,7 +1,6 @@
 import { UserService } from './../../../services/userService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { itemOrder } from './../../../models/itemOrder';
-import { ConsumableCard } from './../../../models/EstablishmentWithConsumables';
 import { Component, OnInit } from '@angular/core';
 import { ConsumableService } from 'src/app/services/consumableService.service';
 import { ItemService } from 'src/app/services/item-service.service';

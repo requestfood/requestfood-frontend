@@ -25,9 +25,8 @@ export class MenuItemClientComponent implements OnInit {
   }
 
   onSair(){
-    this.userService.setUserAutenticado(0, "")
-    this.header.menuLateralAberto = false;
-    this.router.navigate(['']);
+    if(this.userService.logout())
+    this.router.navigate([''])
   }
 
   onPerfil() {

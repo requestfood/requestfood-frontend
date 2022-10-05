@@ -3,7 +3,6 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { OrderStartComponent } from './components/_client/order-start/order-start.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
-import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
@@ -26,10 +25,9 @@ const routes: Routes = [
   {path: 'consumables/:idEstablishment', component: ClientConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
   {path: 'user-update', component: UserUpdateComponent, children: [
-    {path: 'contactC/:id', component: ClientContactUpdateComponent},
-    {path: 'profileC/:id', component: ClientProfileUpdateComponent},
-    {path: 'contactE/:id', component: EstablishmentContactUpdateComponent},
-    {path: 'profileE/:id', component: EstablishmentProfileUpdateComponent},
+    {path: 'contact/:id', component: ClientContactUpdateComponent},
+    {path: 'profile-client/:id', component: ClientProfileUpdateComponent},
+    {path: 'profile-establishment/:id', component: EstablishmentProfileUpdateComponent},
     {path: 'password/:id', component: UserAlterPasswordComponent}
   ]},
   {path: 'comandasC/:id', component: ClientComandasComponent},

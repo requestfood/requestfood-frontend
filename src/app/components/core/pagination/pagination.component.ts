@@ -1,4 +1,4 @@
-import { Page } from 'src/app/models/page';
+import { Page } from 'src/app/models/core/page';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
