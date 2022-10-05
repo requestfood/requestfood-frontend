@@ -131,13 +131,12 @@ main{
 
 .container-form{
     height: 100%;
-    width: 60%;
+    width: 100%;
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 
-    margin-left: 10%;
 }
 
 p{
