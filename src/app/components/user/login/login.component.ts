@@ -5,6 +5,7 @@ import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
 
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { catchError, empty, of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   fazerLogin() {
-    this.userService.fazerLogin(this.userLogin).subscribe(data => {
+    this.userService.fazerLogin(this.userLogin).pipe(
+      catchError(err => {
+          
+        alert(err.error.message)
+
+        return of();
+      })
+    ).subscribe(data => {
       this.holder = data;
       
       if (this.holder.role == "ESTABLISHMENT_USER"){
@@ -47,7 +55,6 @@ export class LoginComponent implements OnInit {
       }
       this.userService.mostrarMenuLogin.emit(true)
     })
-
   }
 }
 
