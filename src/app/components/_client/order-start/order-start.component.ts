@@ -33,23 +33,26 @@ export class OrderStartComponent implements OnInit {
   }
 
   doCreateOrder() {
-    if (this.userService.isClient()) {
-      
-      this.service.addOrder(this.order).subscribe(
-        (data: createOrder) => {
 
-          this.order = data
-          this.itemService.setCurrentOrder(this.order)
-        })
+    if (this.service) {
+      if (this.userService.isClient()) {
 
-      this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
-    }else
-    this.router.navigate(['']);
+        this.service.addOrder(this.order).subscribe(
+          (data: createOrder) => {
 
+            this.order = data
+            this.itemService.setCurrentOrder(this.order)
+          })
+
+        this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
+      } else
+        this.router.navigate(['']);
+
+    }
   }
 
   openMenu() {
-    if(this.userService.isClient())
+    if (this.userService.isClient())
       this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
     else
       this.router.navigate(['']);
