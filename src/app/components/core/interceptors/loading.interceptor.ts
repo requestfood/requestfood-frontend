@@ -1,4 +1,4 @@
-import { LoadingService } from './../../../services/loading.service';
+import { LoadingService } from '../../../services/core/loading.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,

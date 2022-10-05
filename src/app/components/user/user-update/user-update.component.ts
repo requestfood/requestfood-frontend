@@ -25,13 +25,13 @@ export class UserUpdateComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
     this.onInfoPessoais()
     this.getName()
-    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
   }
 
-  getName(){
-    if(this.userService.isClient())
+  getName() {
+    if (this.userService.isClient())
       this.clientService.getOneClient(this.userService.getUserAutenticado().id).subscribe(data => this.nameClient = data.name)
   }
 
@@ -53,7 +53,6 @@ export class UserUpdateComponent implements OnInit {
   }
 
   onInfoPessoais() {
-
     if (this.userService.isEstablishment())
       this.router.navigate(['./user-update/profile-establishment/' + this.userService.getUserAutenticado().id]);
     else if (this.userService.isClient())
@@ -81,19 +80,18 @@ export class UserUpdateComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-
+      
       if (result) {
         this.userService.deleteUser()
           .pipe(
-            catchError(err => {
-              if (err.status == 200) {
-                if (this.userService.logout())
-                  this.router.navigate([''])
-              }
-              return of();
-            }))
-            .subscribe(() => { })
+            catchError(() => {
+              if(this.userService.logout())
+                this.router.navigate([''])
+
+              return of()
+            })
+          )
+          .subscribe(() => { })
       }
     })
   }

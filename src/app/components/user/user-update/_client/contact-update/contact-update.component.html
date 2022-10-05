@@ -4,11 +4,11 @@
 
     <div>
         <label for="phone">Telefone</label>
-        <input type="number" [placeholder]="currentContactUpdate.phone" [(ngModel)]="newContactUpdate.phone" name="phone"
+        <input type="number" [value]="currentContactUpdate.phone" [(ngModel)]="newContactUpdate.phone" name="phone"
             id="phone" maxlength="11" minlength="8">
 
         <label for="email">Email</label>
-        <input type="email" [placeholder]="currentContactUpdate.email" [(ngModel)]="newContactUpdate.email" name="email"
+        <input type="email" [value]="currentContactUpdate.email" [(ngModel)]="newContactUpdate.email" name="email"
             id="email" size="10" minlength="12">
     </div>
 

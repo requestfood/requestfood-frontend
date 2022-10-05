@@ -1,3 +1,4 @@
+import { HttpErrorInterceptor } from './components/core/interceptors/http-error.interceptor';
 import { LoadingInterceptor } from './components/core/interceptors/loading.interceptor';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { CardComandaComponent } from './components/_client/client-comandas/card-comanda/card-comanda.component';
@@ -22,6 +23,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { AppComponent } from './app.component';
@@ -71,14 +73,21 @@ import { LoadingComponent } from './components/core/loading/loading.component';
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
-  providers: [ClientService, EstablishmentService, UserService, 
+  providers: [
   {
     provide: HTTP_INTERCEPTORS, 
     useClass: LoadingInterceptor,
     multi: true
-  }],
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
