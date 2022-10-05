@@ -1,4 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
+import { UserService } from './../../../services/userService.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { itemOrder } from './../../../models/itemOrder';
 import { Component, OnInit } from '@angular/core';
 import { ConsumableService } from 'src/app/services/consumableService.service';
@@ -22,12 +23,13 @@ export class ClientConsumableInfoComponent implements OnInit {
     idConsumable: this.consumable.id,
     quantityItem: 0,
     obsItem: ""
-  } 
+  }
 
   constructor(
     private service: ConsumableService,
-    private itemService: ItemService, 
-    private actRoute: ActivatedRoute
+    private itemService: ItemService,
+    private actRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   addQuantity(quantity: number = this.item.quantityItem) {
     this.item.quantityItem = quantity + 1
-    this.calculateAmount() 
+    this.calculateAmount()
   }
 
   remQuantity(quantity: number = this.item.quantityItem) {
@@ -50,5 +52,9 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   createItem() {
     this.itemService.addItem(this.item).subscribe((data: itemOrder) => {})
+  }
+
+  backPage() {
+    this.router.navigate(['consumables/'+ this.actRoute.snapshot.params['idEstablishment']])
   }
 }

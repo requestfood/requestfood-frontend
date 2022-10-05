@@ -10,7 +10,7 @@ main {
 }
 
 section {
-    width: 70%;
+    width: 85%;
     height: 90%;
 
     display: flex;
@@ -25,7 +25,7 @@ section {
 
 #conteiner-principal {
     width: 100%;
-    height: 90%;
+    height: 70%;
 
     display: flex;
     justify-content: center;
@@ -33,9 +33,9 @@ section {
 }
 
 #conteiner-image {
-    margin: 3%;
+    margin-right: 3%;
 
-    height: 80%;
+    height: 100%;
     width: 35%;
 
     border: 3px solid #fecb1a;
@@ -43,9 +43,8 @@ section {
 }
 
 #conteiner-second {
-    margin: 3%;
 
-    height: 80%;
+    height: 100%;
     width: 55%;
 
     display: flex;
@@ -59,6 +58,10 @@ section {
 #conteiner-info {
     width: 95%;
     height: 95%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #conteiner-quantity {
@@ -66,7 +69,7 @@ section {
 }
 
 #conteiner-quantity p {
-    height: 10%;
+    height: 90%;
     width: 10%;
 
     margin-right: 2%;
@@ -79,13 +82,12 @@ section {
 
     border: 2px solid #fecb1a;
     border-radius: 5px;
-    outline: none;
 
     text-align: center;
 }
 
 #conteiner-quantity button{
-    height: 10%;
+    height: 100%;
     width: 10%;
 
     margin-right: 2%;
@@ -101,7 +103,7 @@ section {
     outline: none;
 }
 
-input {
+textarea {
     width: 95%;
     height: 50%;
 
@@ -113,8 +115,41 @@ input {
     border: none;
     border-top: 1px solid;
     outline: none;
+
+    font-family: 'Roboto', sans-serif;
+
+    resize: none;
 }
 
-input::placeholder {
+textarea::placeholder {
     font-style: italic;
+}
+
+#conteiner-buttons {
+  height: 20%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#conteiner-buttons button {
+  width: 26%;
+  height: 50%;
+
+  margin-right: 3%;
+
+  font-weight: 400;
+  font-size: 160%;
+  text-align: center;
+  color: #000000;
+
+  border: none;
+
+  background: #fecb1a;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  transition: 0.2s;
+  z-index: 10;
 }
