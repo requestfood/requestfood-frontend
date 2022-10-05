@@ -59,13 +59,12 @@ export class ClientProfileUpdateComponent implements OnInit {
     this.clientService.updateClient(this.newClientUpdate, this.actRouter.snapshot.params['id'])
     .pipe(
       catchError(err => {
-        if (err.error.text == undefined)
-            alert(err.error.message)
-          else
-            this.getClient()
-
-          return of();
-      })).subscribe(data => { })
+        
+        this.getClient()
+        
+        return of()
+      })
+      ).subscribe(data => { })
   }
 
   validatorGender(): boolean {

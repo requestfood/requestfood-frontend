@@ -30,8 +30,8 @@ export class UserUpdateComponent implements OnInit {
     this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
   }
 
-  getName(){
-    if(this.userService.isClient())
+  getName() {
+    if (this.userService.isClient())
       this.clientService.getOneClient(this.userService.getUserAutenticado().id).subscribe(data => this.nameClient = data.name)
   }
 
@@ -81,19 +81,18 @@ export class UserUpdateComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-
+      
       if (result) {
         this.userService.deleteUser()
           .pipe(
-            catchError(err => {
-              if (err.status == 200) {
-                if (this.userService.logout())
-                  this.router.navigate([''])
-              }
-              return of();
-            }))
-            .subscribe(() => { })
+            catchError(() => {
+              if(this.userService.logout())
+                this.router.navigate([''])
+
+              return of()
+            })
+          )
+          .subscribe(() => { })
       }
     })
   }

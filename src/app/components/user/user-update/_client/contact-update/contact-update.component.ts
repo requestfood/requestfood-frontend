@@ -1,4 +1,5 @@
-import { catchError, empty, of } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { catchError, empty, of, finalize } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../../../services/userService.service';
 import { ContactUpdate } from '../../../../../models/user/UserUpdate';
@@ -27,6 +28,10 @@ export class ClientContactUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getContact()
+  }
+
+  getContact() {
     this.userService.getContact(this.router.snapshot.params['id']).subscribe((data: any) => {
       this.currentContactUpdate = data
     });
@@ -38,20 +43,7 @@ export class ClientContactUpdateComponent implements OnInit {
     else if (this.newContactUpdate.phone == "")
       this.newContactUpdate.phone = this.currentContactUpdate.phone
 
-    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id'])
-      .pipe(
-        catchError(err => {
-          if (err.error.text == undefined)
-            alert(err.error.message)
-          else
-            alert(err.error.text)
-
-          return of();
-        })
-      )
-      .subscribe(data => { })
-
-
+    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(() => { })
   }
 
 }

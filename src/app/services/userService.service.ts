@@ -15,6 +15,7 @@ export class UserService {
     id: 0,
     role: "",
   }
+  
   public setUserAutenticado(id: number, role:string){
     this.userAutenticado.role = role;
     this.userAutenticado.id = id
