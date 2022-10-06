@@ -4,7 +4,7 @@
 
     <div class="container-button">
         <button class="menu-button">
-            <img *ngIf="mostrarMenuLateral" class="menu-image" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48.svg"
+            <img *ngIf="existsUser()" class="menu-image" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48.svg"
                 alt="Menu" (click)="onMenuLateral()" [ngStyle]="{
                 'opacity': (menuLateralAberto  ? '0%' : '100%')}">
         </button>
@@ -27,10 +27,8 @@
             'opacity': (menuLateralAberto ? '100%' : '0%'),
             'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
 
-        <app-menu-item-client class="items" [user]="userAutenticado" *ngIf="userAutenticado.role == 'CLIENT_USER'">
-        </app-menu-item-client>
-        <app-menu-item-establishment class="items" [user]="userAutenticado"
-            *ngIf="userAutenticado.role == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
+        <app-menu-item-client class="items" [user]="userAutenticado" *ngIf="userAutenticado.role == 'CLIENT_USER'"></app-menu-item-client>
+        <app-menu-item-establishment class="items" [user]="userAutenticado" *ngIf="userAutenticado.role == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
     </div>
 
     <!-- VALOR DA COMANDA -->

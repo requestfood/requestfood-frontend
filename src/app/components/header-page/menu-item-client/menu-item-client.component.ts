@@ -18,7 +18,6 @@ export class MenuItemClientComponent implements OnInit {
 
   constructor(private userService: UserService,
     private router: Router,
-    private header: HeaderPageComponent
   ) { }
 
   ngOnInit(): void {
