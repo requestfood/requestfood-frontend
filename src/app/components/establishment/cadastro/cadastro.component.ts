@@ -1,8 +1,7 @@
-import { FileHandle } from './../../../models/file-handle';
+import { HttpClient } from '@angular/common/http';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentRegister } from './../../../models/establishmentRegister';
 import { Component, OnInit, Input } from '@angular/core';
-import { FileHandle } from 'src/app/models/file-handle';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -12,9 +11,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class CadastroEstablishmentComponent implements OnInit {
 
- currentTab: number;
+  currentTab: number;
+
+  selectedFile: any;
 
   establishment: EstablishmentRegister = {
+    id: 0,
     name: "",
     password: "",
     email: "",
@@ -22,22 +24,27 @@ export class CadastroEstablishmentComponent implements OnInit {
     timeToOpen: "",
     timeToClose: "",
     description: "",
-    image: []
    }
 
    passwordTest: String = '';
 
    constructor(private service: EstablishmentService,
-               private sanitizer: DomSanitizer) {
+               private sanitizer: DomSanitizer,
+               private httpClient: HttpClient) {
      this.currentTab = 0;
     }
 
  ngOnInit(): void {}
 
  doRegister(){
-     this.service.addEstablishment(this.establishment).subscribe(data => {
-     this.establishment = data;
-   })
+    const uploadFormData = new FormData();
+    uploadFormData.append(
+      'imageFile', this.selectedFile, this.selectedFile.name
+    )
+    this.service.addEstablishment(this.establishment).subscribe(data => {
+      this.establishment = data
+    })       
+    this.service.addImageEstablishment(uploadFormData, this.establishment.id).subscribe(data => {})
  }
 
  /*getter(): Observable<Client>{
@@ -62,18 +69,7 @@ export class CadastroEstablishmentComponent implements OnInit {
 
   onFileSelected(event: any) {
 
-    if(event.target.files){
-      const file = event.target.files[0]
-
-      const fileHandle: FileHandle = {
-        file: file,
-        url: this.sanitizer.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)
-        )
-      }
-
-      this.establishment.image.push(fileHandle)
-    }
+    this.selectedFile = event.target.files[0]
 
   }
 }

@@ -22,6 +22,9 @@ export class EstablishmentService {
     return this.http.post<EstablishmentRegister>(this.endPointEstablishment, postData);
   }
 
+  addImageEstablishment(postData: FormData, id: number): Observable<File> {
+    return this.http.post<File>('http://localhost:8080/establishment/image/'+ id, postData);
+  }
 
   //  GET  //
 
