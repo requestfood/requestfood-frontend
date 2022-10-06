@@ -16,7 +16,7 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   consumable = this.service.getCurrentConsumable()
 
-  order = JSON.parse(this.orderService.getOrder())
+  order: any = {}
 
   amount: number = 0
 
@@ -38,6 +38,9 @@ export class ClientConsumableInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!this.orderService.getOrder())
+      this.order = {} 
+      
     this.orderService.novaComanda.subscribe(newOrder => {
       this.order = newOrder
     })
