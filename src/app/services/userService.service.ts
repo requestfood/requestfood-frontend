@@ -92,9 +92,9 @@ export class UserService {
   
   deleteUser(): Observable<any>{
     if(this.isClient())
-      return this.http.delete<any>('http://localhost:8080/client/' + this.getUserAutenticado().id);
+      return this.http.delete<any>('http://localhost:8080/client/' + JSON.parse(this.getUserAutenticado()).id);
     else 
-      return this.http.delete<any>('http://localhost:8080/establishment/' + this.getUserAutenticado().id);
+      return this.http.delete<any>('http://localhost:8080/establishment/' + JSON.parse(this.getUserAutenticado()).id);
 
   }
 }

@@ -92,6 +92,6 @@ export class HomeClientComponent implements OnInit {
 
   openOrderStart(currentEstablishment: EstablishmentCard) {
     this.orderStartService.setCurrentEstablishment(currentEstablishment);
-    this.router.navigate(['/order-start/' + currentEstablishment.id])
+    this.router.navigate(['/order-start/' + currentEstablishment.id]);
   }
 }

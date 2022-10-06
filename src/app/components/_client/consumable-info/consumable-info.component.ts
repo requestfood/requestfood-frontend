@@ -1,3 +1,5 @@
+import { MessageService } from 'src/app/services/core/message.service';
+import { OrderStartService } from './../../../services/order-start.service';
 import { UserService } from './../../../services/userService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { itemOrder } from './../../../models/itemOrder';
@@ -14,7 +16,7 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   consumable = this.service.getCurrentConsumable()
 
-  order = this.itemService.getCurrentOrder()
+  order = JSON.parse(this.orderService.getOrder())
 
   amount: number = 0
 
@@ -27,13 +29,18 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   constructor(
     private service: ConsumableService,
+    private orderService: OrderStartService,
+    private messageService: MessageService,
+
     private itemService: ItemService,
-    private actRoute: ActivatedRoute,
+    private actRouter: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    console.log(this.consumable);
+    this.orderService.novaComanda.subscribe(newOrder => {
+      this.order = newOrder
+    })
   }
 
   addQuantity(quantity: number = this.item.quantityItem) {
@@ -51,10 +58,13 @@ export class ClientConsumableInfoComponent implements OnInit {
   }
 
   createItem() {
-    this.itemService.addItem(this.item).subscribe((data: itemOrder) => {})
+    if (this.orderService.getOrder())
+      this.itemService.addItem(this.item).subscribe((data: itemOrder) => { })
+    else
+      this.messageService.add('Inicie sua comanda para realizar o pedido')
   }
 
   backPage() {
-    this.router.navigate(['consumables/'+ this.actRoute.snapshot.params['idEstablishment']])
+    this.router.navigate(['consumables/' + this.actRouter.snapshot.params['idEstablishment']])
   }
 }

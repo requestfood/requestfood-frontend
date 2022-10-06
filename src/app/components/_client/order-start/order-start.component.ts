@@ -1,7 +1,8 @@
-import { ItemService } from 'src/app/services/item-service.service';
+import { MessageService } from 'src/app/services/core/message.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { createOrder } from './../../../models/createOrder';
 import { OrderStartService } from './../../../services/order-start.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from './../../../services/userService.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,52 +13,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderStartComponent implements OnInit {
 
-  order: createOrder = {
-    id: 0,
-    idEstablishment: this.activatedRoute.snapshot.params['idEstablishment'],
-    idClient: this.userService.getUserAutenticado().id
-  }
+  startedOrder: boolean = true
 
   currentEstablishment = this.service.getCurrentEstablishment();
 
-
   constructor(
-    private itemService: ItemService,
     private service: OrderStartService,
     private userService: UserService,
-    private activatedRoute: ActivatedRoute,
+    private messageService: MessageService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    if (!this.userService.isClient()) {
+      this.router.navigate([''])
+    } else if (this.currentEstablishment.id == 0)
+      this.router.navigate(['home-client/' + JSON.parse(this.userService.getUserAutenticado()).id])
+
   }
 
   doCreateOrder() {
 
     if (this.userService.isClient()) {
 
-      this.service.addOrder(this.order).subscribe(
-        (data: createOrder) => {
+      if (!localStorage.getItem('order')) {
+        let order = {
+          idEstablishment: this.currentEstablishment.id,
+          idClient: JSON.parse(this.userService.getUserAutenticado()).id
+        }
 
-          this.order = data
-          this.itemService.setCurrentOrder(this.order)
-        })
+        this.service.addOrder(order)
 
-      this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
+          .subscribe(
+            (data: any) => {
+              this.service.setOrder(data)
+              this.service.novaComanda.emit(data)
+            })
+
+        this.router.navigate(['/consumables/' + this.currentEstablishment.id])
+      } else {
+        this.messageService.add('Você precisa finalizar a comanda atual')
+      }
     } else
       this.router.navigate(['']);
   }
 
   openMenu() {
     if (this.userService.isClient())
-      this.router.navigate(['/consumables/' + this.activatedRoute.snapshot.params['idEstablishment']])
+      this.router.navigate(['/consumables/' + this.currentEstablishment.id])
     else
       this.router.navigate(['']);
   }
 
   onBack() {
     if (this.userService.isClient()) {
-      this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['/home-client/' + JSON.parse(this.userService.getUserAutenticado()).id]);
     } else
       this.router.navigate(['']);
   }

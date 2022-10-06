@@ -42,7 +42,7 @@ export class MenuItemEstablishmentComponent implements OnInit {
       
       if (result) {
         if (this.userService.logout())
-        this.router.navigate([''])
+          this.router.navigate([''])
        }
     })
     

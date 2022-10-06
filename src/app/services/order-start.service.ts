@@ -2,12 +2,14 @@ import { EstablishmentCard } from '../models/establishment/establishmentCard';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { createOrder } from './../models/createOrder';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderStartService {
+
+  novaComanda =  new EventEmitter<any>()
 
   currentEstablishment:EstablishmentCard = {
     id: 0,
@@ -15,6 +17,14 @@ export class OrderStartService {
     image: ""
   }
 
+  getOrder(): any{
+    return localStorage.getItem('order')
+  }
+
+  setOrder(order: any){
+    localStorage.setItem('order', JSON.stringify(order))
+  } 
+  
   public setCurrentEstablishment(currentEstablishment: EstablishmentCard){
     this.currentEstablishment = currentEstablishment;
   }
