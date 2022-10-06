@@ -1,7 +1,11 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
+import { DialogConfirm } from './../../../models/core/dialog';
 import { HeaderPageComponent } from './../navbar/header-page.component';
 import { UserService } from './../../../services/userService.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from 'src/app/services/core/message.service';
 
 @Component({
   selector: 'app-menu-item-establishment',
@@ -10,50 +14,64 @@ import { Router } from '@angular/router';
 })
 export class MenuItemEstablishmentComponent implements OnInit {
 
-  @Input('user')
-  userAutenticado = {
-    id: 0,
-    role: ""
-  };
-
-
   constructor(
-    private userService: UserService, 
-    private router: Router
+    private userService: UserService,
+    private messageService: MessageService,
+    private dialog: MatDialog,
+    private router: Router,
+    private actRouter: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
   }
 
   onSair() {
-    if(this.userService.logout())
-      this.router.navigate([''])
+
+    const dialogData: DialogConfirm = {
+      content: 'Deseja mesmo sair?',
+      confirmText: 'Sim',
+      cancelText: 'Não'
+    }
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: dialogData
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      if (result) {
+        if (this.userService.logout())
+        this.router.navigate([''])
+       }
+    })
+    
   }
 
   onPerfil() {
-    if (this.userService.isEstablishment()) 
+    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER")
       this.router.navigate(['user-update']);
     else
-      alert('Permissão Negada')
+      this.messageService.add('Permissão Negada')
   }
 
   onComanda() {
-    if (this.userService.isEstablishment())
+    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER")
       this.router.navigate([]);
     else
-      alert('Permissão negada')
+      this.messageService.add('Permissão Negada')
   }
 
-  onConsumiveis(){
-    if (this.userService.isEstablishment()){
-      this.router.navigate(['consumables/' + this.userAutenticado.id]);
-    }else{
-      alert('Permissão negada')
+  onConsumiveis() {
+    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER") {
+      this.router.navigate(['consumables/' + this.actRouter.snapshot.params['id']]);
+    } else {
+      this.messageService.add('Permissão Negada')
     }
   }
 
-  onCadastrarConsumivel(){
-    
+  onCadastrarConsumivel() {
+
   }
 
 }

@@ -1,6 +1,6 @@
 import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-header-page',
@@ -11,7 +11,6 @@ export class HeaderPageComponent implements OnInit {
 
   public menuLateralAberto = false;
 
-  mostrarMenuLateral = false;
 
   userAutenticado = {
     id: 0,
@@ -26,11 +25,7 @@ export class HeaderPageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.novoUserAutenticado.subscribe(data => this.userAutenticado = data)
 
-    this.userService.mostrarMenuLogin.subscribe(result => {
-      this.mostrarMenuLateral = result
-      if (result != true)
-        this.menuLateralAberto = result
-    })
+    this.userAutenticado = this.userService.getUserAutenticado()
   }
 
   onMenu() {
@@ -40,7 +35,7 @@ export class HeaderPageComponent implements OnInit {
       else if (this.userService.getUserAutenticado().role == "CLIENT_USER")
         this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     } else
-    this.router.navigate([''])
+      this.router.navigate([''])
   }
   onMenuLateral() {
     this.menuLateralAberto = !this.menuLateralAberto
@@ -52,5 +47,17 @@ export class HeaderPageComponent implements OnInit {
 
   existsUser(): boolean {
     return this.userService.existsUser()
+  }
+
+  typeUser(): string {
+
+    if (this.userService.getUserAutenticado() == null)
+      return ""
+
+    if (!this.userAutenticado.role) {
+      this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
+    }
+
+    return this.userAutenticado.role
   }
 }

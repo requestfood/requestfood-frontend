@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
       this.userService.mostrarMenuLogin.emit(true)
       this.userService.novoUserAutenticado.emit(data)
 
-      console.log(this.userService.getUserAutenticado())
     })
   }
 }

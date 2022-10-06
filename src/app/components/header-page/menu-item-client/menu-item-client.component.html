@@ -1,6 +1,6 @@
 <div class="menu-lateral">
     <ul>
-        <a routerLink="home-client/{{ this.userAutenticado.id }}"><li><img src="../../../../assets/menu-lateral/img-items-menu/icone-adicionar.svg">Buscar Restaurantes</li></a>
+        <a (click)="onfindEstablishment()"><li><img src="../../../../assets/menu-lateral/img-items-menu/icone-adicionar.svg">Buscar Restaurantes</li></a>
         <a (click)="onPedidos()"><li><img src="../../../../assets/menu-lateral/img-items-menu/Icone-pedidos.svg">Pedidos</li></a>
         <a (click)="onPerfil()"><li><img src="../../../../assets/menu-lateral/img-items-menu/icone-perfil.svg">Perfil</li></a>
         <a routerLink=""><li><img src="../../../../assets/menu-lateral/img-items-menu/icone-sobrenos.svg">Sobre nós</li></a>

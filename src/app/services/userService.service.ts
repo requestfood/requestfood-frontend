@@ -51,6 +51,13 @@ export class UserService {
   public logout(): boolean{
     localStorage.clear()
 
+    let holder = {
+      id: 0,
+      role: ""
+    }
+
+    this.novoUserAutenticado.emit(holder)
+
     if(!this.existsUser()){
       this.mostrarMenuLogin.emit(false)
       return true

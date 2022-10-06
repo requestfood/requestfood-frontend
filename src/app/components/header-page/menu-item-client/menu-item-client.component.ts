@@ -1,5 +1,9 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
+import { DialogConfirm } from './../../../models/core/dialog';
+import { MessageService } from './../../../services/core/message.service';
 import { HeaderPageComponent } from './../navbar/header-page.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../services/userService.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -10,36 +14,60 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuItemClientComponent implements OnInit {
 
-  @Input('user')
-  userAutenticado = {
-    id: 0,
-    role: ""
-  };
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
+    private messageService: MessageService,
+    private dialog: MatDialog,
+    private actRoute: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSair(){
-    if(this.userService.logout())
-    this.router.navigate([''])
+  onSair() {
+    const dialogData: DialogConfirm = {
+      content: 'Deseja mesmo sair?',
+      confirmText: 'Sim',
+      cancelText: 'Não'
+    }
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: dialogData
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      if (result) {
+        if (this.userService.logout())
+        this.router.navigate([''])
+       }
+    })
+
+  }
+
+  onfindEstablishment() {
+    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
+      this.router.navigate(['/home-client/' + this.actRoute.snapshot.params['id']]);
+    else
+      this.messageService.add('Permissão Negada')
+
   }
 
   onPerfil() {
-    if (this.userService.isClient()) 
+    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
       this.router.navigate(['user-update']);
     else
-      alert('Permissão Negada')
+      this.messageService.add('Permissão Negada')
   }
 
-  onPedidos(){
-    if (this.userService.isClient())
-    this.router.navigate(['/comandasC/' + this.userAutenticado.id]);
-  else
-    alert('Permissão negada')
+  onPedidos() {
+    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
+      this.router.navigate(['/comandasC/' + this.actRoute.snapshot.params['id']]);
+    else
+      this.messageService.add('Permissão Negada')
+
   }
 
 }
