@@ -18,9 +18,10 @@ export class HomeEstablishmentComponent implements OnInit{
     ordersFinised: []
   }
 
+  userAutenticado = JSON.parse(this.userService.getUserAutenticado())
+
   constructor(
     private service: EstablishmentService,
-    private actRouter: ActivatedRoute,
     private userService: UserService,
     private router: Router,
     private consumableService: ConsumableService
@@ -31,16 +32,17 @@ export class HomeEstablishmentComponent implements OnInit{
   }
 
   getOrdersReady(){
-    this.service.getOrdersReady(this.actRouter.snapshot.params['id']).subscribe((data: EstablishmentWithOrderReady) => {
+    this.service.getOrdersReady(this.userAutenticado.id).subscribe((data: EstablishmentWithOrderReady) => {
       this.establishmentWithOrderReady = data;
     });
   }
 
   setStatusOrderToFinished(id: number){
     this.service.setOrderStatus("FINISHED", id).subscribe(() =>{
-
+    
+      this.getOrdersReady();
+    
     });
-    this.getOrdersReady();
   }
 
 }

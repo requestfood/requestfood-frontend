@@ -31,7 +31,7 @@ export class UserService {
   isEstablishment(): boolean{
 
     if(this.existsUser()){
-      if(this.getUserAutenticado().role == "ESTABLISHMENT_USER")
+      if(JSON.parse(this.getUserAutenticado()).role == "ESTABLISHMENT_USER")
           return true;
     }
     
@@ -41,7 +41,7 @@ export class UserService {
   isClient(): boolean{
 
     if(this.existsUser()){
-      if(this.getUserAutenticado().role == "CLIENT_USER")
+      if(JSON.parse(this.getUserAutenticado()).role == "CLIENT_USER")
           return true;
     }
     

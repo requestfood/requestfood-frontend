@@ -14,6 +14,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuItemClientComponent implements OnInit {
 
+  userAutenticado = {
+    id: 0,
+    role: ""
+  }
 
   constructor(
     private userService: UserService,
@@ -24,6 +28,7 @@ export class MenuItemClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
   }
 
   onSair() {
@@ -38,33 +43,34 @@ export class MenuItemClientComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      
+
       if (result) {
         if (this.userService.logout())
-        this.router.navigate([''])
-       }
+          this.router.navigate([''])
+      }
     })
 
   }
 
   onfindEstablishment() {
-    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
-      this.router.navigate(['/home-client/' + this.actRoute.snapshot.params['id']]);
+
+    if (this.userAutenticado.role == 'CLIENT_USER')
+      this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     else
       this.messageService.add('Permissão Negada')
 
   }
 
   onPerfil() {
-    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
+    if (this.userAutenticado.role == 'CLIENT_USER')
       this.router.navigate(['user-update']);
     else
       this.messageService.add('Permissão Negada')
   }
 
   onPedidos() {
-    if (this.userService.getUserAutenticado().role == 'CLIENT_USER')
-      this.router.navigate(['/comandasC/' + this.actRoute.snapshot.params['id']]);
+    if (this.userAutenticado.role == 'CLIENT_USER')
+      this.router.navigate(['/comandasC/' + this.userAutenticado.id]);
     else
       this.messageService.add('Permissão Negada')
 

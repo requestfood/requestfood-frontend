@@ -1,10 +1,9 @@
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from './../../../models/core/dialog';
-import { HeaderPageComponent } from './../navbar/header-page.component';
 import { UserService } from './../../../services/userService.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/core/message.service';
 
 @Component({
@@ -14,12 +13,13 @@ import { MessageService } from 'src/app/services/core/message.service';
 })
 export class MenuItemEstablishmentComponent implements OnInit {
 
+  userAutenticado = JSON.parse(this.userService.getUserAutenticado())
+
   constructor(
     private userService: UserService,
     private messageService: MessageService,
     private dialog: MatDialog,
     private router: Router,
-    private actRouter: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -49,22 +49,22 @@ export class MenuItemEstablishmentComponent implements OnInit {
   }
 
   onPerfil() {
-    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER")
+    if (this.userAutenticado.role == "ESTABLISHMENT_USER")
       this.router.navigate(['user-update']);
     else
       this.messageService.add('Permissão Negada')
   }
 
   onComanda() {
-    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER")
+    if (this.userAutenticado.role == "ESTABLISHMENT_USER")
       this.router.navigate([]);
     else
       this.messageService.add('Permissão Negada')
   }
 
   onConsumiveis() {
-    if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER") {
-      this.router.navigate(['consumables/' + this.actRouter.snapshot.params['id']]);
+    if (this.userAutenticado.role == "ESTABLISHMENT_USER") {
+      this.router.navigate(['consumables/' + this.userAutenticado.id]);
     } else {
       this.messageService.add('Permissão Negada')
     }

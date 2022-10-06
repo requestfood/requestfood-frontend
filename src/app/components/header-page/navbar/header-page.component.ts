@@ -11,7 +11,6 @@ export class HeaderPageComponent implements OnInit {
 
   public menuLateralAberto = false;
 
-
   userAutenticado = {
     id: 0,
     role: ""
@@ -29,14 +28,15 @@ export class HeaderPageComponent implements OnInit {
   }
 
   onMenu() {
-    if (this.existsUser()) {
-      if (this.userService.getUserAutenticado().role == "ESTABLISHMENT_USER")
-        this.router.navigate(['/home-establishment/' + this.userAutenticado.id]);
-      else if (this.userService.getUserAutenticado().role == "CLIENT_USER")
-        this.router.navigate(['/home-client/' + this.userAutenticado.id]);
-    } else
+
+    if (this.userAutenticado.role == "ESTABLISHMENT_USER")
+      this.router.navigate(['/home-establishment/' + this.userAutenticado.id]);
+    else if (this.userAutenticado.role == "CLIENT_USER")
+      this.router.navigate(['/home-client/' + this.userAutenticado.id]);
+    else
       this.router.navigate([''])
   }
+
   onMenuLateral() {
     this.menuLateralAberto = !this.menuLateralAberto
   }
