@@ -25,7 +25,7 @@ export class HeaderPageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.novoUserAutenticado.subscribe(data => this.userAutenticado = data)
 
-    this.userAutenticado = this.userService.getUserAutenticado()
+    this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
   }
 
   onMenu() {
@@ -53,10 +53,6 @@ export class HeaderPageComponent implements OnInit {
 
     if (this.userService.getUserAutenticado() == null)
       return ""
-
-    if (!this.userAutenticado.role) {
-      this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
-    }
 
     return this.userAutenticado.role
   }
