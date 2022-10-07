@@ -1,3 +1,5 @@
+import { MessageService } from 'src/app/services/core/message.service';
+import { Router } from '@angular/router';
 import { OrderStartService } from './../../../services/order-start.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,15 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrecoHeaderComponent implements OnInit {
 
-  idOrder = JSON.parse(this.orderStartService.getOrder())
   amount: string = '0.00';
 
-  constructor(private orderStartService: OrderStartService) { }
+  orderStart: boolean = false
+
+  constructor(
+    private orderStartService: OrderStartService, 
+    private router: Router,
+    private message: MessageService
+    ) { }
 
   ngOnInit(): void {
+    
+    if(this.orderStartService.getOrder()){
+      this.orderStart = true
+    }
     this.orderStartService.novaComanda.subscribe(result => {
-      this.idOrder = result.id
+        this.orderStart = true
     })
+  }
+
+
+  onBagItems(){
+    if(this.orderStart)
+      this.router.navigate(['bagitems/' + JSON.parse(this.orderStartService.getOrder()).id])
+    else
+      this.message.add('Inicie sua comanda para acessar')
+
   }
 
 

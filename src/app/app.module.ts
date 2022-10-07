@@ -14,9 +14,6 @@ import { PrecoHeaderComponent } from './components/header-page/preco-header/prec
 import { MenuItemEstablishmentComponent } from './components/header-page/menu-item-establishment/menu-item-establishment.component';
 import { MenuItemClientComponent } from './components/header-page/menu-item-client/menu-item-client.component';
 import { HeaderPageComponent } from './components/header-page/navbar/header-page.component';
-import { UserService } from './services/userService.service';
-import { EstablishmentService } from './services/establishmentService.service';
-import { ClientService } from 'src/app/services/clientService.service';
 import { LoginComponent } from './components/user/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
@@ -35,9 +32,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
-import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
+import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
 import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 import { LoadingComponent } from './components/core/loading/loading.component';
+import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +62,7 @@ import { LoadingComponent } from './components/core/loading/loading.component';
     ClientConsumableInfoComponent,
     DialogConfirmComponent,
     LoadingComponent,
+    BagItemsComponent,
   ],
   imports: [
     BrowserModule,

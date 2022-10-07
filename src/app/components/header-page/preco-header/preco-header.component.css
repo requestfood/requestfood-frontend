@@ -8,6 +8,10 @@ div{
     gap: 5%;
 }
 
+div:hover{
+    cursor: pointer;
+}
+
 .preco-header{
     font-family: 'Roboto', sans-serif;
     font-style: normal;
