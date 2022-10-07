@@ -11,21 +11,17 @@ export class UserService {
 
   mostrarMenuLogin = new EventEmitter<boolean>()
   
-  userAutenticado = {
-    id: 0,
-    role: "",
-  }
+  novoUserAutenticado = new EventEmitter<any>()
   
-  public setUserAutenticado(id: number, role:string){
-    this.userAutenticado.role = role;
-    this.userAutenticado.id = id
+  public setUserAutenticado(user: any){
+    localStorage.setItem('u', JSON.stringify(user))
   }
-  public getUserAutenticado():any{
-    return this.userAutenticado;
+  public getUserAutenticado(): any{
+    return localStorage.getItem('u')
   }
 
   existsUser(): boolean{
-    if(this.userAutenticado.id != 0)
+    if(localStorage.getItem('u'))
         return true
     else
       return false
@@ -35,7 +31,7 @@ export class UserService {
   isEstablishment(): boolean{
 
     if(this.existsUser()){
-      if(this.userAutenticado.role == "ESTABLISHMENT_USER")
+      if(JSON.parse(this.getUserAutenticado()).role == "ESTABLISHMENT_USER")
           return true;
     }
     
@@ -45,7 +41,7 @@ export class UserService {
   isClient(): boolean{
 
     if(this.existsUser()){
-      if(this.userAutenticado.role == "CLIENT_USER")
+      if(JSON.parse(this.getUserAutenticado()).role == "CLIENT_USER")
           return true;
     }
     
@@ -53,7 +49,14 @@ export class UserService {
   }
 
   public logout(): boolean{
-    this.setUserAutenticado(0, "")
+    localStorage.clear()
+
+    let holder = {
+      id: 0,
+      role: ""
+    }
+
+    this.novoUserAutenticado.emit(holder)
 
     if(!this.existsUser()){
       this.mostrarMenuLogin.emit(false)
@@ -89,9 +92,9 @@ export class UserService {
   
   deleteUser(): Observable<any>{
     if(this.isClient())
-      return this.http.delete<any>('http://localhost:8080/client/' + this.getUserAutenticado().id);
+      return this.http.delete<any>('http://localhost:8080/client/' + JSON.parse(this.getUserAutenticado()).id);
     else 
-      return this.http.delete<any>('http://localhost:8080/establishment/' + this.getUserAutenticado().id);
+      return this.http.delete<any>('http://localhost:8080/establishment/' + JSON.parse(this.getUserAutenticado()).id);
 
   }
 }

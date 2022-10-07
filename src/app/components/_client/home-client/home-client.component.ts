@@ -14,8 +14,10 @@ import { Page } from 'src/app/models/core/page';
 export class HomeClientComponent implements OnInit {
 
   establishments: Array<EstablishmentCard> = [];
+  
   searchName: string = "";
-  userAutenticado = this.userService.getUserAutenticado()
+
+  userAutenticado = JSON.parse(this.userService.getUserAutenticado())
 
   @Input()
   page: Page = {
@@ -90,6 +92,6 @@ export class HomeClientComponent implements OnInit {
 
   openOrderStart(currentEstablishment: EstablishmentCard) {
     this.orderStartService.setCurrentEstablishment(currentEstablishment);
-    this.router.navigate(['/order-start/' + currentEstablishment.id])
+    this.router.navigate(['/order-start/' + currentEstablishment.id]);
   }
 }

@@ -36,12 +36,6 @@ export class CadastroEstablishmentComponent implements OnInit {
    })
  }
 
- /*getter(): Observable<Client>{
-   return this.service.getClients().(data => Client{
-     this.clients = data;
-   })
- }*/
-
   alterStep(n: number){
     if(this.currentTab >= 0 && this.currentTab <= 3){
       this.currentTab = this.currentTab + n;

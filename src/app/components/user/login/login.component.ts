@@ -32,28 +32,23 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { 
+  }
 
   fazerLogin() {
-    this.userService.fazerLogin(this.userLogin).pipe(
-      catchError(err => {
-          
-        alert(err.error.message)
-
-        return of();
-      })
-    ).subscribe(data => {
+    this.userService.fazerLogin(this.userLogin).subscribe(data => {
       this.holder = data;
-      
+      this.userService.setUserAutenticado(this.holder);
+
       if (this.holder.role == "ESTABLISHMENT_USER"){
-        this.userService.setUserAutenticado(this.holder.id, this.holder.role);
         this.router.navigate(['/home-establishment/' + this.holder.id])
       }
       else if(this.holder.role == "CLIENT_USER"){
-        this.userService.setUserAutenticado(this.holder.id, this.holder.role);
         this.router.navigate(['/home-client/' + this.holder.id])
       }
       this.userService.mostrarMenuLogin.emit(true)
+      this.userService.novoUserAutenticado.emit(data)
+
     })
   }
 }

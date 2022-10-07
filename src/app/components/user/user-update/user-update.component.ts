@@ -15,6 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UserUpdateComponent implements OnInit {
 
+  userAutenticado = JSON.parse(this.userService.getUserAutenticado())
+
   nameClient: string = ""
 
   constructor(
@@ -32,14 +34,14 @@ export class UserUpdateComponent implements OnInit {
 
   getName() {
     if (this.userService.isClient())
-      this.clientService.getOneClient(this.userService.getUserAutenticado().id).subscribe(data => this.nameClient = data.name)
+      this.clientService.getOneClient(this.userAutenticado.id).subscribe(data => this.nameClient = data.name)
   }
 
   onVoltar() {
     if (this.userService.isEstablishment())
-      this.router.navigate(['/home-establishment/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['/home-establishment/' + this.userAutenticado.id]);
     else if (this.userService.isClient())
-      this.router.navigate(['/home-client/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     else
       this.router.navigate(['']);
   }
@@ -47,23 +49,23 @@ export class UserUpdateComponent implements OnInit {
 
   onInfoContato() {
     if (this.userService.existsUser())
-      this.router.navigate(['./user-update/contact/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['./user-update/contact/' + this.userAutenticado.id]);
     else
       this.router.navigate(['']);
   }
 
   onInfoPessoais() {
     if (this.userService.isEstablishment())
-      this.router.navigate(['./user-update/profile-establishment/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['./user-update/profile-establishment/' + this.userAutenticado.id]);
     else if (this.userService.isClient())
-      this.router.navigate(['./user-update/profile-client/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['./user-update/profile-client/' + this.userAutenticado.id]);
     else
       this.router.navigate(['']);
   }
 
   onAlterPassword() {
     if (this.userService.existsUser()) {
-      this.router.navigate(['/user-update/password/' + this.userService.getUserAutenticado().id]);
+      this.router.navigate(['/user-update/password/' + this.userAutenticado.id]);
     } else
       this.router.navigate(['']);
   }

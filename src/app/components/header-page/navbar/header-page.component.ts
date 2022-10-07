@@ -1,6 +1,6 @@
 import { UserService } from './../../../services/userService.service';
 import { Router } from '@angular/router';
-import { Component, Input, OnInit} from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-header-page',
@@ -11,42 +11,51 @@ export class HeaderPageComponent implements OnInit {
 
   public menuLateralAberto = false;
 
-  mostrarMenuLateral = false;
-
   userAutenticado = {
     id: 0,
     role: ""
   };
 
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-     this.userAutenticado = this.userService.getUserAutenticado()
+    this.userService.novoUserAutenticado.subscribe(data => this.userAutenticado = data)
 
-     this.userService.mostrarMenuLogin.subscribe(result => {
-      this.mostrarMenuLateral = result
-      if(result != true)
-        this.menuLateralAberto = result
-     })
+    this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
   }
 
-  onMenu(){
-    if(this.userAutenticado.role == "ESTABLISHMENT_USER")
-      this.router.navigate(['/home-establishment/' + this.userAutenticado.id]);
-    else if(this.userAutenticado.role == "CLIENT_USER")
-      this.router.navigate(['/home-client/' + this.userAutenticado.id]);
-    else
-      this.router.navigate([''])
+  onMenu() {
+
+    if (this.userService.existsUser()) {
+      if (this.userAutenticado.role == "ESTABLISHMENT_USER")
+        this.router.navigate(['/home-establishment/' + this.userAutenticado.id]);
+      else if (this.userAutenticado.role == "CLIENT_USER")
+        this.router.navigate(['/home-client/' + this.userAutenticado.id]);
+      else
+        this.router.navigate([''])
+    }
   }
 
-  onMenuLateral(){
+  onMenuLateral() {
     this.menuLateralAberto = !this.menuLateralAberto
   }
 
-  onFechar(){
+  onFechar() {
     this.menuLateralAberto = false
+  }
+
+  existsUser(): boolean {
+    return this.userService.existsUser()
+  }
+
+  typeUser(): string {
+
+    if (this.userService.getUserAutenticado() == null)
+      return ""
+
+    return this.userAutenticado.role
   }
 }

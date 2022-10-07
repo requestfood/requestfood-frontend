@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComandasComponent implements OnInit {
 
-  userAutenticado = this.userService.getUserAutenticado()
+  userAutenticado = JSON.parse(this.userService.getUserAutenticado())
 
   client: ClientOrders = {
     id: 0,
@@ -38,7 +38,7 @@ export class ClientComandasComponent implements OnInit {
   searchByName() { }
 
   onVoltar() {
-    if (this.userService.isClient()) {
+    if (this.userAutenticado.role == 'CLIENT_USER') {
       this.router.navigate(['/home-client/' + this.userAutenticado.id]);
     } else
       this.router.navigate(['']);

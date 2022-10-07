@@ -1,3 +1,4 @@
+import { OrderStartService } from './../../../services/order-start.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrecoHeaderComponent implements OnInit {
 
+  idOrder = JSON.parse(this.orderStartService.getOrder())
   amount: string = '0.00';
 
-  constructor() { }
+  constructor(private orderStartService: OrderStartService) { }
 
   ngOnInit(): void {
+    this.orderStartService.novaComanda.subscribe(result => {
+      this.idOrder = result.id
+    })
   }
+
 
 }

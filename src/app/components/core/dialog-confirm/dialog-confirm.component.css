@@ -3,12 +3,14 @@ div{
     flex-direction: column;
     justify-content: center;
     height: 200px;
+    width: 350px;
     gap: 5%;
 }
 
 p{
     font-size: 125%;
     font-weight: 400;
+    text-align: center;
 }
 
 button{

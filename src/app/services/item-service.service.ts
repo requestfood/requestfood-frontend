@@ -10,7 +10,6 @@ import { Injectable } from '@angular/core';
 export class ItemService {
 
   currentOrder: createOrder = {
-    id: 0,
     idEstablishment: 0,
     idClient: 0
   }

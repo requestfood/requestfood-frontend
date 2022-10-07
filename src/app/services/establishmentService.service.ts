@@ -18,7 +18,6 @@ export class EstablishmentService {
   //  POST  //
 
   addEstablishment(postData: EstablishmentRegister): Observable<EstablishmentRegister> {
-    console.log(postData)
     return this.http.post<EstablishmentRegister>(this.endPointEstablishment, postData);
   }
 
