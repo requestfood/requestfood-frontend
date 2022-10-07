@@ -16,6 +16,9 @@ import { LoginComponent } from './components/user/login/login.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
+import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
+import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 
 const routes: Routes = [
   {path: '',component: LoginComponent},
@@ -33,8 +36,12 @@ const routes: Routes = [
   {path: 'comandasC/:id', component: ClientComandasComponent},
   {path: 'order-start/:idEstablishment', component: OrderStartComponent},
   {path: 'consumableC-info/:idEstablishment/:idConsumable', component: ClientConsumableInfoComponent},
-  {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent}
+  {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent},
+  {path: 'onCadastrarConsumivel', component: CreateConsumableComponent},
+  {path: 'createDish', component: CreateDishComponent},
+  {path: 'createDrink', component: CreateDrinkComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

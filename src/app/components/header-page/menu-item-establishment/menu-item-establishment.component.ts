@@ -71,7 +71,11 @@ export class MenuItemEstablishmentComponent implements OnInit {
   }
 
   onCadastrarConsumivel() {
-
+    if (this.userAutenticado.role == "ESTABLISHMENT_USER")
+      this.router.navigate(['onCadastrarConsumivel']);
+    else
+      this.messageService.add('Permissão Negada')
+    }
   }
 
-}
+

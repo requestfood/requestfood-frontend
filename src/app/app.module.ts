@@ -38,6 +38,8 @@ import { EstablishmentProfileUpdateComponent } from './components/user/user-upda
 import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
 import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 import { LoadingComponent } from './components/core/loading/loading.component';
+import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
+import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { LoadingComponent } from './components/core/loading/loading.component';
     ClientConsumableInfoComponent,
     DialogConfirmComponent,
     LoadingComponent,
+    CreateDishComponent,
+    CreateDrinkComponent,
   ],
   imports: [
     BrowserModule,
