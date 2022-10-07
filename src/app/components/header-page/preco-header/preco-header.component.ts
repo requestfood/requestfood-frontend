@@ -32,9 +32,9 @@ export class PrecoHeaderComponent implements OnInit {
 
 
   onBagItems(){
-    if(this.orderStart)
-      this.router.navigate(['bagitems/' + JSON.parse(this.orderStartService.getOrder()).id])
-    else
+    //if(this.orderStart)
+      this.router.navigate(['bagitems/' + 1 /*JSON.parse(this.orderStartService.getOrder()).id*/])
+    //else
       this.message.add('Inicie sua comanda para acessar')
 
   }

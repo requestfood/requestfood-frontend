@@ -63,7 +63,6 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   createItem() {
     if (this.orderService.getOrder()) {
-      console.log(this.item);
 
       this.itemService.addItem(this.item).subscribe((data: itemOrder) => { })
     } else

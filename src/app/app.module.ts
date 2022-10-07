@@ -1,3 +1,4 @@
+import { ItemInfoComponent } from './components/_client/order-start/bag-items/item-info/item-info.component';
 import { HttpErrorInterceptor } from './components/core/interceptors/http-error.interceptor';
 import { LoadingInterceptor } from './components/core/interceptors/loading.interceptor';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
@@ -63,6 +64,7 @@ import { BagItemsComponent } from './components/_client/order-start/bag-items/ba
     DialogConfirmComponent,
     LoadingComponent,
     BagItemsComponent,
+    ItemInfoComponent
   ],
   imports: [
     BrowserModule,
