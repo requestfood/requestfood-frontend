@@ -31,6 +31,7 @@ import { ClientProfileUpdateComponent } from './components/user/user-update/_cli
 import { EstablishmentContactUpdateComponent } from './components/user/user-update/establishment/contact-update/contact-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
 import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
+import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ClientConsumableInfoComponent } from './components/_client/consumable-i
     EstablishmentContactUpdateComponent,
     EstablishmentProfileUpdateComponent,
     UserAlterPasswordComponent,
-    ClientConsumableInfoComponent
+    ClientConsumableInfoComponent,
+    UploadEstablishmentImageComponent
   ],
   imports: [
     BrowserModule,
