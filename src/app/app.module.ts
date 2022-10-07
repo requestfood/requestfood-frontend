@@ -38,6 +38,7 @@ import { EstablishmentProfileUpdateComponent } from './components/user/user-upda
 import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
 import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 import { LoadingComponent } from './components/core/loading/loading.component';
+import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { LoadingComponent } from './components/core/loading/loading.component';
     ClientConsumableInfoComponent,
     DialogConfirmComponent,
     LoadingComponent,
+    UploadEstablishmentImageComponent,
   ],
   imports: [
     BrowserModule,

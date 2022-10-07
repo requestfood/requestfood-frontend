@@ -1,6 +1,6 @@
 
 export interface EstablishmentRegister{
-
+    id: number;
     name: String;
     email: String;
     phone: String;
@@ -8,5 +8,4 @@ export interface EstablishmentRegister{
     timeToOpen: String;
     timeToClose: String;
     description: String;
-    image: String;
 }

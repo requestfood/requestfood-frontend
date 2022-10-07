@@ -1,3 +1,4 @@
+import { EstablishmentImage } from './../models/establishment/establishmentImage';
 import { EstablishmentUpdate } from '../models/user/UserUpdate';
 import { EstablishmentWithOrderReady } from './../models/establishment/EstablishmentWithOrderReady';
 import { EstablishmentRegister } from './../models/establishment/establishmentRegister';
@@ -33,6 +34,12 @@ export class EstablishmentService {
 
   updateEstablishment(establishmentUpdate: EstablishmentUpdate, id: number): Observable<String>{
     return this.http.put<String>(this.endPointEstablishment + id, establishmentUpdate)
+  }
+
+  //  Image  //
+
+  getEstablishmentImage(id: number): Observable<EstablishmentImage>{
+    return this.http.get<EstablishmentImage>(this.endPointEstablishment +'getImage/'+ id);
   }
 
   //  Orders  //

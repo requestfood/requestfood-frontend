@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentRegister } from './../../../models/establishment/establishmentRegister';
 import { Component, OnInit } from '@angular/core';
@@ -12,27 +13,29 @@ export class CadastroEstablishmentComponent implements OnInit {
  currentTab: number; 
 
   establishment: EstablishmentRegister = {
+    id: 0,
     name: "",
     password: "",
     email: "",
     phone: "",
     timeToOpen: "",
     timeToClose: "",
-    description: "",
-    image: ""
-   }
+    description: ""
+  }
 
    passwordTest: String = ''; 
 
- constructor(private service: EstablishmentService) {
+ constructor(private service: EstablishmentService,
+             private router: Router) {
   this.currentTab = 0;
  }
 
  ngOnInit(): void {}
 
  doRegister(){
-     this.service.addEstablishment(this.establishment).subscribe(data => {
+     this.service.addEstablishment(this.establishment).subscribe((data: any) => {
      this.establishment = data;
+     this.router.navigate(['upload-image/'+ data.id])
    })
  }
 
