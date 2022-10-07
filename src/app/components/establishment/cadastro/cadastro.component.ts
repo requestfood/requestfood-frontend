@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EstablishmentService } from './../../../services/establishmentService.service';
 import { EstablishmentRegister } from './../../../models/establishmentRegister';
@@ -22,29 +23,25 @@ export class CadastroEstablishmentComponent implements OnInit {
     email: "",
     phone: "",
     timeToOpen: "",
-    timeToClose: "",
-    description: "",
-   }
+    timeToClose: ""
+  }
 
    passwordTest: String = '';
 
    constructor(private service: EstablishmentService,
                private sanitizer: DomSanitizer,
-               private httpClient: HttpClient) {
+               private httpClient: HttpClient,
+               private router: Router) {
      this.currentTab = 0;
     }
 
  ngOnInit(): void {}
 
  doRegister(){
-    const uploadFormData = new FormData();
-    uploadFormData.append(
-      'imageFile', this.selectedFile, this.selectedFile.name
-    )
-    this.service.addEstablishment(this.establishment).subscribe(data => {
+    this.service.addEstablishment(this.establishment).subscribe((data: any) => {
       this.establishment = data
-    })       
-    this.service.addImageEstablishment(uploadFormData, this.establishment.id).subscribe(data => {})
+      
+    })
  }
 
  /*getter(): Observable<Client>{

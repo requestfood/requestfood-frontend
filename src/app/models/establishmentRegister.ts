@@ -6,5 +6,4 @@ export interface EstablishmentRegister{
     password: String;
     timeToOpen: String;
     timeToClose: String;
-    description: String;
 }
