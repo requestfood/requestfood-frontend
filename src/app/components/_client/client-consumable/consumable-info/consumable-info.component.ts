@@ -64,7 +64,9 @@ export class ClientConsumableInfoComponent implements OnInit {
   createItem() {
     if (this.orderService.getOrder()) {
 
-      this.itemService.addItem(this.item).subscribe((data: itemOrder) => { })
+      this.itemService.addItem(this.item).subscribe((data: itemOrder) => {
+        this.router.navigate(['bagitems/' + JSON.parse(this.orderService.getOrder()).id])
+      })
     } else
       this.messageService.add('Inicie sua comanda para realizar o pedido')
   }
