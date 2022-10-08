@@ -1,6 +1,6 @@
-import { ConsumableService } from 'src/app/services/consumableService.service';
-import { UserService } from './../../../services/userService.service';
-import { EstablishmentService } from './../../../services/establishmentService.service';
+import { ConsumableService } from 'src/app/services/ConsumableService.service';
+import { UserService } from './../../../services/User.service';
+import { EstablishmentService } from '../../../services/EstablishmentService.service';
 import { EstablishmentWithOrderReady } from './../../../models/establishment/EstablishmentWithOrderReady';
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

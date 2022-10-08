@@ -1,6 +1,6 @@
-import { UserService } from './../../../services/userService.service';
+import { UserService } from './../../../services/User.service';
 import { Router } from '@angular/router';
-import { AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header-page',

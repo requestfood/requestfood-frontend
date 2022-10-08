@@ -1,6 +1,5 @@
 import { OrderToClient } from './../../../../models/_client/ClientWithOrders';
 import { Component, Input, OnInit } from '@angular/core';
-import { OrderStatus } from 'src/app/models/orderStatus';
 
 @Component({
   selector: 'app-card-comanda',
@@ -15,7 +14,7 @@ export class CardComandaComponent implements OnInit {
     imageEstablishment: "",
     nameEstablishment: "",
     issueDate: "",
-    orderStatus: 0
+    orderStatus: ""
   }
 
   constructor() { }

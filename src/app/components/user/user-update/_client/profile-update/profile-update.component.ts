@@ -1,5 +1,5 @@
 import { catchError, EmptyError, of } from 'rxjs';
-import { ClientService } from 'src/app/services/clientService.service';
+import { ClientService } from 'src/app/services/ClientService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientUpdate, getClientUpdate } from '../../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';

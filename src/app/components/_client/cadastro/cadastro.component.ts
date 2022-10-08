@@ -1,4 +1,4 @@
-import { ClientService } from 'src/app/services/clientService.service';
+import { ClientService } from 'src/app/services/ClientService.service';
 import { Component, OnInit } from '@angular/core';
 import { ClientRegister } from 'src/app/models/_client/clientRegister';
 

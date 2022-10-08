@@ -1,7 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { catchError, empty, of, finalize } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from './../../../../../services/userService.service';
+import { UserService } from './../../../../../services/User.service';
 import { ContactUpdate } from '../../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
