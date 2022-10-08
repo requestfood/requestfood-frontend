@@ -1,4 +1,8 @@
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from './../../../../services/User.service';
+import { OrderService } from './../../../../services/Order.service';
 import { Component, OnInit } from '@angular/core';
+import { OrderDetails } from 'src/app/models/order/OrderDetails';
 
 @Component({
   selector: 'app-bag-items',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BagItemsComponent implements OnInit {
 
-  constructor() { }
+  orderID: any = JSON.parse(this.orderService.getOrder())
 
-  ngOnInit(): void {
+  order: OrderDetails = {
+    idOrder: 0,
+    nameEstbalishment: "",
+    IssueDate: "",
+    items: [],
+    amount: 0
   }
 
+  constructor(
+    private orderService: OrderService,
+    private actRouter: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+
+    this.orderService.novaComanda.subscribe(result => {
+      this.orderID = result.idOrder
+    })
+
+    this.getClientOrderWithItems(this.actRouter.snapshot.params['idOrder'])
+  }
+
+  getClientOrderWithItems(id: Number) {
+    this.orderService.getOrderDetails(id).subscribe(
+      (data: OrderDetails) => {
+        this.order = data
+        console.log(data);
+        
+      })
+  }
 }

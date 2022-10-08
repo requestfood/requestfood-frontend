@@ -1,7 +1,7 @@
 <div>
   <div class="container-name">
-    <h4>Consumivel : x2</h4>
-    <p>Obs:</p>
+    <h4>{{ item.nameConsumable }} : x{{ item.quantity }}</h4>
+    <p>Obs: {{ item.observation }}</p>
   </div>
 
   <div class="container-actions">
@@ -10,6 +10,6 @@
       <a>Editar</a>
     </div>
 
-    <p>R$ 70.00</p>
+    <p>{{ item.value | currency : 'BRL' }}</p>
   </div>
 </div>
