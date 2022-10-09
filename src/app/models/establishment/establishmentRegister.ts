@@ -1,6 +1,6 @@
 
 export interface EstablishmentRegister{
-    id: number;
+    id: Number;
     name: String;
     email: String;
     phone: String;

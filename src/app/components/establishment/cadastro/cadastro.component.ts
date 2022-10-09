@@ -1,3 +1,5 @@
+import { UserLogin } from './../../../models/user/userLogin';
+import { UserService } from './../../../services/User.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EstablishmentService } from '../../../services/EstablishmentService.service';
 import { EstablishmentRegister } from './../../../models/establishment/establishmentRegister';
@@ -27,16 +29,23 @@ export class CadastroEstablishmentComponent implements OnInit {
 
  constructor(private service: EstablishmentService,
              private router: Router,
-             private actRouter: ActivatedRoute) {
+             private actRouter: ActivatedRoute,
+             private userService: UserService) {
   this.currentTab = 0;
  }
 
  ngOnInit(): void {}
 
  doRegister(){
-     this.service.addEstablishment(this.establishment).subscribe(data => {
+     this.service.addEstablishment(this.establishment).subscribe((data:any) => {
      this.establishment = data;
-     this.router.navigate(['upload-image/'+ data.id])
+
+     const user = {
+      id: data.id,
+      role: 'ESTABLISHMENT_USER'
+     }
+     this.userService.setUserAutenticado(user)
+     this.router.navigate(['user-update/profile-establishment/'+ data.id])
    })
  }
 
