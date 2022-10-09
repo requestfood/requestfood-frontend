@@ -4,7 +4,7 @@
 
     <div id="conteiner-establishment">
       <h1>{{ this.currentEstablishment.name }}</h1>
-      <img src="" class="image-establishment" alt="logo-establishment">
+      <img [src]="retrieveResonse" class="image-establishment" alt="logo-establishment">
     </div>
     <div id="conteiner-buttons">
       <button class="start-order" (click)="doCreateOrder()">Iniciar Comanda</button>

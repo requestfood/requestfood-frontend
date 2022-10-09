@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'src/app/services/core/message.service';
 import { OrderService } from './../../../services/Order.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../services/User.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,11 +16,17 @@ export class OrderStartComponent implements OnInit {
 
   currentEstablishment = this.service.getCurrentEstablishment();
 
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+
   constructor(
     private service: OrderService,
     private userService: UserService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private actRouter: ActivatedRoute,
+    private httpClient: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +35,7 @@ export class OrderStartComponent implements OnInit {
     } else if (this.currentEstablishment.id == 0)
       this.router.navigate(['home-client/' + JSON.parse(this.userService.getUserAutenticado()).id])
 
+    this.getImage()
   }
 
   doCreateOrder() {
@@ -41,9 +49,9 @@ export class OrderStartComponent implements OnInit {
         }
 
         this.service.postOrder(order)
+
           .subscribe(
             (data: any) => {
-              console.log(data)
               this.service.setOrder(data)
               this.service.novaComanda.emit(data)
             })
@@ -68,5 +76,15 @@ export class OrderStartComponent implements OnInit {
       this.router.navigate(['/home-client/' + JSON.parse(this.userService.getUserAutenticado()).id]);
     } else
       this.router.navigate(['']);
+  }
+
+  getImage(){
+    this.httpClient.get('http://localhost:8080/establishment/getImage/' + this.actRouter.snapshot.params['idEstablishment']).subscribe(
+      (res: any) => {
+        this.retrieveResonse = res;
+        this.base64Data = this.retrieveResonse.image;
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+      }
+    );
   }
 }
