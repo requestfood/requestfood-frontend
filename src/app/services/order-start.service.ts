@@ -14,7 +14,7 @@ export class OrderStartService {
   currentEstablishment:EstablishmentCard = {
     id: 0,
     name: "",
-    image: ""
+    image: File
   }
 
   getOrder(): any{
