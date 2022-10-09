@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-consumable',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateConsumableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+  createDrink() {
+    this.router.navigate(['createDrink']);
+    }
+  createDish() {
+    this.router.navigate(['createDish']);
+    }
   }
 
-}

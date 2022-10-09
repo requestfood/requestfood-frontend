@@ -36,6 +36,8 @@ import { EstablishmentProfileUpdateComponent } from './components/user/user-upda
 import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
 import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 import { LoadingComponent } from './components/core/loading/loading.component';
+import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
+import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
 import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 
@@ -64,6 +66,8 @@ import { UploadEstablishmentImageComponent } from './components/establishment/ca
     ClientConsumableInfoComponent,
     DialogConfirmComponent,
     LoadingComponent,
+    CreateDishComponent,
+    CreateDrinkComponent,
     BagItemsComponent,
     ItemInfoComponent,
     UploadEstablishmentImageComponent
