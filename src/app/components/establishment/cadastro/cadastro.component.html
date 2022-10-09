@@ -21,9 +21,6 @@
                 <label class="label-text" for="name" id="name">Nome</label>
                 <input type="text" [(ngModel)]="establishment.name" required id="name" name="name" maxlength="15"
                     minlength="2" />
-
-                <label class="label-text" for="image" id="image">Logo do Estabelecimento</label>
-                <input type="file" class="input-image" [(ngModel)]="establishment.image" id="image" name="image" />
             </div>
 
             <div class="tab" *ngIf="currentTab == 1">

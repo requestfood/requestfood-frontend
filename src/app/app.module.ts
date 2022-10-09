@@ -37,6 +37,7 @@ import { ClientConsumableInfoComponent } from './components/_client/client-consu
 import { DialogConfirmComponent } from './components/core/dialog-confirm/dialog-confirm.component';
 import { LoadingComponent } from './components/core/loading/loading.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
+import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { BagItemsComponent } from './components/_client/order-start/bag-items/ba
     DialogConfirmComponent,
     LoadingComponent,
     BagItemsComponent,
-    ItemInfoComponent
+    ItemInfoComponent,
+    UploadEstablishmentImageComponent
   ],
   imports: [
     BrowserModule,

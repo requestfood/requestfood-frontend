@@ -12,6 +12,7 @@ export class CadastroEstablishmentComponent implements OnInit {
  currentTab: number; 
 
   establishment: EstablishmentRegister = {
+    id: 0,
     name: "",
     password: "",
     email: "",
@@ -19,7 +20,6 @@ export class CadastroEstablishmentComponent implements OnInit {
     timeToOpen: "",
     timeToClose: "",
     description: "",
-    image: ""
    }
 
    passwordTest: String = ''; 

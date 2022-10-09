@@ -7,6 +7,10 @@ html {
   background-color: #f8f8f8;
 }
 
+img {
+  max-width: 30%;
+}
+
 main {
   height: 90%;
   width: 100%;
