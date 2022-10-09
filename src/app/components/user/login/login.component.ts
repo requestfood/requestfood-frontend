@@ -1,7 +1,12 @@
+import { CreateOrder } from '../../../models/order/createOrder';
+import { OrderService } from './../../../services/Order.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
+import { DialogConfirm } from './../../../models/core/dialog';
 import { UserLogin } from './../../../models/user/userLogin';
-import { EstablishmentService } from './../../../services/establishmentService.service';
-import { ClientService } from 'src/app/services/clientService.service';
-import { UserService } from './../../../services/userService.service';
+import { EstablishmentService } from '../../../services/EstablishmentService.service';
+import { ClientService } from 'src/app/services/ClientService.service';
+import { UserService } from './../../../services/User.service';
 import { Router } from '@angular/router';
 
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
@@ -28,11 +33,14 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
+    private clientService: ClientService,
+    private orderService: OrderService,
+    private dialog: MatDialog,
     private router: Router
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
   fazerLogin() {
@@ -40,15 +48,14 @@ export class LoginComponent implements OnInit {
       this.holder = data;
       this.userService.setUserAutenticado(this.holder);
 
-      if (this.holder.role == "ESTABLISHMENT_USER"){
+      if (this.holder.role == "ESTABLISHMENT_USER") {
         this.router.navigate(['/home-establishment/' + this.holder.id])
       }
-      else if(this.holder.role == "CLIENT_USER"){
+      else if (this.holder.role == "CLIENT_USER") {
         this.router.navigate(['/home-client/' + this.holder.id])
       }
       this.userService.mostrarMenuLogin.emit(true)
       this.userService.novoUserAutenticado.emit(data)
-
     })
   }
 }

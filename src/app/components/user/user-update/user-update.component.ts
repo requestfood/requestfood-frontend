@@ -1,10 +1,10 @@
-import { ClientService } from './../../../services/clientService.service';
-import { EstablishmentService } from './../../../services/establishmentService.service';
+import { ClientService } from '../../../services/ClientService.service';
+import { EstablishmentService } from '../../../services/EstablishmentService.service';
 import { catchError, empty, of } from 'rxjs';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from '../../../models/core/dialog';
 import { Router } from '@angular/router';
-import { UserService } from './../../../services/userService.service';
+import { UserService } from './../../../services/User.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -23,8 +23,7 @@ export class UserUpdateComponent implements OnInit {
     private dialog: MatDialog,
     private userService: UserService,
     private clientService: ClientService,
-    private establishmentService: EstablishmentService,
-    private router: Router) { }
+    private router: Router) {}
 
   ngOnInit() {
     this.clientService.clientRefresh.subscribe(data => this.nameClient = data)

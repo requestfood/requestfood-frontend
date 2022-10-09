@@ -1,12 +1,18 @@
 <div class="comanda">
   <p class="id_comanda">Pedido #{{ order.idOrder }}</p>
   <div class="box-image">
-      <img src="{{ order.imageEstablishment }}" alt="image">
-      <div>
-          <p>{{ order.nameEstablishment }}</p>
-          <p>{{ order.orderStatus }}</p>
-      </div>
+    <img src="" alt="image">
+    <div>
+      <p>{{ order.nameEstablishment }}</p>
+      <p>{{ order.orderStatus }}</p>
+    </div>
   </div>
-  <p class="date">{{ order.issueDate | date : 'dd/MM/yyyy'}}</p>
-  <p class="date">{{ order.issueDate | date : 'h:mm a'}}</p>
+  <div class="box-date">
+    <div>
+      <p class="date">{{ order.issueDate | date : 'dd/MM/yyyy'}}</p>
+      <p class="date">{{ order.issueDate | date : 'h:mm a'}}</p>
+    </div>
+
+    <a (click)="deleteOrder()" *ngIf="order.orderStatus == 'CANCELED'">Deletar</a>
+  </div>
 </div>

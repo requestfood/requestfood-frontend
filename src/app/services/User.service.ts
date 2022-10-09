@@ -77,15 +77,15 @@ export class UserService {
 
   //  PUT  //
 
-  updateContact(contactUpdate: ContactUpdate, id: number): Observable<String>{
-    return this.http.put<string>('http://localhost:8080/contact/' + id, contactUpdate)
+  updateContact(contactUpdate: ContactUpdate, id: number): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/contact/' + id, contactUpdate)
   }
   getContact(id: number): Observable<any>{
     return this.http.get<any>('http://localhost:8080/contact/' + id);
   }
   
-  updatePassword(passwordUpdate: PasswordUpdate, id: number): Observable<String>{
-    return this.http.put<String>('http://localhost:8080/user/' + id + '/password', passwordUpdate)
+  updatePassword(passwordUpdate: PasswordUpdate, id: number): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/user/' + id + '/password', passwordUpdate)
   }
 
   //  DELETE  //

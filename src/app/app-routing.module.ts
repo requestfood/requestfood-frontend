@@ -1,5 +1,6 @@
+import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 import { EstablishmentConsumableInfoComponent } from './components/establishment/consumable-info/consumable-info.component';
-import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
+import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { OrderStartComponent } from './components/_client/order-start/order-start.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
@@ -19,11 +20,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateConsumableComponent } from './components/establishment/create-consumable/create-consumable.component';
 import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
 import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
+import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
+
 
 const routes: Routes = [
   {path: '',component: LoginComponent},
   {path: 'cadastroC',component: CadastroClientComponent},
   {path: 'cadastroE',component: CadastroEstablishmentComponent},
+  {path: 'upload-image/:idEstablishment', component: UploadEstablishmentImageComponent},
   {path: 'home-client/:id', component: HomeClientComponent},
   {path: 'consumables/:idEstablishment', component: ClientConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},
@@ -40,6 +44,8 @@ const routes: Routes = [
   {path: 'onCadastrarConsumivel', component: CreateConsumableComponent},
   {path: 'createDish', component: CreateDishComponent},
   {path: 'createDrink', component: CreateDrinkComponent}
+  {path: 'bagitems/:idOrder', component: BagItemsComponent}
+
 ];
 
 

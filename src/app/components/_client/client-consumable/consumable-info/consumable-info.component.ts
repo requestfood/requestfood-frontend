@@ -1,11 +1,10 @@
+import { ConsumableService } from '../../../../services/ConsumableService.service';
+import { itemOrder } from './../../../../models/order/itemOrder';
 import { MessageService } from 'src/app/services/core/message.service';
-import { OrderStartService } from './../../../services/order-start.service';
-import { UserService } from './../../../services/userService.service';
+import { OrderService } from '../../../../services/Order.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { itemOrder } from './../../../models/itemOrder';
 import { Component, OnInit } from '@angular/core';
-import { ConsumableService } from 'src/app/services/consumableService.service';
-import { ItemService } from 'src/app/services/item-service.service';
+import { ItemService } from 'src/app/services/Item-service.service';
 
 @Component({
   selector: 'app-consumable-info',
@@ -21,7 +20,7 @@ export class ClientConsumableInfoComponent implements OnInit {
   amount: number = 0
 
   item: itemOrder = {
-    idOrder: this.order.id,
+    idOrder: this.order,
     idConsumable: this.consumable.id,
     quantityItem: 0,
     obsItem: ""
@@ -29,7 +28,7 @@ export class ClientConsumableInfoComponent implements OnInit {
 
   constructor(
     private service: ConsumableService,
-    private orderService: OrderStartService,
+    private orderService: OrderService,
     private messageService: MessageService,
 
     private itemService: ItemService,
@@ -38,11 +37,13 @@ export class ClientConsumableInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.orderService.getOrder())
-      this.order = {} 
-      
+    if (this.orderService.getOrder()) {
+      this.order = JSON.parse(this.orderService.getOrder())
+      this.item.idOrder = this.order.id
+    }
+
     this.orderService.novaComanda.subscribe(newOrder => {
-      this.order = newOrder
+      this.item.idOrder = newOrder.id
     })
   }
 
@@ -61,9 +62,12 @@ export class ClientConsumableInfoComponent implements OnInit {
   }
 
   createItem() {
-    if (this.orderService.getOrder())
-      this.itemService.addItem(this.item).subscribe((data: itemOrder) => { })
-    else
+    if (this.orderService.getOrder()) {
+
+      this.itemService.addItem(this.item).subscribe((data: itemOrder) => {
+        this.router.navigate(['bagitems/' + JSON.parse(this.orderService.getOrder()).id])
+      })
+    } else
       this.messageService.add('Inicie sua comanda para realizar o pedido')
   }
 

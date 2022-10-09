@@ -1,4 +1,4 @@
-export interface createOrder  {
+export interface CreateOrder  {
 
     idEstablishment: number,
     idClient: number

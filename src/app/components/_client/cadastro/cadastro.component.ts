@@ -1,4 +1,5 @@
-import { ClientService } from 'src/app/services/clientService.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ClientService } from 'src/app/services/ClientService.service';
 import { Component, OnInit } from '@angular/core';
 import { ClientRegister } from 'src/app/models/_client/clientRegister';
 

@@ -1,7 +1,7 @@
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from './../../../models/core/dialog';
-import { UserService } from './../../../services/userService.service';
+import { UserService } from './../../../services/User.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/core/message.service';

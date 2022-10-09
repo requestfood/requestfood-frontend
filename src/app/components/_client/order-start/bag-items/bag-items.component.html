@@ -1,0 +1,30 @@
+<main>
+
+    <section>
+
+        <h1>Comanda  #{{ order.idOrder }}</h1>
+
+        <div class="container-order">
+            <h2>{{ order.nameEstablishment }}</h2>
+
+            <div>
+                <app-item-info *ngFor="let item of order.items" [item]="item" [amount]="order.amount"></app-item-info>
+            </div>
+
+            <h3>Total: {{ order.amount | currency : 'BRL' }}</h3>
+        </div>
+
+        <div class="container-buttons">
+
+            <div>
+                <button (click)="doBack()">Voltar</button>
+                <button (click)="cancelOrder()">Cancelar Pedido</button>
+            </div>
+
+            <button (click)="sendOrder()">Enviar Comanda</button>
+
+        </div>
+
+    </section>
+
+</main>

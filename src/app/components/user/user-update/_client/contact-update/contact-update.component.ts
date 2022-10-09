@@ -1,7 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { catchError, empty, of, finalize } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from './../../../../../services/userService.service';
+import { UserService } from './../../../../../services/User.service';
 import { ContactUpdate } from '../../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
@@ -43,7 +41,8 @@ export class ClientContactUpdateComponent implements OnInit {
     else if (this.newContactUpdate.phone == "")
       this.newContactUpdate.phone = this.currentContactUpdate.phone
 
-    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(() => { })
+    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(res => {
+     })
   }
 
 }

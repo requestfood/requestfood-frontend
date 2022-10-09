@@ -2,9 +2,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from './../../../models/core/dialog';
 import { MessageService } from './../../../services/core/message.service';
-import { HeaderPageComponent } from './../navbar/header-page.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from './../../../services/userService.service';
+import { UserService } from './../../../services/User.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

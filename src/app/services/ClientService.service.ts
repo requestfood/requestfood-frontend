@@ -1,5 +1,6 @@
+import { CreateOrder } from '../models/order/createOrder';
 import { ClientUpdate, getClientUpdate } from '../models/user/UserUpdate';
-import { ClientOrders } from './../models/_client/ClientWithOrders';
+import { ClientOrders } from '../models/_client/ClientWithOrders';
 import { Page } from 'src/app/models/core/page';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -27,25 +28,29 @@ export class ClientService {
 
   //  GET  //
 
-  getClientWithOrders(id: number): Observable<ClientOrders>{
+  getClientWithOrders(id: Number): Observable<ClientOrders>{
     return this.http.get<ClientOrders>(this.endPointClient + 'orders/' + id);
   }
 
-  getEstablishmentsHome(page: number): Observable<Page> {
+  getClientWithCurrentOrder(id: Number): Observable<any>{
+    return this.http.get<any>(this.endPointClient + 'current-order/' + id);
+  }
+
+  getEstablishmentsHome(page: Number): Observable<Page> {
     return this.http.get<Page>(this.endPointEstablishment+ 'card/' + page)
   }
 
-  getEstablishmentByName(string: string, page: number): Observable<Page>{
+  getEstablishmentByName(string: string, page: Number): Observable<Page>{
     return this.http.get<Page>(this.endPointEstablishment + 'search-name/' + string + '/' + page)
   }
 
-  getOneClient(id: number):Observable<getClientUpdate>{
+  getOneClient(id: Number):Observable<getClientUpdate>{
     return this.http.get<getClientUpdate>(this.endPointClient + id)
   }
 
   //  PUT  //
 
-  updateClient(putData: ClientUpdate, id: number): Observable<String>{
+  updateClient(putData: ClientUpdate, id: Number): Observable<String>{
     return this.http.put<String>(this.endPointClient + id, putData)
   }
 

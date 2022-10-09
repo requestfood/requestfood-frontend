@@ -1,6 +1,7 @@
+import { EstablishmentImage } from 'src/app/models/establishment/establishmentImage';
 import { EstablishmentUpdate } from '../models/user/UserUpdate';
-import { EstablishmentWithOrderReady } from './../models/establishment/EstablishmentWithOrderReady';
-import { EstablishmentRegister } from './../models/establishment/establishmentRegister';
+import { EstablishmentWithOrderReady } from '../models/establishment/EstablishmentWithOrderReady';
+import { EstablishmentRegister } from '../models/establishment/establishmentRegister';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -26,6 +27,12 @@ export class EstablishmentService {
 
   getOrdersReady(id: number): Observable<EstablishmentWithOrderReady>{
     return this.http.get<EstablishmentWithOrderReady>('http://localhost:8080/establishment/orders-ready/' + id);
+  }
+
+  //  Image  //
+
+  getEstablishmentImage(id: number): Observable<EstablishmentImage>{
+    return this.http.get<EstablishmentImage>(this.endPointEstablishment +'getImage/'+ id);
   }
 
 
