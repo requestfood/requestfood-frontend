@@ -1,3 +1,4 @@
+import { OrderService } from './../../../../services/Order.service';
 import { OrderToClient } from './../../../../models/_client/ClientWithOrders';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -17,9 +18,15 @@ export class CardComandaComponent implements OnInit {
     orderStatus: ""
   }
 
-  constructor() { }
+  constructor(
+  private orderService: OrderService
+  ) { }
 
   ngOnInit() {
   }
-
+  
+  deleteOrder(){
+    this.orderService.deleteOrder(this.order.idOrder).subscribe(() => {})
+    location.reload()
+  }
 }

@@ -41,7 +41,8 @@ export class ClientContactUpdateComponent implements OnInit {
     else if (this.newContactUpdate.phone == "")
       this.newContactUpdate.phone = this.currentContactUpdate.phone
 
-    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(() => { })
+    this.userService.updateContact(this.newContactUpdate, this.router.snapshot.params['id']).subscribe(res => {
+     })
   }
 
 }
