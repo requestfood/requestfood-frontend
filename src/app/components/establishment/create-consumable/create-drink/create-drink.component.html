@@ -23,12 +23,13 @@
 
             <div class="description" *ngIf="currentTab == 1">
                 <label class="label-text" for="description" id="description">Descrição do Consumivel</label>
-                <textarea class="descriptiontext" name="description" id="description" cols="60" rows="9"
-                    required></textarea>
+                <textarea class="descriptiontext" name="description" id="description" cols="60" rows="9"required></textarea>
             </div>
 
-            <div class="tab" *ngIf="currentTab == 2">
-                <label class="label-text" for="category" id="category">Tipos</label>
+            <div class="tab-category-drink" *ngIf="currentTab == 2">
+             <div class="selects">
+                <div class="category">
+                <label class="types" for="category" id="category">Categoria</label>
                 <select class="select" name="select" id="category">
                     <option value="option">Bebida</option>
                     <option value="option">Soda</option>
@@ -36,17 +37,23 @@
                     <option value="option">Destilado</option>
                     <option value="option">Vinho</option>
                 </select>
-
+            </div>
+            <div class="type"> 
+                <label class="types" for="type" id="type">Alcoólico</label>
+                <select class="select" name="type" id="type">
+                    <option value="option">Sim</option>
+                    <option value="option">Não</option>
+                </select>
+            </div>
+            </div>
                 <label class="label-text" for="value" id="value">Valor</label>
                 <input type="text" required id="value" name="value" />
             </div>
         </form>
         <div class="buttons">
-            <button (click)="onCadastrarConsumivel" *ngIf="currentTab != 0"> Voltar</button>
-            <button (click)="alterStep(-1)" *ngIf="currentTab != 3"> Voltar</button>
-            <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo </button>
+            <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
+            <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo</button>
             <button *ngIf="currentTab == 2">Cadastrar</button>
-
         </div>
     </section>
 </main>
