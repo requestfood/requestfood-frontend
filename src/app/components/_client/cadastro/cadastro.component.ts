@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/ClientService.service';
 import { Component, OnInit } from '@angular/core';
 import { ClientRegister } from 'src/app/models/_client/clientRegister';
@@ -23,7 +24,9 @@ export class CadastroClientComponent implements OnInit {
 
   passwordOne: String = "";
 
-  constructor(private service: ClientService) {}
+  constructor(private service: ClientService,
+              private router: Router,
+              private actRouter: ActivatedRoute) {}
 
   ngOnInit(): void {}
 
@@ -33,6 +36,7 @@ export class CadastroClientComponent implements OnInit {
       
       this.service.addClient(this.client).subscribe(data => {
         this.client = data;
+        this.router.navigate([''+ this.actRouter.snapshot.params['idEstablishment']])
     })
   }
 
