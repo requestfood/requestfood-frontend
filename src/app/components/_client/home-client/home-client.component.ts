@@ -1,9 +1,12 @@
-import { OrderStartService } from './../../../services/order-start.service';
-import { UserService } from './../../../services/userService.service';
+import { OrderService } from './../../../services/Order.service';
+import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
+import { DialogConfirm } from './../../../models/core/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { UserService } from './../../../services/User.service';
 import { Router } from '@angular/router';
-import { ClientService } from 'src/app/services/clientService.service';
+import { ClientService } from 'src/app/services/ClientService.service';
 import { EstablishmentCard } from '../../../models/establishment/establishmentCard';
-import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Page } from 'src/app/models/core/page';
 
 @Component({
@@ -14,7 +17,7 @@ import { Page } from 'src/app/models/core/page';
 export class HomeClientComponent implements OnInit {
 
   establishments: Array<EstablishmentCard> = [];
-  
+
   searchName: string = "";
 
   userAutenticado = JSON.parse(this.userService.getUserAutenticado())
@@ -47,13 +50,16 @@ export class HomeClientComponent implements OnInit {
     image: null
   }
 
-  constructor(private service: ClientService, 
-    private userService: UserService, 
-    private router: Router, 
-    private orderStartService: OrderStartService
-  ) {}
+  constructor(private service: ClientService,
+    private userService: UserService,
+    private router: Router,
+    private dialog: MatDialog,
+    private orderService: OrderService
+  ) { }
 
   ngOnInit(): void {
+
+    this.reloadOrder()
     this.getEstablishments()
   }
 
@@ -66,22 +72,22 @@ export class HomeClientComponent implements OnInit {
     })
   }
 
-  changePage(pageEvent: any){
+  changePage(pageEvent: any) {
 
-    if(pageEvent.typeSearch == "searchByName")  
+    if (pageEvent.typeSearch == "searchByName")
       this.searchByName(pageEvent.page);
-    else{
+    else {
       this.getEstablishments(pageEvent.page);
     }
   }
 
-  searchByName(page: number = 0): any{
+  searchByName(page: number = 0): any {
     
-    if(this.searchName == ""){
+    if (this.searchName == "") {
       this.getEstablishments(0)
       return false;
     }
-    
+
     this.service.getEstablishmentByName(this.searchName, page).subscribe((data: Page) => {
       this.page = data;
       this.establishments = data.content
@@ -89,9 +95,39 @@ export class HomeClientComponent implements OnInit {
     })
     return true;
   }
-
+  
   openOrderStart(currentEstablishment: EstablishmentCard) {
-    this.orderStartService.setCurrentEstablishment(currentEstablishment);
+    this.orderService.setCurrentEstablishment(currentEstablishment);
     this.router.navigate(['/order-start/' + currentEstablishment.id]);
+  }
+  
+  reloadOrder(){
+    if (!this.orderService.getOrder()) {
+      this.service.getClientWithCurrentOrder(this.userAutenticado.id).subscribe((data: any) => {
+        if (data != null) {
+          const dialogData: DialogConfirm = {
+            content: 'Você tem uma comanda de número ' + data.id + ' deseja continua-la?',
+            confirmText: 'Sim',
+            cancelText: 'Não'
+          }
+    
+          const dialogRef = this.dialog.open(DialogConfirmComponent, {
+            data: dialogData
+          })
+    
+          dialogRef.afterClosed().subscribe(result => {
+    
+            if (result) {
+              this.orderService.setOrder(data)
+              this.orderService.novaComanda.emit(data)
+              this.router.navigate(['bagitems/' + data.id])
+            } else {
+              localStorage.removeItem('order')
+            }
+          })
+        }
+      })
+    }
+    
   }
 }

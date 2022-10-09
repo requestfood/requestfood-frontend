@@ -1,6 +1,6 @@
-import { createOrder } from './../models/createOrder';
+import { CreateOrder } from '../models/order/createOrder';
 import { Observable } from 'rxjs';
-import { itemOrder } from './../models/itemOrder';
+import { itemOrder } from '../models/order/itemOrder';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -9,12 +9,12 @@ import { Injectable } from '@angular/core';
 })
 export class ItemService {
 
-  currentOrder: createOrder = {
+  currentOrder: CreateOrder = {
     idEstablishment: 0,
     idClient: 0
   }
 
-  setCurrentOrder(currentOrder: createOrder) {
+  setCurrentOrder(currentOrder: CreateOrder) {
     this.currentOrder = currentOrder
   }
 
@@ -26,5 +26,9 @@ export class ItemService {
 
   addItem(postData: itemOrder): Observable<itemOrder> {
     return this.http.post<itemOrder>('http://localhost:8080/item', postData);
+  }
+
+  deleteItem(id: number): Observable<string>{
+    return this.http.delete<string>('http://localhost:8080/item/' + id)
   }
 }

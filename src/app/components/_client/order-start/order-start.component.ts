@@ -1,9 +1,7 @@
 import { MessageService } from 'src/app/services/core/message.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { createOrder } from './../../../models/createOrder';
-import { OrderStartService } from './../../../services/order-start.service';
+import { OrderService } from './../../../services/Order.service';
 import { Router } from '@angular/router';
-import { UserService } from './../../../services/userService.service';
+import { UserService } from './../../../services/User.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,7 +16,7 @@ export class OrderStartComponent implements OnInit {
   currentEstablishment = this.service.getCurrentEstablishment();
 
   constructor(
-    private service: OrderStartService,
+    private service: OrderService,
     private userService: UserService,
     private messageService: MessageService,
     private router: Router
@@ -42,10 +40,10 @@ export class OrderStartComponent implements OnInit {
           idClient: JSON.parse(this.userService.getUserAutenticado()).id
         }
 
-        this.service.addOrder(order)
-
+        this.service.postOrder(order)
           .subscribe(
             (data: any) => {
+              console.log(data)
               this.service.setOrder(data)
               this.service.novaComanda.emit(data)
             })

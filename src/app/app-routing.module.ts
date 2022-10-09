@@ -1,5 +1,5 @@
 import { EstablishmentConsumableInfoComponent } from './components/establishment/consumable-info/consumable-info.component';
-import { ClientConsumableInfoComponent } from './components/_client/consumable-info/consumable-info.component';
+import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
 import { OrderStartComponent } from './components/_client/order-start/order-start.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
@@ -16,6 +16,7 @@ import { LoginComponent } from './components/user/login/login.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
 
 const routes: Routes = [
   {path: '',component: LoginComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'comandasC/:id', component: ClientComandasComponent},
   {path: 'order-start/:idEstablishment', component: OrderStartComponent},
   {path: 'consumableC-info/:idEstablishment/:idConsumable', component: ClientConsumableInfoComponent},
-  {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent}
+  {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent},
+  {path: 'bagitems/:idOrder', component: BagItemsComponent}
 ];
 
 @NgModule({

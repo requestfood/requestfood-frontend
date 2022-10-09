@@ -13,11 +13,10 @@
                     <div>
                       <h2>{{ consumable.name }}</h2>
                       <p>{{ consumable.description }}</p>
-                      <!-- <input type="text" name="" placeholder="Obs: Tirar cebola, alface etc." [(ngModel)]="item.obsItem"> -->
                       <textarea placeholder="Obs: Tirar cebola, alface etc." name="" id="" cols="30" rows="10" [(ngModel)]="item.obsItem"></textarea>
                     </div>
                     <div id="conteiner-quantity">
-                        <button (click)="remQuantity()">-</button>
+                        <button (click)="remQuantity()" [disabled]="item.quantityItem == 0">-</button>
                         <button (click)="addQuantity()">+</button>
                         <p>{{ item.quantityItem }}</p>
                     </div>

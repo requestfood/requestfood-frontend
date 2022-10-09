@@ -1,0 +1,14 @@
+<div>
+  <div class="container-name">
+    <h4>{{ item.nameConsumable }} : x{{ item.quantity }}</h4>
+    <p>Obs: {{ item.observation }}</p>
+  </div>
+
+  <div class="container-actions">
+    <div>
+      <a class="remove" (click)="deleteItem(item.idItem)">Remover</a>
+    </div>
+
+    <p>{{ item.value | currency : 'BRL' }}</p>
+  </div>
+</div>

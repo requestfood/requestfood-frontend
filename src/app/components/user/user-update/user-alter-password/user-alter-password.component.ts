@@ -1,4 +1,4 @@
-import { UserService } from './../../../../services/userService.service';
+import { UserService } from './../../../../services/User.service';
 import { PasswordUpdate } from '../../../../models/user/UserUpdate';
 import { Component, OnInit } from '@angular/core';
 
