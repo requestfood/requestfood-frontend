@@ -43,7 +43,7 @@ const routes: Routes = [
   {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent},
   {path: 'onCadastrarConsumivel', component: CreateConsumableComponent},
   {path: 'createDish', component: CreateDishComponent},
-  {path: 'createDrink', component: CreateDrinkComponent}
+  {path: 'createDrink', component: CreateDrinkComponent},
   {path: 'bagitems/:idOrder', component: BagItemsComponent}
 
 ];
