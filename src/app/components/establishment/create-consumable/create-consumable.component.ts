@@ -8,10 +8,15 @@ import { Route, Router } from '@angular/router';
 })
 export class CreateConsumableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
- 
+  createDrink() {
+    this.router.navigate(['createDrink']);
+    }
+  createDish() {
+    this.router.navigate(['createDish']);
+    }
   }
 

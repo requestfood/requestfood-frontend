@@ -42,8 +42,9 @@
             </div>
         </form>
         <div class="buttons">
-            <button (click)="alterStep(-1)" *ngIf="currentTab != 3">&lt; Voltar</button>
-            <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo &gt;</button>
+            <button (click)="onCadastrarConsumivel" *ngIf="currentTab != 0"> Voltar</button>
+            <button (click)="alterStep(-1)" *ngIf="currentTab != 3"> Voltar</button>
+            <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo </button>
             <button *ngIf="currentTab == 2">Cadastrar</button>
 
         </div>

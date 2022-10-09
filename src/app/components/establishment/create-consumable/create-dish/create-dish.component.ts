@@ -19,7 +19,4 @@ export class CreateDishComponent implements OnInit {
       this.currentTab = this.currentTab + n;
     }
   }
-    createDish() {
-        this.router.navigate(['createDish']);
-  }
 }

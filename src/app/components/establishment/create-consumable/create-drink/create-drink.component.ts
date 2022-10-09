@@ -19,7 +19,7 @@ export class CreateDrinkComponent implements OnInit {
       this.currentTab = this.currentTab + n;
     }
   }
-    createDrink() {
-        this.router.navigate(['createDrink']);
-  }
+  onCadastrarConsumivel(){
+     this.router.navigate(['onCadastrarConsumivel'])
+    }
 }
