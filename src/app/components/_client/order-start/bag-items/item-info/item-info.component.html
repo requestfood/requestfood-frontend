@@ -6,8 +6,7 @@
 
   <div class="container-actions">
     <div>
-      <a class="remove">Remover</a>
-      <a>Editar</a>
+      <a class="remove" (click)="deleteItem(item.idItem)">Remover</a>
     </div>
 
     <p>{{ item.value | currency : 'BRL' }}</p>

@@ -27,4 +27,8 @@ export class ItemService {
   addItem(postData: itemOrder): Observable<itemOrder> {
     return this.http.post<itemOrder>('http://localhost:8080/item', postData);
   }
+
+  deleteItem(id: number): Observable<string>{
+    return this.http.delete<string>('http://localhost:8080/item/' + id)
+  }
 }

@@ -59,33 +59,7 @@ export class HomeClientComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (!this.orderService.getOrder()) {
-      this.service.getClientWithCurrentOrder(this.userAutenticado.id).subscribe((data: any) => {
-        if (data != null) {
-          const dialogData: DialogConfirm = {
-            content: 'Você tem uma comanda de número ' + data.id + ' deseja continua-la?',
-            confirmText: 'Sim',
-            cancelText: 'Não'
-          }
-
-          const dialogRef = this.dialog.open(DialogConfirmComponent, {
-            data: dialogData
-          })
-
-          dialogRef.afterClosed().subscribe(result => {
-
-            if (result) {
-              this.orderService.setOrder(data)
-              this.orderService.novaComanda.emit(data)
-              this.router.navigate(['bagitems/' + data.id])
-            } else {
-              localStorage.removeItem('order')
-            }
-          })
-        }
-      })
-    }
-
+    this.reloadOrder()
     this.getEstablishments()
   }
 
@@ -108,7 +82,7 @@ export class HomeClientComponent implements OnInit {
   }
 
   searchByName(page: number = 0): any {
-
+    
     if (this.searchName == "") {
       this.getEstablishments(0)
       return false;
@@ -121,9 +95,39 @@ export class HomeClientComponent implements OnInit {
     })
     return true;
   }
-
+  
   openOrderStart(currentEstablishment: EstablishmentCard) {
     this.orderService.setCurrentEstablishment(currentEstablishment);
     this.router.navigate(['/order-start/' + currentEstablishment.id]);
+  }
+  
+  reloadOrder(){
+    if (!this.orderService.getOrder()) {
+      this.service.getClientWithCurrentOrder(this.userAutenticado.id).subscribe((data: any) => {
+        if (data != null) {
+          const dialogData: DialogConfirm = {
+            content: 'Você tem uma comanda de número ' + data.id + ' deseja continua-la?',
+            confirmText: 'Sim',
+            cancelText: 'Não'
+          }
+    
+          const dialogRef = this.dialog.open(DialogConfirmComponent, {
+            data: dialogData
+          })
+    
+          dialogRef.afterClosed().subscribe(result => {
+    
+            if (result) {
+              this.orderService.setOrder(data)
+              this.orderService.novaComanda.emit(data)
+              this.router.navigate(['bagitems/' + data.id])
+            } else {
+              localStorage.removeItem('order')
+            }
+          })
+        }
+      })
+    }
+    
   }
 }

@@ -5,13 +5,13 @@
         <h1>Comanda  #{{ order.idOrder }}</h1>
 
         <div class="container-order">
-            <h2>{{ order.nameEstbalishment }}</h2>
+            <h2>{{ order.nameEstablishment }}</h2>
 
             <div>
                 <app-item-info *ngFor="let item of order.items" [item]="item"></app-item-info>
             </div>
 
-            <h3>Total: {{ order.amount }}</h3>
+            <h3>Total: {{ order.amount | currency : 'BRL' }}</h3>
         </div>
 
         <div class="container-buttons">

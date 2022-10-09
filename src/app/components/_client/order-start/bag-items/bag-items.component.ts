@@ -15,7 +15,7 @@ export class BagItemsComponent implements OnInit {
 
   order: OrderDetails = {
     idOrder: 0,
-    nameEstbalishment: "",
+    nameEstablishment: "",
     IssueDate: "",
     items: [],
     amount: 0
@@ -39,8 +39,6 @@ export class BagItemsComponent implements OnInit {
     this.orderService.getOrderDetails(id).subscribe(
       (data: OrderDetails) => {
         this.order = data
-        console.log(data);
-        
       })
   }
 }
