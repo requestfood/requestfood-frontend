@@ -24,9 +24,7 @@ export class CadastroClientComponent implements OnInit {
 
   passwordOne: String = "";
 
-  constructor(private service: ClientService,
-              private router: Router,
-              private actRouter: ActivatedRoute) {}
+  constructor(private service: ClientService) {}
 
   ngOnInit(): void {}
 
@@ -36,7 +34,6 @@ export class CadastroClientComponent implements OnInit {
       
       this.service.addClient(this.client).subscribe(data => {
         this.client = data;
-        this.router.navigate([''+ this.actRouter.snapshot.params['idEstablishment']])
     })
   }
 
