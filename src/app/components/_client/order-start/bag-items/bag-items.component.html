@@ -8,7 +8,7 @@
             <h2>{{ order.nameEstablishment }}</h2>
 
             <div>
-                <app-item-info *ngFor="let item of order.items" [item]="item"></app-item-info>
+                <app-item-info *ngFor="let item of order.items" [item]="item" [amount]="order.amount"></app-item-info>
             </div>
 
             <h3>Total: {{ order.amount | currency : 'BRL' }}</h3>

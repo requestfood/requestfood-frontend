@@ -27,7 +27,7 @@
 
         <div id="conteiner-buttons">
             <button (click)="backPage()">Voltar</button>
-            <button (click)="createItem()">Adicionar {{ amount | currency : 'BRL' }}</button>
+            <button (click)="createItem()" [disabled]="item.quantityItem == 0">Adicionar {{ amount | currency : 'BRL' }}</button>
         </div>
 
     </section>

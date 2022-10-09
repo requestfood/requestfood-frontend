@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrecoHeaderComponent implements OnInit {
 
-  amount: string = '0.00';
+  amount: number = 0;
 
   orderStart: boolean = false
 
@@ -21,13 +21,21 @@ export class PrecoHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.orderService.getOrder()){
+    this.orderService.amountOrder.subscribe(res => {
+      if (res != 0)
+        this.amount = res
+      else
+        this.amount = 0
+    })
+
+    if (this.orderService.getOrder()) {
       this.orderStart = true
     }
 
     this.orderService.novaComanda.subscribe(result => {
       this.orderStart = true;
     })
+
   }
 
 

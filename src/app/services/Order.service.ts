@@ -12,6 +12,7 @@ export class OrderService {
   
   constructor(private http: HttpClient) { }
 
+  amountOrder = new EventEmitter<number>()
   novaComanda =  new EventEmitter<any>()
 
   currentEstablishment:EstablishmentCard = {

@@ -1,3 +1,4 @@
+import { OrderService } from './../../../../../services/Order.service';
 import { MessageService } from './../../../../../services/core/message.service';
 import { ItemService } from 'src/app/services/Item-service.service';
 import { ItemDetails } from './../../../../../models/order/OrderDetails';
@@ -11,6 +12,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ItemInfoComponent implements OnInit {
 
   @Input()
+  amount: number = 0
+
+  @Input()
   item: ItemDetails = {
     idItem: 0,
     nameConsumable: "",
@@ -21,7 +25,8 @@ export class ItemInfoComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private orderService: OrderService
   ) { }
 
   ngOnInit() {
@@ -29,8 +34,7 @@ export class ItemInfoComponent implements OnInit {
 
 
   deleteItem(id:number){
-
-    
+    this.orderService.amountOrder.emit(-this.item.value)
 
     this.itemService.deleteItem(id).subscribe(res => {
       this.messageService.add(res);
