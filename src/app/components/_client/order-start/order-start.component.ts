@@ -39,7 +39,6 @@ export class OrderStartComponent implements OnInit {
   }
 
   doCreateOrder() {
-
     if (this.userService.isClient()) {
 
       if (!localStorage.getItem('order')) {
