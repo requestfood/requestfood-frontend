@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/User.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/ClientService.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +12,7 @@ import { ClientRegister } from 'src/app/models/_client/clientRegister';
 export class CadastroClientComponent implements OnInit {
 
   client: ClientRegister = {
+     id: 0,
      name: "",
      password: "",
      surname: "",
@@ -24,7 +26,11 @@ export class CadastroClientComponent implements OnInit {
 
   passwordOne: String = "";
 
-  constructor(private service: ClientService) {}
+  constructor(
+    private service: ClientService,
+    private userService: UserService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {}
 
@@ -34,6 +40,14 @@ export class CadastroClientComponent implements OnInit {
       
       this.service.addClient(this.client).subscribe(data => {
         this.client = data;
+        
+        const user = {
+          id: data.id,
+          role: 'CLIENT_USER'
+         }
+         this.userService.setUserAutenticado(user)
+         this.userService.novoUserAutenticado.emit(user)
+         this.router.navigate(['home-client/' + user.id])
     })
   }
 
