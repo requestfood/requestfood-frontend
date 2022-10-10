@@ -1,3 +1,6 @@
+import { MessageService } from 'src/app/services/core/message.service';
+import { ConsumableService } from 'src/app/services/ConsumableService.service';
+import { Drink } from './../../../../models/consumables/drink';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,8 +12,23 @@ import { Router } from '@angular/router';
 export class CreateDrinkComponent implements OnInit {
 
   currentTab: number = 0;
+  
+  newDrink: Drink = {
+    id: 0,
+    idEstablishment: 0,
+    name: "",
+    categoryDrink: "",
+    price: 0,
+    description: "",
+    image: null,
+    alcoholic: false
+  }
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private service: ConsumableService,
+    private message: MessageService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +44,9 @@ export class CreateDrinkComponent implements OnInit {
      this.router.navigate(['onCadastrarConsumivel'])
     }
 
-  doRegister(){}
+    doRegister(){
+      this.service.postDrink(this.newDrink).subscribe(() => {
+        this.message.add('Consumable registered succesfully')
+      })
+    }
 }

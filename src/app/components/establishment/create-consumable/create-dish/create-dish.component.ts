@@ -1,3 +1,6 @@
+import { MessageService } from 'src/app/services/core/message.service';
+import { ConsumableService } from 'src/app/services/ConsumableService.service';
+import { Dish } from './../../../../models/consumables/dish';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,10 +13,25 @@ export class CreateDishComponent implements OnInit {
 
   currentTab: number = 0;
 
-  constructor(private router: Router) { }
+  newDish: Dish = {
+    id: 0,
+    idEstablishment: 0,
+    name: "",
+    categoryDish: "",
+    price: 0,
+    description: "",
+    image: null
+  }
+
+  constructor(
+    private router: Router,
+    private service: ConsumableService,
+    private message: MessageService
+    ) { }
 
   ngOnInit(): void {
   }
+  
   alterStep(n: number) {
     if (this.currentTab == 0 && n == -1){
       this.router.navigate(['onCadastrarConsumivel'])
@@ -22,6 +40,11 @@ export class CreateDishComponent implements OnInit {
       this.currentTab = this.currentTab + n;
     }
   }
-  doRegister(){}
+
+  doRegister(){
+    this.service.postDish(this.newDish).subscribe(() => {
+      this.message.add('Consumable registered succesfully')
+    })
+  }
 
 }
