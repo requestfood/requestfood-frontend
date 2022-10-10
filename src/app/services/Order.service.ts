@@ -18,7 +18,7 @@ export class OrderService {
   currentEstablishment:EstablishmentCard = {
     id: 0,
     name: "",
-    image: ""
+    image: File
   }
 
 

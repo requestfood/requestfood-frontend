@@ -1,3 +1,5 @@
+import { EstablishmentCard } from './../../../models/establishment/establishmentCard';
+import { ImageService } from 'src/app/services/core/image.service';
 import { OrderService } from './../../../services/Order.service';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from './../../../models/core/dialog';
@@ -5,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserService } from './../../../services/User.service';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/ClientService.service';
-import { EstablishmentCard } from '../../../models/establishment/establishmentCard';
 import { Component, Input, OnInit } from '@angular/core';
 import { Page } from 'src/app/models/core/page';
 
@@ -54,7 +55,8 @@ export class HomeClientComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private dialog: MatDialog,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -69,8 +71,10 @@ export class HomeClientComponent implements OnInit {
     this.service.getEstablishmentsHome(page).subscribe((data: Page) => {
       this.page = data
       this.establishments = data.content;
+      this.uploadImages(this.establishments)
     })
   }
+
 
   changePage(pageEvent: any) {
 
@@ -82,7 +86,7 @@ export class HomeClientComponent implements OnInit {
   }
 
   searchByName(page: number = 0): any {
-    
+
     if (this.searchName == "") {
       this.getEstablishments(0)
       return false;
@@ -92,16 +96,17 @@ export class HomeClientComponent implements OnInit {
       this.page = data;
       this.establishments = data.content
       this.page.typeSearch = "searchByName";
+      this.uploadImages(this.establishments)
     })
     return true;
   }
-  
+
   openOrderStart(currentEstablishment: EstablishmentCard) {
     this.orderService.setCurrentEstablishment(currentEstablishment);
     this.router.navigate(['/order-start/' + currentEstablishment.id]);
   }
-  
-  reloadOrder(){
+
+  reloadOrder() {
     if (!this.orderService.getOrder()) {
       this.service.getClientWithCurrentOrder(this.userAutenticado.id).subscribe((data: any) => {
         if (data != null) {
@@ -110,13 +115,13 @@ export class HomeClientComponent implements OnInit {
             confirmText: 'Sim',
             cancelText: 'Não'
           }
-    
+
           const dialogRef = this.dialog.open(DialogConfirmComponent, {
             data: dialogData
           })
-    
+
           dialogRef.afterClosed().subscribe(result => {
-    
+
             if (result) {
               this.orderService.setOrder(data)
               this.orderService.novaComanda.emit(data)
@@ -128,6 +133,16 @@ export class HomeClientComponent implements OnInit {
         }
       })
     }
-    
+
+  }
+  uploadImages(list: Array<any>) {
+
+    for (let elemnt of list) {
+      this.imageService.getImage(elemnt.id).subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        elemnt.image = 'data:image/jpeg;base64,' + base64Data;
+      })
+    }
   }
 }

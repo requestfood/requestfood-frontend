@@ -56,5 +56,9 @@ export class UploadEstablishmentImageComponent implements OnInit {
     this.service.getEstablishmentImage(this.actRouter.snapshot.params['idEstablishment']).subscribe((data: any) => {
       this.image = data;
     })
+  }
+
+  onSkip(){
+    
   } 
 }

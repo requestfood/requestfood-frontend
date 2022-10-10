@@ -1,5 +1,6 @@
 export interface ClientRegister{
 
+    id: Number
     name: String;
     password: String;
     surname: String;
