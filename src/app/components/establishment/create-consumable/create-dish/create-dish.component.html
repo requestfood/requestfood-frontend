@@ -44,7 +44,7 @@
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo</button>
-            <button *ngIf="currentTab == 2">Cadastrar</button>
+            <button (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
 
         </div>
     </section>

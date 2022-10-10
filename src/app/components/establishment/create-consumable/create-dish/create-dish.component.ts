@@ -22,4 +22,6 @@ export class CreateDishComponent implements OnInit {
       this.currentTab = this.currentTab + n;
     }
   }
+  doRegister(){}
+
 }

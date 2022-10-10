@@ -25,4 +25,6 @@ export class CreateDrinkComponent implements OnInit {
   onCadastrarConsumivel(){
      this.router.navigate(['onCadastrarConsumivel'])
     }
+
+  doRegister(){}
 }
