@@ -75,16 +75,6 @@ export class HomeClientComponent implements OnInit {
     })
   }
 
-  uploadImages(list: Array<any>) {
-    
-    for (let elemnt of list) {
-      this.imageService.getImage(elemnt.id).subscribe((res: any) => {
-        let retrieveResonse = res;
-        let base64Data = retrieveResonse.image;
-        elemnt.image = 'data:image/jpeg;base64,' + base64Data;
-      })
-    }
-  }
 
   changePage(pageEvent: any) {
 
@@ -106,6 +96,7 @@ export class HomeClientComponent implements OnInit {
       this.page = data;
       this.establishments = data.content
       this.page.typeSearch = "searchByName";
+      this.uploadImages(this.establishments)
     })
     return true;
   }
@@ -143,5 +134,15 @@ export class HomeClientComponent implements OnInit {
       })
     }
 
+  }
+  uploadImages(list: Array<any>) {
+
+    for (let elemnt of list) {
+      this.imageService.getImage(elemnt.id).subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        elemnt.image = 'data:image/jpeg;base64,' + base64Data;
+      })
+    }
   }
 }
