@@ -71,17 +71,17 @@ export class HomeClientComponent implements OnInit {
     this.service.getEstablishmentsHome(page).subscribe((data: Page) => {
       this.page = data
       this.establishments = data.content;
-      this.carregarImagens(this.establishments)
+      this.uploadImages(this.establishments)
     })
   }
 
-  carregarImagens(list: Array<any>) {
+  uploadImages(list: Array<any>) {
     
-    for (let establishemnt of list) {
-      this.imageService.getImage(establishemnt.id).subscribe((res: any) => {
+    for (let elemnt of list) {
+      this.imageService.getImage(elemnt.id).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
-        establishemnt.image = 'data:image/jpeg;base64,' + base64Data;
+        elemnt.image = 'data:image/jpeg;base64,' + base64Data;
       })
     }
   }
