@@ -119,7 +119,7 @@ input:focus {
 
 .tab select {
   width: 100%;
-  height: 50%;
+  height: 70%;
   font-size: 18px;
   text-indent: 15px;
   background-color: #ffffff;
@@ -188,15 +188,11 @@ input[type="file"] {
   width:  100%;
   height: 80%;
   display: flex;
+  margin-bottom: 2%;
   gap: 10%;
 }
 
-.type, .category{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+
 
 
 
