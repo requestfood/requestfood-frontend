@@ -4,6 +4,7 @@ import { OrderService } from './../../../services/Order.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../services/User.service';
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/core/image.service';
 
 @Component({
   selector: 'app-order-start',
@@ -17,8 +18,6 @@ export class OrderStartComponent implements OnInit {
   currentEstablishment = this.service.getCurrentEstablishment();
 
   retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
 
   constructor(
     private service: OrderService,
@@ -26,7 +25,8 @@ export class OrderStartComponent implements OnInit {
     private messageService: MessageService,
     private router: Router,
     private actRouter: ActivatedRoute,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -79,12 +79,10 @@ export class OrderStartComponent implements OnInit {
   }
 
   getImage(){
-    this.httpClient.get('http://localhost:8080/establishment/getImage/' + this.actRouter.snapshot.params['idEstablishment']).subscribe(
-      (res: any) => {
-        this.retrieveResonse = res;
-        this.base64Data = this.retrieveResonse.image;
-        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-      }
-    );
+    this.imageService.getImage(this.actRouter.snapshot.params['idEstablishment']).subscribe((res: any) => {
+      let retrieveResonse = res;
+      let base64Data = retrieveResonse.image;
+      this.currentEstablishment.image = 'data:image/jpeg;base64,' + base64Data;
+    })
   }
 }

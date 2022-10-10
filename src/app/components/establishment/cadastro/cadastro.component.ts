@@ -45,7 +45,7 @@ export class CadastroEstablishmentComponent implements OnInit {
       role: 'ESTABLISHMENT_USER'
      }
      this.userService.setUserAutenticado(user)
-     this.router.navigate(['user-update/profile-establishment/'+ data.id])
+     this.router.navigate(['upload-image/'+ data.id])
    })
  }
 

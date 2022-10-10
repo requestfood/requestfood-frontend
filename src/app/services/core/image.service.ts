@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -27,11 +28,9 @@ export class ImageService {
     )*/
   }
 
-  getImage(){
-   /* this.service.getEstablishmentImage(this.actRouter.snapshot.params['idEstablishment']).subscribe((data: any) => {
-      this.image = data;
-    })*/
-  } 
+  getImage(idEstablishment: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/establishment/getImage/' + idEstablishment);
+  }
 }
 
 
