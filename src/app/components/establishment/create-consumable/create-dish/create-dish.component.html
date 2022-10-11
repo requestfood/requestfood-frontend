@@ -25,7 +25,7 @@
                     required></textarea>
             </div>
 
-            <div class="tab-category" *ngIf="currentTab == 2">
+            <div class="tab" *ngIf="currentTab == 2">
                 <label class="label-text" for="category" id="category">Tipos</label>
                 <select class="select" name="category" [(ngModel)]="newDish.categoryDish" required id="category">
                     <option value="0">CheeseBurguer</option>
@@ -37,19 +37,19 @@
                     <option value="6">Pizza</option>
                 </select>
 
-                <label class="label-text" for="price" id="pricse">Valor</label>
+                <label class="label-text" for="price">Valor</label>
                 <input type="text" [(ngModel)]="newDish.price" name="price" id="price"/>
             </div>
             <div class="tab" *ngIf="currentTab == 3">
                 <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
                 <input type="file" class="image" id="image" name="image"/>
-                <button (click)="">Concluir</button>
+                <button (click)="imageUploadAction()">Concluir</button>
             </div>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button (click)="alterStep(1)" [disabled]="dishForm.form.invalid" *ngIf="currentTab != 2">Próximo</button>
-            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2 || currentTab != 3">Cadastrar</button>
+            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2 || currentTab == 3">Cadastrar</button>
         </div>
         
     </section>

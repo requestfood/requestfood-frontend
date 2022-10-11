@@ -1,7 +1,7 @@
 <main>
     <section>
         <div class="titles">
-            <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Nome e Imagem</h2>
+            <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Nome</h2>
             <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Descrição do Consumivel</h2>
             <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Valor e Categoria</h2>
         </div>
@@ -46,7 +46,7 @@
                         </select>
                     </div>
                 </div>
-                <label class="label-text" for="price" id="price">Valor</label>
+                <label class="label-text" for="price">Valor</label>
                 <input type="text" [(ngModel)]="newDrink.price" id="price" name="price" required />
             </div>
 
