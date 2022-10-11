@@ -1,6 +1,6 @@
 export interface ClientOrders{
     id: number,
-    ordersClient: OrderToClient[]
+    ordersClient: Array<OrderToClient>
 }
 
 export interface OrderToClient{

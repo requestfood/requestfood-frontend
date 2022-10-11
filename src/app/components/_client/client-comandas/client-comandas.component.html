@@ -9,8 +9,17 @@
 
             <button (click)="onVoltar()">Voltar</button>
 
-            <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName"
-                (keyup)="searchByName()">
+            <select name="status" id="status" (change)="getClientWithOrdersByStatus(status.value)" #status>
+                <option value="">TODAS</option>
+                <option value="WAITING">EM ANDAMENTO</option>
+                <option value="SENT">ENVIADAS</option>
+                <option value="READY">PRONTAS</option>
+                <option value="FINISHED">FINALIZADAS</option>
+                <option value="CANCELED">CANCELADAS</option>
+            </select>
+
+            <input type="text" class="search" placeholder="Buscar" #searchName
+                (keyup)="getClientWithOrdersByEstablishmentName(searchName.value)">
         </div>
 
         <div class="comandas">

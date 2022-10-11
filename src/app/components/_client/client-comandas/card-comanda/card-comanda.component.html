@@ -1,7 +1,7 @@
 <div class="comanda">
   <p class="id_comanda">Pedido #{{ order.idOrder }}</p>
   <div class="box-image">
-    <img src="" alt="image">
+    <img [src]="order.imageEstablishment" alt="image">
     <div>
       <p>{{ order.nameEstablishment }}</p>
       <p>{{ order.orderStatus }}</p>

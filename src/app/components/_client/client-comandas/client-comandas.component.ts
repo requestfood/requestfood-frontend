@@ -1,3 +1,4 @@
+import { ImageService } from 'src/app/services/core/image.service';
 import { ClientService } from 'src/app/services/ClientService.service';
 import { ClientOrders } from './../../../models/_client/ClientWithOrders';
 import { Router } from '@angular/router';
@@ -23,7 +24,9 @@ export class ClientComandasComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private clientService: ClientService) { }
+    private clientService: ClientService,
+    private imageService: ImageService
+  ) { }
 
   ngOnInit(): void {
     this.getClientWithOrders()
@@ -32,10 +35,42 @@ export class ClientComandasComponent implements OnInit {
   getClientWithOrders() {
     this.clientService.getClientWithOrders(this.userAutenticado.id).subscribe((data: ClientOrders) => {
       this.client = data;
+
+      this.uploadImages(this.client.ordersClient)
     })
+  }
+  getClientWithOrdersByStatus(status: string) {
+    if (status != "") {
+      this.clientService.getClientWithOrdersByOrderStatus(this.userAutenticado.id, status).subscribe((data: ClientOrders) => {
+        this.client = data;
+
+        this.uploadImages(this.client.ordersClient)
+      })
+    } else
+      this.getClientWithOrders()
+  }
+  getClientWithOrdersByEstablishmentName(name: string) {
+    if (name != "") {
+      this.clientService.getClientWithOrdersByEstablishmentName(this.userAutenticado.id, name).subscribe((data: ClientOrders) => {
+        this.client = data;
+
+        this.uploadImages(this.client.ordersClient)
+      })
+    }
   }
 
   searchByName() { }
+
+  uploadImages(list: Array<any>) {
+
+    for (let elemnt of list) {
+      this.imageService.getImage(elemnt.idEstablishment).subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        elemnt.imageEstablishment = 'data:image/jpeg;base64,' + base64Data;
+      })
+    }
+  }
 
   onVoltar() {
     if (this.userAutenticado.role == 'CLIENT_USER') {
