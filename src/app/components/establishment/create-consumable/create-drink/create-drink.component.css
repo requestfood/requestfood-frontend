@@ -113,7 +113,15 @@ input {
 input:invalid {
   border: 2px red solid;
 }
-
+select:invalid {
+  border: 2px red solid;
+}
+textarea:invalid {
+  border: 2px red solid;
+}
+#price:invalid {
+  border: 2px red solid;
+}
 input:focus {
   border: 3px #fecb1a solid;
 }
@@ -193,7 +201,7 @@ input[type="file"] {
   gap: 10%;
 }
 
-#value{
+#price{
   height: 50%;
 }
 

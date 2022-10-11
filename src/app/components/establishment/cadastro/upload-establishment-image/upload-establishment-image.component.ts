@@ -59,6 +59,5 @@ export class UploadEstablishmentImageComponent implements OnInit {
   }
 
   onSkip(){
-    
   } 
 }

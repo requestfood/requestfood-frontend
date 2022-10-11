@@ -12,7 +12,7 @@
             <span class="step" [ngStyle]="{'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')}"></span>
         </div>
 
-        <form>
+        <form #drinkForm="ngForm">
             <div class="tab" *ngIf="currentTab == 0">
                 <label class="label-text" for="name" id="name">Nome do Consumivel</label>
                 <input type="text" [(ngModel)]="newDrink.name" required id="name" name="name" maxlength="15" minlength="2" />
@@ -24,37 +24,38 @@
             <div class="description" *ngIf="currentTab == 1">
                 <label class="label-text" for="description" id="description">Descrição do Consumivel</label>
                 <textarea class="descriptiontext" [(ngModel)]="newDrink.description" name="description" id="description" cols="60" rows="9"
-                    required></textarea>
+                    required> </textarea>
             </div>
 
             <div class="tab-category-drink" *ngIf="currentTab == 2">
                 <div class="selects">
                     <div class="tab">
                         <label class="types" for="category" id="category">Categoria</label>
-                        <select class="select" [(ngModel)]="newDrink.categoryDrink" name="select" id="category">
+                        <select class="select" [(ngModel)]="newDrink.categoryDrink" name="category" id="category">
                             <option value="0">Cerveja</option>
                             <option value="1">Refrigerante</option>
                             <option value="2">Suco</option>
                             <option value="3">Destilado</option>
                             <option value="4">Vinho</option>
+                            <option value="5">Whiskey</option>
                         </select>
                     </div>
                     <div class="tab">
-                        <label class="types" for="type" id="type">Alcoólico</label>
-                        <select class="select" name="type" [(ngModel)]="newDrink.alcoholic" id="type">
+                        <label class="types" for="alcoholic" id="alcoholic">Alcoólico</label>
+                        <select class="select" name="alcoholic" [(ngModel)]="newDrink.alcoholic" id="alcoholic">
                             <option value=true>Sim</option>
                             <option value=false>Não</option>
                         </select>
                     </div>
                 </div>
-                <label class="label-text" for="value" id="value">Valor</label>
-                <input type="text" [(ngModel)]="newDrink.price" required id="value" name="value" />
+                <label class="label-text" for="price" id="price">Valor</label>
+                <input type="text" [(ngModel)]="newDrink.price"  id="price" name="price" required/>
             </div>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
-            <button (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo</button>
-            <button (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
+            <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo</button>
+            <button [disabled]="drinkForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 2" >Cadastrar</button>
         </div>
     </section>
 </main>
