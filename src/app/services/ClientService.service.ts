@@ -31,10 +31,17 @@ export class ClientService {
   getClientWithOrders(id: Number): Observable<ClientOrders>{
     return this.http.get<ClientOrders>(this.endPointClient + 'orders/' + id);
   }
+  getClientWithOrdersByEstablishmentName(id: Number, name: String): Observable<ClientOrders>{
+    return this.http.get<ClientOrders>(this.endPointClient + 'orders/' + id + '/establishment-name/' + name);
+  }
+  getClientWithOrdersByOrderStatus(id: Number, status: String): Observable<ClientOrders>{
+    return this.http.get<ClientOrders>(this.endPointClient + 'orders/' + status + '/' + id);
+  }
 
   getClientWithCurrentOrder(id: Number): Observable<any>{
     return this.http.get<any>(this.endPointClient + 'current-order/' + id);
   }
+
 
   getEstablishmentsHome(page: Number): Observable<Page> {
     return this.http.get<Page>(this.endPointEstablishment+ 'card/' + page)
