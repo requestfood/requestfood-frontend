@@ -40,6 +40,10 @@ section {
 
     border: 3px solid #fecb1a;
     border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #conteiner-second {
@@ -101,6 +105,11 @@ section {
     border: 2px solid #fecb1a;
     border-radius: 5px;
     outline: none;
+}
+
+#conteiner-image img {
+    max-height: 90%;
+    max-width: 90%;
 }
 
 textarea {

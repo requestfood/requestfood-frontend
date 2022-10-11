@@ -1,9 +1,13 @@
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirm } from './../../../../models/core/dialog';
+import { DialogConfirmComponent } from './../../../core/dialog-confirm/dialog-confirm.component';
 import { UserService } from './../../../../services/User.service';
 import { MessageService } from 'src/app/services/core/message.service';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
 import { Drink } from './../../../../models/consumables/drink';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-drink',
@@ -13,6 +17,12 @@ import { Router } from '@angular/router';
 export class CreateDrinkComponent implements OnInit {
 
   currentTab: number = 0;
+
+  uploadImage: File = new File(["foo"], "foo.txt", {
+    type: "text/plain",
+  })
+  postResponse: any;
+  successResponse: string = "";
   
   newDrink: Drink = {
     id: 0,
@@ -21,7 +31,7 @@ export class CreateDrinkComponent implements OnInit {
     categoryDrink: "",
     price: 0,
     description: "",
-    image: null,
+    image: File,
     alcoholic: false
   }
 
@@ -29,7 +39,10 @@ export class CreateDrinkComponent implements OnInit {
     private router: Router,
     private service: ConsumableService,
     private message: MessageService,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog,
+    private http: HttpClient,
+    private actRouter: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -47,8 +60,49 @@ export class CreateDrinkComponent implements OnInit {
     }
 
     doRegister(){
-      this.service.postDrink(this.newDrink).subscribe(() => {
+      this.service.postDrink(this.newDrink).subscribe((data: any) => {
+        const dialogData: DialogConfirm = {
+          content: 'Deseja cadastrar uma imagem?',
+          confirmText: 'Sim',
+          cancelText: 'Não'
+        }
+    
+        const dialogRef = this.dialog.open(DialogConfirmComponent, {
+          data: dialogData
+        })
+    
+        dialogRef.afterClosed().subscribe((result: any) => {
+    
+          if (result) {
+            this.currentTab = 3;
+            this.newDrink.id = data.id
+          }else
+            this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
+        })
+  
         this.message.add('Consumable registered succesfully')
       })
+    }
+
+    public onFileSelected(event: any) {
+      this.uploadImage = event.target.files[0];
+    }
+  
+    imageUploadAction() {
+      console.log(this.uploadImage);
+    
+      const imageFormData = new FormData()
+      imageFormData.append('image', this.uploadImage, this.uploadImage.name)
+  
+      this.http.post('http://localhost:8080/drink/image/'+ this.newDrink.id, imageFormData, { observe: 'response' })
+        .subscribe((response: any) => {
+          if (response.status === 200) {
+            this.postResponse = response
+            this.successResponse = this.postResponse.body.message
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!'
+          } 
+        }
+      );
     }
 }
