@@ -52,8 +52,9 @@
 
             <div class="tab" *ngIf="currentTab == 3">
                 <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
-                <input type="file" class="image" id="image" name="image"/>
+                <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image"/>
             </div>
+            <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>

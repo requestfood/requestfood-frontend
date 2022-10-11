@@ -108,7 +108,8 @@ section {
 }
 
 #conteiner-image img {
-    width: 100%;
+    max-height: 90%;
+    max-width: 90%;
 }
 
 textarea {

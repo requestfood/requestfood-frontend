@@ -35,10 +35,6 @@ export class ImageService {
   getConsumableImage(idConsumable: number): Observable<any>{
     return this.http.get<any>('http://localhost:8080/consumable/getImage/' + idConsumable);
   }
-
-  getDrinkImage(idDrink: number): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/drink/getImage/' + idDrink);
-  }
 }
 
 
