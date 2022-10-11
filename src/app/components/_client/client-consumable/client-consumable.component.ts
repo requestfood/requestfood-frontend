@@ -1,3 +1,4 @@
+import { ImageService } from 'src/app/services/core/image.service';
 import { UserService } from './../../../services/User.service';
 import { Page } from '../../../models/core/page';
 import { Component, OnInit, Input } from '@angular/core';
@@ -65,7 +66,9 @@ export class ClientConsumableComponent implements OnInit {
     private userService: UserService,
     private actRouter: ActivatedRoute,
     private router: Router,
-    private consumableService: ConsumableService) { }
+    private consumableService: ConsumableService,
+    private imageService: ImageService
+    ) { }
 
   ngOnInit(): void {
     this.getConsumables()
@@ -102,9 +105,21 @@ export class ClientConsumableComponent implements OnInit {
       this.establishmentWithConsumables = data;
       this.page = data.consumables;
       this.page.typeSearch = "";
+      this.uploadImages(this.establishmentWithConsumables.consumables.content)
     })
 
     this.drink = false;
+  }
+
+  uploadImages(list: Array<any>) {
+
+    for (let elemnt of list) {
+      this.imageService.getConsumableImage(elemnt.id).subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        elemnt.image = 'data:image/jpeg;base64,' + base64Data;
+      })
+    }
   }
 
   getConsumablePriceByDesc(page: number = 0) {

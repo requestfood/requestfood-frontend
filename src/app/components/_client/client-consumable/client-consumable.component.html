@@ -36,7 +36,7 @@
             <div class="card" (click)="openConsumable(consumable)" *ngFor="let consumable of establishmentWithConsumables.consumables.content">
                 <p>{{ consumable?.name }}</p>
                 <div>
-                    <img src="{{ consumable?.image }}" class="image-establishment">
+                    <img [src]="consumable?.image" class="image-establishment">
                 </div>
                 <p>{{consumable?.price | currency : 'BRL'}}</p>
             </div>
