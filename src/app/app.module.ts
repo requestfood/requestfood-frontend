@@ -40,6 +40,7 @@ import { CreateDishComponent } from './components/establishment/create-consumabl
 import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
 import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
+import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { UploadEstablishmentImageComponent } from './components/establishment/ca
     CreateDrinkComponent,
     BagItemsComponent,
     ItemInfoComponent,
-    UploadEstablishmentImageComponent
+    UploadEstablishmentImageComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
