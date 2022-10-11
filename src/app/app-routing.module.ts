@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'createDish', component: CreateDishComponent},
   {path: 'createDrink', component: CreateDrinkComponent},
   {path: 'bagitems/:idOrder', component: BagItemsComponent},
-  {path: 'order-details', component: OrderDetailsComponent}
+  {path: 'order-details/:idOrder', component: OrderDetailsComponent}
 
 ];
 

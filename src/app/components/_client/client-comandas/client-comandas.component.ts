@@ -72,6 +72,10 @@ export class ClientComandasComponent implements OnInit {
     }
   }
 
+  openOrder(orderId: number){
+    this.router.navigate(['order-details/' + orderId])
+  }
+
   onVoltar() {
     if (this.userAutenticado.role == 'CLIENT_USER') {
       this.router.navigate(['/home-client/' + this.userAutenticado.id]);
