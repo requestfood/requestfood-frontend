@@ -43,12 +43,13 @@
             <div class="tab" *ngIf="currentTab == 3">
                 <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
                 <input type="file" class="image" id="image" name="image"/>
+                <button (click)="">Concluir</button>
             </div>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button (click)="alterStep(1)" [disabled]="dishForm.form.invalid" *ngIf="currentTab != 2">Próximo</button>
-            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2">Cadastrar</button>
+            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2 || currentTab != 3">Cadastrar</button>
         </div>
         
     </section>
