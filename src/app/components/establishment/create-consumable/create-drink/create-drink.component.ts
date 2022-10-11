@@ -1,3 +1,6 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirm } from './../../../../models/core/dialog';
+import { DialogConfirmComponent } from './../../../core/dialog-confirm/dialog-confirm.component';
 import { UserService } from './../../../../services/User.service';
 import { MessageService } from 'src/app/services/core/message.service';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
@@ -29,7 +32,8 @@ export class CreateDrinkComponent implements OnInit {
     private router: Router,
     private service: ConsumableService,
     private message: MessageService,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +52,24 @@ export class CreateDrinkComponent implements OnInit {
 
     doRegister(){
       this.service.postDrink(this.newDrink).subscribe(() => {
+        const dialogData: DialogConfirm = {
+          content: 'Deseja cadastrar uma imagem?',
+          confirmText: 'Sim',
+          cancelText: 'Não'
+        }
+    
+        const dialogRef = this.dialog.open(DialogConfirmComponent, {
+          data: dialogData
+        })
+    
+        dialogRef.afterClosed().subscribe(result => {
+    
+          if (result) {
+            this.currentTab = 3;
+          }else
+            this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
+        })
+  
         this.message.add('Consumable registered succesfully')
       })
     }
