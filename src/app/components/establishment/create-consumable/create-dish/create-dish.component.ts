@@ -29,7 +29,7 @@ export class CreateDishComponent implements OnInit {
     idEstablishment: JSON.parse(this.userService.getUserAutenticado()).id,
     name: "",
     categoryDish: "",
-    price: 0,
+    price: null,
     description: "",
     image: File
   }
