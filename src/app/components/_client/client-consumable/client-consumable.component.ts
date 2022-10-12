@@ -129,6 +129,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_desc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       case "drink":
@@ -136,6 +137,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_desc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       default:
@@ -143,6 +145,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_desc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
     }
   }
@@ -154,6 +157,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_asc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       case "drink":
@@ -161,6 +165,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_asc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       default:
@@ -168,6 +173,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables
           this.page.typeSearch = "consumable_price_asc";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
     }
   }
@@ -178,6 +184,7 @@ export class ClientConsumableComponent implements OnInit {
       this.establishmentWithConsumables = data;
       this.page = data.consumables;
       this.page.typeSearch = "dishes";
+      this.uploadImages(this.establishmentWithConsumables.consumables.content)
     })
 
     this.drink = false;
@@ -189,6 +196,7 @@ export class ClientConsumableComponent implements OnInit {
       this.establishmentWithConsumables = data
       this.page = data.consumables
       this.page.typeSearch = "drinks";
+      this.uploadImages(this.establishmentWithConsumables.consumables.content)
     })
     this.drink = true;
   }
@@ -197,6 +205,7 @@ export class ClientConsumableComponent implements OnInit {
     this.service.getAllDrinkByAlcoholic(this.actRouter.snapshot.params['idEstablishment'], alcoholic, page).subscribe((data: EstablishmentWithConsumables) => {
       this.establishmentWithConsumables = data
       this.page = data.consumables
+      this.uploadImages(this.establishmentWithConsumables.consumables.content)
     })
   }
 
@@ -222,6 +231,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables;
           this.page.typeSearch = "consumable_name";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       case "drink":
@@ -229,6 +239,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables;
           this.page.typeSearch = "consumable_name";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
       default:
@@ -236,6 +247,7 @@ export class ClientConsumableComponent implements OnInit {
           this.establishmentWithConsumables = data
           this.page = data.consumables;
           this.page.typeSearch = "consumable_name";
+          this.uploadImages(this.establishmentWithConsumables.consumables.content)
         })
         break
     }
