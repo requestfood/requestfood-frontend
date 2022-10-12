@@ -1,4 +1,4 @@
-<div class="comanda" click="">
+<div class="comanda" (click)="openOrder(order.idOrder)">
   <p class="id_comanda">Pedido #{{ order.idOrder }}</p>
   <div class="box-image">
     <img [src]="order.imageEstablishment" alt="image">

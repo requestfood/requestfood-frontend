@@ -32,4 +32,8 @@ export class CardComandaComponent implements OnInit {
     location.reload()
   }
   
+  openOrder(idOrder: number){
+    this.router.navigate(['order-details/' + idOrder])
+  }
+  
 }
