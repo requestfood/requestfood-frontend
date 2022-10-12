@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+  }
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 90%;
+}
+
+.backbutton{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    height: 7%;
+}
+
+button{
+    width: 13%;
+    height: 100%;
+
+    border: none;
+    background-color: #fecb1a;
+    border-radius: 10px;
+    font-size: 110%;
+    transition: 0.3s;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: 3px 9px 5px rgb(0, 0, 0, 0.15);
+}
+
+
+.title {
+    position: relative;
+    font-weight: 600;
+    font-size: 250%;
+    color: #000000;
+}
+
+.container-order {
+    width: 98%;
+    height: 70%;
+
+    padding: 0 10px 0 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 3px #fecb1a solid;
+    border-radius: 10px;
+}
+
+.box-order-info{
+    width: 100%;
+    height: 8%;
+
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px #000000 solid;
+}
+.box-order-info h4{
+    font-size: 125%;
+    font-weight: 520;
+}
+
+.items{
+    width: 100%;
+    height: 82%;
+
+    overflow: auto;
+
+}
+
+h3{
+    width: 100%;
+    height: 8%;
+
+    display: flex;
+    align-items: center;
+
+    position: sticky;
+    bottom: 0;
+
+    border-top: 1px #000000 solid;
+}

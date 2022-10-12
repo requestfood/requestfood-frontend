@@ -21,6 +21,7 @@ import { CreateConsumableComponent } from './components/establishment/create-con
 import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
 import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
+import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: 'onCadastrarConsumivel', component: CreateConsumableComponent},
   {path: 'createDish', component: CreateDishComponent},
   {path: 'createDrink', component: CreateDrinkComponent},
-  {path: 'bagitems/:idOrder', component: BagItemsComponent}
+  {path: 'bagitems/:idOrder', component: BagItemsComponent},
+  {path: 'order-details/:idOrder', component: OrderDetailsComponent}
 
 ];
 

@@ -1,0 +1,24 @@
+<main>
+    <section>
+
+        <h1 class="title">Detalhes do Pedido</h1>
+        <div class="backbutton">
+            <button (click)="doBack()">Voltar</button>
+        </div>
+
+        <div class="container-order">
+            <div class="box-order-info">
+                <h4>{{ order.nameEstablishment }}</h4>
+                <h4>Data: {{ order.issueDate | date : 'dd/MM/yyyy' }}</h4>
+                <h4>Hora:{{ order.issueDate | date : 'mm:hh' }}</h4>
+            </div>
+
+            <div class="items">
+                <app-item-details *ngFor="let item of order.items" [item]="item"></app-item-details>
+            </div>
+
+            <h3>Total: {{ order.amount | currency : 'BRL' }}</h3>
+        </div>
+
+    </section>
+</main>

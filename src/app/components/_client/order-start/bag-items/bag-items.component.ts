@@ -20,7 +20,7 @@ export class BagItemsComponent implements OnInit {
   order: OrderDetails = {
     idOrder: 0,
     nameEstablishment: "",
-    IssueDate: "",
+    issueDate: "",
     items: [],
     amount: 0
   }

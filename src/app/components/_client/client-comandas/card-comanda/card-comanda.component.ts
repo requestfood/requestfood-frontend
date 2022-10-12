@@ -1,6 +1,7 @@
 import { OrderService } from './../../../../services/Order.service';
 import { OrderToClient } from './../../../../models/_client/ClientWithOrders';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-comanda',
@@ -19,7 +20,8 @@ export class CardComandaComponent implements OnInit {
   }
 
   constructor(
-  private orderService: OrderService
+  private orderService: OrderService,
+  private router:Router
   ) { }
 
   ngOnInit() {
@@ -29,4 +31,5 @@ export class CardComandaComponent implements OnInit {
     this.orderService.deleteOrder(this.order.idOrder).subscribe(() => {})
     location.reload()
   }
+  
 }

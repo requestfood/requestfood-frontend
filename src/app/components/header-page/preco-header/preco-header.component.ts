@@ -21,6 +21,10 @@ export class PrecoHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.orderService.getOrder()){
+      this.getAmountOrder(JSON.parse(this.orderService.getOrder()).id)
+    }
+
     this.orderService.amountOrder.subscribe(res => {
       if (res != 0)
         this.amount = res
@@ -31,11 +35,14 @@ export class PrecoHeaderComponent implements OnInit {
     if (this.orderService.getOrder()) {
       this.orderStart = true
     }
-
     this.orderService.novaComanda.subscribe(result => {
       this.orderStart = true;
     })
 
+  }
+
+  getAmountOrder(id: number){
+    this.orderService.getOrderDetails(id).subscribe(data => this.amount = data.amount)
   }
 
 

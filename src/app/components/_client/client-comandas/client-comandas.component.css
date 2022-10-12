@@ -61,7 +61,7 @@ main {
 }
 
 .search:hover {
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .search:focus{
@@ -70,7 +70,7 @@ main {
     background-color: #ffffff;
 
     border-radius: 0;
-    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.439);
+    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.15);
 
 
     text-align: start;
@@ -90,6 +90,7 @@ main {
     border: none;
     background-color: #fecb1a;
     border-radius: 10px;
+    transition: 0.3s;
 
     font-size: 160%;
     font-weight: 500;
@@ -97,6 +98,7 @@ main {
 
 .consultas button:hover{
     cursor: pointer;
+    box-shadow: 0px 5px 5px rgb(0, 0, 0, 0.10);
 }
 
 select{
@@ -113,12 +115,12 @@ select{
     border-bottom: 3px solid #fecb1a;
     border-radius: 5px;
     outline: none;
+    transition: 0.3s;
 }
 
 select:hover{
     background-color: #f8f8f8;
-    box-shadow: 0px 5px 8px 2px rgba(0, 0, 0, 0.25);
-    transition: 0.2s;
+    box-shadow: 0px 5px 8px 2px rgba(0, 0, 0, 0.15);
 }
 
 .date{
@@ -153,3 +155,5 @@ select:hover{
     text-align: center;
     padding-top: 10%;
 }
+
+

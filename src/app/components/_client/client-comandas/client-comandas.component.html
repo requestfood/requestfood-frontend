@@ -10,12 +10,12 @@
             <button (click)="onVoltar()">Voltar</button>
 
             <select name="status" id="status" (change)="getClientWithOrdersByStatus(status.value)" #status>
-                <option value="">TODAS</option>
-                <option value="WAITING">EM ANDAMENTO</option>
-                <option value="SENT">ENVIADAS</option>
-                <option value="READY">PRONTAS</option>
-                <option value="FINISHED">FINALIZADAS</option>
-                <option value="CANCELED">CANCELADAS</option>
+                <option value="">Todas</option>
+                <option value="WAITING">Em Andamento</option>
+                <option value="SENT">Enviadas</option>
+                <option value="READY">Prontas</option>
+                <option value="FINISHED">Finalizadas</option>
+                <option value="CANCELED">Canceladas</option>
             </select>
 
             <input type="text" class="search" placeholder="Buscar" #searchName
@@ -26,7 +26,7 @@
 
             <p *ngIf="this.client.ordersClient.length == 0" >Nenhuma comanda iniciada :(</p>
             
-            <app-card-comanda *ngFor="let order of this.client.ordersClient" [order]="order" ></app-card-comanda>
+            <app-card-comanda (click)="openOrder(order.idOrder)" *ngFor="let order of this.client.ordersClient" [order]="order" ></app-card-comanda>
             
         </div>
 

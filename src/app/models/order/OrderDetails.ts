@@ -2,7 +2,7 @@ export interface OrderDetails{
 
     idOrder: Number,
     nameEstablishment: String,
-    IssueDate: String,
+    issueDate: string,
     items: Array<ItemDetails>,
     amount: number
 }
