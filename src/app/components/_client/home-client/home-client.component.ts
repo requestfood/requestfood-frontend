@@ -127,6 +127,7 @@ export class HomeClientComponent implements OnInit {
               this.orderService.novaComanda.emit(data)
               this.router.navigate(['bagitems/' + data.id])
             } else {
+              this.orderService.updateStatusOrder('CANCELED', data.id).subscribe(() => {})
               localStorage.removeItem('order')
             }
           })
