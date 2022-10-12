@@ -2,7 +2,7 @@
 
     <section>
 
-        <div id="conteiner-principal" >
+        <div id="conteiner-principal">
             <div id="conteiner-image">
                 <img [src]="consumable.image" alt="">
             </div>
@@ -11,9 +11,10 @@
                 <div id="conteiner-info">
 
                     <div>
-                      <h2>{{ consumable.name }}</h2>
-                      <p>{{ consumable.description }}</p>
-                      <textarea placeholder="Obs: Tirar cebola, alface etc." name="" id="" cols="30" rows="10" [(ngModel)]="item.obsItem"></textarea>
+                        <h2>{{ consumable.name }}</h2>
+                        <p>{{ consumable.description }}</p>
+                        <textarea placeholder="Obs: Tirar cebola, alface etc." cols="30" rows="10"
+                            [(ngModel)]="item.obsItem"></textarea>
                     </div>
                     <div id="conteiner-quantity">
                         <button (click)="remQuantity()" [disabled]="item.quantityItem == 0">-</button>
@@ -26,8 +27,11 @@
         </div>
 
         <div id="conteiner-buttons">
-            <button (click)="backPage()">Voltar</button>
-            <button (click)="createItem()" [disabled]="item.quantityItem == 0">Adicionar {{ amount | currency : 'BRL' }}</button>
+            <div>
+                <button (click)="backPage()">< Voltar</button>
+                <button (click)="createItem()" [disabled]="item.quantityItem == 0">Adicionar {{ amount | currency :
+                    'BRL' }}</button>
+            </div>
         </div>
 
     </section>

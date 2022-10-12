@@ -10,8 +10,9 @@ import { Injectable } from '@angular/core';
 })
 export class ConsumableService {
 
-  endPointDish = 'http://localhost:8080/dish'
-  endPointDrink = 'http://localhost:8080/drink'
+  endPointConsumable = 'http://localhost:8080/consumable/'
+  endPointDish = 'http://localhost:8080/dish/'
+  endPointDrink = 'http://localhost:8080/drink/'
   
   currentConsumable: ConsumableCard = {
     id: 0,
@@ -42,5 +43,10 @@ export class ConsumableService {
   
   postDrink(postData: Drink): Observable<Drink>{
     return this.http.post<Drink>(this.endPointDrink, postData)
+  }
+
+  //  DELETE CONSUMABLE
+  deleteConsumable(id: number): Observable<String>{
+    return this.http.delete<String>(this.endPointConsumable + id)
   }
 }
