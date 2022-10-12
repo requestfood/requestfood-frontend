@@ -25,7 +25,6 @@ export class OrderStartComponent implements OnInit {
     private messageService: MessageService,
     private router: Router,
     private actRouter: ActivatedRoute,
-    private httpClient: HttpClient,
     private imageService: ImageService
   ) { }
 
