@@ -36,12 +36,13 @@ button{
     border: none;
     background-color: #fecb1a;
     border-radius: 10px;
-    font-weight: 100;
-    font-size: 120%;
+    font-size: 110%;
+    transition: 0.3s;
 }
 
-.voltar button:hover{
+button:hover{
     cursor: pointer;
+    box-shadow: 3px 9px 5px rgb(0, 0, 0, 0.15);
 }
 
 
@@ -50,26 +51,6 @@ button{
     font-weight: 600;
     font-size: 250%;
     color: #000000;
-}
-
-
-.date{
-    width: 15%;
-    height: 100%;
-
-    left: 30%;
-
-    border: 4px #fecb1a solid;
-    border-radius: 10px;
-
-    font-size: 110%;
-    font-weight: 500;
-    text-indent: 5px;
-}
-
-.details{
-    width: 100%;
-    height: 100%;
 }
 
 .container-order {
@@ -81,7 +62,45 @@ button{
     display: flex;
     flex-direction: column;
 
-
     border: 3px #fecb1a solid;
     border-radius: 10px;
+}
+
+.box-order-info{
+    width: 100%;
+    height: 8%;
+
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px #000000 solid;
+}
+.box-order-info h4{
+    font-size: 125%;
+    font-weight: 520;
+}
+
+.items{
+    width: 100%;
+    height: 82%;
+
+    overflow: auto;
+
+}
+
+h3{
+    width: 100%;
+    height: 8%;
+
+    display: flex;
+    align-items: center;
+
+    position: sticky;
+    bottom: 0;
+
+    border-top: 1px #000000 solid;
 }
