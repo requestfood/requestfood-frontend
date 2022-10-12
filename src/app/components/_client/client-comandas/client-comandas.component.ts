@@ -72,8 +72,8 @@ export class ClientComandasComponent implements OnInit {
     }
   }
 
-  openOrder(orderId: number){
-    this.router.navigate(['order-details/' + orderId])
+  openOrder(idOrder: number){
+    this.router.navigate(['order-details/' + idOrder])
   }
 
   onVoltar() {
