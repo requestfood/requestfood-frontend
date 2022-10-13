@@ -3,7 +3,7 @@ export interface Drink{
     id: Number
     idEstablishment: Number
     name: String
-    price: Number
+    price: any
     description: String,
     categoryDrink: String,
     alcoholic: Boolean,

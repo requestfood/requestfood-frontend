@@ -29,7 +29,7 @@ export class CreateDrinkComponent implements OnInit {
     idEstablishment: JSON.parse(this.userService.getUserAutenticado()).id,
     name: "",
     categoryDrink: "",
-    price: 0,
+    price: null,
     description: "",
     image: File,
     alcoholic: false
