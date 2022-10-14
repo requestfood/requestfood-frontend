@@ -43,6 +43,7 @@ import { UploadEstablishmentImageComponent } from './components/establishment/ca
 import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
 import { ItemDetailsComponent } from './components/_client/client-comandas/order-details/item-details/item-details.component';
 import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
+import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { EstablishmentOrderComponent } from './components/establishment/establis
     UploadEstablishmentImageComponent,
     OrderDetailsComponent,
     ItemDetailsComponent,
-    EstablishmentOrderComponent
+    EstablishmentOrderComponent,
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,

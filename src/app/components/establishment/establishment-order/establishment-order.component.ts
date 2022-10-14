@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-establishment-order',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstablishmentOrderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  onVoltar(){
+    this.router.navigate(['home-establishment/:id'])
+  }
 }

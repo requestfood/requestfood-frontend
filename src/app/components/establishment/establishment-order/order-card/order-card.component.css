@@ -1,0 +1,57 @@
+main{
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 5%;
+}
+p{
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+.container-principal{
+    width: 100%;
+    height: auto;
+}
+
+.command{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    border-bottom: 1px #000000 solid;
+}
+.command, .info{
+    padding: 2%;
+}
+
+.info{
+    display: flex;
+    column-gap: 5%;
+    flex-direction: column;
+}
+
+.order {
+    display: flex;
+    font-size: 22px;
+    font-weight: 400;
+    border: 4px solid #ffc816;
+    margin-top: 4%;
+    width: 400px;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  
+.orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 3%;
+  }
