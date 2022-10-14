@@ -1,16 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+main{
+  width: 100%;
+  height: auto;
 
-* {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 section {
   width: 90%;
-  height: 90%;
+  height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 3%;
 }
 
 h1 {
@@ -18,7 +20,6 @@ h1 {
     font-weight: 250;
     font-size: 300%;
     color: #000000;
-    margin-top: 3%;
 }
 
 .consultas {
@@ -34,6 +35,7 @@ h1 {
 
   font-weight: 400;
   font-size: 150%;
+  height: 100%;
 
   border: none;
 
@@ -45,6 +47,7 @@ h1 {
 
 .search {
   width: 20%;
+  height: 100%;
   font-size: 150%;
   font-family: 'Roboto', sans-serif;
   outline: #ffffff;
@@ -67,6 +70,7 @@ h1 {
   gap: 5%;
   width: 100%;
   height: auto;
+  margin-bottom: 3%;
 }
 
 .order {
