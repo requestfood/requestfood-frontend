@@ -14,6 +14,7 @@
         </div>
 
         <form #dishForm="ngForm">
+            
             <div class="tab" *ngIf="currentTab == 0">
                 <label class="label-text" for="name" id="name">Nome do Consumivel</label>
                 <input type="text" [(ngModel)]="newDish.name" required id="name" name="name" maxlength="15" minlength="2" />
@@ -21,7 +22,7 @@
 
             <div class="description" *ngIf="currentTab == 1">
                 <label class="label-text" for="description" id="description">Descrição do Consumivel</label>
-                <textarea class="descriptiontext" [(ngModel)]="newDish.description" name="description" id="description" cols="60" rows="9"
+                <textarea class="descriptiontext" [(ngModel)]="newDish.description" name="description" id="description" cols="10" rows="9"
                     required></textarea>
             </div>
 
@@ -36,20 +37,19 @@
                     <option value="5">Sushi</option>
                     <option value="6">Pizza</option>
                 </select>
-
                 <label class="label-text" for="price">Valor</label>
-                <input type="text" [(ngModel)]="newDish.price" name="price" id="price"/>
+                <input type="text" [(ngModel)]="newDish.price" name="price" id="price" value="" placeholder="R$0.00"/>
             </div>
             <div class="tab" *ngIf="currentTab == 3">
                 <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
-                <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image"/>
+                <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image-input " name="image"/>
             </div>
-            <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
-            <button (click)="alterStep(1)" [disabled]="dishForm.form.invalid" *ngIf="currentTab != 2">Próximo</button>
-            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2 || currentTab == 3">Cadastrar</button>
+            <button (click)="alterStep(1)" [disabled]="dishForm.form.invalid" *ngIf="currentTab < 2">Próximo</button>
+            <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2">Cadastrar</button>
+            <button id="button-image" (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </div>
         
     </section>

@@ -22,7 +22,7 @@
             <div class="description" *ngIf="currentTab == 1">
                 <label class="label-text" for="description" id="description">Descrição do Consumivel</label>
                 <textarea class="descriptiontext" [(ngModel)]="newDrink.description" name="description" id="description"
-                    cols="60" rows="9" required> </textarea>
+                    cols="10" rows="9" required> </textarea>
             </div>
 
             <div class="tab" *ngIf="currentTab == 2">
@@ -47,20 +47,19 @@
                     </div>
                 </div>
                 <label class="label-text" for="price">Valor</label>
-                <input type="text" [(ngModel)]="newDrink.price" id="price" name="price" required />
+                <input type="text" [(ngModel)]="newDrink.price" id="price" name="price" value="" placeholder="R$0.00" />
             </div>
 
             <div class="tab" *ngIf="currentTab == 3">
                 <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
                 <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image"/>
             </div>
-            <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </form>
         <div class="buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
-            <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab != 2">Próximo</button>
-            <button [disabled]="drinkForm.form.invalid" (click)="doRegister()"
-                *ngIf="currentTab == 2">Cadastrar</button>
+            <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab < 2">Próximo</button>
+            <button [disabled]="drinkForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
+                <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </div>
     </section>
 </main>

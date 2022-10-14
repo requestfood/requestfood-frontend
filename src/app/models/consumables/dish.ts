@@ -4,6 +4,6 @@ export interface Dish {
     name: String,
     description: String,
     image: any,
-    price: Number,
+    price: any,
     categoryDish: String
 }

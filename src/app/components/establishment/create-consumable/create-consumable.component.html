@@ -1,15 +1,20 @@
-  <section class="container">
-        <h1 id="title">Cadastrar Consumível</h1>
-
-        <article class="cards">
-            <div class="card" (click)="createDish()" >
-                <h2>Prato</h2>
-                <img class="img-dish" src="../../../assets/consumables/pratos.svg" alt="" id=pratos  >
+  <main>
+      
+      <section class="container">
+            <h1 id="title">Cadastrar Consumível</h1>
+    
+            <div class="cards">
+                <div class="card" (click)="createDish()">
+                    <h2>Prato</h2>
+                    <img class="img" src="../../../assets/consumables/pratos.svg" alt="" id=pratos  >
+                </div>
+    
+                <div class="card" (click)="createDrink()">
+                    <h2>Bebida</h2>
+                    <img class="img" src="../../../assets/consumables/drinks.svg" alt="" id=drinks>
+                </div>
             </div>
+        </section>
 
-            <div  class="card" (click)="createDrink()">
-                <h2>Bebida</h2>
-                <img class="img-drink" src="../../../assets/consumables/drinks.svg" alt="" id=drinks>
-            </div>
-        </article>
-    </section>
+  </main>
+  

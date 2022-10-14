@@ -8,12 +8,12 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
 section {
   width: 35%;
-  height: 50%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -22,7 +22,7 @@ section {
 
 .steps {
   width: 15%;
-  height: 15%;
+  height: 10%;
   gap: 8%;
   align-items: center;
   justify-content: center;
@@ -30,8 +30,8 @@ section {
 }
 
 .step {
-  width: 20%;
-  height: 28%;
+  width: 20px;
+  height: 20px;
   background-color: #ffffff;
   border: 2px #fecb1a solid;
   border-radius: 50%;
@@ -45,9 +45,9 @@ section {
 
 form {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 60%;
+  height: 70%;
   flex-direction: column;
 }
 
@@ -60,10 +60,11 @@ button {
   font-size: 120%;
 
   border: none;
+  outline: none;
 
   background: #ffc816;
   box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -73,25 +74,25 @@ button {
   height: 15%;
   justify-content: center;
   gap: 20%;
-  margin-top: 5%;
 }
 
 .description {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
   flex-direction: column;
 }
 
 textarea {
-  width: 100%;
-  height: 60%;
+  width: 95%;
+  height: 50%;
   font-size: 18px;
-  text-indent: 15px;
+  padding: 2%;
 
   border: 3px solid #fecb1a;
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 5px;
+
+  font-family: 'Roboto', sans-serif;
 
   outline: none;
   resize: none;
@@ -99,13 +100,13 @@ textarea {
 
 input {
   width: 100%;
-  height: 5vh;
+  height: 6vh;
   font-size: 18px;
-  text-indent: 15px;
+  text-indent: 7px;
 
-  border: 3px solid #fecb1a;
+  border: 2px solid #fecb1a;
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 5px;
 
   outline: none;
 }
@@ -114,38 +115,29 @@ input:invalid {
   border: 2px red solid;
 }
 
-select:invalid {
-  border: 2px red solid;
-}
-
-textarea:invalid {
-  border: 2px red solid;
-}
-
-#price:invalid {
-  border: 2px red solid;
-}
-
 input:focus {
-  border: 3px #fecb1a solid;
+  border: 2px #fecb1a solid;
 }
 
 .tab select {
   width: 100%;
-  height: 5.5vh;
+  height: 6vh;
   font-size: 18px;
-  text-indent: 15px;
+  text-indent: 5px;
   background-color: #ffffff;
 
-  border: 3px solid #fecb1a;
+  border: 2px solid #fecb1a;
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 5px;
+
+  outline: none;
 }
 
 .tab {
   display: flex;
   width: 100%;
   height: auto;
+  justify-content: center;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -156,22 +148,22 @@ input:focus {
   font-size: 15px;
   font-weight: 530;
   color: #131313;
-  height: auto;
+  margin-top: 5%;
 }
 
 input[type="file"] {
   opacity: 0%;
 
   width: 35%;
-  height: 15%;
+  height: 10%;
   position: absolute;
 
 }
 
 .label {
   font-family: "Roboto", sans-serif;
-  width: 100%;
-  height: 10vh;
+  width: 99%;
+  height: 9vh;
   margin-top: 2%;
   display: flex;
   align-items: center;
@@ -184,33 +176,32 @@ input[type="file"] {
   border-radius: 12px;
 }
 
+#button-image {
+  height: 9vh;
+  width: 100%;
+}
 
 .select {
   outline: none;
   width: 100%;
   font-family: "Roboto", sans-serif;
-  height: 100%;
+  height: 10vh;
   background-color: #ffffff;
-  cursor: pointer;
   display: flex;
 
   border: 3px solid #fecb1a;
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
 }
 
 .selects {
   font-family: "Roboto", sans-serif;
+  margin-top: 5%;
   font-size: 15px;
   font-weight: 530;
   color: #131313;
   width: 100%;
-  height: 80%;
+  height: 10vh;
   display: flex;
-  margin-bottom: 2%;
   gap: 10%;
 }
 
-#price{
-  height: 6vh;
-}
