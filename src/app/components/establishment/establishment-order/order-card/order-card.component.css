@@ -2,7 +2,6 @@ main{
     width: 90%;
     height: auto;
     display: flex;
-    gap: 5%;
 }
 p{
     
@@ -30,7 +29,6 @@ p{
 
 .info{
     display: flex;
-    column-gap: 5%;
     flex-direction: column;
 }
 
@@ -50,7 +48,7 @@ p{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 5%;
+    gap: 2%;
     width: 100%;
     height: auto;
     margin-bottom: 3%;
