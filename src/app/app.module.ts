@@ -42,6 +42,8 @@ import { BagItemsComponent } from './components/_client/order-start/bag-items/ba
 import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
 import { ItemDetailsComponent } from './components/_client/client-comandas/order-details/item-details/item-details.component';
+import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
+import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { ItemDetailsComponent } from './components/_client/client-comandas/order
     ItemInfoComponent,
     UploadEstablishmentImageComponent,
     OrderDetailsComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    EstablishmentOrderComponent,
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,

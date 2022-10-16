@@ -22,6 +22,8 @@ import { CreateDishComponent } from './components/establishment/create-consumabl
 import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
 import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
+import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
+import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
 
 
 const routes: Routes = [
@@ -46,7 +48,8 @@ const routes: Routes = [
   {path: 'createDish', component: CreateDishComponent},
   {path: 'createDrink', component: CreateDrinkComponent},
   {path: 'bagitems/:idOrder', component: BagItemsComponent},
-  {path: 'order-details/:idOrder', component: OrderDetailsComponent}
+  {path: 'order-details/:idOrder', component: OrderDetailsComponent},
+  {path: 'orders-establishment/:idEstablishment', component: EstablishmentOrderComponent}
 
 ];
 
