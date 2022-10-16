@@ -1,5 +1,9 @@
+import { EstablishmentService } from './../../../services/EstablishmentService.service';
+import { EstablishmentCard } from './../../../models/establishment/establishmentCard';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { EstablishmentWithOrder, OrderWithDate } from 'src/app/models/establishment/establishmentWithOrder';
+import { ClientOrders } from 'src/app/models/_client/ClientWithOrders';
 
 @Component({
   selector: 'app-establishment-order',
@@ -8,11 +12,26 @@ import { Router } from '@angular/router';
 })
 export class EstablishmentOrderComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service: EstablishmentService, private actRoute: ActivatedRoute) { }
+
+  establishment: EstablishmentWithOrder = {
+    id: 0,
+    orders: []
+  }
 
   ngOnInit(): void {
+    this.getOrders(this.actRoute.snapshot.params['idEstablishment'])
   }
+
   onVoltar(){
     this.router.navigate(['home-establishment/:id'])
   }
+
+  getOrders(id: number){
+  this.service.getOrders(id).subscribe(data => {
+    this.establishment = data
+
+  })
+  }
+
 }

@@ -57,7 +57,7 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   onComanda() {
     if (this.userAutenticado.role == "ESTABLISHMENT_USER")
-      this.router.navigate(['orders-establishment/:idEstablishment']);
+      this.router.navigate(['orders-establishment/' +  this.userAutenticado.id]);
     else
       this.messageService.add('Permissão Negada')
   }
