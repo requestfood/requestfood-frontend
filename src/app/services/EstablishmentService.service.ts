@@ -25,6 +25,10 @@ export class EstablishmentService {
 
   //  GET  //
 
+  getOne(id: number): Observable<EstablishmentUpdate>{
+    return this.http.get<EstablishmentUpdate>(this.endPointEstablishment + id);
+  }
+
   getOrdersReady(id: number): Observable<EstablishmentWithOrderReady>{
     return this.http.get<EstablishmentWithOrderReady>('http://localhost:8080/establishment/orders-ready/' + id);
   }

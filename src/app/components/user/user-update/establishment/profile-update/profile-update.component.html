@@ -1,1 +1,26 @@
-<p>profile-update works!</p>
+<div class="conteiner-principal">
+    <div class="conteiner-image">
+        <img class="img-establishment" [src]="image">
+        <div>
+            <img src="../../../../../../assets/profile/edit 2.svg">
+        </div>
+    </div>
+    <div class="conteiner-form">
+        <form>
+
+            <label for="name">Nome</label>
+            <input type="text" name="name" [placeholder]="currentEstablishmentUpdate.name" [(ngModel)]="newEstablishmentUpdate.name" id="name" maxlength="20"
+                minlength="2">
+
+            <label for="timeToOpen">Hora de Abertura</label>
+            <input type="time" name="timeToOpen" [placeholder]="currentEstablishmentUpdate.timeToOpen" [(ngModel)]="newEstablishmentUpdate.timeToOpen" id="timeToOpen">
+
+            <label for="timeToClose">Hora de Fechamento</label>
+            <input type="time" name="timeToClose" [placeholder]="currentEstablishmentUpdate.timeToClose" [(ngModel)]="newEstablishmentUpdate.timeToClose" id="timeToClose">
+        </form>
+        <button (click)="doSave()"
+            [disabled]="newEstablishmentUpdate.name == '' &&
+             newEstablishmentUpdate.timeToClose == '' && 
+             newEstablishmentUpdate.timeToOpen == ''">Salvar</button>
+    </div>
+</div>
