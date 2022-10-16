@@ -1,3 +1,4 @@
+import { ItemDetails } from './../../../../../models/order/OrderDetails';
 import { ClientService } from 'src/app/services/ClientService.service';
 import { catchError, empty } from 'rxjs';
 import { ImageService } from 'src/app/services/core/image.service';
@@ -67,5 +68,18 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
         let base64Data = retrieveResonse.image;
         this.image = 'data:image/jpeg;base64,' + base64Data;
       })
+  }
+
+  onRegisterImage: boolean = false
+  textOptionsImage: any = {
+    title: "Atualize a sua Imagem?",
+    textSkip: "Não obrigado",
+    textButton: "Concluir",
+    typeObject: "ESTABLISHMENT",
+    id: JSON.parse(this.userService.getUserAutenticado()).id
+  }
+
+  updateImage(){
+    this.onRegisterImage = true
   }
 }

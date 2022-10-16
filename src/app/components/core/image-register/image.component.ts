@@ -67,7 +67,7 @@ export class ImageComponent implements OnInit {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
         });
-        this.router.navigate(['home-establishment/' + JSON.parse(this.userService.getUserAutenticado()).id])
+        this.router.navigate(['user-update'])
         
     } else if (type == 'DRINK') {
 
