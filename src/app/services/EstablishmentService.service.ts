@@ -1,3 +1,4 @@
+import { EstablishmentWithOrder } from 'src/app/models/establishment/establishmentWithOrder';
 import { EstablishmentImage } from 'src/app/models/establishment/establishmentImage';
 import { EstablishmentUpdate } from '../models/user/UserUpdate';
 import { EstablishmentWithOrderReady } from '../models/establishment/EstablishmentWithOrderReady';
@@ -22,7 +23,6 @@ export class EstablishmentService {
     return this.http.post<EstablishmentRegister>(this.endPointEstablishment, postData);
   }
 
-
   //  GET  //
 
   getOne(id: number): Observable<EstablishmentUpdate>{
@@ -31,6 +31,10 @@ export class EstablishmentService {
 
   getOrdersReady(id: number): Observable<EstablishmentWithOrderReady>{
     return this.http.get<EstablishmentWithOrderReady>('http://localhost:8080/establishment/orders-ready/' + id);
+  }
+
+  getOrders(id: number): Observable<EstablishmentWithOrder>{
+    return this.http.get<EstablishmentWithOrder>('http://localhost:8080/establishment/orders/' + id);
   }
 
   //  Image  //

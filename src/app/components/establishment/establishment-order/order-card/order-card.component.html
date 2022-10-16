@@ -3,12 +3,12 @@
   <div class="order">
     <div class="container-principal">
       <div class="command">
-        <p>Comanda #1</p>
+        <p> Comanda #{{ order.idOrder }}</p>
       </div>
       <div class="info">
-        <p>Cliente: Request Food</p>
-        <p>Emissão: 15:26</p>
-        <p>Finalizada: 15:40</p>
+        <p> Cliente: {{ order.nameClient }}</p>
+        <p> Emissão: {{ order.IssueDate | date : 'h:mm a'}}</p>
+        <p> Finalizada: {{ order.closingDate | date : 'h:mm a'}}</p>
       </div>
     </div>
   </div>

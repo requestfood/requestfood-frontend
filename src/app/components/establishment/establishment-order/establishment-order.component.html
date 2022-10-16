@@ -8,14 +8,7 @@
     </div>
 
     <div class="orders">
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
+      <app-order-card *ngFor="let order of this.establishment.orders" [order]="order"> </app-order-card>
     </div>
   </section>
 </main>
