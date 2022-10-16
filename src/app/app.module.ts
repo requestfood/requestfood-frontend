@@ -83,7 +83,7 @@ import { ImageComponent } from './components/core/image-register/image.component
     EstablishmentOrderComponent,
     OrderCardComponent,
     UpdateDishComponent,
-    UpdateDrinkComponent
+    UpdateDrinkComponent,
     ImageComponent
   ],
   imports: [
