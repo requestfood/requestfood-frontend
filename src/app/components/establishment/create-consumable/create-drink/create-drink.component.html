@@ -59,7 +59,7 @@
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab < 2">Próximo</button>
             <button [disabled]="drinkForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
-                <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
+            <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </div>
     </section>
 </main>

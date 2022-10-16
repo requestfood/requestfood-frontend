@@ -34,7 +34,6 @@ export class ClientProfileUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClient()
-
   }
 
   getClient(){

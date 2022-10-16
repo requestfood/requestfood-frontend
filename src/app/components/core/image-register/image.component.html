@@ -1,0 +1,12 @@
+<main>
+    <div class="conteiner-principal">
+        <div class="conteiner-content">
+            <h1>{{ text.title }}</h1>
+            <label class="label" for="image" id="image">Adicionar Imagem</label>
+            <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image" />
+            <p class="pular">{{ text.textSkip }}</p>
+
+            <button (click)="imageUploadActioneEstablishment(text.typeObject)">{{ text.textButton }}</button>
+        </div>
+    </div>
+</main>

@@ -54,12 +54,12 @@
                 <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
                 <button (click)="alterStep(1)" *ngIf="currentTab != 3" (click)="validPassword()">Próximo</button>
                 <button [disabled]="lunchForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 3">Cadastrar</button>
-                    
             </div>
         </form>
-
-
+        
+        
         <p>Já tem conta? <a routerLink="">Faça o login</a></p>
         <p>Não é um Estabelecimento? <a routerLink="/cadastroC">Cadastre-se como um Cliente</a></p>
     </section>
 </body>
+<app-image *ngIf="onRegisterImage" [text]="textOptionsImage"></app-image>

@@ -4,10 +4,11 @@ main{
     display: flex;
 }
 p{
-    
+    padding: 2%;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
+
 .container-principal{
     width: 100%;
     height: auto;
@@ -20,11 +21,9 @@ p{
     justify-content: center;
 
     font-size: 25px;
+    padding: 1%;
 
     border-bottom: 1px #000000 solid;
-}
-.command, .info{
-    padding: 2%;
 }
 
 .info{

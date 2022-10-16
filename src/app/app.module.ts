@@ -46,6 +46,7 @@ import { EstablishmentOrderComponent } from './components/establishment/establis
 import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
 import { UpdateDishComponent } from './components/establishment/update-dish/update-dish.component';
 import { UpdateDrinkComponent } from './components/establishment/update-drink/update-drink.component';
+import { ImageComponent } from './components/core/image-register/image.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { UpdateDrinkComponent } from './components/establishment/update-drink/up
     OrderCardComponent,
     UpdateDishComponent,
     UpdateDrinkComponent
+    ImageComponent
   ],
   imports: [
     BrowserModule,
