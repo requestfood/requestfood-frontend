@@ -10,8 +10,8 @@ section {
   width: 90%;
   height: auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   margin-top: 3%;
 }
 
@@ -27,11 +27,11 @@ h1 {
   justify-content: space-evenly;
   width: 88%;
   height: 6vh;
-  gap: 45%;
+  margin-top: 3%;
 }
 
 .button-back {
-  width: 30%;
+  width: 15%;
 
   font-weight: 400;
   font-size: 120%;
@@ -46,17 +46,16 @@ h1 {
 }
 
 .search {
-  width: 30%;
+  width: 75%;
   height: 100%;
   font-size: 120%;
   font-family: 'Roboto', sans-serif;
   outline: #ffffff;
 
-  padding-left: 1%;
-
   color: #000000;
 
   border: none;
+  text-align: center;
 
   background: #ffc816;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -69,8 +68,6 @@ h1 {
 }
 
 .search:focus{
-
-  right: 10%;
   background-color: #ffffff;
 
   border-radius: 0;
@@ -78,6 +75,7 @@ h1 {
 
 
   text-align: start;
+  text-indent: 15px;
   font-size: 120%;
   outline: none;
 
@@ -85,6 +83,17 @@ h1 {
 
 .search::placeholder {
   color: #000000;
+}
+
+.orders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 
