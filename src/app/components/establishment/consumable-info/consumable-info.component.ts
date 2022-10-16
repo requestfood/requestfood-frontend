@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstablishmentConsumableInfoComponent implements OnInit {
 
+  role: string = ""
+
   constructor(
     private imageService: ImageService,
     private actRouter: ActivatedRoute,
@@ -57,5 +59,12 @@ export class EstablishmentConsumableInfoComponent implements OnInit {
     })
   }
 
-  updateConsumable() { }
+  goToUpdateConsumable() { 
+    this.consumableService.getTypeConsumable(this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
+      if(res.role == 'dish')
+        this.router.navigate(['edit-dish/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ this.actRouter.snapshot.params['idConsumable']])
+      else
+        this.router.navigate(['edit-drink/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ this.actRouter.snapshot.params['idConsumable']])
+    })
+  }
 }

@@ -44,6 +44,8 @@ import { OrderDetailsComponent } from './components/_client/client-comandas/orde
 import { ItemDetailsComponent } from './components/_client/client-comandas/order-details/item-details/item-details.component';
 import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
 import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
+import { UpdateDishComponent } from './components/establishment/update-dish/update-dish.component';
+import { UpdateDrinkComponent } from './components/establishment/update-drink/update-drink.component';
 import { ImageComponent } from './components/core/image-register/image.component';
 
 @NgModule({
@@ -80,6 +82,8 @@ import { ImageComponent } from './components/core/image-register/image.component
     ItemDetailsComponent,
     EstablishmentOrderComponent,
     OrderCardComponent,
+    UpdateDishComponent,
+    UpdateDrinkComponent
     ImageComponent
   ],
   imports: [
