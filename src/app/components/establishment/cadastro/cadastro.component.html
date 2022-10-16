@@ -54,7 +54,6 @@
                 <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
                 <button (click)="alterStep(1)" *ngIf="currentTab != 3" (click)="validPassword()">Próximo</button>
                 <button [disabled]="lunchForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 3">Cadastrar</button>
-                    
             </div>
         </form>
 

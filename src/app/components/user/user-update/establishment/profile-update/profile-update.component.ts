@@ -1,3 +1,4 @@
+import { ClientService } from 'src/app/services/ClientService.service';
 import { catchError, empty } from 'rxjs';
 import { ImageService } from 'src/app/services/core/image.service';
 import { UserService } from './../../../../../services/User.service';
@@ -29,6 +30,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
 
   constructor(
     private establishmentService: EstablishmentService,
+    private clientService: ClientService,
     private userService: UserService,
     private imageService: ImageService
   ) { }
@@ -44,15 +46,26 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
     })
   }
 
+  doSave() {
+    if (this.newEstablishmentUpdate.name == "")
+      this.newEstablishmentUpdate.name = this.currentEstablishmentUpdate.name
+    else if (this.newEstablishmentUpdate.timeToClose == "")
+      this.newEstablishmentUpdate.timeToClose = this.currentEstablishmentUpdate.timeToClose
+    else if (this.newEstablishmentUpdate.timeToOpen == "")
+      this.newEstablishmentUpdate.timeToOpen = this.currentEstablishmentUpdate.timeToOpen
+
+    this.establishmentService.updateEstablishment(this.newEstablishmentUpdate, JSON.parse(this.userService.getUserAutenticado()).id).subscribe(data => {
+    })
+    this.clientService.clientRefresh.emit(this.newEstablishmentUpdate.name)
+  }
+
   uploadImages(id: number) {
     this.imageService.getImage(id)
 
-    .subscribe((res: any) => {
-      console.log(res);
-      
-      let retrieveResonse = res;
-      let base64Data = retrieveResonse.image;
-      this.image = 'data:image/jpeg;base64,' + base64Data;
-    })
+      .subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        this.image = 'data:image/jpeg;base64,' + base64Data;
+      })
   }
 }

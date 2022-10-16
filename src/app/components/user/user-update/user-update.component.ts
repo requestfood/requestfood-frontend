@@ -17,23 +17,26 @@ export class UserUpdateComponent implements OnInit {
 
   userAutenticado = JSON.parse(this.userService.getUserAutenticado())
 
-  nameClient: string = ""
+  nameUser: string = ""
 
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
     private clientService: ClientService,
+    private establishmentService: EstablishmentService,
     private router: Router) {}
 
   ngOnInit() {
-    this.clientService.clientRefresh.subscribe(data => this.nameClient = data)
+    this.clientService.clientRefresh.subscribe(data => this.nameUser = data)
     this.onInfoPessoais()
     this.getName()
   }
 
   getName() {
     if (this.userService.isClient())
-      this.clientService.getOneClient(this.userAutenticado.id).subscribe(data => this.nameClient = data.name)
+      this.clientService.getOneClient(this.userAutenticado.id).subscribe(data => this.nameUser = data.name)
+    else
+      this.establishmentService.getOne(this.userAutenticado.id).subscribe(data => this.nameUser = data.name)
   }
 
   onVoltar() {
