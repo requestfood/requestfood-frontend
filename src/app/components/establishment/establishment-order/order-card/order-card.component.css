@@ -15,7 +15,6 @@ p{
 }
 
 .command{
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,14 +40,11 @@ p{
     height: 200px;
     background-color: #ffffff;
     border-radius: 5px;
-  }
+
+    transition: 0.3s;
+}
   
-.orders {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 2%;
-    width: 100%;
-    height: auto;
-    margin-bottom: 3%;
-  }
+.order:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}

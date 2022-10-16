@@ -1,0 +1,46 @@
+<main>
+    <section>
+        <div class="conteiner-top">
+            <button class="return">Voltar</button>
+            <h1>Comanda {{ order.idOrder }}</h1>
+        </div>
+
+        <div class="conteiner-principal">
+            <div class="buttons">
+                <div class="name-client">{{ order.name }} {{ order.surname }}</div>
+                <div class="amount">{{ order.amount | currency : 'BRL'}}</div>
+
+                <button>Enviar Comanda</button>
+                <button>Cancelar Comanda</button>
+                <button>Finalizar Comanda</button>
+            </div>
+
+                <table>
+                    <tr>
+                        <th>Cosumable</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Valor</th>
+                    </tr>
+
+                    <tr>
+                        <td>Pizza</td>
+                        <td>Cebola</td>
+                        <td>3</td>
+                        <td>3.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pizza</td>
+                        <td>Cebola</td>
+                        <td>3</td>
+                        <td>3.00</td>
+                    </tr><tr>
+                        <td>Pizza</td>
+                        <td>Cebola</td>
+                        <td>3</td>
+                        <td>3.00</td>
+                    </tr>
+                </table>
+            </div>
+    </section>
+</main>

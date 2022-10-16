@@ -8,6 +8,6 @@ export interface OrderWithDate{
     idOrder: number,
     nameClient: string,
     IssueDate: string,
-    closingDate: string
-    
+    closingDate: string,
+    status: string
 }

@@ -1,3 +1,4 @@
+import { OrderControl } from './../models/order/orderControl';
 import { OrderDetails } from './../models/order/OrderDetails';
 import { EstablishmentCard } from '../models/establishment/establishmentCard';
 import { HttpClient } from '@angular/common/http';
@@ -47,6 +48,10 @@ export class OrderService {
   
   getOrderDetails(id: Number): Observable<OrderDetails>{
     return this.http.get<OrderDetails>('http://localhost:8080/order/' + id);
+  }
+
+  getOrderControl(id: Number): Observable<OrderControl>{
+    return this.http.get<OrderControl>('http://localhost:8080/establishment/order-control/' + id)
   }
 
   //  PUT  //

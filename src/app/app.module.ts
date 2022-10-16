@@ -29,7 +29,6 @@ import { PaginationComponent } from './components/core/pagination/pagination.com
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientComandasComponent } from './components/_client/client-comandas/client-comandas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ClientContactUpdateComponent } from './components/user/user-update/_client/contact-update/contact-update.component';
 import { ClientProfileUpdateComponent } from './components/user/user-update/_client/profile-update/profile-update.component';
 import { EstablishmentProfileUpdateComponent } from './components/user/user-update/establishment/profile-update/profile-update.component';
@@ -45,6 +44,7 @@ import { ItemDetailsComponent } from './components/_client/client-comandas/order
 import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
 import { OrderCardComponent } from './components/establishment/establishment-order/order-card/order-card.component';
 import { ImageComponent } from './components/core/image-register/image.component';
+import { OrderControlComponent } from './components/establishment/establishment-order/order-control/order-control.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +80,8 @@ import { ImageComponent } from './components/core/image-register/image.component
     ItemDetailsComponent,
     EstablishmentOrderComponent,
     OrderCardComponent,
-    ImageComponent
+    ImageComponent,
+    OrderControlComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,10 +89,9 @@ import { ImageComponent } from './components/core/image-register/image.component
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
   {
