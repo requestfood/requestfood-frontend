@@ -12,7 +12,6 @@ export interface getClientUpdate{
 export interface EstablishmentUpdate{
 
     name: string,
-    image: string,
     timeToOpen: string,
     timeToClose: string
 }
