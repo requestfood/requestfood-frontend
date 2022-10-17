@@ -1,4 +1,7 @@
+
 import { OrderControlComponent } from './components/establishment/establishment-order/order-control/order-control.component';
+import { UpdateDrinkComponent } from './components/establishment/update-drink/update-drink.component';
+import { UpdateDishComponent } from './components/establishment/update-dish/update-dish.component';
 import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 import { EstablishmentConsumableInfoComponent } from './components/establishment/consumable-info/consumable-info.component';
 import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
@@ -45,6 +48,8 @@ const routes: Routes = [
   {path: 'order-start/:idEstablishment', component: OrderStartComponent},
   {path: 'consumableC-info/:idEstablishment/:idConsumable', component: ClientConsumableInfoComponent},
   {path: 'consumableE-info/:idEstablishment/:idConsumable', component: EstablishmentConsumableInfoComponent},
+  {path: 'edit-dish/:idEstablishment/:idConsumable', component: UpdateDishComponent},
+  {path: 'edit-drink/:idEstablishment/:idConsumable', component: UpdateDrinkComponent},
   {path: 'onCadastrarConsumivel', component: CreateConsumableComponent},
   {path: 'createDish', component: CreateDishComponent},
   {path: 'createDrink', component: CreateDrinkComponent},
