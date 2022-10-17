@@ -14,7 +14,7 @@
 }
 
 h1{
-    padding-top: 50px;
+    margin-top: 2%;
     font-family: 'Roboto', sans-serif;
     font-size: 250%;
     font-weight: bold;
@@ -40,9 +40,11 @@ h1{
 
 }
 
-#card .title{
+#card .conteiner-title{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+
+    gap: 15%;
     
     width: 100%;
     height: auto;
@@ -50,28 +52,22 @@ h1{
     border-bottom: 1px #000 solid;    
 }
 
-#card .title a{
+#card .conteiner-title a{
     font-size: 150%;
-    padding: 5px 5px 0 0;
-
+    text-align: end;
+    margin-right: 2%;
     color: gray;
 }
 
-#card .title a:hover{
+#card .conteiner-title a:hover{
     cursor: pointer;
     color: red;
 }
 
-#card .title h3{
-    padding: 5px;
-    
-    width: 100%;
-    height: auto;
-
+#card .conteiner-title h3{    
     font-family: 'Roboto', sans-serif;
-    font-size: 150%;
-    font-weight: 400;
-    text-align: center;
+    font-size: 200%;
+    font-weight: 600;
 }
 
 .time-order{
@@ -90,14 +86,12 @@ h1{
 }
 
 .order-content h2{
-    
-    padding: 5px;
-    
-    width: 95%;
-    height: auto;
+        
+
 
     font-family: 'Roboto', sans-serif;
-    font-size: 290%;
+    font-size: 300%;
+    font-weight: 500;
     text-align: center;
 }
 

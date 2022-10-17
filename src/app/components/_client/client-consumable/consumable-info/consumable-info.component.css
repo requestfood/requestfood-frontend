@@ -23,6 +23,11 @@ section {
     border-radius: 15px;
 }
 
+.title{
+    margin: 0;
+    padding-bottom: 1%;
+}
+
 #conteiner-principal {
     width: 95%;
     height: 70%;
