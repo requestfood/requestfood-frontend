@@ -1,8 +1,7 @@
+import { UserService } from './../../../../services/User.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderWithDate } from 'src/app/models/establishment/establishmentWithOrder';
-import { ClientOrders, OrderToClient } from 'src/app/models/_client/ClientWithOrders';
-import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-order-card',
@@ -12,11 +11,12 @@ import { OrderService } from 'src/app/services/Order.service';
 export class OrderCardComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    console.log(this.order);
-    
   }
   
   @Input()
@@ -24,8 +24,13 @@ export class OrderCardComponent implements OnInit {
     idOrder: 0,
     nameClient: "",
     IssueDate: "",
-    closingDate: ""
-    
+    closingDate: "",
+    status: ""
+  }
+
+  openOrder(){
+    if(this.userService.isEstablishment())
+      this.router.navigate(['order-control/' + this.order.idOrder])
   }
 
 }

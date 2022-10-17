@@ -6,7 +6,7 @@
 
     <div id="card" *ngFor="let order of establishmentWithOrderReady.ordersFinised">
       
-      <div class="title">
+      <div class="conteiner-title">
         <h3>Comanda: {{order.idOrder}} </h3>
         <a (click)="setStatusOrderToFinished(order.idOrder)">X</a>
       </div>
@@ -16,7 +16,7 @@
         <p>Retire seu pedido no balcão</p>
       </div>
 
-      <h2 class="time-order">{{ order.closingDate | date: 'h:mm a' }}</h2>
+      <h2 class="subtitle">{{ order.closingDate | date: 'h:mm a' }}</h2>
     </div>
 
     <p class="message" *ngIf="establishmentWithOrderReady.ordersFinised.length == 0">Acompanhe o seu pedido pela tela do seu celular :)</p>

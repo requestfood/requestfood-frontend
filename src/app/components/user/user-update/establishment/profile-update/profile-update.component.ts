@@ -72,7 +72,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
 
   onRegisterImage: boolean = false
   textOptionsImage: any = {
-    title: "Atualize a sua Imagem?",
+    title: "Insira sua nova imagem",
     textSkip: "Não obrigado",
     textButton: "Concluir",
     typeObject: "ESTABLISHMENT",

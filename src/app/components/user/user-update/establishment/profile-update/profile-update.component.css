@@ -30,8 +30,8 @@
 
     position: fixed;
     z-index: 2;
-    width: 305px;
-    height: 305px;
+    width: 300px;
+    height: 300px;
 
     opacity: 0%;
     transition: 0.4s;

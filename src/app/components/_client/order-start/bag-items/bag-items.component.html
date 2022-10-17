@@ -2,16 +2,16 @@
 
     <section>
 
-        <h1>Comanda  #{{ order.idOrder }}</h1>
+        <h1 class="title">Comanda  #{{ order.idOrder }}</h1>
 
         <div class="container-order">
-            <h2>{{ order.nameEstablishment }}</h2>
+            <h2 class="title">{{ order.nameEstablishment }}</h2>
 
             <div id="item-info">
                 <app-item-info *ngFor="let item of order.items" [item]="item" [amount]="order.amount"></app-item-info>
             </div>
 
-            <h3>Total: {{ order.amount | currency : 'BRL' }}</h3>
+            <h3 class="title">Total: {{ order.amount | currency : 'BRL' }}</h3>
         </div>
 
         <div class="container-buttons">

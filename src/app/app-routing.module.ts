@@ -1,3 +1,5 @@
+
+import { OrderControlComponent } from './components/establishment/establishment-order/order-control/order-control.component';
 import { UpdateDrinkComponent } from './components/establishment/update-drink/update-drink.component';
 import { UpdateDishComponent } from './components/establishment/update-dish/update-dish.component';
 import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
@@ -53,7 +55,8 @@ const routes: Routes = [
   {path: 'createDrink', component: CreateDrinkComponent},
   {path: 'bagitems/:idOrder', component: BagItemsComponent},
   {path: 'order-details/:idOrder', component: OrderDetailsComponent},
-  {path: 'orders-establishment/:idEstablishment', component: EstablishmentOrderComponent}
+  {path: 'orders-establishment/:idEstablishment', component: EstablishmentOrderComponent},
+  {path: 'order-control/:idOrder', component: OrderControlComponent}
 
 ];
 

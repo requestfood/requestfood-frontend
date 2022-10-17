@@ -1,0 +1,40 @@
+<main>
+    <section>
+        <div class="conteiner-top">
+            <button class="return" (click)="onBack()">Voltar</button>
+            <h1>Comanda {{ order.idOrder }}</h1>
+        </div>
+
+        <div class="conteiner-principal">
+            <div class="buttons">
+                <div class="name-client">{{ order.name }} {{ order.surname }}</div>
+                <div class="amount">{{ order.amount | currency : 'BRL'}}</div>
+
+                <button (click)="onAlterOrderStatus('READY')">Enviar Comanda</button>
+                <button (click)="onAlterOrderStatus('CANCELED')">Cancelar Comanda</button>
+                <button (click)="onFinishedOrder()">Finalizar Comanda</button>
+            </div>
+
+            <table class="table is-bordered">
+                <thead>
+                    <tr>
+                        <th>Cosumable</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of order.items">
+                        <td>{{ item.nameConsumable }}</td>
+                        <td>{{ item.observation }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.value | currency : 'BRL' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+</main>

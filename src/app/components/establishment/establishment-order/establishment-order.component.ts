@@ -1,9 +1,7 @@
 import { EstablishmentService } from './../../../services/EstablishmentService.service';
-import { EstablishmentCard } from './../../../models/establishment/establishmentCard';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EstablishmentWithOrder, OrderWithDate } from 'src/app/models/establishment/establishmentWithOrder';
-import { ClientOrders } from 'src/app/models/_client/ClientWithOrders';
+import { EstablishmentWithOrder } from 'src/app/models/establishment/establishmentWithOrder';
 
 @Component({
   selector: 'app-establishment-order',
@@ -30,7 +28,6 @@ export class EstablishmentOrderComponent implements OnInit {
   getOrders(id: number){
   this.service.getOrders(id).subscribe(data => {
     this.establishment = data
-
   })
   }
 

@@ -1,9 +1,12 @@
-<div class="orders">
 
-  <div class="order">
+
+  <div class="order" (click)="openOrder()">
     <div class="container-principal">
       <div class="command">
         <p> Comanda #{{ order.idOrder }}</p>
+        <img *ngIf="order.status == 'READY'" src="../../../../../assets/feito 1.svg">
+        <img *ngIf="order.status == 'SENT'" src="../../../../../assets/image 47.svg">
+        <img *ngIf="order.status == 'CANCELED'" src="../../../../../assets/image 49.svg">
       </div>
       <div class="info">
         <p> Cliente: {{ order.nameClient }}</p>
@@ -13,4 +16,3 @@
     </div>
   </div>
 
-</div>

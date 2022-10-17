@@ -1,3 +1,4 @@
+import { OrderService } from 'src/app/services/Order.service';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
 import { UserService } from './../../../services/User.service';
 import { EstablishmentService } from '../../../services/EstablishmentService.service';
@@ -22,9 +23,8 @@ export class HomeEstablishmentComponent implements OnInit{
 
   constructor(
     private service: EstablishmentService,
+    private orderService: OrderService,
     private userService: UserService,
-    private router: Router,
-    private consumableService: ConsumableService
   ) {}
 
   ngOnInit() {
@@ -38,11 +38,9 @@ export class HomeEstablishmentComponent implements OnInit{
   }
 
   setStatusOrderToFinished(id: number){
-    this.service.setOrderStatus("FINISHED", id).subscribe(() =>{
-    
-      this.getOrdersReady();
-    
+    this.orderService.deleteOrder(id).subscribe(() =>{
     });
+    this.getOrdersReady();
   }
 
 }
