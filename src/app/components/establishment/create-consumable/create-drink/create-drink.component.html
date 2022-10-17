@@ -55,7 +55,7 @@
                 <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image"/>
             </div>
         </form>
-        <div class="buttons">
+        <div class="conteiner-buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab < 2">Próximo</button>
             <button [disabled]="drinkForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
