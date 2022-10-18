@@ -37,6 +37,10 @@ export class EstablishmentService {
     return this.http.get<EstablishmentWithOrder>('http://localhost:8080/establishment/orders/' + id);
   }
 
+  getOrderById(idOrder: number, idEstablishment: number): Observable<EstablishmentWithOrder>{
+    return this.http.get<EstablishmentWithOrder>('http://localhost:8080/establishment/' + idEstablishment + '/search-order/' + idOrder)
+  }
+
   //  Image  //
 
   getEstablishmentImage(id: number): Observable<EstablishmentImage>{

@@ -67,7 +67,7 @@ export class ImageComponent implements OnInit {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
         });
-        this.router.navigate(['user-update'])
+        this.router.navigate(['user-update/profile-establishment/' + this.text.id])
         
     } else if (type == 'DRINK') {
 
@@ -91,6 +91,8 @@ export class ImageComponent implements OnInit {
           this.successResponse = this.postResponse.body.message
         });
     }
+
+    location.reload()
 
   }
 }

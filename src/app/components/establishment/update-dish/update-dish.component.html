@@ -1,30 +1,32 @@
 <main>
-
     <section>
 
         <div id="container-image-title">
             <img id="image-consumable" [src]="consumable.image">
-            <p>{{ consumable.name }}</p>
+            <p>{{ currentDish.name }}</p>
         </div>
         <div id="container-select">
             <div id="div-input">
                 <div class="div-for-input">
                     <label for="">Nome</label>
-                    <input id="name" type="text" [placeholder]="consumable.name" [(ngModel)]="dish.name">
+                    <input id="name" type="text" [placeholder]="currentDish.name" [(ngModel)]="dish.name">
                 </div>
-                <div class="div-for-input"> 
+                <div class="div-for-input">
                     <label for="">Valor</label>
-                    <input id="price" type="text" [placeholder]="consumable.price | currency: 'BRL'" [(ngModel)]="dish.price">
+                    <input id="price" type="text" [placeholder]="currentDish.price | currency: 'BRL'"
+                        [(ngModel)]="dish.price">
                 </div>
             </div>
             <div id="div-textarea-select">
                 <div class="div-for-input">
                     <label for="">Descricao</label>
-                    <textarea name="" id="description" cols="30" rows="10" [placeholder]="consumable.description" [(ngModel)]="dish.description"></textarea>
+                    <textarea name="" id="description" cols="30" rows="10" [placeholder]="currentDish.description"
+                        [(ngModel)]="dish.description"></textarea>
                 </div>
                 <div class="div-for-input">
                     <label for="">Tipos</label>
-                    <select name="" id="category">
+                    <select name="" [(ngModel)]="dish.categoryDish" id="category">
+                        <option value="" disabled>{{ numberToString() }}</option>
                         <option value="0">Cheesburguer</option>
                         <option value="1">Sobremesa</option>
                         <option value="2">Porcao</option>
@@ -37,7 +39,7 @@
         </div>
         <div id="container-button">
             <button (click)="onBack()">Voltar</button>
-            <button (click)="putDish()">Salvar consumivel</button>
+            <button (click)="putDish()" [disabled]="currentDish.name == dish.name && currentDish.price == dish.price && currentDish.description == dish.description">Salvar consumivel</button>
         </div>
 
     </section>

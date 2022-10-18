@@ -37,6 +37,10 @@ export class ConsumableService {
 
   //  DISH
 
+  getOneDish(id: number): Observable<Dish>{
+    return this.http.get<Dish>(this.endPointDish + id)
+  }
+
   postDish(postData: Dish): Observable<Dish>{
     return this.http.post<Dish>(this.endPointDish, postData)
   }
@@ -46,6 +50,10 @@ export class ConsumableService {
   }
   
   //  DRINK
+
+  getOneDrink(id: number): Observable<Drink>{
+    return this.http.get<Drink>(this.endPointDrink + id)
+  }
   
   postDrink(postData: Drink): Observable<Drink>{
     return this.http.post<Drink>(this.endPointDrink, postData)

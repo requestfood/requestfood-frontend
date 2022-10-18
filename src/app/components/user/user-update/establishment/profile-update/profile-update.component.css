@@ -19,8 +19,8 @@
 .img-establishment {
     border: 3px #000000 solid;
 
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 
     border-radius: 50%;
 }
@@ -30,8 +30,8 @@
 
     position: fixed;
     z-index: 2;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 
     opacity: 0%;
     transition: 0.4s;
@@ -49,8 +49,8 @@
 }
 
 .conteiner-image div img {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
 
     border-radius: 15px;
 

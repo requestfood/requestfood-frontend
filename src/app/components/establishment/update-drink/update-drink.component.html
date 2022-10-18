@@ -9,22 +9,23 @@
         <div id="container-select">
             <div id="div-input">
                 <div class="div-for-input">
-                    <label for="">Nome</label>
-                    <input id="name" type="text" [placeholder]="consumable.name" [(ngModel)]="drink.name">
+                    <label for="name">Nome</label>
+                    <input id="name" type="text" name="name" [placeholder]="currentDrink.name" [(ngModel)]="drink.name">
                 </div>
                 <div class="div-for-input"> 
-                    <label for="">Valor</label>
-                    <input id="price" type="text" [placeholder]="consumable.price | currency: 'BRL'" [(ngModel)]="drink.price">
+                    <label for="price">Valor</label>
+                    <input id="price" type="text" name="price" [placeholder]="currentDrink.price | currency: 'BRL'" [(ngModel)]="drink.price">
                 </div>
             </div>
             <div id="div-textarea-select">
                 <div class="div-for-input">
-                    <label for="">Descricao</label>
-                    <textarea name="" id="description" cols="30" rows="10" [placeholder]="consumable.description" [(ngModel)]="drink.description"></textarea>
+                    <label for="description">Descricao</label>
+                    <textarea name="description" id="description" cols="30" rows="10" [placeholder]="currentDrink.description" [(ngModel)]="drink.description"></textarea>
                 </div>
                 <div class="div-for-input">
-                    <label for="">Tipos</label>
-                    <select name="" id="category" [(ngModel)]="drink.categoryDrink">
+                    <label for="category">Tipos</label>
+                    <select id="category" name="category" [(ngModel)]="drink.categoryDrink">
+                        <option value="" disabled>{{ numberToString() }}</option>
                         <option value="0">Cerveja</option>
                         <option value="1">Refrigerante</option>
                         <option value="2">Suco</option>
@@ -32,8 +33,9 @@
                         <option value="4">Vinho</option>
                         <option value="5">Whisky</option>
                     </select>
-                    <label for="">Alcoolico</label>
-                    <select name="" id="alcoholic" [(ngModel)]="drink.alcoholic">
+                    <label for="alcoholic">Alcoolico</label>
+                    <select name="alcoholic" id="alcoholic" [(ngModel)]="drink.alcoholic">
+                        <option value="0" disabled>{{ currentDrink.alcoholic }}</option>
                         <option value="true">Sim</option>
                         <option value="false">Nao</option>
                     </select>
@@ -42,7 +44,7 @@
         </div>
         <div id="container-button">
             <button (click)="onBack()">Voltar</button>
-            <button (click)="putDrink()">Salvar consumivel</button>
+            <button (click)="putDrink()" [disabled]="currentDrink.name == drink.name && currentDrink.price == drink.price && currentDrink.description == drink.description">Salvar consumivel</button>
         </div>
 
     </section>

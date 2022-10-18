@@ -24,7 +24,8 @@ h1 {
 
 .consultas {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 3%;
   width: 88%;
   height: 6vh;
 }
@@ -45,7 +46,7 @@ h1 {
 }
 
 .search {
-  width: 75%;
+  width: 35%;
   height: 100%;
   font-size: 120%;
   font-family: 'Roboto', sans-serif;
@@ -94,6 +95,7 @@ h1 {
   margin-bottom: 3%;
   margin-top: 3%;
 }
+
 
 
 

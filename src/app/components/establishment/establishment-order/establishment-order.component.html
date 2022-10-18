@@ -4,12 +4,13 @@
 
     <div class="consultas">
       <button class="button-back" (click)="onVoltar()">Voltar</button>
-      <input type="search" class="search" placeholder="Buscar">
+      <input type="number" class="search" [placeholder]="'Buscar por ID'" [(ngModel)]="idSearch" (keyup)="getOrderById()">
     </div>
 
     <div class="orders">
       <app-order-card *ngFor="let order of this.establishment.orders" [order]="order"></app-order-card>
+      <p *ngIf="!establishment.orders.length" class="title">Nenhuma Comanda iniciada :(</p>
     </div>
-    
+
   </section>
 </main>
