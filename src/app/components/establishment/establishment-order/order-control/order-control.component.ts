@@ -28,8 +28,7 @@ export class OrderControlComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-      this.getOrderControl()
+    this.getOrderControl()
   }
 
   getOrderControl(){
@@ -39,7 +38,8 @@ export class OrderControlComponent implements OnInit {
   }
 
   onAlterOrderStatus(status: string){
-    this.service.updateStatusOrder(status, this.actRoute.snapshot.params['idOrder']).subscribe(() => {})
+    this.service.updateStatusOrder(status, this.actRoute.snapshot.params['idOrder']).subscribe(() => {
+    })
   }
 
   onFinishedOrder(){

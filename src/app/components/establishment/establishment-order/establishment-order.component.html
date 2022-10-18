@@ -9,7 +9,7 @@
 
     <div class="orders">
       <app-order-card *ngFor="let order of this.establishment.orders" [order]="order"></app-order-card>
-      <p *ngIf="!establishment.orders.length" class="title">Nenhuma Comanda iniciada :(</p>
+      <p *ngIf="!establishment.orders.length" class="subtitle is-3 mt-6">Nenhuma Comanda Encontrada</p>
     </div>
 
   </section>
