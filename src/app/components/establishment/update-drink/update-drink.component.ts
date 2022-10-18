@@ -1,3 +1,4 @@
+import { ImageService } from 'src/app/services/core/image.service';
 import { DrinkUpdate } from './../../../models/consumables/drinkUpdate';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
@@ -31,14 +32,20 @@ export class UpdateDrinkComponent implements OnInit {
   }
 
   constructor(private consumableService: ConsumableService,
-              private actRouter: ActivatedRoute,
-              private router: Router) { }
+    private imageService: ImageService,
+    private actRouter: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getDrink()
+    this.uploadImages(this.actRouter.snapshot.params['idConsumable'])
+
+    this.imageService.imageComponentisOpen.subscribe(res => {
+      this.onRegisterImage = res
+    })
   }
 
-  getDrink(){
+  getDrink() {
     this.consumableService.getOneDrink(this.actRouter.snapshot.params['idConsumable']).subscribe(data => {
       this.currentDrink = data
     })
@@ -54,7 +61,7 @@ export class UpdateDrinkComponent implements OnInit {
     if (this.drink.price == null)
       this.drink.price = this.currentDrink.price
 
-    if(this.drink.categoryDrink == "")
+    if (this.drink.categoryDrink == "")
       this.drink.categoryDrink = this.enumToNumber()
 
     this.consumableService.putDrink(this.drink, this.actRouter.snapshot.params['idConsumable']).subscribe(data => { })
@@ -103,8 +110,32 @@ export class UpdateDrinkComponent implements OnInit {
     }
   }
 
+  uploadImages(id: number) {
+    this.imageService.getConsumableImage(id)
+
+      .subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        this.consumable.image = 'data:image/jpeg;base64,' + base64Data;
+      })
+  }
+
+
+  onRegisterImage: boolean = false
+  textOptionsImage: any = {
+    title: "Insira a nova imagem",
+    textSkip: "Não obrigado",
+    textButton: "Concluir",
+    typeObject: "",
+    id: this.actRouter.snapshot.params['idConsumable']
+  }
+
+  updateImage() {
+    this.onRegisterImage = true
+  }
+
   onBack() {
-    this.router.navigate(['consumables/'+ this.actRouter.snapshot.params['idEstablishment']])
+    this.router.navigate(['consumables/' + this.actRouter.snapshot.params['idEstablishment']])
   }
 
 }

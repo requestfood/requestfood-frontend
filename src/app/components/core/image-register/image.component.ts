@@ -1,3 +1,4 @@
+import { ImageService } from 'src/app/services/core/image.service';
 import { UserService } from './../../../services/User.service';
 import { EstablishmentImage } from 'src/app/models/establishment/establishmentImage';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,23 +22,22 @@ export class ImageComponent implements OnInit {
     id: 0
   }
 
+  open: boolean = true
+
   constructor(private service: EstablishmentService,
     private httpClient: HttpClient,
     private actRouter: ActivatedRoute,
     private userService: UserService,
+    private imageService: ImageService,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+  }
 
   uploadImage: File = new File(["foo"], "foo.txt", { type: "text/plain", })
   postResponse: any;
   successResponse: string = "";
-
-  image: EstablishmentImage = {
-    image: File
-  }
-
-  ngOnInit(): void {
-  }
 
 
   public onFileSelected(event: any) {
@@ -45,14 +45,16 @@ export class ImageComponent implements OnInit {
   }
 
   
-  getImage() {
-    this.service.getEstablishmentImage(this.actRouter.snapshot.params['idEstablishment']).subscribe((data: any) => {
-      this.image = data;
-    })
-  }
+
   
   onSkip() {
+    if (this.text.typeObject == 'ESTABLISHMENT') {
+      
+    } else if (this.text.typeObject == 'DRINK') {
+    }else if (this.text.typeObject == 'DISH') {
+    }
 
+    this.imageService.imageComponentisOpen.emit(false);
   }
 
   imageUploadActioneEstablishment(type: string) {

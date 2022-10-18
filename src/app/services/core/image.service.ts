@@ -1,11 +1,13 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
+
+  imageComponentisOpen: EventEmitter<boolean> = new EventEmitter()
 
   constructor(private http: HttpClient) { }
 

@@ -1,3 +1,4 @@
+import { ImageService } from 'src/app/services/core/image.service';
 import { DishUpdate } from './../../../models/consumables/dishUpdate';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
@@ -31,16 +32,22 @@ export class UpdateDishComponent implements OnInit {
 
   constructor(private consumableService: ConsumableService,
     private actRouter: ActivatedRoute,
+    private imageService: ImageService,
     private router: Router) {
       this.getDish()
   }
 
   ngOnInit(): void {
+    this.getDish()
+    this.uploadImages(this.actRouter.snapshot.params['idConsumable'])
 
+    this.imageService.imageComponentisOpen.subscribe(res => {
+      this.onRegisterImage = res
+    })
   }
 
   getDish() {
-    this.consumableService.getOneDish(this.consumable.id).subscribe(data => {
+    this.consumableService.getOneDish(this.actRouter.snapshot.params['idConsumable']).subscribe(data => {
       this.currentDish = data
     })
   }
@@ -108,6 +115,29 @@ export class UpdateDishComponent implements OnInit {
       default:
         return 'Sushi';
     }
+  }
+
+  uploadImages(id: number) {
+    this.imageService.getConsumableImage(id)
+
+      .subscribe((res: any) => {
+        let retrieveResonse = res;
+        let base64Data = retrieveResonse.image;
+        this.consumable.image = 'data:image/jpeg;base64,' + base64Data;
+      })
+  }
+
+  onRegisterImage: boolean = false
+  textOptionsImage: any = {
+    title: "Insira a nova imagem",
+    textSkip: "Não obrigado",
+    textButton: "Concluir",
+    typeObject: "",
+    id: this.actRouter.snapshot.params['idConsumable']
+  }
+
+  updateImage(){
+    this.onRegisterImage = true
   }
 
 }
