@@ -1,3 +1,4 @@
+import { ItemDetails } from './../../../../models/order/OrderDetails';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from './../../../core/dialog-confirm/dialog-confirm.component';
@@ -48,10 +49,7 @@ export class CreateDishComponent implements OnInit {
   }
   
   alterStep(n: number) {
-    if (this.currentTab == 0 && n == -1){
-      this.router.navigate(['onCadastrarConsumivel'])
-    }
-    else if (this.currentTab >= 0 && this.currentTab <= 3) {
+    if (this.currentTab >= 0 && this.currentTab <= 2) {
       this.currentTab = this.currentTab + n;
     }
   }
@@ -71,10 +69,10 @@ export class CreateDishComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result: any) => {
   
         if (result) {
-          this.currentTab = 3;
-          this.newDish.id = data.id
+          this.textOptionsImage.id = data.id
+          this.onRegisterImage = true
         }else
-          this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
+          this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + data.id])
       })
 
       this.message.add('Consumable registered succesfully')
@@ -85,22 +83,14 @@ export class CreateDishComponent implements OnInit {
     this.uploadImage = event.target.files[0];
   }
 
-  imageUploadAction() {
-    console.log(this.uploadImage);
-  
-    const imageFormData = new FormData()
-    imageFormData.append('image', this.uploadImage, this.uploadImage.name)
+  onRegisterImage: boolean = false
 
-    this.http.post('http://localhost:8080/dish/image/'+ this.newDish.id, imageFormData, { observe: 'response' })
-      .subscribe((response: any) => {
-        if (response.status === 200) {
-          this.postResponse = response
-          this.successResponse = this.postResponse.body.message
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!'
-        } 
-      }
-    );
+  textOptionsImage: any = {
+    title: "Insira a imagem para seu novo consumível",
+    textSkip: "Pular",
+    textButton: "Concluir",
+    typeObject: "DISH",
+    id: 0
   }
 
 }
