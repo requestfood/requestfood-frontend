@@ -1,6 +1,5 @@
 import { ImageService } from 'src/app/services/core/image.service';
 import { UserService } from './../../../services/User.service';
-import { EstablishmentImage } from 'src/app/models/establishment/establishmentImage';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EstablishmentService } from './../../../services/EstablishmentService.service';
@@ -42,6 +41,9 @@ export class ImageComponent implements OnInit {
 
   public onFileSelected(event: any) {
     this.uploadImage = event.target.files[0];
+
+    console.log(event.target.files[0]);
+    
   }
 
   
@@ -49,15 +51,22 @@ export class ImageComponent implements OnInit {
   
   onSkip() {
     if (this.text.typeObject == 'ESTABLISHMENT') {
+
+      let image = '../../../../assets/profile/perfil-default.png'
+
+      console.log(image);
+      
       
     } else if (this.text.typeObject == 'DRINK') {
+
+
     }else if (this.text.typeObject == 'DISH') {
     }
 
     this.imageService.imageComponentisOpen.emit(false);
   }
 
-  imageUploadActioneEstablishment(type: string) {
+  imageUpload(type: string = this.text.typeObject) {
   
     if (type == 'ESTABLISHMENT') {
 

@@ -132,7 +132,7 @@ export class UpdateDishComponent implements OnInit {
     title: "Insira a nova imagem",
     textSkip: "Não obrigado",
     textButton: "Concluir",
-    typeObject: "",
+    typeObject: "DISH",
     id: this.actRouter.snapshot.params['idConsumable']
   }
 

@@ -126,7 +126,7 @@ export class UpdateDrinkComponent implements OnInit {
     title: "Insira a nova imagem",
     textSkip: "Não obrigado",
     textButton: "Concluir",
-    typeObject: "",
+    typeObject: "DRINK",
     id: this.actRouter.snapshot.params['idConsumable']
   }
 
