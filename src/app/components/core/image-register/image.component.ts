@@ -62,7 +62,7 @@ export class ImageComponent implements OnInit {
       const imageFormData = new FormData()
       imageFormData.append('image', this.uploadImage, this.uploadImage.name)
 
-      this.httpClient.post('http://localhost:8080/establishment/image/' + this.text.id, imageFormData, { observe: 'response' })
+      this.imageService.postImage('establishment', this.text.id, imageFormData)
         .subscribe((response: any) => {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
@@ -74,7 +74,7 @@ export class ImageComponent implements OnInit {
       const imageFormData = new FormData()
       imageFormData.append('image', this.uploadImage, this.uploadImage.name)
 
-      this.httpClient.post('http://localhost:8080/drink/image/' + this.text.id, imageFormData, { observe: 'response' })
+      this.imageService.postImage('drink', this.text.id, imageFormData)
         .subscribe((response: any) => {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
@@ -88,7 +88,7 @@ export class ImageComponent implements OnInit {
       const imageFormData = new FormData()
       imageFormData.append('image', this.uploadImage, this.uploadImage.name)
 
-      this.httpClient.post('http://localhost:8080/dish/image/' + this.text.id, imageFormData, { observe: 'response' })
+      this.imageService.postImage('dish', this.text.id, imageFormData)
         .subscribe((response: any) => {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message

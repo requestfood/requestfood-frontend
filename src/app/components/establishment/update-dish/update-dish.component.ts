@@ -3,7 +3,6 @@ import { DishUpdate } from './../../../models/consumables/dishUpdate';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
 import { Component, OnInit } from '@angular/core';
-import { Dish } from 'src/app/models/consumables/dish';
 
 @Component({
   selector: 'app-update-dish',
@@ -47,7 +46,7 @@ export class UpdateDishComponent implements OnInit {
   }
 
   getDish() {
-    this.consumableService.getOneDish(this.actRouter.snapshot.params['idConsumable']).subscribe(data => {
+    this.consumableService.getOneDish(this.actRouter.snapshot.params['idConsumable']).subscribe((data: any) => {
       this.currentDish = data
     })
   }
@@ -66,7 +65,7 @@ export class UpdateDishComponent implements OnInit {
       this.dish.categoryDish = this.enumToNumber()
     }
 
-    this.consumableService.putDish(this.dish, this.actRouter.snapshot.params['idConsumable']).subscribe(data => { })
+    this.consumableService.putDish(this.dish, this.actRouter.snapshot.params['idConsumable']).subscribe((data: any) => { })
   }
 
   onBack() {
@@ -118,9 +117,7 @@ export class UpdateDishComponent implements OnInit {
   }
 
   uploadImages(id: number) {
-    this.imageService.getConsumableImage(id)
-
-      .subscribe((res: any) => {
+    this.imageService.getImage('consumable', id).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
         this.consumable.image = 'data:image/jpeg;base64,' + base64Data;
@@ -139,5 +136,4 @@ export class UpdateDishComponent implements OnInit {
   updateImage(){
     this.onRegisterImage = true
   }
-
 }

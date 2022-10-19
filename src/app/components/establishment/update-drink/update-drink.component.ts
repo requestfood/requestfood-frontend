@@ -46,7 +46,7 @@ export class UpdateDrinkComponent implements OnInit {
   }
 
   getDrink() {
-    this.consumableService.getOneDrink(this.actRouter.snapshot.params['idConsumable']).subscribe(data => {
+    this.consumableService.getOneDrink(this.actRouter.snapshot.params['idConsumable']).subscribe((data: any) => {
       this.currentDrink = data
     })
   }
@@ -64,7 +64,7 @@ export class UpdateDrinkComponent implements OnInit {
     if (this.drink.categoryDrink == "")
       this.drink.categoryDrink = this.enumToNumber()
 
-    this.consumableService.putDrink(this.drink, this.actRouter.snapshot.params['idConsumable']).subscribe(data => { })
+    this.consumableService.putDrink(this.drink, this.actRouter.snapshot.params['idConsumable']).subscribe((data: any) => { })
   }
 
   numberToString(): string {
@@ -111,9 +111,7 @@ export class UpdateDrinkComponent implements OnInit {
   }
 
   uploadImages(id: number) {
-    this.imageService.getConsumableImage(id)
-
-      .subscribe((res: any) => {
+    this.imageService.getImage('consumable', id).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
         this.consumable.image = 'data:image/jpeg;base64,' + base64Data;

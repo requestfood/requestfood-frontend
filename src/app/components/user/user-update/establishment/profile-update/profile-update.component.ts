@@ -61,7 +61,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
   }
 
   uploadImages(id: number) {
-    this.imageService.getImage(id)
+    this.imageService.getImage('establishment', id)
 
       .subscribe((res: any) => {
         let retrieveResonse = res;

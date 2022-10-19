@@ -80,10 +80,10 @@ export class ClientConsumableInfoComponent implements OnInit {
   }
 
   getConsumableImage(){
-    this.imageService.getConsumableImage(this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
+    this.imageService.getImage('consumable', this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
       let retrieveResonse = res;
       let base64Data = retrieveResonse.image;
-      this.consumable.image = 'data:image/jpeg;base64,' + base64Data;      
+      this.consumable.image = 'data:image/jpeg;base64,' + base64Data;
     })
   }
 }

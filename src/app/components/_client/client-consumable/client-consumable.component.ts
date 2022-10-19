@@ -114,7 +114,7 @@ export class ClientConsumableComponent implements OnInit {
   uploadImages(list: Array<any>) {
 
     for (let elemnt of list) {
-      this.imageService.getConsumableImage(elemnt.id).subscribe((res: any) => {
+      this.imageService.getImage('consumable', elemnt.id).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
         elemnt.image = 'data:image/jpeg;base64,' + base64Data;
