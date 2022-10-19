@@ -7,7 +7,7 @@ div{
 
     justify-content: space-evenly;
 
-    border-bottom: 1px #000000 solid;
+    border-bottom: 0.5px #000000 solid;
 }
 
 p{

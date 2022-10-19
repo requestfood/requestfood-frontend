@@ -23,7 +23,6 @@
         <div class="comandas">
 
             <p *ngIf="this.client.ordersClient.length == 0" >Nenhuma comanda iniciada :(</p>
-            
             <app-card-comanda *ngFor="let order of this.client.ordersClient" [order]="order" ></app-card-comanda>
             
         </div>
