@@ -49,6 +49,8 @@ export class CreateDishComponent implements OnInit {
   }
   
   alterStep(n: number) {
+    if(this.currentTab == 0 && n == -1)
+      this.router.navigate(['onCadastrarConsumivel'])
     if (this.currentTab >= 0 && this.currentTab <= 2) {
       this.currentTab = this.currentTab + n;
     }
@@ -87,7 +89,7 @@ export class CreateDishComponent implements OnInit {
 
   textOptionsImage: any = {
     title: "Insira a imagem para seu novo consumível",
-    textSkip: "Pular",
+    textSkip: "Pular. Obs: Será cadastrado uma imagem padrão.",
     textButton: "Concluir",
     typeObject: "DISH",
     id: 0
