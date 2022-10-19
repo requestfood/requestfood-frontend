@@ -72,6 +72,7 @@ export class BagItemsComponent implements OnInit {
       if (result) {
         this.orderService.updateStatusOrder('SENT', JSON.parse(this.orderService.getOrder()).id).subscribe(res => {})
         localStorage.removeItem('order')
+        this.router.navigate(['comandasC/' + JSON.parse(this.userService.getUserAutenticado()).id])
       }
     })
   }
