@@ -1,11 +1,3 @@
-main{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 10000;
-    opacity: 10000%;
-  
-}
 
 .principal-header {
     display: flex;
@@ -68,13 +60,6 @@ main{
     display: flex;
     flex-direction: column;
 }
-
-.full-menu-lateral{
-    width: 120%;
-    height: 1000%;
-    background: rgba(0, 0, 0, 0.65);
-}
-
 
 .x-image-menu-lateral{
     position: absolute;
