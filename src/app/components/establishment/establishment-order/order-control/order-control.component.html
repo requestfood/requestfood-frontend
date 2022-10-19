@@ -2,14 +2,19 @@
     <section>
         <div class="conteiner-top">
             <button class="return" (click)="onBack()">Voltar</button>
-            <h1>Comanda {{ order.idOrder }}</h1>
+            <h1 class="title is-3">Comanda {{ order.idOrder }}</h1>
         </div>
 
         <div class="conteiner-principal">
             <div class="buttons">
-                <div class="name-client">{{ order.name }} {{ order.surname }}</div>
-                <div class="amount">{{ order.amount | currency : 'BRL'}}</div>
-
+                <div class="info-order">
+                    <p>Client</p>
+                    <div class="name-client">{{ order.name }} {{ order.surname }}</div>
+                </div>
+                <div class="info-order">
+                    <p>Value</p>
+                    <div class="amount">{{ order.amount | currency : 'BRL'}}</div>
+                </div>
                 <button (click)="onAlterOrderStatus('READY')">Enviar Comanda</button>
                 <button (click)="onAlterOrderStatus('CANCELED')">Cancelar Comanda</button>
                 <button (click)="onFinishedOrder()">Finalizar Comanda</button>

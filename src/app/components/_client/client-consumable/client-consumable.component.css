@@ -26,13 +26,6 @@ body {
     height: 100%;
 }
 
-.title {
-    position: relative;
-    font-weight: 500;
-    font-size: 220%;
-    color: #000000;
-}
-
 .consultas{
     display: flex;
     width: 90%;

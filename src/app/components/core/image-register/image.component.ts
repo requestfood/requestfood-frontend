@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/User.service';
 import { ImageService } from 'src/app/services/core/image.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -31,6 +32,7 @@ export class ImageComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private imageService: ImageService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -42,12 +44,13 @@ export class ImageComponent implements OnInit {
   }
 
   onSkip() {
-    if (this.text.typeObject == 'ESTABLISHMENT') {
+    if (this.text.typeObject == 'ESTABLISHMENT')
+      this.router.navigate(['user-update/profile-establishment/' + this.text.id])
+    else if (this.text.typeObject == 'DISH')
+      this.router.navigate(['edit-dish/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+    else if (this.text.typeObject == 'DRINK')
+      this.router.navigate(['edit-dish/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
 
-    } else if (this.text.typeObject == 'DRINK') {
-
-    }else if (this.text.typeObject == 'DISH') {
-    }
 
     this.imageService.imageComponentisOpen.emit(false);
   }
@@ -64,7 +67,7 @@ export class ImageComponent implements OnInit {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
         });
-        this.router.navigate(['user-update/profile-establishment/' + this.text.id])
+      this.router.navigate(['home-establishment/' + JSON.parse(this.userService.getUserAutenticado()).id])
 
     } else if (type == 'DRINK') {
 
@@ -77,7 +80,10 @@ export class ImageComponent implements OnInit {
           this.successResponse = this.postResponse.body.message
         });
 
-    }else if (type == 'DISH') {
+      this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+
+
+    } else if (type == 'DISH') {
 
       const imageFormData = new FormData()
       imageFormData.append('image', this.uploadImage, this.uploadImage.name)
@@ -87,6 +93,8 @@ export class ImageComponent implements OnInit {
           this.postResponse = response
           this.successResponse = this.postResponse.body.message
         });
+
+      this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
     }
 
     location.reload()

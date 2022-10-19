@@ -15,9 +15,6 @@
 
 h1{
     margin-top: 2%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 250%;
-    font-weight: bold;
 }
 
 .orders{
@@ -86,9 +83,6 @@ h1{
 }
 
 .order-content h2{
-        
-
-
     font-family: 'Roboto', sans-serif;
     font-size: 300%;
     font-weight: 500;

@@ -28,13 +28,6 @@ main {
 }
 
 .title {
-    position: relative;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
-    font-size: 250%;
-    margin: 0;
-    margin-top: 1%;
-    color: #000000;
 }
 
 .consultas {
@@ -43,7 +36,7 @@ main {
     height: 4vh;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .search {
