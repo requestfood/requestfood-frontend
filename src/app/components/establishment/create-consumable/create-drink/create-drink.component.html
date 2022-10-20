@@ -15,7 +15,7 @@
         <form #drinkForm="ngForm">
             <div class="tab" *ngIf="currentTab == 0">
                 <label class="label-text" for="name" id="name">Nome do Consumivel</label>
-                <input type="text" [(ngModel)]="newDrink.name" required id="name" name="name" maxlength="15"
+                <input type="text" [(ngModel)]="newDrink.name" required id="name" name="name" maxlength="5"
                     minlength="2" />
             </div>
 

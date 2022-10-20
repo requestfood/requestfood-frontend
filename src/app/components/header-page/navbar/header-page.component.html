@@ -21,8 +21,8 @@
 
     <!-- MENU LATERAL -->
 
+    <div class="full-widht" [ngStyle]="{'visibility': (menuLateralAberto ? 'visible' : 'hidden')}"></div>
     <div (mouseleave)="onFechar()" [ngStyle]="{'left': (menuLateralAberto ? '0px' : '-550px')}" class="menu-lateral">
-
         <img class="x-image-menu-lateral" src="../../assets/marca-x 1.svg" [ngStyle]="{
             'opacity': (menuLateralAberto ? '100%' : '0%'),
             'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">

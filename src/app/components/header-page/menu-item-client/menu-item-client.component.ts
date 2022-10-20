@@ -44,8 +44,9 @@ export class MenuItemClientComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if (result) {
-        if (this.userService.logout())
+        if (this.userService.logout()) {
           this.router.navigate([''])
+        }
       }
     })
 

@@ -17,7 +17,7 @@
             
             <div class="tab" *ngIf="currentTab == 0">
                 <label class="label-text" for="name" id="name">Nome do Consumivel</label>
-                <input type="text" [(ngModel)]="newDish.name" required id="name" name="name" maxlength="15" minlength="2" />
+                <input type="text" [(ngModel)]="newDish.name" required id="name" name="name" maxlength="35" minlength="2" />
             </div>
 
             <div class="description" *ngIf="currentTab == 1">
