@@ -37,6 +37,7 @@ export class ImageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.imageService.imageComponentisOpen.subscribe(res => this.open = res)
   }
 
   public onFileSelected(event: any) {
@@ -96,7 +97,5 @@ export class ImageComponent implements OnInit {
 
       this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
     }
-
-    location.reload()
   }
 }
