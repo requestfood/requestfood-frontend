@@ -23,7 +23,7 @@ export class CreateDrinkComponent implements OnInit {
   })
   postResponse: any;
   successResponse: string = "";
-  
+
   newDrink: Drink = {
     id: 0,
     idEstablishment: JSON.parse(this.userService.getUserAutenticado()).id,
@@ -48,61 +48,53 @@ export class CreateDrinkComponent implements OnInit {
   ngOnInit(): void {
   }
   alterStep(n: number) {
-
-    if (this.currentTab == 0 && n == -1){
+    if (this.currentTab == 0 && n == -1)
       this.router.navigate(['onCadastrarConsumivel'])
-    }else if (this.currentTab >= 0 && this.currentTab <= 3) {
-      this.currentTab = this.currentTab + n;  
+    if (this.currentTab >= 0 && this.currentTab <= 2) {
+      this.currentTab = this.currentTab + n;
     }
   }
-  onCadastrarConsumivel(){
-     this.router.navigate(['onCadastrarConsumivel'])
-    }
+  onCadastrarConsumivel() {
+    this.router.navigate(['onCadastrarConsumivel'])
+  }
 
-    doRegister(){
-      this.service.postDrink(this.newDrink).subscribe((data: any) => {
-        const dialogData: DialogConfirm = {
-          content: 'Deseja cadastrar uma imagem?',
-          confirmText: 'Sim',
-          cancelText: 'Não'
-        }
-    
-        const dialogRef = this.dialog.open(DialogConfirmComponent, {
-          data: dialogData
-        })
-    
-        dialogRef.afterClosed().subscribe((result: any) => {
-    
-          if (result) {
-            this.currentTab = 3;
-            this.newDrink.id = data.id
-          }else
-            this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
-        })
-  
-        this.message.add('Consumable registered succesfully')
+  doRegister() {
+    this.service.postDrink(this.newDrink).subscribe((data: any) => {
+      const dialogData: DialogConfirm = {
+        content: 'Deseja cadastrar uma imagem?',
+        confirmText: 'Sim',
+        cancelText: 'Não'
+      }
+
+      const dialogRef = this.dialog.open(DialogConfirmComponent, {
+        data: dialogData
       })
-    }
 
-    public onFileSelected(event: any) {
-      this.uploadImage = event.target.files[0];
-    }
-  
-    imageUploadAction() {
-      console.log(this.uploadImage);
-    
-      const imageFormData = new FormData()
-      imageFormData.append('image', this.uploadImage, this.uploadImage.name)
-  
-      this.http.post('http://localhost:8080/drink/image/'+ this.newDrink.id, imageFormData, { observe: 'response' })
-        .subscribe((response: any) => {
-          if (response.status === 200) {
-            this.postResponse = response
-            this.successResponse = this.postResponse.body.message
-          } else {
-            this.successResponse = 'Image not uploaded due to some error!'
-          } 
-        }
-      );
-    }
+      dialogRef.afterClosed().subscribe((result: any) => {
+
+        if (result) {
+          this.textOptionsImage.id = data.id
+          this.onRegisterImage = true
+        } else
+          this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
+      })
+
+      this.message.add('Consumable registered succesfully')
+    })
+  }
+
+  public onFileSelected(event: any) {
+    this.uploadImage = event.target.files[0];
+  }
+
+  onRegisterImage: boolean = false
+
+  textOptionsImage: any = {
+    title: "Insira a imagem para seu novo consumível",
+    textSkip: "Pular. Obs: Será cadastrado uma imagem padrão.",
+    textButton: "Concluir",
+    typeObject: "DRINK",
+    id: 0
+  }
+
 }

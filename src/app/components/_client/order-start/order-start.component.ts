@@ -77,7 +77,7 @@ export class OrderStartComponent implements OnInit {
   }
 
   getImage(){
-    this.imageService.getImage(this.actRouter.snapshot.params['idEstablishment']).subscribe((res: any) => {
+    this.imageService.getImage('establishment', this.actRouter.snapshot.params['idEstablishment']).subscribe((res: any) => {
       let retrieveResonse = res;
       let base64Data = retrieveResonse.image;
       this.currentEstablishment.image = 'data:image/jpeg;base64,' + base64Data;

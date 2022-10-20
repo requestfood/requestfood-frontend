@@ -1,3 +1,6 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmComponent } from './../../../core/dialog-confirm/dialog-confirm.component';
+import { DialogConfirm } from './../../../../models/core/dialog';
 import { UserService } from './../../../../services/User.service';
 import { OrderControl } from './../../../../models/order/orderControl';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,12 +27,12 @@ export class OrderControlComponent implements OnInit {
     private service: OrderService,
     private userService: UserService,
     private actRoute: ActivatedRoute,
+    private dialog: MatDialog,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-
-      this.getOrderControl()
+    this.getOrderControl()
   }
 
   getOrderControl(){
@@ -39,11 +42,50 @@ export class OrderControlComponent implements OnInit {
   }
 
   onAlterOrderStatus(status: string){
-    this.service.updateStatusOrder(status, this.actRoute.snapshot.params['idOrder']).subscribe(() => {})
+    const dialogData: DialogConfirm = {
+      content: 'Deseja mesmo ' + this.enumToString(status) + ' a comanda?',
+      confirmText: 'Sim',
+      cancelText: 'Não'
+    }
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: dialogData
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.service.updateStatusOrder(status, this.actRoute.snapshot.params['idOrder']).subscribe(() => {})
+      }
+    })
+
+  }
+
+  enumToString(status: string): string{
+
+    if(status == 'READY')
+        return 'enviar';
+    else
+        return 'cancelar';
   }
 
   onFinishedOrder(){
-    this.service.deleteOrder(this.actRoute.snapshot.params['idOrder']).subscribe(() => {})
+    const dialogData: DialogConfirm = {
+      content: 'Deseja mesmo finalizar a comanda? Obs: Isso irá deletar a comanda',
+      confirmText: 'Sim',
+      cancelText: 'Não'
+    }
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: dialogData
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.service.deleteOrder(this.actRoute.snapshot.params['idOrder']).subscribe(() => {})
+      }
+    })
   }
 
   onBack(){

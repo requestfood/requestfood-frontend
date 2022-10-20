@@ -2,7 +2,7 @@
 
     <section>
         <div class="titles">
-            <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Nome e Imagem</h2>
+            <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Nome</h2>
             <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Descrição do Consumivel</h2>
             <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Valor e Categoria</h2>
         </div>
@@ -40,17 +40,14 @@
                 <label class="label-text" for="price">Valor</label>
                 <input type="text" [(ngModel)]="newDish.price" name="price" id="price" value="" placeholder="R$0.00"/>
             </div>
-            <div class="tab" *ngIf="currentTab == 3">
-                <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
-                <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image-input " name="image"/>
-            </div>
         </form>
-        <div class="buttons">
+        <div class="conteiner-buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button (click)="alterStep(1)" [disabled]="dishForm.form.invalid" *ngIf="currentTab < 2">Próximo</button>
             <button (click)="doRegister()" [disabled]="dishForm.form.invalid" *ngIf="currentTab == 2">Cadastrar</button>
-            <button id="button-image" (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </div>
-        
+
     </section>
 </main>
+
+<app-image *ngIf="onRegisterImage" [text]="textOptionsImage"></app-image>

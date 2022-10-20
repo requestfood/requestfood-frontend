@@ -29,7 +29,7 @@ export class EstablishmentConsumableInfoComponent implements OnInit {
   consumable = this.consumableService.getCurrentConsumable()
 
   getConsumableImage() {
-    this.imageService.getConsumableImage(this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
+    this.imageService.getImage('consumable', this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
       let retrieveResonse = res;
       let base64Data = retrieveResonse.image;
       this.consumable.image = 'data:image/jpeg;base64,' + base64Data;
@@ -51,15 +51,15 @@ export class EstablishmentConsumableInfoComponent implements OnInit {
       data: dialogData
     })
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        this.consumableService.deleteConsumable(this.consumable.id).subscribe(res => {})
+        this.consumableService.deleteConsumable(this.consumable.id).subscribe((res: any) => {})
         this.router.navigate(['consumables/' + this.actRouter.snapshot.params['idEstablishment']])
       }
     })
   }
 
-  goToUpdateConsumable() { 
+  goToUpdateConsumable() {
     this.consumableService.getTypeConsumable(this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
       if(res.role == 'dish')
         this.router.navigate(['edit-dish/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ this.actRouter.snapshot.params['idConsumable']])

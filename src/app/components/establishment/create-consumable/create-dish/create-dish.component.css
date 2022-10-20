@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
   main {
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
     width: 100%;
     height: 90%;
   }
-  
+
   section {
     width: 35%;
     height: 60%;
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .steps {
     width: 15%;
     height: 10%;
@@ -27,7 +27,7 @@
     justify-content: center;
     display: flex;
   }
-  
+
   .step {
     width: 20px;
     height: 20px;
@@ -35,13 +35,13 @@
     border: 2px #fecb1a solid;
     border-radius: 50%;
   }
-  
+
   .subtittle {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 500;
   }
-  
+
   form {
     display: flex;
     justify-content: flex-start;
@@ -49,18 +49,18 @@
     height: 70%;
     flex-direction: column;
   }
-  
+
   button {
     width: 100%;
     height: 100%;
-  
+
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 120%;
-  
+
     border: none;
     outline: none;
-  
+
     background: #ffc816;
     border-radius: 10px;
     cursor: pointer;
@@ -71,8 +71,8 @@
   button:hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
   }
-  
-  .buttons {
+
+  .conteiner-buttons {
     display: flex;
     width: 100%;
     height: 15%;
@@ -80,63 +80,69 @@
     gap: 20%;
   }
 
-  
+
   .description {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
   }
-  
+
   textarea {
     width: 95%;
     height: 50%;
     font-size: 18px;
     padding: 2%;
-  
+
     border: 2px solid #fecb1a;
     border-radius: 5px;
 
     font-family: 'Roboto', sans-serif;
-  
+
     outline: none;
     resize: none;
 
     transition: 0.2s;
   }
-  
+
   input {
     width: 100%;
     height: 6vh;
     font-size: 18px;
     text-indent: 7px;
-  
+
     border: 2px solid #fecb1a;
     border-radius: 5px;
-  
+
     outline: none;
   }
-  
+
   input:invalid {
     border: 2px red solid;
   }
-  
+
   input:focus {
     border: 2px #fecb1a solid;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
   }
-  
+
+  select:focus {
+    border: 2px #fecb1a solid;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+
   .tab select {
     width: 100%;
     height: 6vh;
     font-size: 18px;
     text-indent: 5px;
     background-color: #ffffff;
-  
+
     border: 2px solid #fecb1a;
     border-radius: 5px;
 
     outline: none;
   }
-  
+
   .tab {
     display: flex;
     width: 100%;
@@ -145,7 +151,7 @@
     justify-content: center;
     align-items: flex-start;
   }
-  
+
   .label-text {
     font-family: "Roboto", sans-serif;
     align-items: flex-start;
@@ -173,14 +179,17 @@
     justify-content: center;
     background-color: #ffffff;
     cursor: pointer;
-  
+
     border: 3px solid #fecb1a;
-    box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
   }
-  
+
+  textarea:focus {
+    border: 2px #fecb1a solid;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+
   #button-image {
     height: 8vh;
     width: 100%;
   }
-  

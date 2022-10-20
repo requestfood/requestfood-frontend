@@ -120,7 +120,7 @@ export class HomeClientComponent implements OnInit {
             data: dialogData
           })
 
-          dialogRef.afterClosed().subscribe(result => {
+          dialogRef.afterClosed().subscribe((result: any) => {
 
             if (result) {
               this.orderService.setOrder(data)
@@ -139,7 +139,7 @@ export class HomeClientComponent implements OnInit {
   uploadImages(list: Array<any>) {
 
     for (let elemnt of list) {
-      this.imageService.getImage(elemnt.id).subscribe((res: any) => {        
+      this.imageService.getImage('establishment', elemnt.id).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
         elemnt.image = 'data:image/jpeg;base64,' + base64Data;

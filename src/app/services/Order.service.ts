@@ -1,3 +1,4 @@
+import { EstablishmentWithOrder } from 'src/app/models/establishment/establishmentWithOrder';
 import { OrderControl } from './../models/order/orderControl';
 import { OrderDetails } from './../models/order/OrderDetails';
 import { EstablishmentCard } from '../models/establishment/establishmentCard';
@@ -5,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CreateOrder } from '../models/order/createOrder';
 import { Injectable, EventEmitter } from '@angular/core';
+import { OrderWithDate } from '../models/establishment/establishmentWithOrder';
 
 @Injectable({
   providedIn: 'root'

@@ -49,17 +49,14 @@
                 <label class="label-text" for="price">Valor</label>
                 <input type="text" [(ngModel)]="newDrink.price" id="price" name="price" value="" placeholder="R$0.00" />
             </div>
-
-            <div class="tab" *ngIf="currentTab == 3">
-                <label class="label" for="image" id="image">Clique para adicionar a Imagem do Consumivel</label>
-                <input type="file" value="select" #selectFile (change)="onFileSelected($event)" class="image" id="image" name="image"/>
-            </div>
+            
         </form>
-        <div class="buttons">
+        <div class="conteiner-buttons">
             <button (click)="alterStep(-1)" *ngIf="currentTab != 3">Voltar</button>
             <button [disabled]="drinkForm.form.invalid" (click)="alterStep(1)" *ngIf="currentTab < 2">Próximo</button>
             <button [disabled]="drinkForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 2">Cadastrar</button>
-            <button (click)="imageUploadAction()" *ngIf="currentTab == 3">Concluir</button>
         </div>
     </section>
+
+    <app-image *ngIf="onRegisterImage" [text]="textOptionsImage"></app-image>
 </main>

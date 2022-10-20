@@ -12,22 +12,19 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 h1 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 250;
-    font-size: 300%;
-    color: #000000;
 }
 
 .consultas {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 3%;
   width: 88%;
   height: 6vh;
-  margin-top: 3%;
 }
 
 .button-back {
@@ -40,13 +37,19 @@ h1 {
   border: none;
 
   background: #ffc816;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   border-radius: 5px;
   cursor: pointer;
 }
 
+button:hover{
+
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+
+}
+
 .search {
-  width: 75%;
+  width: 35%;
   height: 100%;
   font-size: 120%;
   font-family: 'Roboto', sans-serif;
@@ -58,7 +61,6 @@ h1 {
   text-align: center;
 
   background: #ffc816;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
   border-radius: 5px;
 }
@@ -81,6 +83,10 @@ h1 {
 
 }
 
+input:hover{
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
 .search::placeholder {
   color: #000000;
 }
@@ -95,6 +101,7 @@ h1 {
   margin-bottom: 3%;
   margin-top: 3%;
 }
+
 
 
 

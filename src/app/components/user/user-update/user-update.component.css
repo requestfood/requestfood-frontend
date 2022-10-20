@@ -143,7 +143,6 @@ main{
 }
 
 p{
-    font-size: 250%;
-    font-weight: 400;
+    margin: 0;
     text-align: center;
 }

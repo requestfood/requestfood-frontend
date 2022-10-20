@@ -64,7 +64,7 @@ export class ClientComandasComponent implements OnInit {
   uploadImages(list: Array<any>) {
 
     for (let elemnt of list) {
-      this.imageService.getImage(elemnt.idEstablishment).subscribe((res: any) => {
+      this.imageService.getImage('establishment', elemnt.idEstablishment).subscribe((res: any) => {
         let retrieveResonse = res;
         let base64Data = retrieveResonse.image;
         elemnt.imageEstablishment = 'data:image/jpeg;base64,' + base64Data;
@@ -72,7 +72,7 @@ export class ClientComandasComponent implements OnInit {
     }
   }
 
-  
+
 
   onVoltar() {
     if (this.userAutenticado.role == 'CLIENT_USER') {

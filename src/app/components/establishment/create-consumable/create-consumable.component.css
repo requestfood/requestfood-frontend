@@ -23,13 +23,7 @@ main {
 }
 
 .container h1 {
-    font-family: "Roboto", sans-serif;
-    font-size: 180%;
-    text-align: center;
-
     margin: 5% 0 2% 0;
-    
-    font-weight: 500;
 }
 
 .cards {
@@ -67,12 +61,12 @@ main {
 .card h2 {
     display: block;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 30px;
-    font-weight: 200;
+    font-size: 40px;
+    font-weight: 600;
     width: auto;
     margin-bottom: 15%;
 }
 
 .img {
-    width: 70%;
+    width: 60%;
 }

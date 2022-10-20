@@ -61,7 +61,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
   }
 
   uploadImages(id: number) {
-    this.imageService.getImage(id)
+    this.imageService.getImage('establishment', id)
 
       .subscribe((res: any) => {
         let retrieveResonse = res;
@@ -71,6 +71,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
   }
 
   onRegisterImage: boolean = false
+
   textOptionsImage: any = {
     title: "Insira sua nova imagem",
     textSkip: "Não obrigado",

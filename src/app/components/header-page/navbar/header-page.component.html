@@ -28,7 +28,8 @@
             'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
 
         <app-menu-item-client class="items" *ngIf="typeUser() == 'CLIENT_USER'"></app-menu-item-client>
-        <app-menu-item-establishment class="items" *ngIf="typeUser() == 'ESTABLISHMENT_USER'"></app-menu-item-establishment>
+        <app-menu-item-establishment class="items" *ngIf="typeUser() == 'ESTABLISHMENT_USER'">
+        </app-menu-item-establishment>
     </div>
 
     <!-- VALOR DA COMANDA -->

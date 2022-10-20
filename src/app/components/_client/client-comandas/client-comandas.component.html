@@ -2,7 +2,7 @@
 
     <section class="container-principal">
 
-        <h1 class="title">Pedidos</h1>
+        <h1 class="title is-1">Pedidos</h1>
 
         <div class="consultas">
 
@@ -13,7 +13,6 @@
                 <option value="WAITING">Em Andamento</option>
                 <option value="SENT">Enviadas</option>
                 <option value="READY">Prontas</option>
-                <option value="FINISHED">Finalizadas</option>
                 <option value="CANCELED">Canceladas</option>
             </select>
 
@@ -24,7 +23,6 @@
         <div class="comandas">
 
             <p *ngIf="this.client.ordersClient.length == 0" >Nenhuma comanda iniciada :(</p>
-            
             <app-card-comanda *ngFor="let order of this.client.ordersClient" [order]="order" ></app-card-comanda>
             
         </div>
