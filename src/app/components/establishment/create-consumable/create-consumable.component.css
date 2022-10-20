@@ -40,7 +40,7 @@ main {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    width: 35%;
+    width: 25%;
     height: 80%;
 
     margin: 2%;
@@ -61,7 +61,7 @@ main {
 .card h2 {
     display: block;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 40px;
+    font-size: 200%;
     font-weight: 600;
     width: auto;
     margin-bottom: 15%;
