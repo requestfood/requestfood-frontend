@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/User.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from './../../core/dialog-confirm/dialog-confirm.component';
 import { DialogConfirm } from './../../../models/core/dialog';
@@ -5,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConsumableService } from 'src/app/services/ConsumableService.service';
 import { ImageService } from 'src/app/services/core/image.service';
 import { Component, OnInit } from '@angular/core';
+import { delay, interval } from 'rxjs';
 
 @Component({
   selector: 'app-consumable-info',
@@ -17,6 +19,7 @@ export class EstablishmentConsumableInfoComponent implements OnInit {
 
   constructor(
     private imageService: ImageService,
+    private userService: UserService,
     private actRouter: ActivatedRoute,
     private consumableService: ConsumableService,
     private router: Router,
@@ -53,18 +56,18 @@ export class EstablishmentConsumableInfoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        this.consumableService.deleteConsumable(this.consumable.id).subscribe((res: any) => {})
-        this.router.navigate(['consumables/' + this.actRouter.snapshot.params['idEstablishment']])
+        this.consumableService.deleteConsumable(this.consumable.id).subscribe((res: any) => { })
+        this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
       }
     })
   }
 
   goToUpdateConsumable() {
     this.consumableService.getTypeConsumable(this.actRouter.snapshot.params['idConsumable']).subscribe((res: any) => {
-      if(res.role == 'dish')
-        this.router.navigate(['edit-dish/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ this.actRouter.snapshot.params['idConsumable']])
+      if (res.role == 'dish')
+        this.router.navigate(['edit-dish/' + this.actRouter.snapshot.params['idEstablishment'] + '/' + this.actRouter.snapshot.params['idConsumable']])
       else
-        this.router.navigate(['edit-drink/'+ this.actRouter.snapshot.params['idEstablishment'] +'/'+ this.actRouter.snapshot.params['idConsumable']])
+        this.router.navigate(['edit-drink/' + this.actRouter.snapshot.params['idEstablishment'] + '/' + this.actRouter.snapshot.params['idConsumable']])
     })
   }
 }

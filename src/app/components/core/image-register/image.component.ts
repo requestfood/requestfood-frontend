@@ -30,7 +30,6 @@ export class ImageComponent implements OnInit {
   successResponse: string = ""
 
   constructor(
-    private httpClient: HttpClient,
     private imageService: ImageService,
     private userService: UserService,
     private router: Router
@@ -48,9 +47,9 @@ export class ImageComponent implements OnInit {
     if (this.text.typeObject == 'ESTABLISHMENT')
       this.router.navigate(['user-update/profile-establishment/' + this.text.id])
     else if (this.text.typeObject == 'DISH')
-      this.router.navigate(['edit-dish/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+      this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
     else if (this.text.typeObject == 'DRINK')
-      this.router.navigate(['edit-dish/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+      this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
 
 
     this.imageService.imageComponentisOpen.emit(false);
@@ -81,7 +80,7 @@ export class ImageComponent implements OnInit {
           this.successResponse = this.postResponse.body.message
         });
 
-      this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+      this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
 
 
     } else if (type == 'DISH') {
@@ -95,7 +94,7 @@ export class ImageComponent implements OnInit {
           this.successResponse = this.postResponse.body.message
         });
 
-      this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + this.text.id])
+      this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
     }
   }
 }

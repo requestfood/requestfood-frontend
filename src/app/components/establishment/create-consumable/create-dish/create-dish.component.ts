@@ -74,7 +74,7 @@ export class CreateDishComponent implements OnInit {
           this.textOptionsImage.id = data.id
           this.onRegisterImage = true
         }else
-          this.router.navigate(['consumableE-info/' + JSON.parse(this.userService.getUserAutenticado()).id + '/' + data.id])
+          this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
       })
 
       this.message.add('Consumable registered succesfully')

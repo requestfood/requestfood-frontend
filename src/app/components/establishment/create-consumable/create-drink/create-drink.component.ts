@@ -75,8 +75,9 @@ export class CreateDrinkComponent implements OnInit {
         if (result) {
           this.textOptionsImage.id = data.id
           this.onRegisterImage = true
-        } else
+        } else {
           this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
+        }
       })
 
       this.message.add('Consumable registered succesfully')
