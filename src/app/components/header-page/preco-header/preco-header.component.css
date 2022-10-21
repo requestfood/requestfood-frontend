@@ -13,9 +13,9 @@ div:hover{
 }
 
 .preco-header{
-    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-size: 125%;
+    color: #000000;
 } 
 
 div img{

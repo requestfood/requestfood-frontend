@@ -6,7 +6,7 @@ main {
     justify-content: center;
     align-items: center;
 
-    background-color: #f8f8f8;
+    background-color: var(--background);
 }
 
 section {
@@ -18,7 +18,7 @@ section {
     align-items: center;
     flex-direction: column;
 
-    background-color: #fff;
+    background-color: var(--background);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 }
@@ -26,6 +26,7 @@ section {
 .title{
     margin: 0;
     padding-bottom: 1%;
+    color: var(--text-body);
 }
 
 #conteiner-principal {
@@ -41,7 +42,7 @@ section {
     height: 100%;
     width: 35%;
 
-    border: 3px solid #fecb1a;
+    border: 3px solid var(--primary);
     border-radius: 15px;
 
     display: flex;
@@ -58,7 +59,7 @@ section {
     justify-content: center;
     align-items: center;
 
-    border: 3px solid #fecb1a;
+    border: 3px solid var(--primary);
     border-radius: 15px;
 }
 
@@ -84,13 +85,15 @@ section {
 }
 
 #conteiner-quantity p {
-    height: 85%;
+    height: 100%;
     width: 30%;
 
     font-size: 100%;
 
-    background-color: #f8f8f8;
-    border: 2px solid #fecb1a;
+    background-color: var(--background);
+    border: 2px solid var(--primary);
+    color: var(--text-body);
+
     border-radius: 5px;
 
     display: flex;
@@ -104,12 +107,11 @@ section {
     width: 30%;
 
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-
-    background-color: #f8f8f8;
+    background-color: var(--background);
     border: none;
 
-    border: 2px solid #fecb1a;
+    border: 2px solid var(--primary);
+    color: var(--text-body);
     border-radius: 5px;
     outline: none;
 }
@@ -127,13 +129,13 @@ textarea {
 
     margin: 3% 0 3% 0;
     padding: 2%;
+    background-color: var(--background);
+    color: var(--text-body);
 
     font-size: 100%;
 
     border: none;
     outline: none;
-
-    font-family: 'Roboto', sans-serif;
 
     resize: none;
 }
@@ -178,7 +180,7 @@ textarea::placeholder {
 
     border: none;
 
-    background: #fecb1a;
+    background: var(--primary);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     transition: 0.2s;
@@ -186,7 +188,7 @@ textarea::placeholder {
 }
 
 #conteiner-buttons button:disabled {
-    background-color: #f7c926ad;
+    background-color: #c9a41dad;
     cursor: default;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }

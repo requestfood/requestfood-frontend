@@ -27,8 +27,8 @@ label {
     margin-top: 15px;
     margin-left: 5px;
     font-size: 100%;
-    font-weight: 600;
-    color: #131313;
+    font-weight: 500;
+    color: var(--text-body);
     padding: 20px 0 3px 0;
 }
 
@@ -38,7 +38,9 @@ input {
     font-size: 18px;
     text-indent: 15px;
 
-    border: 3px solid #fecb1a;
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+    color: var(--text-body);
     border-radius: 5px;
 
     outline: none;
@@ -52,14 +54,13 @@ input:focus {
 
 input::placeholder {
     font-weight: 500;
-    color: #000000;
+    color: var(--text-body);
 }
 
 button {
     width: 45%;
     height: 13%;
 
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 140%;
 
@@ -67,7 +68,7 @@ button {
     
     border: none;
 
-    background: #ffc816;
+    background: var(--primary);
     border-radius: 5px;
 }
 button:hover{
@@ -80,10 +81,12 @@ select {
     height: 15%;
     font-size: 18px;
     text-indent: 15px;
-    background-color: #ffffff;
     outline: none;
 
-    border: 3px solid #fecb1a;
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+    color: var(--text-body);
+
     border-radius: 5px;
 }
 

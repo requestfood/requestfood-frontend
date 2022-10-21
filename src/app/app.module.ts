@@ -38,7 +38,6 @@ import { LoadingComponent } from './components/core/loading/loading.component';
 import { CreateDishComponent } from './components/establishment/create-consumable/create-dish/create-dish.component';
 import { CreateDrinkComponent } from './components/establishment/create-consumable/create-drink/create-drink.component';
 import { BagItemsComponent } from './components/_client/order-start/bag-items/bag-items.component';
-import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 import { OrderDetailsComponent } from './components/_client/client-comandas/order-details/order-details.component';
 import { ItemDetailsComponent } from './components/_client/client-comandas/order-details/item-details/item-details.component';
 import { EstablishmentOrderComponent } from './components/establishment/establishment-order/establishment-order.component';
@@ -77,7 +76,6 @@ import { OrderControlComponent } from './components/establishment/establishment-
     CreateDrinkComponent,
     BagItemsComponent,
     ItemInfoComponent,
-    UploadEstablishmentImageComponent,
     OrderDetailsComponent,
     ItemDetailsComponent,
     EstablishmentOrderComponent,

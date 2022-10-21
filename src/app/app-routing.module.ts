@@ -2,7 +2,6 @@
 import { OrderControlComponent } from './components/establishment/establishment-order/order-control/order-control.component';
 import { UpdateDrinkComponent } from './components/establishment/update-drink/update-drink.component';
 import { UpdateDishComponent } from './components/establishment/update-dish/update-dish.component';
-import { UploadEstablishmentImageComponent } from './components/establishment/cadastro/upload-establishment-image/upload-establishment-image.component';
 import { EstablishmentConsumableInfoComponent } from './components/establishment/consumable-info/consumable-info.component';
 import { ClientConsumableInfoComponent } from './components/_client/client-consumable/consumable-info/consumable-info.component';
 import { UserAlterPasswordComponent } from './components/user/user-update/user-alter-password/user-alter-password.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
   {path: '',component: LoginComponent},
   {path: 'cadastroC',component: CadastroClientComponent},
   {path: 'cadastroE',component: CadastroEstablishmentComponent},
-  {path: 'upload-image/:idEstablishment', component: UploadEstablishmentImageComponent},
   {path: 'home-client/:id', component: HomeClientComponent},
   {path: 'consumables/:idEstablishment', component: ClientConsumableComponent},
   {path: 'home-establishment/:id',component: HomeEstablishmentComponent},

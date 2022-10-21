@@ -3,7 +3,7 @@
   <section class="container-options">
 
     <div class="options">
-      
+
       <p class="title is-3">Olá {{ nameUser }}</p>
 
       <ul>
@@ -12,9 +12,11 @@
         <li (click)="onAlterPassword()"><img src="../../../../assets/profile/icone-cadeado.svg">Alterar senha</li>
         <li (click)="onDeleteUser()"><img src="../../../../assets/profile/icone-deleteuser.svg">Deletar Usuário</li>
       </ul>
-      
+
       <button (click)="onVoltar()">Voltar</button>
+
     </div>
+    <img (click)="toggle()" class="icon is-medium" src="../../../../assets/theme.svg" alt="alter theme">
 
   </section>
 

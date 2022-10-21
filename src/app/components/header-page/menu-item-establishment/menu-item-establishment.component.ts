@@ -26,6 +26,13 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   }
 
+  theme(): boolean {
+    if (localStorage.getItem('theme'))
+      return true
+    else
+      return false
+  }
+
   onSair() {
 
     const dialogData: DialogConfirm = {

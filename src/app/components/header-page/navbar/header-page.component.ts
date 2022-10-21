@@ -19,12 +19,16 @@ export class HeaderPageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {
+    this.userService.mostrarMenuLogin.subscribe(res => this.menuLateralAberto = res)
+   }
 
   ngOnInit(): void {
+    this.lookTheme()
     this.userService.novoUserAutenticado.subscribe(data => this.userAutenticado = data)
 
     this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
+
   }
 
   onMenu() {
@@ -57,5 +61,14 @@ export class HeaderPageComponent implements OnInit {
       return ""
 
     return this.userAutenticado.role
+  }
+
+  lookTheme(): string {
+
+    if (localStorage.getItem('theme')) {
+      document.body.classList.toggle('dark-theme')
+      return 'dark'
+    }else
+      return 'light'
   }
 }

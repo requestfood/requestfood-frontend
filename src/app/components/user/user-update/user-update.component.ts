@@ -99,5 +99,15 @@ export class UserUpdateComponent implements OnInit {
       }
     })
   }
+
+  toggle(){
+    const theme = document.body.classList.toggle('dark-theme')
+    
+    if(theme)
+      localStorage.setItem('theme', 'dark-theme')
+    else
+      localStorage.removeItem('theme')
+
+  }
 }
 

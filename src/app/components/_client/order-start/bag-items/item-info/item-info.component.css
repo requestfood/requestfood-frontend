@@ -22,7 +22,7 @@ div{
 }
 
 .container-name p{
-    color: #363636;
+    color: var(--second);
 }
 
 .container-actions{
@@ -35,7 +35,7 @@ div{
     align-items: flex-end;
 
 
-    border-bottom: 1px #000000 solid;
+    border-bottom: 1px var(--second) solid;
 }
 
 .container-actions div{
