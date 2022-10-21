@@ -171,21 +171,19 @@ img {
 }
 
 #container-button button {
+    
     cursor: pointer;
-
     width: 29%;
     height: 100%;
-
     margin: 1%;
 
     background-color: var(--primary);
+    color: #000000;
+
     border: none;
     outline: none;
-
     border-radius: 5px;
-
     font-size: 120%;
-
     transition: 0.2s;
 }
 
