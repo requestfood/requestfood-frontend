@@ -26,11 +26,11 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   }
 
-  theme(): boolean {
+  theme(): string {
     if (localStorage.getItem('theme'))
-      return true
+      return 'white'
     else
-      return false
+      return 'black'
   }
 
   onSair() {

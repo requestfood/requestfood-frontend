@@ -96,14 +96,24 @@ export class UserUpdateComponent implements OnInit {
     })
   }
 
+  onTheme: boolean = false
+
   toggle() {
     const theme = document.body.classList.toggle('dark-theme')
 
-    if (theme)
+    if (theme) 
       localStorage.setItem('theme', 'dark-theme')
-    else
+    else 
       localStorage.removeItem('theme')
 
+    this.onTheme = !this.onTheme
+  }
+
+  theme(): string {
+    if (localStorage.getItem('theme'))
+      return 'white'
+    else
+      return 'black'
   }
 }
 

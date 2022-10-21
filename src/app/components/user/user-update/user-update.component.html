@@ -7,16 +7,16 @@
       <p class="title is-3">Olá {{ nameUser }}</p>
 
       <ul>
-        <li (click)="onInfoPessoais()"><img src="../../../../assets/profile/icone-pessoais.svg">Opções de perfil</li>
-        <li (click)="onInfoContato()"><img src="../../../../assets/profile/icone-contato.svg">Opções de contato</li>
-        <li (click)="onAlterPassword()"><img src="../../../../assets/profile/icone-cadeado.svg">Alterar senha</li>
-        <li (click)="onDeleteUser()"><img src="../../../../assets/profile/icone-deleteuser.svg">Deletar Usuário</li>
+        <li (click)="onInfoPessoais()"><img src="../../../../assets/profile/icone-pessoais-{{ theme() }}.svg">Opções de perfil</li>
+        <li (click)="onInfoContato()"><img src="../../../../assets/profile/icone-contato-{{ theme() }}.svg">Opções de contato</li>
+        <li (click)="onAlterPassword()"><img src="../../../../assets/profile/icone-cadeado-{{ theme() }}.svg">Alterar senha</li>
+        <li (click)="onDeleteUser()"><img src="../../../../assets/profile/icone-deleteuser-{{ theme() }}.svg">Deletar Usuário</li>
       </ul>
 
       <button (click)="onVoltar()">Voltar</button>
 
     </div>
-    <img (click)="toggle()" class="icon is-medium" src="../../../../assets/theme.svg" alt="alter theme">
+    <img (click)="toggle()" [ngStyle]="{'transform': (onTheme ? 'rotate' + '(180deg)' : 'none')}" class="icon is-medium" src="../../../../assets/theme-{{ theme() }}.svg" alt="alter theme">
 
   </section>
 
