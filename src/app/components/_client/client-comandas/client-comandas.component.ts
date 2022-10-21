@@ -56,10 +56,10 @@ export class ClientComandasComponent implements OnInit {
 
         this.uploadImages(this.client.ordersClient)
       })
+    }else{
+      this.getClientWithOrders()
     }
   }
-
-  searchByName() { }
 
   uploadImages(list: Array<any>) {
 
