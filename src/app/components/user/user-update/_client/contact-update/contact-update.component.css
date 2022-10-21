@@ -6,14 +6,11 @@ form {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    transition: 0.5s;
 }
 
 h1 {
     font-size: 220%;
     font-weight: 500;
-    transition: 0.5s;
-
 }
 
 form div {
@@ -24,7 +21,6 @@ form div {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    transition: 0.5s;
 
 }
 
@@ -49,8 +45,6 @@ input {
     border-radius: 5px;
 
     outline: none;
-
-    transition: 0.2s;
 }
 
 input:focus {
@@ -68,8 +62,6 @@ button {
 
     font-weight: 500;
     font-size: 140%;
-
-    transition: 0.2s;
     
     border: none;
 
