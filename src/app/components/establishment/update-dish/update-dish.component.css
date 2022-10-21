@@ -32,9 +32,10 @@ img {
 }
 
 
-#container-image-title p {
+.title {
     font-size: 200%;
     font-weight: 500;
+    color: var(--text-body);
 }
 
 .image-edit {
@@ -95,8 +96,10 @@ img {
 
     outline: none;
 
-    border: 3px solid #fecb1a;
+    border: 3px solid var(--primary);
     border-radius: 5px;
+    background-color: var(--background);
+    color: var(--text-body);
 
     font-size: 120%;
 
@@ -114,13 +117,14 @@ img {
     padding: 2%;
     text-indent: 5px;
 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 120%;
 
     resize: none;
     outline: none;
 
-    border: 3px solid #fecb1a;
+    background-color: var(--background);
+    color: var(--text-body);
+    border: 3px solid var(--primary);
     border-radius: 5px;
 
     transition: 0.2s;
@@ -139,8 +143,9 @@ img {
     font-size: 120%;
 
     outline: none;
-
-    border: 3px solid #fecb1a;
+    background-color: var(--background);
+    color: var(--text-body);
+    border: 3px solid var(--primary);
     border-radius: 5px;
 
     transition: 0.2s;
@@ -167,7 +172,7 @@ img {
 
     margin: 1%;
 
-    background-color: #fecb1a;
+    background-color: var(--primary);
     border: none;
     outline: none;
 

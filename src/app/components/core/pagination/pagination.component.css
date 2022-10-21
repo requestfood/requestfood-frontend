@@ -16,7 +16,7 @@ button{
 
     border-radius: 50%;
     border: 1px transparent solid;
-    background-color: #fecb1a;
+    background-color: var(--primary);
 
     font-weight: 400;
 

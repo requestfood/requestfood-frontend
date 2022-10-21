@@ -1,9 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-}
   
 main {
     display: flex;
@@ -11,7 +5,7 @@ main {
     align-items: center;
     width: 100%;
     height: 90%;
-  }
+}
 
 section {
     display: flex;
@@ -34,7 +28,7 @@ button{
     height: 100%;
 
     border: none;
-    background-color: #fecb1a;
+    background-color: var(--primary);
     border-radius: 10px;
     font-size: 110%;
     transition: 0.3s;
@@ -50,7 +44,7 @@ button:hover{
     position: relative;
     font-weight: 600;
     font-size: 250%;
-    color: #000000;
+    color: var(--text-body);
 }
 
 .container-order {
@@ -63,7 +57,7 @@ button:hover{
     flex-direction: column;
     justify-content: space-between;
 
-    background-color:  #ffffff;
+    background-color: var(--background);
 
     border: 3px #fecb1a solid;
     border-radius: 10px;

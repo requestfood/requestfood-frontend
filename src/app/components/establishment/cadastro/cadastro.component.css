@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body{
+main{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -36,13 +31,13 @@ form {
 }
 
 .title{
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 60px;
+  color: var(--text-body);
 }
 
 .subtittle{
-  font-family: "Roboto", sans-serif;
+  color: var(--text-body);
   font-size: 20px;
   font-weight: 500;
 }
@@ -59,8 +54,7 @@ form {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #ffffff;
-  border: 2px #fecb1a solid;
+  border: 2px var(--primary) solid;
   border-radius: 50%;
 }
 
@@ -74,11 +68,10 @@ form {
 }
 
 .label-text {
-  font-family: "Roboto", sans-serif;
   margin-left: 5px;
   font-size: 15px;
   font-weight: 600;
-  color: #131313;
+  color: var(--text-body);
   padding: 20px 0 3px 0;
 }
 
@@ -87,11 +80,13 @@ input {
   height: 45px;
   font-size: 18px;
   text-indent: 15px;
+  color: var(--text-body);
 
-  border: 3px transparent solid;
+  border: 2px var(--second) solid;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
 
   border-radius: 5px;
+  background-color: var(--background);
 
   outline: none;
 
@@ -99,7 +94,7 @@ input {
 }
 
 input:focus{
-  border: 3px #fecb1a solid;
+  border: 3px var(--primary) solid;
 }
 
 .tab select {
@@ -107,12 +102,12 @@ input:focus{
   height: 5vh;
   font-size: 18px;
   text-indent: 15px;
-  background-color: #ffffff;
-
-  border: 3px transparent solid;
+  background-color: var(--background);
+  
+  color: var(--text-body);
+  border: none;
+  border-bottom: 2px var(--primary) solid;
   border-radius: 5px;
-
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
 
   outline: none;
 
@@ -129,7 +124,7 @@ input:focus{
   font-size: 18px;
   text-align: start;
 
-  border: 3px solid #fecb1a;
+  border: 3px solid var(--primary);
   border-radius: 5px;
 }
 
@@ -141,7 +136,8 @@ input:focus{
   text-indent: 20px;
   font-size: 12px;
 
-  border: 3px solid #fecb1a;
+  border: 3px solid var(--primary);
+  color: var(--text-body);
   box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
@@ -159,14 +155,12 @@ button{
   width: 70%;
   height: 7vh;
 
-  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 120%;
 
-
   border: none; 
 
-  background: #ffc816;
+  background: var(--primary);
   border-radius: 5px;
 
   outline: none;
@@ -184,7 +178,7 @@ section a {
   font-size: 14px;
   padding: 0 0 0 3px;
   font-weight: bold;
-  color: #000000;
+  color: var(--text-body);
   text-decoration: none;
 }
 
@@ -195,6 +189,6 @@ section a:hover{
 section p{
   font-family: sans-serif;
   font-size: 14px;
-  color: #000000;
+  color: var(--second);
 }
 

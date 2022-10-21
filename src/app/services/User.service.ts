@@ -49,7 +49,7 @@ export class UserService {
   }
 
   public logout(): boolean{
-    localStorage.clear()
+    localStorage.removeItem('u')
 
     let holder = {
       id: 0,

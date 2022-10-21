@@ -1,195 +1,192 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
 
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 90%;
-  }
+section {
+  width: 35%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  section {
-    width: 35%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.steps {
+  width: 15%;
+  height: 10%;
+  gap: 8%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 
-  .steps {
-    width: 15%;
-    height: 10%;
-    gap: 8%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
+.step {
+  width: 20px;
+  height: 20px;
+  border: 2px var(--primary) solid;
+  border-radius: 50%;
+}
 
-  .step {
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
-    border: 2px #fecb1a solid;
-    border-radius: 50%;
-  }
+.subtittle {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-body);
+}
 
-  .subtittle {
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-  }
+form {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 70%;
+  flex-direction: column;
+}
 
-  form {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    height: 70%;
-    flex-direction: column;
-  }
+button {
+  width: 100%;
+  height: 100%;
 
-  button {
-    width: 100%;
-    height: 100%;
+  font-weight: 500;
+  font-size: 120%;
 
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 120%;
+  border: none;
+  outline: none;
 
-    border: none;
-    outline: none;
+  background: var(--primary);
+  border-radius: 10px;
+  cursor: pointer;
 
-    background: #ffc816;
-    border-radius: 10px;
-    cursor: pointer;
+  transition: 0.2s;
+}
 
-    transition: 0.2s;
-  }
+button:hover {
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
 
-  button:hover {
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
-  }
-
-  .conteiner-buttons {
-    display: flex;
-    width: 100%;
-    height: 15%;
-    justify-content: center;
-    gap: 20%;
-  }
+.conteiner-buttons {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+  gap: 20%;
+}
 
 
-  .description {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-  }
+.description {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
-  textarea {
-    width: 95%;
-    height: 50%;
-    font-size: 18px;
-    padding: 2%;
+textarea {
+  width: 95%;
+  height: 50%;
+  font-size: 18px;
+  padding: 2%;
 
-    border: 2px solid #fecb1a;
-    border-radius: 5px;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
 
-    font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
+  color: var(--text-body);
 
-    outline: none;
-    resize: none;
+  outline: none;
+  resize: none;
 
-    transition: 0.2s;
-  }
+  transition: 0.2s;
+}
 
-  input {
-    width: 100%;
-    height: 6vh;
-    font-size: 18px;
-    text-indent: 7px;
+input {
+  width: 100%;
+  height: 6vh;
+  font-size: 18px;
+  text-indent: 7px;
+  color: var(--text-body);
 
-    border: 2px solid #fecb1a;
-    border-radius: 5px;
+  background-color: var(--background);
+  border: 2px solid var(--second);
+  border-radius: 5px;
 
-    outline: none;
-  }
+  outline: none;
+}
 
-  input:invalid {
-    border: 2px red solid;
-  }
+input:invalid {
+  border: 2px red solid;
+}
 
-  input:focus {
-    border: 2px #fecb1a solid;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
-  }
+input:focus {
+  border: 2px #fecb1a solid;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
 
-  select:focus {
-    border: 2px #fecb1a solid;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
-  }
+select:focus {
+  border: 2px #fecb1a solid;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
 
-  .tab select {
-    width: 100%;
-    height: 6vh;
-    font-size: 18px;
-    text-indent: 5px;
-    background-color: #ffffff;
+.tab select {
+  width: 100%;
+  height: 6vh;
+  font-size: 18px;
+  text-indent: 5px;
+  background-color: var(--background);
 
-    border: 2px solid #fecb1a;
-    border-radius: 5px;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  color: var(--text-body);
 
-    outline: none;
-  }
+  outline: none;
+}
 
-  .tab {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
+.tab {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-  .label-text {
-    font-family: "Roboto", sans-serif;
-    align-items: flex-start;
-    font-size: 15px;
-    font-weight: 530;
-    color: #131313;
-    margin-top: 5%;
-  }
+.label-text {
+  font-family: "Roboto", sans-serif;
+  align-items: flex-start;
+  font-size: 15px;
+  font-weight: 530;
+  color: #131313;
+  margin-top: 5%;
+}
 
-  input[type="file"] {
-     opacity: 0%;
+input[type="file"] {
+  opacity: 0%;
 
-     width: 35%;
-     height: 10%;
-     position: absolute;
-  }
+  width: 35%;
+  height: 10%;
+  position: absolute;
+}
 
-  .label{
-    font-family: "Roboto", sans-serif;
-    width: 99%;
-    height: 8vh;
-    margin-top: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    cursor: pointer;
+.label {
+  font-family: "Roboto", sans-serif;
+  width: 99%;
+  height: 8vh;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  cursor: pointer;
 
-    border: 3px solid #fecb1a;
-    border-radius: 12px;
-  }
+  border: 3px solid #fecb1a;
+  border-radius: 12px;
+}
 
-  textarea:focus {
-    border: 2px #fecb1a solid;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
-  }
+textarea:focus {
+  border: 2px #fecb1a solid;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
 
-  #button-image {
-    height: 8vh;
-    width: 100%;
-  }
+#button-image {
+  height: 8vh;
+  width: 100%;
+}

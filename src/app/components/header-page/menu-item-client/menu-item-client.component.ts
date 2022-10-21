@@ -45,6 +45,7 @@ export class MenuItemClientComponent implements OnInit {
 
       if (result) {
         if (this.userService.logout()) {
+          this.userService.mostrarMenuLogin.emit(false)
           this.router.navigate([''])
         }
       }
@@ -76,4 +77,10 @@ export class MenuItemClientComponent implements OnInit {
 
   }
 
+  theme(): string {
+    if (localStorage.getItem('theme'))
+      return 'white'
+    else
+      return 'black'
+  }
 }

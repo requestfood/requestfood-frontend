@@ -26,6 +26,13 @@ export class MenuItemEstablishmentComponent implements OnInit {
 
   }
 
+  theme(): string {
+    if (localStorage.getItem('theme'))
+      return 'white'
+    else
+      return 'black'
+  }
+
   onSair() {
 
     const dialogData: DialogConfirm = {

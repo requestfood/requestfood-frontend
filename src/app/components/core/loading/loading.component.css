@@ -1,6 +1,6 @@
 .container-spinner{
     position: fixed;
-    background: rgba(0, 0, 0, 0.10);
+    background: rgba(0, 0, 0, 0.20);
     height: 100%;
     width: 100%;
     z-index: 2000;
