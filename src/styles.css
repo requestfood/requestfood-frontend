@@ -24,7 +24,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 :root .dark-theme {
-    --background: #191919;
+    --background: #28281e;
     --text-body: #f8f8f8;
     --primary: #efc016;
     --second: #7b7b7b;

@@ -24,7 +24,7 @@ export class UserUpdateComponent implements OnInit {
     private userService: UserService,
     private clientService: ClientService,
     private establishmentService: EstablishmentService,
-    private router: Router) {}
+    private router: Router) { }
 
   ngOnInit() {
     this.clientService.clientRefresh.subscribe(data => this.nameUser = data)
@@ -84,26 +84,22 @@ export class UserUpdateComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      
-      if (result) {
-        this.userService.deleteUser()
-          .pipe(
-            catchError(() => {
-              if(this.userService.logout())
-                this.router.navigate([''])
 
-              return of()
-            })
-          )
-          .subscribe(() => { })
+      if (result) {
+        this.userService.deleteUser().subscribe(() => { })
+
+        if (this.userService.logout()) {
+          this.router.navigate([''])
+          this.userService.mostrarMenuLogin.emit(false)
+        }
       }
     })
   }
 
-  toggle(){
+  toggle() {
     const theme = document.body.classList.toggle('dark-theme')
-    
-    if(theme)
+
+    if (theme)
       localStorage.setItem('theme', 'dark-theme')
     else
       localStorage.removeItem('theme')
