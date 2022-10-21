@@ -40,7 +40,7 @@ export class UpdateDishComponent implements OnInit {
     this.getDish()
     this.uploadImages(this.actRouter.snapshot.params['idConsumable'])
 
-    this.imageService.imageComponentisOpen.subscribe(res => {
+    this.imageService.imageisOpen.subscribe(res => {
       this.onRegisterImage = res
     })
   }

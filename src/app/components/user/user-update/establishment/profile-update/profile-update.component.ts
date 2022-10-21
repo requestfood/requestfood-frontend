@@ -38,6 +38,7 @@ export class EstablishmentProfileUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEstablishment(JSON.parse(this.userService.getUserAutenticado()).id)
+    this.imageService.imageisOpen.subscribe(res => this.onRegisterImage = res)
   }
 
   getEstablishment(id: number) {

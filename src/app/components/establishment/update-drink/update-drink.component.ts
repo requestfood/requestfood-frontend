@@ -40,9 +40,7 @@ export class UpdateDrinkComponent implements OnInit {
     this.getDrink()
     this.uploadImages(this.actRouter.snapshot.params['idConsumable'])
 
-    this.imageService.imageComponentisOpen.subscribe(res => {
-      this.onRegisterImage = res
-    })
+    this.imageService.imageisOpen.subscribe(res => this.onRegisterImage = res)
   }
 
   getDrink() {

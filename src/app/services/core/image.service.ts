@@ -7,7 +7,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class ImageService {
 
-  imageComponentisOpen: EventEmitter<boolean> = new EventEmitter()
+  imageisOpen: EventEmitter<boolean> = new EventEmitter()
 
   constructor(private http: HttpClient) { }
 

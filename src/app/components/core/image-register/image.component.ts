@@ -21,8 +21,6 @@ export class ImageComponent implements OnInit {
     id: 0
   }
 
-  open: boolean = true
-
   uploadImage: File = new File(["foo"], "foo.txt", { type: "text/plain", })
 
   postResponse: any;
@@ -36,7 +34,6 @@ export class ImageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.imageService.imageComponentisOpen.subscribe(res => this.open = res)
   }
 
   public onFileSelected(event: any) {
@@ -52,7 +49,7 @@ export class ImageComponent implements OnInit {
       this.router.navigate(['consumables/' + JSON.parse(this.userService.getUserAutenticado()).id])
 
 
-    this.imageService.imageComponentisOpen.emit(false);
+    this.imageService.imageisOpen.emit(false);
   }
 
   imageUpload(type: string = this.text.typeObject) {
