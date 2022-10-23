@@ -1,10 +1,10 @@
-<nav class="principal-header" *ngIf="existsUser()">
+<nav class="principal-header">
 
     <!-- BUTTON MENU -->
 
-    <div class="container-button">
+    <div class="container-button" *ngIf="existsUser()">
         <button class="menu-button">
-            <img *ngIf="existsUser()" class="menu-image" src="../../assets/menu-burguer-{{ theme() }}.svg"
+            <img class="menu-image" src="../../assets/menu-burguer-{{ theme() }}.svg"
                 alt="Menu" (click)="onMenuLateral()" [ngStyle]="{
                 'opacity': (menuLateralAberto  ? '0%' : '100%')}">
         </button>
@@ -12,7 +12,8 @@
 
     <!-- LOGO REQUESTFOOD -->
 
-    <div class="container-logo">
+    <div class="container-logo" [ngStyle]="{
+        'margin-left': (existsUser() ? '0%' : '1%')}">
 
         <img (click)="onMenu()" class="logo-image-header" src="../../assets/logoheader-{{ theme() }}.svg" alt="Início"
             [ngStyle]="{'left':(menuLateralAberto ? '295px' :'0px')}">
