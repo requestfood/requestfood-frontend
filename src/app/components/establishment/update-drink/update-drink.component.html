@@ -1,0 +1,56 @@
+<main>
+
+    <section>
+
+        <div id="container-image-title">
+            <img id="image-consumable" [src]="consumable.image">
+            <div (click)="updateImage()">
+                <img src="../../../../../../assets/profile/edit 2.svg">
+            </div>
+        </div>
+        <p class="title">{{ currentDrink.name }}</p>
+        <div id="container-select">
+            <div id="div-input">
+                <div class="div-for-input">
+                    <label for="name">Nome</label>
+                    <input id="name" type="text" name="name" [placeholder]="currentDrink.name" [(ngModel)]="drink.name">
+                </div>
+                <div class="div-for-input"> 
+                    <label for="price">Valor</label>
+                    <input id="price" type="text" name="price" [placeholder]="currentDrink.price | currency: 'BRL'" [(ngModel)]="drink.price">
+                </div>
+            </div>
+            <div id="div-textarea-select">
+                <div class="div-for-input">
+                    <label for="description">Descricao</label>
+                    <textarea name="description" id="description" cols="30" rows="10" [placeholder]="currentDrink.description" [(ngModel)]="drink.description"></textarea>
+                </div>
+                <div class="div-for-input">
+                    <label for="category">Tipos</label>
+                    <select id="category" name="category" [(ngModel)]="drink.categoryDrink">
+                        <option value="" disabled>{{ numberToString() }}</option>
+                        <option value="0">Cerveja</option>
+                        <option value="1">Refrigerante</option>
+                        <option value="2">Suco</option>
+                        <option value="3">Destilado</option>
+                        <option value="4">Vinho</option>
+                        <option value="5">Whisky</option>
+                    </select>
+                    <label for="alcoholic">Alcoolico</label>
+                    <select name="alcoholic" id="alcoholic" [(ngModel)]="drink.alcoholic">
+                        <option value="0" disabled>{{ currentDrink.alcoholic }}</option>
+                        <option value="true">Sim</option>
+                        <option value="false">Nao</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="container-button">
+            <button (click)="onBack()">Voltar</button>
+            <button (click)="putDrink()" [disabled]="currentDrink.name == drink.name && currentDrink.price == drink.price && currentDrink.description == drink.description">Salvar consumivel</button>
+        </div>
+
+    </section>
+    <app-image *ngIf="onRegisterImage" [text]="textOptionsImage"></app-image>
+
+</main>

@@ -1,0 +1,23 @@
+
+div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+div:hover{
+    cursor: pointer;
+}
+
+.preco-header{
+    font-style: normal;
+    font-size: 125%;
+    color: var(--text-body);
+} 
+
+div img{
+    width: 15%;
+}

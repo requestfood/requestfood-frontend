@@ -1,0 +1,42 @@
+<nav class="principal-header">
+
+    <!-- BUTTON MENU -->
+
+    <div class="container-button" *ngIf="existsUser()">
+        <button class="menu-button">
+            <img class="menu-image" src="../../assets/menu-burguer-{{ theme() }}.svg"
+                alt="Menu" (click)="onMenuLateral()" [ngStyle]="{
+                'opacity': (menuLateralAberto  ? '0%' : '100%')}">
+        </button>
+    </div>
+
+    <!-- LOGO REQUESTFOOD -->
+
+    <div class="container-logo" [ngStyle]="{
+        'margin-left': (existsUser() ? '0%' : '1%')}">
+
+        <img (click)="onMenu()" class="logo-image-header" src="../../assets/logoheader-{{ theme() }}.svg" alt="Início"
+            [ngStyle]="{'left':(menuLateralAberto ? '295px' :'0px')}">
+
+    </div>
+
+    <!-- MENU LATERAL -->
+
+    <div (click)="onFechar()" class="full-widht" [ngStyle]="{'visibility': (menuLateralAberto ? 'visible' : 'hidden')}"></div>
+    <div [ngStyle]="{'left': (menuLateralAberto ? '0px' : '-550px')}" class="menu-lateral">
+        <img class="x-image-menu-lateral" src="../../assets/menu-lateral/img-items-menu/fechar-{{ theme() }}.svg"
+             [ngStyle]="{
+            'opacity': (menuLateralAberto ? '100%' : '0%'),
+            'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
+
+        <app-menu-item-client class="items" *ngIf="typeUser() == 'CLIENT_USER'"></app-menu-item-client>
+        <app-menu-item-establishment class="items" *ngIf="typeUser() == 'ESTABLISHMENT_USER'">
+        </app-menu-item-establishment>
+    </div>
+
+    <!-- VALOR DA COMANDA -->
+
+    <div class="container-preco">
+        <preco-header *ngIf="typeUser() == 'CLIENT_USER'"></preco-header>
+    </div>
+</nav>

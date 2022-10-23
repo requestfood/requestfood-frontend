@@ -1,0 +1,5 @@
+<div class="container-order" *ngFor="let i of list">
+    <p>{{ item.nameConsumable }}</p>
+    <p>{{ item.value | currency : 'BRL' }}</p>
+    <p>Obs: {{ item.observation }}</p>
+</div>

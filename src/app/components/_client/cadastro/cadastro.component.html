@@ -1,0 +1,74 @@
+<main>
+    <section>
+
+        <form #clientForm="ngForm">
+            <div class="titulos">
+                <h1 class="title" [ngStyle]="{'opacity': (currentTab == 0 ? '100%' : '0%')}">Bem-Vindo!</h1>
+                <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Informações Básicas</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Informações Pessoais</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Informações de Contato</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 3">Passo 4 - Senha</h2>
+            </div>
+
+            <div class="steps" style="display: flex; flex-direction: row; justify-content: center;">
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 0 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 1 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 3 ? '#ffc000' : '#ffffff')}"></span>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 0">
+                <label class="label-text" for="name">Nome</label>
+                <input type="text" [(ngModel)]="client.name" required id="name" name="name" maxlength="20" minlength="2"/>
+                
+                <label class="label-text" for="surname">Sobrenome</label>
+                <input type="text" [(ngModel)]="client.surname" required id="surname" name="surname" maxlength="20" minlength="2"/>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 1">
+                <label class="label-text" for="birthDate">Data de Nascimento</label>
+                <input type="date" [(ngModel)]="client.birthDate" required id="birthDate" name="birthDate"/>
+                
+                <label class="label-text" for="gender">Gênero</label>
+                <select name="gender" [(ngModel)]="client.gender" id="gender" required>
+                    <option></option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                    <option value="2">Outro</option>
+                </select>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 2">
+                <label class="label-text" for="email" id="email">Email</label>
+                <input type="email" required [(ngModel)]="client.email" id="email" name="email" required />
+                
+                <label class="label-text" for="phone" id="phone">Phone</label>
+                <input type="phone" [(ngModel)]="client.phone" id="phone" name="phone"  required maxlength="10" />
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 3">
+                <label class="label-text">Senha</label>
+                <input type="password" [(ngModel)]="passwordOne" required id="passwordOne" name="passwordOne" />
+                
+                <label class="label-text" for="surname" id="surname">Repetir Senha</label>
+                <input type="password" [(ngModel)]="client.password" required id="password" name="password" />
+
+            </div>
+
+            <div class="conteiner-buttons">
+                <button type="button" (click)="addTab(-1)" *ngIf="currentTab >= 1 ">Voltar</button>
+                <button type="button" (click)="addTab(1)"
+                    *ngIf="currentTab <= 2">Próximo</button>
+                <button [disabled]="clientForm.form.invalid" (click)="doRegister()"
+                    *ngIf="currentTab == 3">Cadastrar</button>
+            </div>
+        </form>
+
+        <div id="links" style="display: flex; flex-direction: column; align-items: center;">
+            <p>Já tem conta? <a routerLink="">Faça o login</a></p>
+            <p>Não é um Cliente? <a routerLink="/cadastroE">Crie o seu Estabelecimento</a></p>
+        </div>
+    </section>
+
+
+</main>

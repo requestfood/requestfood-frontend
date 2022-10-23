@@ -1,0 +1,63 @@
+div{
+    width: 100%;
+    height: 25%;
+}
+
+.container-name{
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    font-size: 130%;
+}
+
+.container-name h4{
+    padding-top: 2%;
+    margin-top: 2%;
+
+    font-weight: 550;
+}
+
+.container-name p{
+    color: var(--second);
+}
+
+.container-actions{
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+
+    border-bottom: 1px var(--second) solid;
+}
+
+.container-actions div{
+    height: 100%;
+    width: 10%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.container-actions div a{
+    text-decoration: none;
+}
+
+.container-actions a:hover{
+    cursor: pointer;
+}
+
+.container-actions .remove{
+    color: red;
+}
+.container-actions p{
+    margin-right: 2%;
+}

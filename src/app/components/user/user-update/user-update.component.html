@@ -1,0 +1,30 @@
+<main>
+
+  <section class="container-options">
+
+    <div class="options">
+
+      <p class="title is-3">Olá {{ nameUser }}</p>
+
+      <ul>
+        <li (click)="onInfoPessoais()"><img src="../../../../assets/profile/icone-pessoais-{{ theme() }}.svg">Opções de perfil</li>
+        <li (click)="onInfoContato()"><img src="../../../../assets/profile/icone-contato-{{ theme() }}.svg">Opções de contato</li>
+        <li (click)="onAlterPassword()"><img src="../../../../assets/profile/icone-cadeado-{{ theme() }}.svg">Alterar senha</li>
+        <li (click)="onDeleteUser()"><img src="../../../../assets/profile/icone-deleteuser-{{ theme() }}.svg">Deletar Usuário</li>
+      </ul>
+
+      <button (click)="onVoltar()">Voltar</button>
+
+    </div>
+
+    <img (click)="toggle()" [ngStyle]="{'transform': (onTheme ? 'rotate' + '(180deg)' : 'none')}" class="icon is-medium" src="../../../../assets/theme-{{ theme() }}.svg" alt="alter theme">
+
+  </section>
+
+  <section class="container-form">
+
+    <router-outlet></router-outlet>
+
+  </section>
+
+</main>

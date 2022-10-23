@@ -1,0 +1,124 @@
+.container-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+h1{
+    margin-top: 2%;
+    color: var(--text-body);
+}
+
+.orders{
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#card{
+    width: 30%;
+    height: 80%;
+    border: 3px var(--text-body) solid;
+    background-color: var(--background);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20%;
+
+}
+
+#card .conteiner-title{
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 15%;
+    
+    width: 100%;
+    height: auto;
+ 
+    border-bottom: 1px var(--second) solid;    
+}
+
+#card .conteiner-title a{
+    font-size: 150%;
+    text-align: end;
+    margin-right: 2%;
+    color: var(--second)
+}
+
+#card .conteiner-title a:hover{
+    cursor: pointer;
+    color: red;
+}
+
+#card .conteiner-title h3{    
+    font-size: 200%;
+    font-weight: 600;
+}
+
+.subtitle{
+    font-weight: 500;
+    color: var(--text-body);
+}
+
+.order-content{
+    width: 80%;
+    height: auto;
+    gap: 5%;
+
+    display: block;
+    text-align: center;
+}
+
+.order-content h2{
+    font-size: 300%;
+    font-weight: 500;
+    text-align: center;
+}
+
+.order-content p{
+    color: green;
+
+    font-size: 180%;
+    font-weight: 500;
+}
+
+.message{
+    font-size: 200%;
+    font-weight: 200;
+    background-color: var(--background);
+}
+
+.container-principal a{
+    width: 15%;
+    height: 5%;
+}
+
+.container-principal button{
+    
+    border: none;
+    background-color: var(--primary);
+
+    border-radius: 5px;
+
+    font-size: 100%;
+    font-weight: 500;
+    transition: 0.2s;
+
+    width: 100%;
+    height: 100%;
+}
+
+.container-principal button:hover{
+    cursor: pointer;
+    width: 100.3%;
+    height: 100.3%;
+
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);}
+

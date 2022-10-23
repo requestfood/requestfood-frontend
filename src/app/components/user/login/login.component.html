@@ -1,0 +1,25 @@
+
+    <section>
+        <div class="container-input">
+            <h1 class="title-login">Login</h1>
+
+            <form #loginForm="ngForm">
+                <label class="label-text" for="email">E-mail</label>
+                <input [(ngModel)]="userLogin.email" id="email" name="email" type="text" required maxlength="50" minlength="2" >
+
+                <label class="label-text" for="form">Senha</label>
+                <input [(ngModel)]="userLogin.password" type="password" name="password" required maxlength="50">
+
+                <button (click)="fazerLogin()" [disabled]="loginForm.form.invalid" class="button-enter">Entrar</button>
+            </form>
+
+            <p>Não possui conta? <a routerLink="/cadastroC">Cadastrar-se</a></p>
+        </div>
+
+        <div class="container-slogan">
+            <img src="../../assets/logo.svg" alt="logo" class="logo">
+            <h1 class="text-logo" id="padd">Pedir nunca foi tão fácil.</h1>
+        </div>
+
+    </section>
+

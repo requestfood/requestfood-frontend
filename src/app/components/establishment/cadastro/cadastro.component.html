@@ -1,0 +1,65 @@
+<main>
+    <section>
+      
+        <form #lunchForm="ngForm">
+            <div class="titulos">
+                <h1 class="title" [ngStyle]="{'opacity': (currentTab == 0 ? '100%' : '0%')}">Bem-Vindo!</h1>
+                <h2 class="subtittle" *ngIf="currentTab == 0">Passo 1 - Informações Básicas</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 1">Passo 2 - Informações de Contato</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 2">Passo 3 - Senha</h2>
+                <h2 class="subtittle" *ngIf="currentTab == 3">Passo 4 - Horários</h2>
+            </div>
+
+            <div class="steps">
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 0 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 1 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 2 ? '#ffc000' : '#ffffff')}"></span>
+                <span class="step" [ngStyle]="{'background-color': (currentTab == 3 ? '#ffc000' : '#ffffff')}"></span>
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 0">
+                <label class="label-text" for="name" id="name">Nome</label>
+                <input type="text" [(ngModel)]="establishment.name" required id="name" name="name" maxlength="15"
+                    minlength="2" />
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 1">
+                <label class="label-text" for="email" id="email">Email</label>
+                <input type="email" [(ngModel)]="establishment.email" required id="email" size="10" name="email"
+                    required />
+
+                <label class="label-text" for="phone" id="phone">Phone</label>
+                <input type="phone" [(ngModel)]="establishment.phone" required id="phone" name="phone" size="9"
+                    maxlength="11" />
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 2">
+                <label class="label-text" for="passwordTest" id="passwordTest">Senha</label>
+                <input type="password" [(ngModel)]="passwordTest" required id="passwordTest" name="passwordTest" />
+
+                <label class="label-text" for="password" id="password">Repetir Senha</label>
+                <input type="password" [(ngModel)]="establishment.password" required id="password" name="password" />
+            </div>
+
+            <div class="tab" *ngIf="currentTab == 3">
+                <label class="label-text" required for="timeToOpen" id="timeToOpen">Horário de Abertura</label>
+                <input type="time" [(ngModel)]="establishment.timeToOpen" required id="timeToOpen" name="timeToOpen" />
+
+                <label class="label-text" required for="timeToClose" id="timeToClose">Horário de Fechamento</label>
+                <input type="time" [(ngModel)]="establishment.timeToClose" required id="timeToClose"
+                    name="timeToClose" />
+            </div>
+
+            <div class="conteiner-buttons">
+                <button (click)="alterStep(-1)" *ngIf="currentTab != 0">Voltar</button>
+                <button (click)="alterStep(1)" *ngIf="currentTab != 3" (click)="validPassword()">Próximo</button>
+                <button [disabled]="lunchForm.form.invalid" (click)="doRegister()" *ngIf="currentTab == 3">Cadastrar</button>
+            </div>
+        </form>
+        
+        
+        <p>Já tem conta? <a routerLink="">Faça o login</a></p>
+        <p>Não é um Estabelecimento? <a routerLink="/cadastroC">Cadastre-se como um Cliente</a></p>
+    </section>
+</main>
+<app-image *ngIf="onRegisterImage" [text]="textOptionsImage"></app-image>

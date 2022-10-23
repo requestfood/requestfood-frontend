@@ -1,0 +1,26 @@
+<form #clientUpdateProfileForm="ngForm">
+
+    <h1>Opções de Perfil</h1>
+
+    <!-- VERIFICAR LOCAL PARA CUSTOMIZAR DIV / REMOVER TAG STYLE -->
+    <div style="margin-bottom: 5%;">
+        <label for="phone">Nome</label>
+        <input type="text" [placeholder]="currentClientUpdate.name" [(ngModel)]="newClientUpdate.name" name="phone" id="phone"
+            maxlength="11" minlength="8">
+
+        <label for="email">Sobrenome</label>
+        <input type="email" [placeholder]="currentClientUpdate.surname" [(ngModel)]="newClientUpdate.surname" name="email"
+            id="email" size="10" minlength="12">
+
+        <label for="gender">Gênero</label>
+        <select name="gender" [(ngModel)]="newClientUpdate.gender" id="gender">
+            <option value="0" selected disabled> {{ this.genderToString(this.currentClientUpdate.gender) }}</option>
+            <option value="0">Masculino</option>
+            <option value="1">Feminino</option>
+            <option value="2">Outro</option>
+        </select>
+    </div>
+
+    <button (click)="doSave()"
+        [disabled]="newClientUpdate.name == '' && newClientUpdate.surname == '' && validatorGender()">Salvar</button>
+</form>

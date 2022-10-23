@@ -1,0 +1,33 @@
+<main>
+
+  <section>
+
+    <div id="conteiner-principal">
+      <div id="conteiner-image">
+        <img [src]="consumable.image">
+      </div>
+
+      <div id="conteiner-second">
+        <div id="conteiner-info">
+
+          <div>
+            <h2 class="title">{{ consumable.name }}</h2>
+            <p>{{ consumable.description }}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="conteiner-buttons">
+
+      <button (click)="backPage()">< Voltar</button>
+          <div>
+            <button (click)="removeConsumable()">Remover Consumível</button>
+            <button (click)="goToUpdateConsumable()">Editar Consumível</button>
+          </div>
+    </div>
+
+  </section>
+
+</main>

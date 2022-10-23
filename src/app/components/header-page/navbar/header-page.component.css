@@ -1,0 +1,100 @@
+
+.principal-header {
+    display: flex;
+    justify-content: flex-start ;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 10%;
+    transition: 0.5s;
+    background-color: var(--color-header);
+    border-bottom: 1px solid var(--primary);
+}
+
+.container-button{
+    width: 5%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;  
+    position: sticky;
+    z-index: 150000;
+    width: auto;
+}
+
+.menu-image {
+    transition: 0.4s;
+}
+.menu-image:hover{
+    cursor: pointer;
+}
+
+.container-logo{
+    width: 7%;
+    height: 100%;
+    display: flex;
+}
+
+.logo-image-header {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    transition: 0.35s;
+}
+.logo-image-header:hover {
+    cursor: pointer;
+}
+
+
+.menu-lateral{
+    position: absolute;
+    width: 350px;
+    z-index: 1000;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-widht{
+    width: 100%;
+    height: 1000%;
+    position: absolute;
+    z-index: 500;
+    background: #00000081 
+}
+
+.x-image-menu-lateral{
+    position: absolute;
+    transition: 0.5s;
+    z-index: 1000;
+    width: 30px;
+    font-weight: 100;
+    margin-left: 7%;
+    margin-top: 8%;
+}
+
+.container-preco{
+    width: 10%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 5;
+    right: 0px;
+}
+
+preco-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,31 @@
+<main>
+
+    <section class="container-principal">
+
+        <h1 class="title is-1">Pedidos</h1>
+
+        <div class="consultas">
+
+            <button (click)="onVoltar()">Voltar</button>
+
+            <select name="status" id="status" (change)="getClientWithOrdersByStatus(status.value)" #status>
+                <option value="">Todas</option>
+                <option value="WAITING">Em Andamento</option>
+                <option value="SENT">Enviadas</option>
+                <option value="READY">Prontas</option>
+                <option value="CANCELED">Canceladas</option>
+            </select>
+
+            <input type="text" class="search" placeholder="Buscar" #searchName
+                (keyup)="getClientWithOrdersByEstablishmentName(searchName.value)">
+        </div>
+
+        <div class="comandas">
+
+            <p *ngIf="this.client.ordersClient.length == 0" >Nenhuma comanda iniciada :(</p>
+            <app-card-comanda *ngFor="let order of this.client.ordersClient" [order]="order" ></app-card-comanda>
+            
+        </div>
+
+    </section>
+</main>

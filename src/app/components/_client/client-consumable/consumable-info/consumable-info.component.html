@@ -1,0 +1,39 @@
+<main>
+
+    <section>
+
+        <div id="conteiner-principal">
+            <div id="conteiner-image">
+                <img [src]="consumable.image" alt="">
+            </div>
+
+            <div id="conteiner-second">
+                <div id="conteiner-info">
+
+                    <div>
+                        <h2 class="title">{{ consumable.name }}</h2>
+                        <p>{{ consumable.description }}</p>
+                        <textarea placeholder="Obs: Tirar cebola, alface etc." cols="30" rows="10"
+                            [(ngModel)]="item.obsItem"></textarea>
+                    </div>
+                    <div id="conteiner-quantity">
+                        <button (click)="remQuantity()" [disabled]="item.quantityItem == 0">-</button>
+                        <button (click)="addQuantity()">+</button>
+                        <p>{{ item.quantityItem }}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="conteiner-buttons">
+            <div>
+                <button (click)="backPage()">< Voltar</button>
+                <button (click)="createItem()" [disabled]="item.quantityItem == 0">Adicionar {{ amount | currency :
+                    'BRL' }}</button>
+            </div>
+        </div>
+
+    </section>
+
+</main>

@@ -1,0 +1,18 @@
+<main>
+
+  <section>
+
+    <div id="conteiner-establishment">
+      <h1 class="title is-2">{{ this.currentEstablishment.name }}</h1>
+      <img [src]="currentEstablishment.image" class="image-establishment" alt="logo-establishment">
+    </div>
+    <div id="conteiner-buttons">
+      <button (click)="openMenu()">Ver Cardapio</button>
+      <button class="start-order" (click)="doCreateOrder()">Iniciar Comanda</button>
+    </div>
+
+    <button id="button-back" (click)="onBack()">Voltar</button>
+
+  </section>
+
+</main>

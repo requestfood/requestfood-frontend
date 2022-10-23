@@ -1,0 +1,27 @@
+<main>
+
+    <section class="container-principal">
+
+        <h1 class="title is-2 mb-0">Estabelecimentos</h1>
+
+        <div class="consultas">
+            <input type="text" class="search" placeholder="Buscar" [(ngModel)]="this.searchName"  (keyup)="searchByName()">
+        </div>
+
+
+        <div class="establishments">
+            <div class="card" (click)="openOrderStart(establishment)" *ngFor="let establishment of page.content">
+                <p class="name-establishment">{{ establishment?.name }}</p>
+                <div>
+                    <img [src]="establishment?.image" class="image-establishment">
+                </div>
+            </div>
+
+            <h2 *ngIf="establishments.length == 0">Nenhum Estabelecimento encontrado :(</h2>
+        </div>
+
+    </section>
+
+    <pagination class="pagination" [page]="page" (paginationEvent)="changePage($event)"></pagination>
+
+</main>

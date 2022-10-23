@@ -23,6 +23,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/bulma/css/bulma.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,6 +92,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "847390d5-04fe-49b9-bcbe-b5cce2606307"
   }
 }
