@@ -76,6 +76,10 @@ main {
     color: #000000;
 }
 
+.search:focus::placeholder {
+    color: var(--text-body)
+}
+
 .consultas button{
     width: 15%;
     height: 100%;
