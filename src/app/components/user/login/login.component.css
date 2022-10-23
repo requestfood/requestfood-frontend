@@ -44,7 +44,7 @@ input {
     text-indent: 15px;
 
     color: var(--text-body);
-    border: 2px solid var(--second);
+    border: 2px solid var(--input-border);
     background-color: var(--background);
 
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
@@ -105,6 +105,7 @@ div a:hover{
     width: 58%;
     border-radius: 50%;
     box-shadow: var(--shadow-slogan);
+    animation: float-logo 4s ease-in-out infinite;
 }
 
 .text-logo {
@@ -124,5 +125,18 @@ div a:hover{
     }
     100% {
         transform: translateY(0px);
+    }
+}
+
+@keyframes float-logo {
+    0% {
+        box-shadow: 0px 0px 0px 0px var(--color-shadow);
+    }
+
+    50% {
+        box-shadow: 0px 0px 80px -6px var(--color-shadow);
+    }
+    100% {
+        box-shadow: 0px 0px 0px 0px var(--color-shadow);
     }
 }

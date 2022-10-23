@@ -16,6 +16,7 @@
       <button (click)="onVoltar()">Voltar</button>
 
     </div>
+
     <img (click)="toggle()" [ngStyle]="{'transform': (onTheme ? 'rotate' + '(180deg)' : 'none')}" class="icon is-medium" src="../../../../assets/theme-{{ theme() }}.svg" alt="alter theme">
 
   </section>
@@ -25,6 +26,5 @@
     <router-outlet></router-outlet>
 
   </section>
-
 
 </main>

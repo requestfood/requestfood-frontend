@@ -24,11 +24,9 @@ export class HeaderPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.lookTheme()
     this.userService.novoUserAutenticado.subscribe(data => this.userAutenticado = data)
-
+    this.lookTheme()
     this.userAutenticado = JSON.parse(this.userService.getUserAutenticado())
-
   }
 
   onMenu() {
@@ -70,5 +68,12 @@ export class HeaderPageComponent implements OnInit {
       return 'dark'
     }else
       return 'light'
+  }
+
+  theme(): string {
+    if (localStorage.getItem('theme'))
+      return 'white'
+    else
+      return 'black'
   }
 }

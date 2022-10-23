@@ -15,21 +15,29 @@ html, body {
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root{
+    --color-header: #fecb1a;
     --background: #f8f8f8;
-    --text-body: #000000;
+    --text-body: #000;
     --primary: #fecb1a;
     --second: #2b2b2b;
+    --input-border: transparent;
     --hover: #cfcfcfc1;
     --navbar: var(--primary);
-    --shadow-slogan: 0px 120px 120px #0000001e;;
+    --shadow-slogan: 0px 0px 100px 10px #0000001e;
+    --color-shadow: #0000001e;
+    --shadow-profile: 0px 0px 50px 10px #0000001e;
 }
 
 :root .dark-theme {
+    --color-header: #000;
     --background: #191919;
     --text-body: #f8f8f8;
     --primary: #efc016;
     --second: #7b7b7b;
+    --input-border: #7b7b7b;
     --hover: #3c3c3cc1;
     --navbar: #5b5b5b;
-    --shadow-slogan: 0px 100px 900px 20px #5b5b5ba9;
+    --shadow-slogan: 0px 0px 100px -10px #fecd1a44;
+    --color-shadow: #fecd1a44;
+    --shadow-profile: 0px 0px 50px 10px #5b5b5ba9;
 }

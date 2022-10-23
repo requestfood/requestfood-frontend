@@ -4,7 +4,7 @@
 
     <div class="container-button">
         <button class="menu-button">
-            <img *ngIf="existsUser()" class="menu-image" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48.svg"
+            <img *ngIf="existsUser()" class="menu-image" src="../../assets/menu-burguer-{{ theme() }}.svg"
                 alt="Menu" (click)="onMenuLateral()" [ngStyle]="{
                 'opacity': (menuLateralAberto  ? '0%' : '100%')}">
         </button>
@@ -14,7 +14,7 @@
 
     <div class="container-logo">
 
-        <img (click)="onMenu()" class="logo-image-header" src="../../assets/logoheader.svg" alt="Início"
+        <img (click)="onMenu()" class="logo-image-header" src="../../assets/logoheader-{{ theme() }}.svg" alt="Início"
             [ngStyle]="{'left':(menuLateralAberto ? '295px' :'0px')}">
 
     </div>
@@ -23,14 +23,10 @@
 
     <div (click)="onFechar()" class="full-widht" [ngStyle]="{'visibility': (menuLateralAberto ? 'visible' : 'hidden')}"></div>
     <div [ngStyle]="{'left': (menuLateralAberto ? '0px' : '-550px')}" class="menu-lateral">
-        <img *ngIf="lookTheme() == 'light'" class="x-image-menu-lateral"
-            src="../../assets/menu-lateral/img-items-menu/icons8-excluir (1).svg" [ngStyle]="{
+        <img class="x-image-menu-lateral" src="../../assets/menu-lateral/img-items-menu/fechar-{{ theme() }}.svg"
+             [ngStyle]="{
             'opacity': (menuLateralAberto ? '100%' : '0%'),
             'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
-        <img *ngIf="lookTheme() == 'dark'" class="x-image-menu-lateral"
-            src="../../assets/menu-lateral/img-items-menu/icons8-excluir.svg" [ngStyle]="{
-                'opacity': (menuLateralAberto ? '100%' : '0%'),
-                'transform': (menuLateralAberto ? 'rotate' + '(180deg)' : 'none')}">
 
         <app-menu-item-client class="items" *ngIf="typeUser() == 'CLIENT_USER'"></app-menu-item-client>
         <app-menu-item-establishment class="items" *ngIf="typeUser() == 'ESTABLISHMENT_USER'">

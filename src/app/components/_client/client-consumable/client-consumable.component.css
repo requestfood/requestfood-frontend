@@ -81,6 +81,10 @@ main {
     color: #000000;
 }
 
+.search:focus::placeholder {
+    color: var(--text-body)
+}
+
 img {
     max-width: 90%;
     max-height: 90%;

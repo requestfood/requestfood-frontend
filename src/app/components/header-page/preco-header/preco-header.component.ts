@@ -54,5 +54,11 @@ export class PrecoHeaderComponent implements OnInit {
 
   }
 
+  theme(): string {
+    if (localStorage.getItem('theme'))
+      return 'white'
+    else
+      return 'black'
+  }
 
 }

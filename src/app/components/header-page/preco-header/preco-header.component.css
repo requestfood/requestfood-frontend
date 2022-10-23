@@ -15,7 +15,7 @@ div:hover{
 .preco-header{
     font-style: normal;
     font-size: 125%;
-    color: #000000;
+    color: var(--text-body);
 } 
 
 div img{

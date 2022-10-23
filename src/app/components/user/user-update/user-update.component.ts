@@ -30,6 +30,7 @@ export class UserUpdateComponent implements OnInit {
     this.clientService.clientRefresh.subscribe(data => this.nameUser = data)
     this.onInfoPessoais()
     this.getName()
+    this.theme()
   }
 
   getName() {
@@ -114,6 +115,7 @@ export class UserUpdateComponent implements OnInit {
       return 'white'
     else
       return 'black'
+
   }
 }
 
