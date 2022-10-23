@@ -38,6 +38,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --hover: #3c3c3cc1;
     --navbar: #5b5b5b;
     --shadow-slogan: 0px 0px 100px -10px #fecd1a44;
-    --color-shadow: #fecd1a44;
+    --color-shadow: #fecd1a7a;
     --shadow-profile: 0px 0px 50px 10px #5b5b5ba9;
 }
