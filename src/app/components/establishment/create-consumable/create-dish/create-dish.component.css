@@ -154,7 +154,7 @@ select:focus {
   align-items: flex-start;
   font-size: 15px;
   font-weight: 530;
-  color: #131313;
+  color: var(--text-body);
   margin-top: 5%;
 }
 
