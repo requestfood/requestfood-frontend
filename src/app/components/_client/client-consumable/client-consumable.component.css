@@ -133,14 +133,6 @@ select:hover {
     height: 50vh;
 }
 
-.consumables h2{
-    position: relative;
-    text-align: center;
-
-    color: var(--text-body);
-    font-size: 200%;
-    font-weight: 200;
-}
 
 .card {
     display: flex;

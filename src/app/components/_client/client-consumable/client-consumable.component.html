@@ -41,7 +41,7 @@
                 <p>{{consumable?.price | currency : 'BRL'}}</p>
             </div>
 
-            <h2 *ngIf="establishmentWithConsumables.consumables.totalElements == 0">Nenhum Consumivel encontrado :(</h2>
+            <h2 class="subtitle is-3" *ngIf="establishmentWithConsumables.consumables.totalElements == 0">Nenhum Consumivel encontrado :(</h2>
         </div>
 
     </section>
