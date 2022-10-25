@@ -1,8 +1,10 @@
+import { OrderService } from './Order.service';
 import { ContactUpdate, PasswordUpdate } from '../models/user/UserUpdate';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { UserLogin } from '.././models/user/userLogin';
+import { TitleStrategy } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +52,7 @@ export class UserService {
 
   public logout(): boolean{
     localStorage.removeItem('u')
+    localStorage.removeItem('order')
 
     let holder = {
       id: 0,
@@ -65,7 +68,7 @@ export class UserService {
       return false
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private orderService: OrderService) {
   }
 
 
