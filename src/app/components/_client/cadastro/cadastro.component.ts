@@ -1,3 +1,4 @@
+import { OrderControl } from './../../../models/order/orderControl';
 import { UserService } from './../../../services/User.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/ClientService.service';
@@ -39,9 +40,9 @@ export class CadastroClientComponent implements OnInit {
     if(this.validPassword()){
       
       this.service.addClient(this.client).subscribe(data => {
-        this.client = data;
+         this.client = data;
         
-        const user = {
+         const user = {
           id: data.id,
           role: 'CLIENT_USER'
          }
